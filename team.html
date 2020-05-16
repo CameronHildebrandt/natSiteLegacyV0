@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- External CSS -->
+		<link href="style.css" rel="stylesheet" type="text/css">
+
+    <style>
+    #main {
+      /* padding-bottom: 60px; */
+    }
+
+    #headerBGDiv {
+      background-image: url("images/HeaderImages/ProjectTeam2019.jpg");
+    }
+
+    @media screen and (max-width:975px){
+      #embeddedGoogleFormToHideWhenOnMobile {
+        display: none;
+      }
+    }
+    </style>
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+
+    <!-- Add Our Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="projects.html"><button class="mobilePageLink">Projects</button></a>
+      <button class="mobilePageLink" id="currentPageLink">Team</button>
+      <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <image id="headerImg" src="images/NATBrain.png" alt="NAT Brain"></image>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <a href="events.html"><button class="pageLink">Events</button></a>
+      <button class="pageLink" id="currentPageLink">Team</button>
+      <a href="projects.html"><button class="pageLink">Projects</button></a>
+      <a href="index.html"><button class="pageLink">Home</button></a>
+    </div>
+    <div id="headerBGDiv"></div>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+
+      <div id="main">
+
+        <div id="lastProjectBlock">
+          <h1 class="subTitle">David Lam</h1>
+          <div id="lastProjectInfo">
+
+            <div id="lastProjectQuickInfo">
+              <div id="inlineVideoFrame">
+
+                <img src="images/Headshots/DavidHeadshot.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:dlam@ualberta.ca' target="_blank"><button id="rsvpButton">dlam@ualberta.ca</button></a>
+            </div>
+
+            <div id="lastProjectText">
+              <h2 class="subSubTitle">President</h2>
+              <p class="paragraph">Hi! I'm in my third year of Honors Neuroscience and I'll be coordinating all of our teams so everything goes as smoothly as possible! Aside from this, I help out in a cognitive psychology lab, an electrophysiology lab, as well as other volunteer groups on campus. During my free time (aka time that should be spent studying) I like to play the piano, hit the gym, and "game" on my outdated potato PC. I am excited for the things we will achieve and look forward to working with all of you!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="lastProjectBlock">
+          <h1 class="subTitle">Zach Selk</h1>
+          <div id="lastProjectInfo">
+
+            <div id="lastProjectQuickInfo">
+              <div id="inlineVideoFrame">
+
+                <img src="images/Headshots/ZachHeadshot.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:' target="_blank"><button id="rsvpButton"></button></a>
+            </div>
+
+            <div id="lastProjectText">
+              <h2 class="subSubTitle">VP Tech</h2>
+              <p class="paragraph">Hello! I am a third year transfer student completing my major in Computing Science here at the U of A after spending two years of the University of Lethbridge. I have been doing work in neuroscience labs over the past year or so, working on behavioral and cognitive neuroscience. In my free time I like to hack together projects involving AI/ML, games, and low-level programming, and I love finding ways that I can apply what I know of Computing Science to Neuroscience in awesome applications. I am excited to build, explore, and learn along with all of you and create some fantastic things!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="lastProjectBlock">
+          <h1 class="subTitle">Jiyeon Seo</h1>
+          <div id="lastProjectInfo">
+
+            <div id="lastProjectQuickInfo">
+              <div id="inlineVideoFrame">
+
+                <img src="images/Headshots/JiyeonHeadshot.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:' target="_blank"><button id="rsvpButton"></button></a>
+            </div>
+
+            <div id="lastProjectText">
+              <h2 class="subSubTitle"> VP Operations and Finance</h2>
+              <p class="paragraph">Hello! I'm in the fourth year of my Honours Neuroscience degree at the UofA. I've been involved in a neuropsychology/psychiatry research lab as well as a research project on a medical chatbot, and I'm currently doing my undergraduate thesis on movement kinematics and prosthetics. But I also like doing sports, gaming (albeit occasionally), and making music in my spare time. I'm really excited to be working with you all!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="lastProjectBlock">
+          <h1 class="subTitle">Matthew Danyluik</h1>
+          <div id="lastProjectInfo">
+
+            <div id="lastProjectQuickInfo">
+              <div id="inlineVideoFrame">
+
+                <img src="images/Headshots/MatthewHeadshot.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:danyluik@ualberta.ca' target="_blank"><button id="rsvpButton">danyluik@ualberta.ca</button></a>
+            </div>
+
+            <div id="lastProjectText">
+              <h2 class="subSubTitle"> VP Internal</h2>
+              <p class="paragraph">Hey, I'm Matt, and I'm serving as your VP Internal. I'm heading into my fourth year of my Neuroscience degree, and I've been with NeurAlbertaTech since the club began. On campus, I fill my time with different volunteering and extracurricular activities, highlighted by my current work in a memory lab. Off campus, I'm a big hockey fan, and love playing soccer (when I'm not perpetually injured!). I'm looking forward to putting together more incredible projects with everyone during my final year with the club!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="lastProjectBlock">
+          <h1 class="subTitle">Eden Redman</h1>
+          <div id="lastProjectInfo">
+
+            <div id="lastProjectQuickInfo">
+              <div id="inlineVideoFrame">
+
+                <img src="images/InfoNight/INRed.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:' target="_blank"><button id="rsvpButton"></button></a>
+            </div>
+
+            <div id="lastProjectText">
+              <h2 class="subSubTitle"> VP External</h2>
+              <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="lastProjectBlock">
+          <h1 class="subTitle">Cameron Hildebrandt</h1>
+          <div id="lastProjectInfo">
+
+            <div id="lastProjectQuickInfo">
+              <div id="inlineVideoFrame">
+
+                <img src="images/Headshots/CameronHeadshot.png" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:childebr@ualberta.ca' target="_blank"><button id="rsvpButton">childebr@ualberta.ca</button></a>
+            </div>
+
+            <div id="lastProjectText">
+              <h2 class="subSubTitle">VP Communications</h2>
+              <p class="paragraph">Hello! I am in my third year of Honours Computing Science here at UAlberta. I am very excited to be a part of the executive team this year and I am really looking forward to whatever awesome project we end up putting together this year! In my free time I like to tinker with microcontrollers, LED light strips, and build websites!</p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Anchor for linking to the join team -->
+        <a name="joinTeam"></a>
+        <div id="partners" style="padding-bottom: 15px;">
+          <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">Join The Team!</span></h1>
+
+          <p class="paragraph centredText" style="margin-top: 40px; margin-bottom: 0px; font-size: 24px;"><span style="color: rgba(255,255,255,1);">Get involved in the world of neurotech, learn about programming and neuroscience, and help build the future! Sign up as a general member below to gain access to everything we offer!</span></p>
+
+          <div id="interestedLinksParentMobile">
+            <ol id="interestedLinks">
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSegfw6KtGT9pCorvVXlvpxulO2EJymF2rTLGrUynnUa5Qk_sQ/viewform?usp=sf_link"><button>Sign Up</button></a></li>
+            </ol>
+          </div>
+
+          <p class="paragraph centredText" style="margin-top: 40px; margin-bottom: 0px; font-size: 16px;"><span style="color: rgba(255,255,255,1);">Note: Joining NAT as a general member is currently restricted to students at the University of Alberta. If you don't attend UofA and are still interested in keeping up with what we are doing, don't worry! You can still sign up for the newsletter on the home page!</span><br><br></p>
+
+          <div id="partnersGrid">
+            <!-- Embedded Google Form -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSegfw6KtGT9pCorvVXlvpxulO2EJymF2rTLGrUynnUa5Qk_sQ/viewform?embedded=true" width="800" height="800" frameborder="0" marginheight="0" marginwidth="0" id="embeddedGoogleFormToHideWhenOnMobile">Loading…</iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var scroll = 0;
+        $("#scrollContainer").scroll(function(){
+          scroll = $("#scrollContainer").scrollTop();
+
+          if (scroll > 100) {
+            document.getElementById("headerBGDiv").style.height = "75px";
+            document.getElementById("headerBGDiv").style.filter="blur(5px)";
+          } else {
+            document.getElementById("headerBGDiv").style.height = "50%";
+            document.getElementById("headerBGDiv").style.filter="blur(0px)";
+          }
+
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      const menuToggle = () => {
+        const burger = document.getElementById("burger");
+        const menu = document.querySelector(".mobileMenu");
+        const menuLinks = document.querySelectorAll(".mobilePageLink");
+
+        // Toggle Menu
+        burger.addEventListener('click',()=>{
+          menu.classList.toggle('mobileMenuActivated');
+
+          // Animate Links
+          menuLinks.forEach((link, index) => {
+            if(link.style.animation) {
+              link.style.animation = '';
+            } else {
+              link.style.animation = `mobilePageLinkFade 0.5s ease-in-out forwards ${index/7+0.1}s`;
+            }
+          });
+
+          // Burger Animation
+          burger.classList.toggle('toggle');
+
+        });
+      }
+
+      menuToggle();
+    </script>
+
+  </body>
+
+</html>
