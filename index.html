@@ -43,7 +43,7 @@
     </div>
 
     <div id=headerBar>
-      <image id="headerImg" src="images/NATBrain.png" alt="NAT Brain"></image>
+      <image id="headerImg" src="images/NATBrain.svg" alt="NAT Brain"></image>
       <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
 
       <a href="contact.html"><button class="pageLink">Contact</button></a>
@@ -65,15 +65,16 @@
           <div id="nextEventInfo">
 
             <div id="nextEventQuickInfo">
-              <image src="images/InfoNight/INPink.jpg" id="eventImage" alt="Info Night Image"></image>
-              <button id=rsvpButton>RSVP</button>
+              <image src="images/InfoNight/INPurple.jpg" id="eventImage" alt="Info Night Image"></image>
+              <a style="opacity: 0.5"><button id=rsvpButton>RSVP</button></a>
             </div>
 
             <div id="nextEventText">
-              <h2 class="subSubTitle">Fa20 Info Night</h2>
-              <p class="paragraph">Are you interested in computing science, neuroscience, or brain computer interfaces? Do you already know a little bit about us and are thinking about joining the project team? This is your event! There will be some talks, more information about our club and what we do, and refreshments will be available!</p>
-              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">When: </span>TBD</p>
-              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Where: </span>Upper Floor Student Innovation Centre (Near CCIS Remedey)</p>
+              <h2 class="subSubTitle">Wi20 Info Night</h2>
+              <p class="paragraph">Visited us at clubs fair and interested in more? Come out to this event to meet all of our execs and learn about all that we do and how YOU can get involved!</p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">When: </span>TBD, will be announced early January</p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Where: </span>TBD</p>
+              <!-- <a href="https://meet.google.com/kmq-ikwa-khn" target="_blank">Join Call</a> -->
             </div>
 
           </div>
@@ -102,7 +103,6 @@
               </form>
             </div>
           </div>
-
 
           <div id="interestedBlockContents">
             <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">What is Neur&shy;Alberta&shy;Tech?</span></h1>
@@ -142,11 +142,12 @@
                 </iframe>
 
               </div>
-              <a href='https://www.youtube.com/channel/UC6ydgj4tflqsyt9A_XjY1uw/featured' target="_blank"><button id="rsvpButton">More Videos</button></a>
+              <!-- <a href='https://www.youtube.com/channel/UC6ydgj4tflqsyt9A_XjY1uw/featured' target="_blank"><button id="rsvpButton">More Videos</button></a> -->
+              <a href='projectPages/alphaBlaster.html'><button id="rsvpButton">View Project</button></a>
             </div>
 
             <div id="lastProjectText">
-              <h2 class="subSubTitle">Alpha Blaster</h2>
+              <a href='projectPages/alphaBlaster.html' style="text-decoration: none"><h2 class="subSubTitle">Alpha Blaster</h2></a>
               <p class="paragraph">Alpha Blaster is a proof of concept 2D tower defense game controlled entirely by your brain activity. Our game recieved a 5th place award in NeuroTechX's Open Competition 2019!</p>
               <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p>
 
@@ -185,6 +186,12 @@
                 <a href="https://novo.press/university-students-create-first-mind-controlled-video-game-using-neurotechnology/" target="_blank">
                   <div class="mediaLogo">
                     <image src="https://novo.press/wp-content/uploads/2017/08/NOVO-logo-1.png"></image></a>
+                  </div>
+                </a>
+
+                <a href="https://www.ualberta.ca/science/news/2019/august/neurotechnology-video-game.html" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="images/HostedOnGooglePhotos/MediaLogos/UAlberta.png"></image></a>
                   </div>
                 </a>
 
@@ -253,7 +260,7 @@
           scroll = $("#scrollContainer").scrollTop();
 
           if (scroll > 100) {
-            document.getElementById("headerBGDiv").style.height = "75px";
+            document.getElementById("headerBGDiv").style.height = "50%"; //75px
             document.getElementById("headerBGDiv").style.filter="blur(5px)";
           } else {
             document.getElementById("headerBGDiv").style.height = "50%";
