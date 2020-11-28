@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <link rel="icon" type="image/png" href="images/NATBrain.png"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="scrollBackground.js"></script>
+    <script type="text/javascript" src="burgerController.js"></script>
+
+    <!-- Media Preview -->
+    <meta name="image" property="og:image" content="images/natuabWebsitePreview.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NeurAlbertaTech" />
+    <meta property="og:description" content="We are a Student Club at the University of Alberta in association with NeuroTechX which promotes development and education in the neurotechnology space. Our goal is to create an environment to facilitate neurotechnological innovations for undergraduate students here at the University of Alberta, foster skills through workshops and mentorship, and build a competent team to compete in the annual NeuroTechX Student Club Competitions!" />
+
+
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Cameron Hildebrandt">
+
+    <style>
+    #headerBGDiv {
+      background-image: url("images/HeaderImages/Whiteboard.jpg");
+      /* background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <button class="mobilePageLink" id="currentPageLink">Home</button>
+      <a href="projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <image id="headerImg" src="images/NATBrain.svg" alt="NAT Brain"></image>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <a href="events.html"><button class="pageLink">Events</button></a>
+      <a href="team.html"><button class="pageLink">Team</button></a>
+      <a href="projects.html"><button class="pageLink">Projects</button></a>
+      <button class="pageLink" id="currentPageLink">Home</button>
+    </div>
+
+    <div id="headerBGDiv"></div>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+        <!-- <h1 class="subTitle" style="position: relative; left: 2%">Events</h1> -->
+
+        <div id="smallInfoBlock" style="margin-top: 40px;">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="images/InfoNight/WSML.jpg" id="eventImage" alt="Info Night Image"></image>
+              <a href="events.html"><button id=smallButton>Learn More</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Workshop Series</h2>
+              <p class="paragraph">If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs. We are currently hosting two streams at a time, in rotation. So if the stream you are interested in isn't currently being hosted, feel free to hit that join button anyway! You will be signed up for the session hosted next semester. We also encourage you to take multiple workshops if you are interested, neurotech and brain computer interfacing is fundamentally interdisciplanry and building a breadth of knowledge is indespensible!
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+        <div id="interestedBlock">
+
+          <!-- Code for the old newsletter signup -->
+          <!-- <div id="mailingListSignup">
+            <div id="mc_embed_signup">
+              <form action="https://google.us20.list-manage.com/subscribe/post?u=36129865176cbbc1ee38d5dd0&amp;id=87f6e6081e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form-inline" novalidate>
+                <div id="mc_embed_signup_scroll">
+
+                  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email" required>
+
+                  <label for="mce-EMAIL" id="signupLabel">Email</label>
+
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+
+
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <input type="text" name="b_36129865176cbbc1ee38d5dd0_87f6e6081e" tabindex="-1" value="">
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div> -->
+
+          <div id="interestedBlockContents">
+            <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">What is Neur&shy;Alberta&shy;Tech?</span></h1>
+            <p class="paragraph centredText" style="margin-top: 20px;"><span style="color: rgba(255,255,255,1);">We are a Student Club at the University of Alberta in association with NeuroTechX which promotes development and education in the neurotechnology space. Our goal is to create an environment to facilitate neurotechnological innovations for undergraduate students here at the University of Alberta, foster skills through workshops and mentorship, and build a competent team to compete in the annual NeuroTechX Student Club Competitions!</span></p>
+          </div>
+
+          <div id="interestedLinksParent">
+            <ol id="interestedLinks">
+              <li><a href="contact.html"><button>Message Us</button></a></li>
+              <li><a href="https://forms.gle/NxVA1VBqu8VrxjzT6" target="_blank"><button>Join Our Newsletter</button></a></li>
+              <li><a href="events.html"><button>See More Events</button></a></li>
+            </ol>
+          </div>
+
+        </div>
+
+
+        <!-- <h1 class="subTitle" style="margin-left:2%;">Last Project</h1> -->
+        <div id="largeInfoBlock">
+          <a href='project/drone.html' style="text-decoration: none"><h1 class="subTitle">Last Project</h1></a>
+          <div id="largeInfoContents" style="margin-top: 20px;">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/-3UTwKpKpcI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+              </div>
+
+              <a href='project/drone.html' style="text-decoration: none"><button id="smallButton">View Project</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <a href='project/drone.html' style="text-decoration: none"><h2 class="subSubTitle">NTX Open Competition 2020</h2></a>
+              <p class="paragraph">A drone controlled entirely by your brain waves! Not only is this an incredibly fun project, but this is also a potentially incredibly powerful creation. In reality, over the past few months, we have built a general purpose BCI controller that can be connected to whatever we want! We chose to connect it to a drone to show it's power in an entertaining way, though, this can be connected to anything from games to wheelchairs to rudamentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability. Tap on "View Project" to learn more!</p>
+              <!-- <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p> -->
+
+              <!-- <div id="mediaGrid">
+                <a href="https://www.cbc.ca/news/canada/edmonton/u-of-a-students-create-video-game-uses-brain-controller-1.5263352" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CBC_Logo_1992-Present.svg/1024px-CBC_Logo_1992-Present.svg.png"></image>
+                  </div>
+                </a>
+
+                <a href="https://edmonton.ctvnews.ca/brain-controlled-video-game-aims-to-improve-accessibility-for-players-1.4567521?cache=yes%3FclipId%3D89531%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/CTV_flat_logo.svg/1200px-CTV_flat_logo.svg.png"></image>
+                  </div>
+                </a>
+
+                <a href="https://edmontonjournal.com/news/local-news/u-of-a-students-create-mind-controlled-video-game/" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Edmonton_Journal_%282020-01-15%29.svg/1200px-Edmonton_Journal_%282020-01-15%29.svg.png"></image>
+                  </div>
+                </a>
+              </div> -->
+
+            </div>
+          </div>
+        </div>
+
+        <div id="partners">
+          <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">Partners</span></h1>
+
+          <div id="partnersGrid">
+            <div class="partnerLogo">
+              <a href="https://www.ualberta.ca/index.html" target="_blank">
+                <img src="https://lh3.googleusercontent.com/ypCXlCrAECzbT22-b3SBtVDbCVcVxkDVxJ5_Tf4PX919FzViyWhw6dZl0SFOcJiQToR84mcjykVLltu10zxYwhBZNQTpa8y_xtfghnMRfWpOwEPEczZFX8k6KppOdfj3uuGa73YqaA=w2400"></img>
+              </a>
+            </div>
+
+            <div class="partnerLogo">
+              <a href="https://www.ualberta.ca/science/index.html" target="_blank">
+                <img src="images/HostedOnGooglePhotos/Partner Logos/FacultyOfScience.png"></img>
+              </a>
+            </div>
+
+            <div class="partnerLogo">
+              <a href="https://www.ualberta.ca/student-innovation-centre/index.html" target="_blank">
+                <img src="https://lh3.googleusercontent.com/pjlB22Ju-4M3f55gZnyEOp9AbfHVdzMWKC7c9x1OZC3aIEdCcYy85TDJ5lqtbcy3IvE2SIFQNb7V1yuG8vYGc33i_unjL70DpadlkLjqY_fEs8TTisFG8W3Kx4OZhKk2qHTBCznGzQ=w2400"></img>
+              </a>
+            </div>
+
+            <div class="partnerLogo">
+              <a href="https://www.startupedmonton.com" target="_blank">
+                <img src="https://lh3.googleusercontent.com/k0s9w_GkxtgzkUf5ojAjVdlvv7bRuzVrfqUV37hNmifWN_w0rvv_2mepoGrkSGAWBgmqr9boqVI76p-fQx-ZsmM3HY1VVSGZj4Hp8zGGQFyjaq4fnr1ZNQRX_4pVPcmHp21GvR27bQ=w2400"></img>
+              </a>
+            </div>
+
+            <div class="partnerLogo">
+              <a href="https://neurotechx.com" target="_blank">
+                <img src="https://lh3.googleusercontent.com/c6IPaLT_xkXiEkMjooRuWuDNvquTbRKdwJBa_7wilo2SWlZkA8nPviIE8xmgowNLMhbyApJIrCXXEYeZoOdjfWl2aqcjOyNlSVJZVP5NB0-k81n8-_xc4gnAwHUG2hycRMTFStti2g=w2400"></img>
+              </a>
+            </div>
+
+            <div class="partnerLogo">
+              <a href="https://choosemuse.com" target="_blank">
+                <img src="https://lh3.googleusercontent.com/vvzZIcaOzbpod2hXIY8TXzVxtFsTxwfUztxtsPUZ4O2PXwgHjb2yitV5MrY6f2OdZ3CY9AXMXtC3sjoaeWj61Kn5Ey7K4_hee1nJqKhvXpfJB9Nk_YGoAKsv0UxYzkiQI6oIgH0evw=w2400"></img>
+              </a>
+            </div>
+
+            <div class="partnerLogo">
+              <a href="https://openbci.com" target="_blank">
+                <img src="https://lh3.googleusercontent.com/58l-VIc_2FC7wsHjU_BxEl1LndLmIesK2-KwGpN4E4Bo_9EXOym_nnjhqj3Em0tQTpIFN9aIWZiC2KA6nW0ohWtn_HDCkjoC1vRifrPucL0hzm02JtS6uoh_gpdFcYYaW9Lpn6yffQ=w2400"></img>
+              </a>
+            </div>
+
+          </div>
+
+          <p class="paragraph centredText" style="margin-top: 40px; margin-bottom: 0px;"><span style="color: rgba(255,255,255,1);">Tap on any logo above to visit their website!</span></p>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+
+
+    <!-- <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('#joinNewsletterButton').click(function(){
+          if($('#joinNewsletterButton').text() === "Join Newsletter") {
+            $('#interestedBlockContents').css("transform","translate(0,-200%)");
+            $('#joinNewsletterButton').text("Back");
+            $('#mailingListSignup').fadeTo(200, 1);
+          } else {
+            $('#interestedBlockContents').css("transform","translate(0,0)");
+            $('#joinNewsletterButton').text("Join Newsletter");
+            $('#mailingListSignup').fadeTo(200, 0);
+          }
+        });
+
+        // Do the exact same thing, but for the mobile button
+        $('#joinNewsletterButtonMobile').click(function(){
+          if($('#joinNewsletterButtonMobile').text() === "Join Newsletter") {
+            $('#interestedBlockContents').css("transform","translate(0,-200%)");
+            $('#joinNewsletterButtonMobile').text("Back");
+            $('#mailingListSignup').fadeTo(200, 1);
+          } else {
+            $('#interestedBlockContents').css("transform","translate(0,0)");
+            $('#joinNewsletterButtonMobile').text("Join Newsletter");
+            $('#mailingListSignup').fadeTo(200, 0);
+          }
+        });
+      });
+
+    </script> -->
+
+  </body>
+
+</html>
