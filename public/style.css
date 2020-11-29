@@ -7,13 +7,14 @@
   left: 0%;
   top: 0%;
 
+  background-image: linear-gradient( 135deg, #FF6FD8 10%, #3813C2 100%);
+
   transform: scale(1.05);
 
   position: fixed;
   overflow: hidden;
 
-  z-index: -2;
-  transition: height 0.5s ease-in-out;
+  z-index: -3;
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -25,6 +26,34 @@
   /* filter: blur(0px); */
 
   transition: height 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#headerBGImg {
+  height: 50%;
+  width: 100%;
+  left: 0%;
+  top: 0%;
+
+  background-image: linear-gradient( 135deg, #FF6FD8 10%, #3813C2 100%);
+
+  z-index: -2;
+
+  transform: scale(1.05);
+
+  position: fixed;
+  overflow: hidden;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  filter: blur(10px);
+  opacity: 0%;
+
+  transition: filter 0.5s ease-in-out, opacity 1s ease-in-out;
 }
 
 
@@ -1179,6 +1208,42 @@ div.pastNewsletter:active {
 }
 
 
+/* Loading Drip */
+.spinner{
+  position: absolute;
+  top: 11vh;
+
+  left: -webkit-calc(50% - 25px);
+  left: -moz-calc(50% - 25px);
+  left: calc(50% - 25px);
+
+  width: 8vh;
+  height: 8vh;
+
+  opacity: 50%;
+
+  border-top: 3px solid rgba(255,255,255,0.5);
+  border-right: 3px solid transparent;
+  border-radius: 50%;
+  animation: rotation .8s linear infinite;
+
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+
+@keyframes rotation{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+/* Loading Drip */
+
+
 /* Change the layout for mobile */
 /* Hide Title Last */
 @media screen and (max-width:600px){
@@ -1406,4 +1471,7 @@ div.pastNewsletter:active {
     background-color: rgba(255,255,255,0.05);
   }
 
+  .spinner{
+    border-top: 3px solid rgba(0,0,0,0.5);
+  }
 }
