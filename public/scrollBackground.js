@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     if (scroll < 200) { // Stop blurring after a bit
       scroll = scroll / 50;
-      $("#headerBGDiv").css({"-webkit-filter": "blur("+scroll+"px)","filter": "blur("+scroll+"px)" })
+      $("#headerBGImg").css({"-webkit-filter": "blur("+scroll+"px)","filter": "blur("+scroll+"px)" })
     }
 
   });

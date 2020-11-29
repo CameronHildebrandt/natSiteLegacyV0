@@ -19,13 +19,6 @@
 
     <!-- Enable Reactive Website -->
     <meta name="viewport" content="width=device-width">
-
-    <style>
-      #headerBGDiv {
-        background-image: url("images/HeaderImages/MeetingEvent.jpg");
-        /* background-image: linear-gradient( 135deg, #FDD819 10%, #E80505 100%); */
-      }
-    </style>
   </head>
 
   <body>
@@ -55,7 +48,9 @@
       <a href="index.html"><button class="pageLink">Home</button></a>
     </div>
 
-    <div id="headerBGDiv"></div>
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/MeetingEvent.jpg"></img>
+    <img id="headerBGDiv"></img>
 
 
     <div id=scrollContainer>
@@ -468,6 +463,9 @@
 
       })
     </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
 
   </body>
 

@@ -20,12 +20,6 @@
     <!-- Add Our Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
-
-    <style>
-      #headerBGDiv {
-        background-image: url("../images/ProjectPhotos/AlphaBlasterScreencap.jpg");
-      }
-    </style>
   </head>
 
   <body>
@@ -54,7 +48,10 @@
       <a href="../projects.html"><button class="pageLink">Projects</button></a>
       <a href="../index.html"><button class="pageLink">Home</button></a>
     </div>
-    <div id="headerBGDiv"></div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/ProjectPhotos/AlphaBlasterScreencap.jpg"></img>
+    <img id="headerBGDiv"></img>
 
 
     <div id=scrollContainer>
@@ -285,6 +282,9 @@
       });
 
     </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
 
   </body>
 

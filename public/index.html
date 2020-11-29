@@ -26,13 +26,6 @@
 
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Cameron Hildebrandt">
-
-    <style>
-    #headerBGDiv {
-      /* background-image: url("images/HeaderImages/Whiteboard.jpg"); */
-      background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-    }
-    </style>
   </head>
 
   <body>
@@ -62,7 +55,10 @@
       <button class="pageLink" id="currentPageLink">Home</button>
     </div>
 
-    <div id="headerBGDiv"></div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/Whiteboard.jpg"></img>
+    <img id="headerBGDiv"></img>
 
 
     <div id=scrollContainer>
@@ -249,6 +245,8 @@
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
 
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
 
 
     <!-- <script type="text/javascript">

@@ -19,116 +19,6 @@
 
     <!-- Enable Reactive Website -->
     <meta name="viewport" content="width=device-width">
-
-    <style>
-    #mailButtonContainer {
-      margin-left: 2%;
-      width: 30%;
-    }
-
-    #headerBGDiv {
-      background-image: url("images/HeaderImages/Muse.jpg");
-      /* background-image: linear-gradient( 135deg, #FF6FD8 10%, #3813C2 100%); */
-    }
-
-    #signupLabel {
-      font-size: 24px;
-      font-weight: 900;
-      font-family: 'Maven Pro', sans-serif;
-
-      position: absolute;
-      top: 0px;
-      /* display: block; */
-      transition: 0.2s;
-
-      color: rgba(200,200,200,1);
-    }
-
-    #mailingListSignup {
-      position: relative;
-
-      top: 20px;
-      width: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      opacity: 1;
-    }
-
-    #mc-embedded-subscribe {
-      position: relative;
-      /* top: -6px;
-      left: 105%; */
-      top: 0px;
-      left: 0px;
-
-      border: 2px solid rgba(200,200,200,1);
-      color: rgba(200,200,200,1);
-      background: transparent;
-
-      transition: transform 0.2s ease-in-out;
-
-      font-size: 18px;
-      font-weight: 700;
-      font-family: 'Maven Pro', sans-serif;
-
-      width: 125px;
-      height: 40px;
-    }
-
-    #interestedBlock {
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
-
-    /* Update the button */
-    #myForm:valid #mc-embedded-subscribe {
-      /* background-image: linear-gradient(to right, #16faab, #00f7ff); */
-      border-image: linear-gradient(to right, #16faab, #00f7ff);
-      border-image-slice: 1;
-      color: #16faab;
-    }
-
-    #myForm:focus:invalid #mc-embedded-subscribe,
-    #myForm:not(:placeholder-shown):invalid ~ #mc-embedded-subscribe {
-      /* background-image: linear-gradient(to right, #f900a6, #f600ff); */
-      border-image: linear-gradient(to right, #f900a6, #f600ff);
-      border-image-slice: 1;
-      color: #f900a6;
-    }
-
-    /* Update the buttons when they are hovered */
-    #myForm:focus #mc-embedded-subscribe:hover,
-    #myForm:valid #mc-embedded-subscribe:hover {
-      background-image: linear-gradient(to right, #16faab, #00f7ff);
-      color: rgba(48,48,48,1);
-    }
-
-    /* This page has specific instructions for mobile viewports */
-    @media screen and (max-width:975px){
-      #mailButtonContainer {
-        margin: 0 auto;
-        width: 80%;
-      }
-
-      #getInTouchText {
-        text-align: center;
-      }
-
-      #mailingListSignup {
-        width: 90%;
-      }
-    }
-
-    @media screen and (max-width:580px){
-      #mc-embedded-subscribe { /* Don't move the subscribe button */
-        position: relative;
-        top: 0px;
-        left: 0px;
-        float: left;
-      }
-    }
-    </style>
   </head>
 
   <body>
@@ -158,7 +48,9 @@
       <a href="index.html"><button class="pageLink">Home</button></a>
     </div>
 
-    <div id="headerBGDiv"></div>
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/Muse.jpg"></img>
+    <img id="headerBGDiv"></img>
 
 
     <div id=scrollContainer>
@@ -307,6 +199,9 @@
       // To allow Burger to Work
       menuToggle();
     </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
 
   </body>
 

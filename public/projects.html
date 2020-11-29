@@ -24,11 +24,6 @@
     #main {
       padding-bottom: 60px;
     }
-
-    #headerBGDiv {
-      background-image: url("images/HeaderImages/Sticker.jpg");
-      /* background-image: linear-gradient( 135deg, #81FFEF 10%, #F067B4 100%); */
-    }
     </style>
   </head>
 
@@ -59,7 +54,9 @@
       <a href="index.html"><button class="pageLink">Home</button></a>
     </div>
 
-    <div id="headerBGDiv"></div>
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/Sticker.jpg"></img>
+    <img id="headerBGDiv"></img>
 
 
     <div id=scrollContainer>
@@ -557,6 +554,9 @@
       });
 
     </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
 
   </body>
 
