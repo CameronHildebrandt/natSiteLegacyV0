@@ -25,7 +25,7 @@
 
   /* filter: blur(0px); */
 
-  transition: height 0.2s ease-in-out, filter 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out, filter 0.3s ease-in-out;
 }
 
 #headerBGImg {
@@ -53,7 +53,7 @@
   filter: blur(10px);
   opacity: 0%;
 
-  transition: filter 0.5s ease-in-out, opacity 1s ease-in-out;
+  transition: filter 0.75s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 
@@ -1100,8 +1100,8 @@ select:-webkit-autofill:focus {
 }
 
 .mediaLogo {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   background-color: rgba(0,0,0,0.8);
   border-radius: 20px;
   margin: 1%;
@@ -1127,6 +1127,11 @@ select:-webkit-autofill:focus {
 .mediaLogo:active {
   background-color: rgba(255,255,255,0.7);
   transform: scale(1);
+}
+
+#anchorLink img {
+  width: 90px;
+  height: 90px;
 }
 
 #partners {
