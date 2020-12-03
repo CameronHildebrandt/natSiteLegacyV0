@@ -1056,11 +1056,13 @@ select:-webkit-autofill:focus {
 }
 
 #smallImage:hover {
+  border-radius: 10px;
   transform: scale(1.02);
   /* border-radius: 20px; */
 }
 
 #smallImage:active {
+  border-radius: 10px;
   transform: scale(1);
   /* border-radius: 20px; */
 }
@@ -1129,10 +1131,6 @@ select:-webkit-autofill:focus {
   transform: scale(1);
 }
 
-#anchorLink img {
-  width: 90px;
-  height: 90px;
-}
 
 #partners {
   background-color: rgba(0,0,0,0.8);
@@ -1386,6 +1384,10 @@ div.pastNewsletter:active {
 
   #exampleGif {
     width: 90%;
+  }
+
+  #divAboveMainForSnapping {
+    height: 10%;
   }
 }
 
