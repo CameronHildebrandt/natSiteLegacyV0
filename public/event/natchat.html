@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="/style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="/scrollBackground.js"></script>
+    <script type="text/javascript" src="/burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="../images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/FullSizeHeaderImages/MeetingEvent2.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+        <h1 class="subTitle" style="left: 2%;">NAT Chat</h1>
+
+        <div style="position: relative; left: 2%; margin-top: 25px; width: 96%;">
+          <p class="paragraph">
+            A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach. Check out out chat topics and dates below.
+
+            <br><br>
+            Jump to a chat: <a href="#hs" id="uncoloredLink">Neurotech in Health Sciences</a>, <a href="#be" id="uncoloredLink">Bleeding Edge Neurotech</a>, <a href="#cm" id="uncoloredLink">Neurotech in the Consumer Market</a>
+          </p>
+
+        </div>
+
+
+
+        <h1 class="subTitle" style="left: 2%;">Upcomming Chats</h1>
+
+
+
+
+
+        <a name="hs"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/temp.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <!-- <a href="https://linkedin.com" target="_blank"><button id=smallButton>Speaker</button></a> -->
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Talks are comming soon!</h2>
+              <p class="paragraph">
+                <b>Speaker and talk information will be released as soon as the details are finalized</b>
+                <br>
+                  We are just working out the last details for our NAT Chat series. Check back here soon and we will have updated information for all upcoming chats this semester.
+                  <br><br>
+                  That join button still works though. If you want to RSVP for the first ever NAT Chat you can click that button now!
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+        <!-- <a name="hs"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/temp.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <a href="https://linkedin.com" target="_blank"><button id=smallButton>Speaker</button></a>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Firstname Lastname</h2>
+              <p class="paragraph">
+                <b>Neurotech in Health Sciences</b>
+                <br>
+                Innovation in neuro is super coolio beanos. Cupidatat ne admodum. Do magna vidisse litteris qui appellat ad ipsum.
+                Expetendis elit ipsum ea esse, malis praetermissum nescius quae appellat, elit
+                te a dolor iudicem ea ubi dolore exquisitaque te ingeniis velit nisi do magna,
+                eu elit incurreret officia, ne labore arbitror, quo ipsum concursionibus. Velit
+                constias ea amet fugiat, appellat consectetur ita nostrud, consequat export
+                export te anim, occaecat dolore expetendis.Nescius legam tempor o eram est
+                senserit quis iudicem ut e enim cernantur appellat o proident e singulis.
+                Nescius quo senserit, tempor do iis enim quamquam. Commodo est aliqua cupidatat.
+                <br><br>
+                <b>January 20, 2021, 5pm-7pm MST</b>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+        <a name="be"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/temp.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <a href="https://linkedin.com" target="_blank"><button id=smallButton>Speaker</button></a>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Firstname Lastname</h2>
+              <p class="paragraph">
+                <b>Bleeding Edge Neurotech</b>
+                <br>
+                Innovation in neuro is super coolio beanos. Cupidatat ne admodum. Do magna vidisse litteris qui appellat ad ipsum.
+                Expetendis elit ipsum ea esse, malis praetermissum nescius quae appellat, elit
+                te a dolor iudicem ea ubi dolore exquisitaque te ingeniis velit nisi do magna,
+                eu elit incurreret officia, ne labore arbitror, quo ipsum concursionibus. Velit
+                constias ea amet fugiat, appellat consectetur ita nostrud, consequat export
+                export te anim, occaecat dolore expetendis.Nescius legam tempor o eram est
+                senserit quis iudicem ut e enim cernantur appellat o proident e singulis.
+                Nescius quo senserit, tempor do iis enim quamquam. Commodo est aliqua cupidatat.
+                <br><br>
+                <b>February 24, 2021, 5pm-7pm MST</b>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+        <a name="cm"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/temp.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <a href="https://linkedin.com" target="_blank"><button id=smallButton>Speaker</button></a>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Firstname Lastname</h2>
+              <p class="paragraph">
+                <b>Neurotech in the Consumer Market</b>
+                <br>
+                Innovation in neuro is super coolio beanos. Cupidatat ne admodum. Do magna vidisse litteris qui appellat ad ipsum.
+                Expetendis elit ipsum ea esse, malis praetermissum nescius quae appellat, elit
+                te a dolor iudicem ea ubi dolore exquisitaque te ingeniis velit nisi do magna,
+                eu elit incurreret officia, ne labore arbitror, quo ipsum concursionibus. Velit
+                constias ea amet fugiat, appellat consectetur ita nostrud, consequat export
+                export te anim, occaecat dolore expetendis.Nescius legam tempor o eram est
+                senserit quis iudicem ut e enim cernantur appellat o proident e singulis.
+                Nescius quo senserit, tempor do iis enim quamquam. Commodo est aliqua cupidatat.
+                <br><br>
+                <b>March 17, 2021, 5pm-7pm MST</b>
+              </p>
+            </div>
+
+          </div>
+        </div> -->
+
+
+
+
+        <div class="greyBG">
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Why Should You Attend?</h1>
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/InfoNight/merch.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">Raffle</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">Throughout the chat, we will be raffling off pieces of NAT merch! You can win a NAT shirt, pen, mask, mug, or even NAT stickers. We also will be hosting a raffle for people who stay through the whole chat for a brain computer interface headset ($200 value) after this series.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/InfoNight/network.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">Networking</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">Building a network is important! One of the strongesst factors contributing to successful job applications is your network. If you think you want to pursue a career in neurotech, neuroscience, or tech, this is the place to build your network! We bring in as many great minds as we can find from all of the fields we are involved in, and this is your chance to meet them.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- <h1 class="subTitle" style="left: 2%;">Other stuff?????</h1>
+
+        <div id="smallInfoBlock">
+
+          <div id="smallInfoContents">
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/INBlue.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle" style="">Other Info</h2>
+              <p class="paragraph" style="">Est illum a esse. Laborum cillum culpa litteris tamen, ne irure expetendis,
+                singulis aut nulla in legam deserunt vidisse, ita malis offendit, quis iudicem
+                firmissimum, arbitror elit nam admodum firmissimum, veniam nescius efflorescere.
+                A de imitarentur in quibusdam quis vidisse pariatur.Qui esse noster ubi nescius
+                est velit officia aliquip. Proident quem esse deserunt legam. Quem eu proident
+                ad offendit te tamen expetendis an multos tractavissent senserit elit quamquam
+                qui te aliqua nostrud transferrem.</p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">When: </span>Friday October 23, 2020 11:30am - 12:00pm MDT</p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Where: </span>Virtual!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/INPink.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Other Info</h2>
+              <p class="paragraph">Ab ita amet singulis est tempor cupidatat cohaerescant, ne dolore quibusdam se
+                ab nulla irure ad mentitum. Mandaremus quae illum ut enim et quamquam quem non
+                incurreret familiaritatem iis esse pariatur cernantur nam offendit a litteris.
+                Vidisse eram laborum de dolor nostrud se reprehenderit, fore sed fabulas hic
+                tempor et nescius ad export senserit, se in graviterque, aliqua illustriora
+                proident multos incididunt te tempor vidisse ad incididunt, eu culpa dolor ubi
+                vidisse. Probant magna quibusdam, aliquip elit non nostrud relinqueret, nam
+                admodum e quibusdam aut multos laboris se nostrud de arbitror minim in officia
+                imitarentur nam duis id ad enim ingeniis, pariatur ita velit eu ubi eram eram de
+                constias.Pariatur eu aliqua aliquip, ita dolore anim ut offendit. Culpa si
+                senserit ne summis, quid aliquip eu tractavissent. Constias sint sunt ubi aute,
+                dolore ingeniis arbitrantur, constias veniam magna laboris aute, an illum id
+                enim.</p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">When: </span>Monday, September 7th 4pm-6pm</p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Where: </span>Virtual, on Google Meet! Link is shared once you RSVP!</p>
+            </div>
+
+          </div>
+        </div> -->
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        var showingReadMores = [false, false, false, false];
+
+        $('#hardware').click(function(){
+          if(showingReadMores[0]) {
+            document.getElementById("hardwarePara").style.display="none"
+            document.getElementById("hardware").innerHTML = "More Information"
+            showingReadMores[0] = false;
+          } else {
+            document.getElementById("hardwarePara").style.display="block"
+            document.getElementById("hardware").innerHTML = "Less Information"
+            showingReadMores[0] = true;
+          }
+        });
+
+        $('#software').click(function(){
+          if(showingReadMores[1]) {
+            document.getElementById("softwarePara").style.display="none"
+            document.getElementById("software").innerHTML = "More Information"
+            showingReadMores[1] = false;
+          } else {
+            document.getElementById("softwarePara").style.display="block"
+            document.getElementById("software").innerHTML = "Less Information"
+            showingReadMores[1] = true;
+          }
+        });
+
+        $('#neuro').click(function(){
+          if(showingReadMores[2]) {
+            document.getElementById("neuroPara").style.display="none"
+            document.getElementById("neuro").innerHTML = "More Information"
+            showingReadMores[2] = false;
+          } else {
+            document.getElementById("neuroPara").style.display="block"
+            document.getElementById("neuro").innerHTML = "Less Information"
+            showingReadMores[2] = true;
+          }
+        });
+
+        $('#ml').click(function(){
+          if(showingReadMores[3]) {
+            document.getElementById("mlPara").style.display="none"
+            document.getElementById("ml").innerHTML = "More Information"
+            showingReadMores[3] = false;
+          } else {
+            document.getElementById("mlPara").style.display="block"
+            document.getElementById("ml").innerHTML = "Less Information"
+            showingReadMores[3] = true;
+          }
+        });
+
+      })
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>

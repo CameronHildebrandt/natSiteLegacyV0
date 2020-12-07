@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="images/NATBrain.png"/> -->
+    <link rel="icon" type="../image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="../style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="../scrollBackground.js"></script>
+    <script type="text/javascript" src="../burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="../images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/FullSizeHeaderImages/MeetingEvent.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+
+        <!-- <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSSoft.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(0)" class="curriculumButton0">Curriculum</button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHrU-F1FX9zAN87M6nPLBrL__J3MIMyG1eBN6HJQ9awASg9w/viewform?usp=pp_url&entry.1599473611=Stream" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Test</h2>
+
+
+              <div class="curriculumTableContainer" id="curriculumTableContainer0">
+                <table class="curriculumTable" id="curriculumTable0">
+                </table>
+              </div>
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer0">
+                <p class="paragraph">
+                  This workshop will teach you basic programming, starting with foundational python knowledge and working up to using specific libraries that allow you to work with real brain data! Equipping you with the knowledge to build a brain computer interface from the ground up!
+                  <br><br>
+                  <b>Starting in January</b>
+
+                  <br><br><u><b><span id="software" style="cursor: pointer;">More Information</span></b></u>
+                </p>
+
+                <div id="softwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                  <p class="paragraph">
+                    This workshop assumes no prior knowledge in programming or neuroscience.<br>
+                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
+                    Curriculum is subject to change.
+                  </p>
+                </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+        </div> -->
+
+
+
+
+        <script>
+          var states = [false, false, false, false];
+
+          function toggleCurriculum(num) {
+
+            if(states[num]) {
+              document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "block";
+              document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "relative";
+              document.querySelector("#curriculumTableContainer" + num.toString()).style.display = "none";
+              document.querySelector("#curriculumTableContainer" + num.toString()).style.position = "absolute";
+              document.querySelector(".curriculumButton" + num.toString()).innerHTML = "Curriculum";
+              states[num] = false;
+            }
+            else {
+              document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "none";
+              document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "absolute";
+              document.querySelector("#curriculumTableContainer" + num.toString()).style.display = "block";
+              document.querySelector("#curriculumTableContainer" + num.toString()).style.position = "relative";
+              document.querySelector(".curriculumButton" + num.toString()).innerHTML = "Info";
+              states[num] = true;
+            }
+
+          }
+        </script>
+
+
+        <script>
+          const API_KEY = 'AIzaSyC9Vyuw1ymOH9gttGEpgQx7jwgONGgQVjI';
+          const RANGE = 'A1:D11';
+
+          // In order [software, hardware, ml, neuro]
+          const SHEET_IDS = ['1QvrGCrgMgsK9kpenL9GHBRQkejV8z9DFMcwnAF1LtJE', '1lApMDfK8-IiUfwoWuxDq52EzeWb8FnJRUy0VqYg3AEM', '1uk23a1MyaPadKUhlwvhaXbjInA35J8xwp5zBs-V5YRY', '1dV73FjdyeTXg3hD4lvI2hVeRG1ES3fwGBc9BGOThrHs'];
+          const OUR_TABLES = ["#curriculumTable0", "#curriculumTable1", "#curriculumTable2", "#curriculumTable3"];
+
+
+          var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[0]}/values/${RANGE}?key=${API_KEY}`;
+          fetch(url).then((response) => {
+              return response.json();
+          }).then((data) => {
+              let content = data.values;
+              console.log(content);
+              createSchedule(content, 0);
+          }).catch((err) => {
+              console.log(err);
+          });
+
+          var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[1]}/values/${RANGE}?key=${API_KEY}`;
+          fetch(url).then((response) => {
+              return response.json();
+          }).then((data) => {
+              let content = data.values;
+              console.log(content);
+              createSchedule(content, 1);
+          }).catch((err) => {
+              console.log(err);
+          });
+
+          var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[2]}/values/${RANGE}?key=${API_KEY}`;
+          fetch(url).then((response) => {
+              return response.json();
+          }).then((data) => {
+              let content = data.values;
+              console.log(content);
+              createSchedule(content, 2);
+          }).catch((err) => {
+              console.log(err);
+          });
+
+          var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[3]}/values/${RANGE}?key=${API_KEY}`;
+          fetch(url).then((response) => {
+              return response.json();
+          }).then((data) => {
+              let content = data.values;
+              console.log(content);
+              createSchedule(content, 3);
+          }).catch((err) => {
+              console.log(err);
+          });
+
+
+
+          function createSchedule(content, wsStreamNum) {
+              let table = document.querySelector(OUR_TABLES[wsStreamNum]);
+              let thead = table.createTHead();
+              var row = thead.insertRow();
+              var rowNum = 0; // Keep track of what row we are on
+              for (let title of content[0]) {
+                  var th = document.createElement("th");
+                  var text = document.createTextNode(title);
+                  th.appendChild(text);
+                  row.appendChild(th);
+              }
+
+              let tbody = table.createTBody();
+
+              for (var i=1; i<content.length; i++) {
+                  row = tbody.insertRow();
+                  row.style.animationDelay = (0.05 * rowNum).toString() + "s";
+                  rowNum += 1;
+
+                  var colNum = 0;
+                  for (let item of content[i]) {
+                      var td = document.createElement("td");
+
+                      // Bold the first column
+                      if(colNum == 0) {
+                        td.id = "num";
+                      }
+
+                      var text = document.createTextNode(item);
+
+                      // Link last column
+                      if(colNum == 3) {
+                        // Create anchor element.
+                        var a = document.createElement('a');
+                        a.id = "uncoloredLink";
+                        a.href = "#" + text.textContent;
+
+                        console.log("#" + text.textContent);
+
+                        // Append the text node to anchor element.
+                        a.appendChild(text);
+
+                        text = a;
+                      }
+
+                      td.appendChild(text);
+                      row.appendChild(td);
+
+                      colNum += 1;
+                  }
+              }
+          }
+        </script>
+
+
+
+
+
+
+        <h1 class="subTitle" style="left: 2%;">Workshops</h1>
+
+        <div style="position: relative; left: 2%; margin-top: 25px; width: 96%;">
+          <p class="paragraph">
+            If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.
+
+            <br><br>
+            We encourage you to take multiple workshops if you are interested, neurotech and brain computer interfacing is fundamentally interdisciplanry and building a breadth of knowledge is indespensible!
+          </p>
+
+
+          <div style="background-color: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
+            <p class="paragraph">
+              Each of the streams have a $20* fee, which covers every one of it's 10 sessions, which means it will only cost you $2/session (slightly cheaper than uni classes)! The workshop fee is not intended as a barrier of entry, so please <a href="mailto:neuralbertatech@gmail.com" id="uncoloredLink">email us</a> if this fee is a barrier and we can work something out.
+              <br>
+              <b>Please send all eTransfers to <a href="mailto:neuralbertatech@gmail.com" id="uncoloredLink">neuralbertatech@gmail.com</a> and specify which stream you are in!</b>
+            </p>
+          </div>
+
+          <p class="paragraph">
+            <br>
+            Much like our Fall 2020 workshops, we will be offering attendance based prizes (Restricted to UofA Students), so be sure to attend as many sessions as you can!
+            <!-- <br><br>This fee isn't just for show though! We offer participation based merch prizes (which in total cost more than $20)!
+            <br><b>4+ Attendances:</b> NAT Sticker
+            <br><b>6+ Attendances:</b> NAT Pen
+            <br><b>8+ Attendances:</b> NAT T-shirt OR Mask OR Mug and a University of NAT diploma (workshop specialization) -->
+            <br><br>
+            Jump to a workshop: <a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a>
+          </p>
+          <!-- We are currently hosting two streams at a time, in rotation. So if the stream you are interested in isn't currently being hosted, feel free to hit that join button anyway! You will be signed up for the session hosted next semester.  -->
+        </div>
+
+
+
+        <a name="Software"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSSoft.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(0)" class="curriculumButton0">Curriculum</button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHrU-F1FX9zAN87M6nPLBrL__J3MIMyG1eBN6HJQ9awASg9w/viewform?usp=pp_url&entry.1599473611=Stream" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Software</h2>
+
+              <div class="curriculumTableContainer" id="curriculumTableContainer0">
+                <table class="curriculumTable" id="curriculumTable0">
+                </table>
+              </div>
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer0">
+                <p class="paragraph">
+                  This workshop will teach you basic programming, starting with foundational python knowledge and working up to using specific libraries that allow you to work with real brain data! Equipping you with the knowledge to build a brain computer interface from the ground up!
+                  <br><br>
+                  <b>Starting in January</b>
+
+                  <br><br><u><b><span id="software" style="cursor: pointer;">More Information</span></b></u>
+                </p>
+
+                <div id="softwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                  <p class="paragraph">
+                    This workshop assumes no prior knowledge in programming or neuroscience.<br>
+                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
+                    Curriculum is subject to change.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <a name="Hardware"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSHard.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(1)" class="curriculumButton1">Curriculum</button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHrU-F1FX9zAN87M6nPLBrL__J3MIMyG1eBN6HJQ9awASg9w/viewform?usp=pp_url&entry.2127139022=Stream" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Hardware</h2>
+
+              <div class="curriculumTableContainer" id="curriculumTableContainer1">
+                <table class="curriculumTable" id="curriculumTable1">
+                </table>
+              </div>
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer1">
+                <p class="paragraph">
+                This workshop will focus on the basics of hardware development with respect to brain-computer interfaces. How to build your own breadboard/microcontroller EEG system + what to do with the data once you have it. You will get the opportunity to build your own simple EEG system and run some basic live-analysis.
+                <br><br>
+                <b>Starting in January</b>
+
+                <br><br><u><b><span id="hardware" style="cursor: pointer;">More Information</span></b></u>
+                </p>
+
+                <div id="hardwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                  <p class="paragraph">
+                    To be sure that everyone will be working with the same hardware, we have compiled a kit that we will send out to you! *Restricted to Canadan addresses.<br>
+                    To help offset our added cost of hardware and shipping, this workshop will cost more than the other streams. We aren't yet sure exactly how much more it will cost, as we are working with sponsors to get this price as low as possible!<br>
+                    If you live outside of Canada or you already have some hardware you are comfortable with, then contact us to make some alternate arrangements.<br>
+
+                    <br>
+                    This workshop assumes no prior knowledge in programming or neuroscience.<br>
+                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
+                    Curriculum is subject to change.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <a name="ML"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSML.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(2)" class="curriculumButton2">Curriculum</button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHrU-F1FX9zAN87M6nPLBrL__J3MIMyG1eBN6HJQ9awASg9w/viewform?usp=pp_url&entry.1654845901=Stream" target="_blank"><button id=smallButton>Join</button></a>
+
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Machine Learning</h2>
+
+              <div class="curriculumTableContainer" id="curriculumTableContainer2">
+                <table class="curriculumTable" id="curriculumTable2">
+                </table>
+              </div>
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer2">
+                <p class="paragraph">
+                  This workshop focuses on a hands-on exploration of machine learning in the world of brain-computer interfaces. We will explore why we use ML, some models that we use, and we will even apply these models to real brain data!
+                  <br><br>
+                  <b>Starting in January</b>
+
+                  <br><br><u><b><span id="ml" style="cursor: pointer;">More Information</span></b></u>
+                </p>
+
+                <div id="mlPara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                  <p class="paragraph">
+                    We recommend having previously taken our Software Workshop or having comparable Python knowledge.<br>
+                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
+                    Curriculum is subject to change.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <a name="Neuro"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSNeur.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(3)" class="curriculumButton3">Curriculum</button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHrU-F1FX9zAN87M6nPLBrL__J3MIMyG1eBN6HJQ9awASg9w/viewform?usp=pp_url&entry.770205424=Stream" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Neuroscience</h2>
+
+              <div class="curriculumTableContainer" id="curriculumTableContainer3">
+                <table class="curriculumTable" id="curriculumTable3">
+                </table>
+              </div>
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer3">
+                <p class="paragraph">
+                  This workshop will explore the basics of neuroscience, but will take the attendees on detailed investigations of complex networks, such as those involved with sleep and consciousness!<br>
+                  We will incorporate a number of hands on activities for modeling brain activity throughout the workshop series.
+                  <br><br>
+                  <b>Starting in January</b>
+
+                  <br><br><u><b><span id="neuro" style="cursor: pointer;">More Information</span></b></u>
+                </p>
+
+                <div id="neuroPara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                  <p class="paragraph">
+                    This workshop assumes no prior knowledge in programming or neuroscience.<br>
+                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
+                    Curriculum is subject to change.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="greyBG">
+          <!-- <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">NeurAlbertaTech Events Calendar</h1>
+
+          <div id="darkSmallInfoBlock">
+            <iframe src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FEdmonton&amp;src=Y19qY3RhMWlqbGdyOHJsMXRrNTJzODNqcDJ2b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237CB342&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=MONTH" style="border:solid 1px #777" width="800" height="300" frameborder="0" scrolling="no"></iframe>
+          </div> -->
+
+
+
+
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Presenters</h1>
+
+          <a name="Cameron"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Cameron Hildebrandt</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/CameronHeadshot2.jpg" style="width: 100%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/cdhildebrandt/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">NAT VP Software, Brain Drone Team Lead</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hey, my name is Cameron and I am a computing science major rolling into my third year of studies here at the UofA! I have grown a really strong interest for anything and everyhting ML and I'm really looking forward to bringing everything I am learning from my collection of CMPUT classes this year to the club and projects! I am excited to see everything that this new role entails and more importantly, how much more the club will grow this year! When I am fortunate enough to have a little bit of free time, I like to develop websites, take photos, and cross things off of that backlog of exciting side projects.
+              </div>
+            </div>
+          </div>
+
+
+
+          <a name="Eden"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Eden Redman</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/EdenHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">NAT President, Koalingo Team Lead</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hey there, welcome to the club! I'm Eden, I'm in an after-degree focusing on Industrial Design and East Asian Language Studies, with 4+ years of research experience across Psychology, Computational Neuroscience, Physiology, and Psychiatry. I've touched on everything from brain surgery to oil painting, and many things in-between. I like getting my hands dirty soldering or coding alongside fellow project team members, pushing projects forward, and helping knock down barriers for students from all backgrounds. I hope to teach as much as I have to learn from the opportunity to lead NeurAlbertaTech. Aside from chronic workaholism, lately I have been enjoying sculpture, gaming, and rock climbing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <a name="Paul"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Paul</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/EdenHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">UAIS Exec</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hey there, welcome to the club! I'm Eden, I'm in an after-degree focusing on Industrial Design and East Asian Language Studies, with 4+ years of research experience across Psychology, Computational Neuroscience, Physiology, and Psychiatry. I've touched on everything from brain surgery to oil painting, and many things in-between. I like getting my hands dirty soldering or coding alongside fellow project team members, pushing projects forward, and helping knock down barriers for students from all backgrounds. I hope to teach as much as I have to learn from the opportunity to lead NeurAlbertaTech. Aside from chronic workaholism, lately I have been enjoying sculpture, gaming, and rock climbing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <a name="Araz"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Araz</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/EdenHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">UAIS Exec</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hey there, welcome to the club! I'm Eden, I'm in an after-degree focusing on Industrial Design and East Asian Language Studies, with 4+ years of research experience across Psychology, Computational Neuroscience, Physiology, and Psychiatry. I've touched on everything from brain surgery to oil painting, and many things in-between. I like getting my hands dirty soldering or coding alongside fellow project team members, pushing projects forward, and helping knock down barriers for students from all backgrounds. I hope to teach as much as I have to learn from the opportunity to lead NeurAlbertaTech. Aside from chronic workaholism, lately I have been enjoying sculpture, gaming, and rock climbing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <a name="Gino"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Gino</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/EdenHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">UAIS Exec</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hey there, welcome to the club! I'm Eden, I'm in an after-degree focusing on Industrial Design and East Asian Language Studies, with 4+ years of research experience across Psychology, Computational Neuroscience, Physiology, and Psychiatry. I've touched on everything from brain surgery to oil painting, and many things in-between. I like getting my hands dirty soldering or coding alongside fellow project team members, pushing projects forward, and helping knock down barriers for students from all backgrounds. I hope to teach as much as I have to learn from the opportunity to lead NeurAlbertaTech. Aside from chronic workaholism, lately I have been enjoying sculpture, gaming, and rock climbing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <a name="Shane"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Shane Eaton</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/ShaneHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">RemBRAINdt GUI Lead</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi im Shane
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <a name="Quintin"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Quintin Hansen</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/QuintinHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">VP External, RemBRAINdt ML Lead</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi there, I'm Quintin
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <a name="Nicole"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Nicole Wlasitz</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/NicoleHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">NAT VP Academic</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi there, I'm Nicole
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <a name="David"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">David Lam</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/DavidHeadshot.jpg" style="width: 110%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">NAT VP Operations and Finance</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi there, I'm David
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <a name="Matthew"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Matthew Danyluk</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/MatthewHeadshot2.jpg" style="width: 100%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">NAT VP Internal</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi there, I'm Matthew
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <a name="Randy"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Randy</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/MatthewHeadshot2.jpg" style="width: 100%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">???</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi there, I'm Matthew
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <a name="Noah"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Noah</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/Headshots/MatthewHeadshot2.jpg" style="width: 100%;"></img>
+
+                </div>
+                <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">????</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
+                  Hi there, I'm Matthew
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        var showingReadMores = [false, false, false, false];
+
+        $('#hardware').click(function(){
+          if(showingReadMores[0]) {
+            document.getElementById("hardwarePara").style.display="none"
+            document.getElementById("hardware").innerHTML = "More Information"
+            showingReadMores[0] = false;
+          } else {
+            document.getElementById("hardwarePara").style.display="block"
+            document.getElementById("hardware").innerHTML = "Less Information"
+            showingReadMores[0] = true;
+          }
+        });
+
+        $('#software').click(function(){
+          if(showingReadMores[1]) {
+            document.getElementById("softwarePara").style.display="none"
+            document.getElementById("software").innerHTML = "More Information"
+            showingReadMores[1] = false;
+          } else {
+            document.getElementById("softwarePara").style.display="block"
+            document.getElementById("software").innerHTML = "Less Information"
+            showingReadMores[1] = true;
+          }
+        });
+
+        $('#neuro').click(function(){
+          if(showingReadMores[2]) {
+            document.getElementById("neuroPara").style.display="none"
+            document.getElementById("neuro").innerHTML = "More Information"
+            showingReadMores[2] = false;
+          } else {
+            document.getElementById("neuroPara").style.display="block"
+            document.getElementById("neuro").innerHTML = "Less Information"
+            showingReadMores[2] = true;
+          }
+        });
+
+        $('#ml').click(function(){
+          if(showingReadMores[3]) {
+            document.getElementById("mlPara").style.display="none"
+            document.getElementById("ml").innerHTML = "More Information"
+            showingReadMores[3] = false;
+          } else {
+            document.getElementById("mlPara").style.display="block"
+            document.getElementById("ml").innerHTML = "Less Information"
+            showingReadMores[3] = true;
+          }
+        });
+
+      })
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>
