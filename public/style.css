@@ -529,6 +529,19 @@ body {
   background-color: rgba(255,255,255,0.95);
 }
 
+#smallInfoBlockSubSection {
+  border-radius: 20px;
+  border: 2px solid rgba(240,240,240,1);
+  padding: 2%;
+  margin: 2%;
+  /* text-align: left; */
+  /* display: block; */
+  transition: background-color 0.2s ease-in-out;
+
+  /* -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1); */
+}
+
 #darkSmallInfoBlock {
   background-color: rgba(255,255,255,0.05);
   border-radius: 20px;
@@ -548,6 +561,19 @@ body {
   transition: opacity 0.5s ease-in-out;
 }
 
+.speakerList {
+  max-height: 500px;
+  overflow: scroll;
+  display: none;
+}
+
+.speakerList div {
+  opacity: 0%;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
 .smallInfoCardContentContainer {
   position: relative;
   animation-name: fadeIn;
@@ -559,6 +585,7 @@ body {
   /* overflow-y: auto;
   height: 400px; */
   display: none;
+  overflow: scroll;
 }
 
 .curriculumTable {
@@ -1413,6 +1440,11 @@ div.pastNewsletter:active {
 
   #smallInfoBlockMedia {
     margin-bottom: 50px;
+  }
+
+  .curriculumTable tr td,
+  .curriculumTable tr th{
+    font-size: 14px;
   }
 
 }
