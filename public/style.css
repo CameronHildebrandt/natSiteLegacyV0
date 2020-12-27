@@ -1182,7 +1182,7 @@ select:-webkit-autofill:focus {
 
 .pastExecsTable td {
   font-size: 15px;
-  font-wight: normal;
+  font-weight: normal;
   text-align: left;
 }
 
@@ -1190,7 +1190,6 @@ a.pastNewsletter {
   text-decoration: none;
   color: #000000;
   font-size: 20px;
-  font-family: 'Maven Pro', sans-serif;
 }
 
 div.pastNewsletter {
