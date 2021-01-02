@@ -505,9 +505,10 @@ body {
 
   padding-left: 20px;
   padding-right: 20px;
-  width: -webkit-calc(100% - 340px); /* 300 + 2*20padding */
-  width: -moz-calc(100% - 340px);
-  width: calc(100% - 340px);
+  width: -webkit-calc(100% - 40px); /* 300 + 2*20padding */
+  width: -moz-calc(100% - 40px);
+  width: calc(100% - 40px);
+  width: 100%;
 
   top: -30px;
 }
@@ -562,7 +563,7 @@ body {
 }
 
 .speakerList {
-  max-height: 500px;
+  /* max-height: 1000px; */
   overflow: scroll;
   display: none;
 }
