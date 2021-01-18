@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="scrollBackground.js"></script>
+    <script type="text/javascript" src="burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="team.html"><button class="mobilePageLink">Team</button></a>
+      <button class="mobilePageLink" id="currentPageLink">Community</button>
+      <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <button class="pageLink" id="currentPageLink">Community</button>
+      <a href="team.html"><button class="pageLink">Team</button></a>
+      <a href="events.html"><button class="pageLink">Events</button></a>
+      <a href="projects.html"><button class="pageLink">Projects</button></a>
+      <a href="index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/MeetingEvent.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+        <div id="smallInfoBlock" style="margin-top: 40px;">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <a href="event/natchat.html"><image src="images/InfoNight/NatChat.jpg" id="eventImage" alt="Info Night Image"></image></a>
+              <a href="event/natchat.html"><button id=smallButton>Learn More</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Academia</h2>
+              <p class="paragraph">
+                This is where we talk about our involvment in Academia
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div id="smallInfoBlock" style="margin-top: 40px;">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <a href="event/workshops.html"><image src="images/InfoNight/WSML.jpg" id="eventImage" alt="Info Night Image"></image></a>
+              <a href="event/workshops.html"><button id=smallButton>Learn More</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Industry</h2>
+              <p class="paragraph">
+                Here we talk about spinoff companies and hiring students.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="greyBG">
+
+
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Sponsors</h1>
+
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="images/InfoNight/INPurple.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://forms.gle/egpRY9F643MBmrri6" target="_blank"><button id=smallButton>Visit</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">Campus Alberta Neuroscience</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Campus Alberta Neuroscience is delighted to be a gold level sponsor for NAT Chat, hosted by NeurAlbertaTech and recognizes the significant impact this event brings to the neurotech industry and ecosystem in Alberta. CAN has a keen focus on providing opportunities for entrepreneurs working in Neuroscience and Mental Health across Alberta, with a particular interest in the development of the commercialization ecosystem, including supporting the development of new companies, supporting education and knowledge of entrepreneurship as well as securing new investment in the province.
+                  <br><br>
+                  CAN is a provincial organization committed to promoting and increasing the impact and outcomes of Alberta-wide collaborative research, education, translation and innovation initiatives in neuroscience and mental health.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="images/InfoNight/INPurple.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://forms.gle/egpRY9F643MBmrri6" target="_blank"><button id=smallButton>Visit</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">OpenBCI</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Hey! OpenBCI is cool because they gave us headsets n stuff.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="images/InfoNight/INPurple.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://forms.gle/egpRY9F643MBmrri6" target="_blank"><button id=smallButton>Visit</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <h2 class="subSubTitle" style="color: rgba(240,240,240,1);">Blueberry</h2>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Here's their sponsor blurb!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        var showingReadMores = [false, false, false, false];
+
+        $('#hardware').click(function(){
+          if(showingReadMores[0]) {
+            document.getElementById("hardwarePara").style.display="none"
+            document.getElementById("hardware").innerHTML = "More Information"
+            showingReadMores[0] = false;
+          } else {
+            document.getElementById("hardwarePara").style.display="block"
+            document.getElementById("hardware").innerHTML = "Less Information"
+            showingReadMores[0] = true;
+          }
+        });
+
+        $('#software').click(function(){
+          if(showingReadMores[1]) {
+            document.getElementById("softwarePara").style.display="none"
+            document.getElementById("software").innerHTML = "More Information"
+            showingReadMores[1] = false;
+          } else {
+            document.getElementById("softwarePara").style.display="block"
+            document.getElementById("software").innerHTML = "Less Information"
+            showingReadMores[1] = true;
+          }
+        });
+
+        $('#neuro').click(function(){
+          if(showingReadMores[2]) {
+            document.getElementById("neuroPara").style.display="none"
+            document.getElementById("neuro").innerHTML = "More Information"
+            showingReadMores[2] = false;
+          } else {
+            document.getElementById("neuroPara").style.display="block"
+            document.getElementById("neuro").innerHTML = "Less Information"
+            showingReadMores[2] = true;
+          }
+        });
+
+        $('#ml').click(function(){
+          if(showingReadMores[3]) {
+            document.getElementById("mlPara").style.display="none"
+            document.getElementById("ml").innerHTML = "More Information"
+            showingReadMores[3] = false;
+          } else {
+            document.getElementById("mlPara").style.display="block"
+            document.getElementById("ml").innerHTML = "Less Information"
+            showingReadMores[3] = true;
+          }
+        });
+
+      })
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
+
+  </body>
+
+</html>
