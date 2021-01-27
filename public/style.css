@@ -638,11 +638,21 @@ body {
 }
 
 .smallInfoCardContentContainer {
+  /* max-height: 80vh;
+  overflow: scroll;
+  display: none; */
   position: relative;
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+
+/* .smallInfoCardContentContainer div {
+  opacity: 0%;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+} */
 
 .curriculumTableContainer {
   /* overflow-y: auto;
