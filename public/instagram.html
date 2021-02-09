@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- This is a page for automatically redirecting.
+    When creating a QR code, link to this page and we can dynamically change the content.
+    To change the content, just update the links on lines 37 and 77-->
+
+    <!-- External CSS -->
+		<link href="style.css" rel="stylesheet" type="text/css">
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External JS -->
+    <script type="text/javascript" src="burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+      body {
+        background: url('images/HeaderImages/NeuroGraph.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
+
+    <!-- ### REDIRECT ### -->
+    <meta http-equiv='refresh' content='0; URL=https://www.instagram.com/nat_uab/'>
+    <!-- ### REDIRECT ### -->
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <a href="events.html"><button class="pageLink">Events</button></a>
+      <a href="team.html"><button class="pageLink">Team</button></a>
+      <a href="projects.html"><button class="pageLink">Projects</button></a>
+      <a href="index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div id="emailSignupConfirmation">
+
+      <div id="interestedBlockContents">
+        <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">Redirecting...</span></h1>
+        <p class="paragraph centredText" style="margin-top: 20px;"><span style="color: rgba(255,255,255,1);">If you aren't automatically redirected, press the button below!</span></p>
+      </div>
+
+      <div id="interestedLinksParent">
+        <ol id="interestedLinks">
+          <li><a href="https://www.instagram.com/nat_uab/"><button id="joinNewsletterButton">Sign Up</button></a></li>
+        </ol>
+      </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script type="text/javascript" src="dynamicLoad.js"></script>
+
+  </body>
+
+</html>
