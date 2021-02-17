@@ -551,20 +551,32 @@ body {
 
 #smallInfoContents {
   display: flex;
-  position: relative;
+  flex: 0 0 300px;
+  /* display: inline; */
+
+  /* width: -webkit-calc(100% - 30px);
+  width: -moz-calc(100% - 30px);
+  width: calc(100% - 30px); */
+  /* width: 75%; */
+  /* position: relative; */
 }
 
 #smallInfoBlockText {
   position: relative;
 
-  padding-left: 20px;
-  padding-right: 20px;
-  width: -webkit-calc(100% - 80px); /* 300 + 2*20padding */
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  /* width: -webkit-calc(100% - 80px);  300 + 2*20padding
   width: -moz-calc(100% - 80px);
-  width: calc(100% - 80px);
-  /* width: 100%; */
+  width: calc(100% - 80px); */
+  width: 100%;
 
-  top: -30px;
+  padding: none;
+  margin: none;
+
+  /* top: -30px; */
+  background-color: rgba(255,0,0,0.5);
+  padding-top: 0px;
 }
 
 #smallInfoBlock {
@@ -604,6 +616,24 @@ body {
   box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
   -webkit-box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
   -moz-box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
+}
+
+.cardStack::after {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-grow: 0; */
+  /* overflow: hidden;
+  width: 100%; */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cardInStack {
+  float: left;
+  width: 40%;
 }
 
 #darkSmallInfoBlock {
@@ -851,6 +881,17 @@ body {
   background-color: rgba(255,255,255,0.7);
   transform: scale(1);
   /* height: 500px; */
+}
+
+#viewPastExecsContentFull {
+  color: rgba(240,240,240,1);
+  font-size: 24px;
+  font-weight: 900;
+  font-family: 'Maven Pro', sans-serif;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 15px;
+  padding-bottom: 2%;
 }
 
 #viewPastExecsContent {
