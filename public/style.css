@@ -547,11 +547,18 @@ body {
   display: table;
   width: 300px;
   text-align: center;
+
+  margin-right: 15px;
+
+  /* background-color: rgba(0,255,0,0.5); */
 }
 
 #smallInfoContents {
   display: flex;
-  flex: 0 0 300px;
+  /* flex: 0 0 300px; */
+
+  /* background-color: rgba(0,0,255,0.5); */
+
   /* display: inline; */
 
   /* width: -webkit-calc(100% - 30px);
@@ -569,14 +576,15 @@ body {
   /* width: -webkit-calc(100% - 80px);  300 + 2*20padding
   width: -moz-calc(100% - 80px);
   width: calc(100% - 80px); */
-  width: 100%;
+  /* width: 100%; */
 
   padding: none;
   margin: none;
 
   /* top: -30px; */
-  background-color: rgba(255,0,0,0.5);
-  padding-top: 0px;
+  /* background-color: rgba(255,0,0,0.5); */
+
+  flex: 1;
 }
 
 #smallInfoBlock {
@@ -587,6 +595,7 @@ body {
   text-align: left;
   display: block;
   transition: background-color 0.2s ease-in-out;
+  /* display: flex; */
 
   /* -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1);
   box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1); */
@@ -618,22 +627,10 @@ body {
   -moz-box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
 }
 
-.cardStack::after {
-  /* display: flex;
+.cardStack {
+  display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  flex-grow: 0; */
-  /* overflow: hidden;
-  width: 100%; */
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.cardInStack {
-  float: left;
-  width: 40%;
+  overflow-y: scroll;
 }
 
 #darkSmallInfoBlock {
@@ -654,6 +651,8 @@ body {
 #contentContainer {
   transition: opacity 0.5s ease-in-out;
 }
+
+
 
 .speakerList {
   max-height: 80vh;
@@ -1317,6 +1316,11 @@ select:-webkit-autofill:focus {
   border-radius: 10px;
   transform: scale(1);
   /* border-radius: 20px; */
+}
+
+.smallImageLarger {
+  height: 400px;
+  width: 800px;
 }
 
 #smallImageChild {

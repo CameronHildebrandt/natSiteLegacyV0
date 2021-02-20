@@ -51,7 +51,7 @@
     </div>
 
     <div style="position: relative"><div class="spinner"></div></div>
-    <img id="headerBGImg" lsrc="/images/ProjectPhotos/BrainDroneThumbnail.jpg"></img>
+    <img id="headerBGImg" lsrc="/images/ProjectPhotos/bermuda/main.jpg"></img>
     <img id="headerBGDiv"></img>
 
 
@@ -63,21 +63,20 @@
 
 
 
-        <h1 class="subTitle" style="margin-left: 2%;">Bermuda Hardware Project</h1>
+        <!-- <h1 class="subTitle" style="margin-left: 2%;">Bermuda Hardware Project</h1> -->
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%;">
 
             <div id="largeInfoBlockMedia">
               <div id="largeMediaFrame">
-                <img src="../images/ProjectPhotos/BrainDroneThumbnail1.jpg" style="width: 100%;"></img>
+                <img src="/images/InfoNight/Error.jpg" style="width: 100%;"></img>
               </div>
-              <a href='https://github.com/neuralbertatech/openComp2020' target="_blank"><button id="smallButton">Github</button></a>
+              <!-- <a href='https://github.com/neuralbertatech/openComp2020' target="_blank"><button id="smallButton">Github</button></a> -->
             </div>
 
             <div id="largeInfoBlockText">
-              <h2 class="subSubTitle">NeuroTechX Open Competition 2020 Submission</h2>
-              <p class="paragraph">At the start of this year, we built a team and set out to build a drone controller for our OpenBCI headset. Thoughout the year, we decided to stick to our original plan of controlling a drone, but we realized that the controller that we were building was actually really generalizable. Once we made this realization, we made it a crucial factor of our code design and treated it as an overall goal for the finalized version of this project: build a BCI controller that can be hooked up to almost anything! </p>
-
+              <h2 class="subSubTitle">NAT Hardware Project 2021: Bermuda</h2>
+              <p class="paragraph">Bermuda is a custom solution for real-time integrated recording and analysis of EEG, eye-tracking, and body-tracking. Each of these three elements is being developed by a subgroup of the Bermuda team and are all based upon relatively inexpensive and widely accessible components. As a result of taking full advantage of consumer hardware, Bermuda will offer a complete system that is capable of real-time analysis for only a fraction of the cost of comparable systems that have been developed in the past. Additionally, the communications and integration of these 3 data streams are being built from the ground up.</p>
             </div>
           </div>
         </div>
@@ -87,29 +86,16 @@
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <h1 class="subTitle">Functionality</h1>
+            <div class="subTitle" style="margin-bottom: 15px;">What is Bermuda?</div>
 
-            <p class="paragraph" style="margin-top: 40px;">
-              One of the fundamental objectives of this project was to make an application that runs as discretely as possible, allowing for a nearly seamless connection between the BCI and the drone once the initial setup is complete. The only time that you really need to interact with the computer directly is during the setup process. While flying the drone, the computer acts exclusively as a bridge and status display for the flgiht dashboard, as well as an emergency drone kill switch. You indeed control 100% of the drone's actions using the headset.
-              <br><br>
-              <b>1: Connect BCI</b><br>
-              The very first thing that the program does is connect the OpenBCI to the computer. During this step, the program runs some diagnostic tests in the background to ensure that the BCI is connected properly.
-              <br><br>
-              <b>2: Collect Data</b><br>
-              This portion of the program will either collect a baseline or load a previously collected baseline depending on how the program is run. When we start the baseline collection process, it will automatically begin displaying random commands for you to mimic. What exactly it means to mimic is defined by what queues you choose to use to fly the drone. The queues that we usually used when we flew the drone were a mixture of thinking of moving muscles, stimulating the brain by looking at different colours, and reading different words. Alternatively, for this step we can load the data collected in a previous session (assuming that the BCI hasn't been taken off since that data was recorded) to save a large portion of time when starting the program.
-              <br><br>
-              <b>3: Train Model</b><br>
-              Training the models happens entirely automatically in the background. The program will take the recorded baseline brain data and pass it into three models for classification. All of the models that we used were simple LDA classifiers that trained on Fourier transformed data, averaged data (compressing all 16 channels into one "average" channel), and raw data (purely the signal from the headset). The program uses all three of these classifiers in conjunction to intelligently and confidently assign a single label to your brain data.
-              <br><br>
-              <img src="../images/ProjectPhotos/training.gif" id="exampleGif"></img>
-              <br><br>
-              <b>4: Conenct Drone</b><br>
-              This step is fairly similar to the "Connect BCI" step. We simply connect the drone to the computer and finally establish the complete link between the BCI headset and the drone.
-              <br><br>
-              <b>5: Fly!</b><br>
-              Once all of these preliminary steps have been completed, we are ready to fly the drone. At this point the only reason you would need to interact directly with the computer is to force the drone to preform an emergency landing. The program now automatically collects samples from the BCI and intelligently uses the 3 classifiers to predict what action you want the drone to take and then commands the drone to take that action. During this part of the program, the computer will also display a flight dashboard, which presents all of the crucial information like the drone's battery level, the prediction that each individual model is making, and the overall command that is being sent to the drone. See below an example of the dashboard.
-              <br><br>
-              <img src="../images/ProjectPhotos/flightDashboard.gif" id="exampleGif"></img>
+            <p class="paragraph">
+              The primary goal for Bermuda in the near future is to create a system that researchers can use to investigate novel research questions in areas such as prosthetics and movement disorder research. Ease of adoption and replication are central to the ethos of Bermuda. For this reason, the team has a heavy focus on communicating ideas and enabling the whole team to benefit from every individual’s work. This allows for cross-team idea-sharing and easy onboarding of new members.<br><br>
+
+              Bermuda is currently in the early prototyping stage. For body-tracking, the team has recently achieved real-time tracking of body positions by using the PoseNet deep learning model running locally on a Raspberry Pi. Specifically, two simultaneous images are captured from a stereo camera module on the Raspberry Pi, then PoseNet is used to find the 2D locations of body parts individually in both of these images. The two estimated 2D poses are then combined into a 3D skeleton using OpenCV which will be sent to a central computer. One of the important next steps for this group is to perform an analysis of tracking accuracy by comparing predicted values to real-world measurements. Additionally, the first version of this system does not meet the performance standards required and will need to be improved and optimized to achieve smooth tracking of rapid movements. This could include using external processing modules (e.g. Coral Edge TPU), cloud processing, smaller/lighter machine learning models, or a combination of these.<br><br>
+
+              At the center of Bermuda, there will be a Python-based graphical user interface (GUI) that streams data wirelessly from all 3 of the components by utilizing parallel processing. This GUI will display eye-gaze, body position, and EEG data in real-time as it is received. For eye-tracking, the team is making use of the Pupil Labs open source eye-tracking platform,
+              although there will be significant alterations to the design of the device and communications protocols. Last, but certainly not least, the EEG team has been working on interfacing an ADS1299 development board with a Raspberry Pi which will form the core of the EEG device. This is far from a trivial task and requires solving many low-level electrical engineering problems through a joint effort of many talented team members.
+
             </p>
           </div>
         </div>
@@ -117,7 +103,7 @@
 
 
 
-        <div id="largeInfoBlock">
+        <!-- <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
             <h1 class="subTitle">Data</h1>
 
@@ -145,11 +131,11 @@
               </p>
             </p>
           </div>
-        </div>
+        </div> -->
 
 
 
-        <div id="largeInfoBlock">
+        <!-- <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
             <h1 class="subTitle">Future Potential</h1>
             <p class="paragraph" style="margin-top: 40px;">
@@ -168,18 +154,16 @@
               Fortunately, within a short time constraint, the team was able to very efficently put together the "run-n-gun" model, which ended up preforming much better than we first anticipated. In conclusion, we firmly believe that we can greatly improve the overall quality of our classifier in the long term by switching over to the data-driven approach.
             </p>
           </div>
-        </div>
+        </div> -->
 
 
 
-        <div id="largeInfoBlock">
+        <!-- <div id="largeInfoBlock">
           <div id="largeInfoContents" style="display: block;">
             <h2 class="subTitle" style="text-align: center; margin-bottom: 1%;">Submission Video: <span style="font-weight: 300; font-size: 40px;">The Brain Controlled Drone</span></h2>
 
             <div id="largeMediaFrame" style="height: 516px; width: 917px; margin: 0 auto;">
 
-              <!-- <iframe id="smallVideoPlayer" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="300.375" height="168.75" type="text/html" src="https://www.youtube.com/embed/32io4iy6L0k?autoplay=0&fs=1&iv_load_policy=3&showinfo=1&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
-              </iframe> -->
 
               <div style="overflow:hidden;position: relative;" id="smallVideoPlayer">
                 <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="300.375" height="168.75" type="text/html" src="https://www.youtube.com/embed/-3UTwKpKpcI?autoplay=0&fs=1&iv_load_policy=3&showinfo=1&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080">
@@ -198,7 +182,7 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
 
 
 
@@ -256,11 +240,11 @@
           </div>
         </div> -->
 
-        <div id="interestedBlock" style="margin-bottom: 30px;">
+        <div class="greyBG" style="padding:2%;">
 
           <div id="interestedBlockContents">
 
-          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">2020 Project Team</span>
+          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">Bermuda Project Team</span>
           <!-- <div id="smallImage" style="width: 100%; margin-top: 10px; margin-bottom: 30px; height: 100%;">
             <img src="../images/Headshots/CameronHeadshot2.jpg" style="width: 100%"></img>
           </div> -->
@@ -273,96 +257,72 @@
               <tr>
                 <th>
                   <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/cdhildebrandt/" target="_blank"><img src="../images/Headshots/CameronHeadshot2.jpg" id="smallImageChild"></img></a>
+                    <a href="mailto:eredman@ualberta.ca"><img src="/images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
 
                 <th>
                   <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/zachary-selk-263b541b4/" target="_blank"><img src="../images/Headshots/ZachHeadshot.jpg" id="smallImageChild"></img></a>
+                    <a href="mailto:jwdavis@ualberta.ca"><img src="/images/InfoNight/Error.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
 
                 <th>
                   <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/landon-fuhr-8522031b7/" target="_blank"><img src="../images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
+                    <a href="mailto:lfuhr@ualberta.ca"><img src="/images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
 
                 <th>
                   <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/ryan-y-k/" target="_blank"><img src="../images/ProjectPhotos/brainDroneTeam/ryan.jpg" id="smallImageChild"></img></a>
+                    <a href="mailto:mridgway@ualberta.ca"><img src="/images/InfoNight/Error.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
+
 
                 <th>
                   <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/nevil-kandathil/" target="_blank"><img src="../images/ProjectPhotos/brainDroneTeam/nevil.jpg" id="smallImageChild"></img></a>
+                    <a href="mailto:rayner@ualberta.ca"><img src="/images/Headshots/PortiaHeadshot.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
+
 
                 <th>
                   <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/eden-redman-neuro/" target="_blank"><img src="../images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
+                    <a href="mailto:aravenap@ualberta.ca"><img src="/images/InfoNight/Error.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
-
-                <th>
-                  <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/david-lam-97866115b/" target="_blank"><img src="../images/Headshots/DavidHeadshot.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
-                <th>
-                  <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/matthew-danyluik/" target="_blank"><img src="../images/Headshots/MatthewHeadshot.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
-                <th>
-                  <div id="smallImage">
-                    <img src="../images/Headshots/JiyeonHeadshot.jpg" id="smallImageChild"></img>
-                  </div>
-                </th>
-
-                <!-- <th>
-                  <div id="smallImage">
-                    <img src="../images/InfoNight/Error.jpg" id="smallImageChild"></img>
-                  </div>
-                </th> -->
               </tr>
 
 
               <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
-                <th>Cameron Hildebrandt</th>
-                <th>Zach Selk</th>
-                <th>Landon Fuhr</th>
-                <th>Ryan Kang</th>
-                <th>Nevil Kadanthil</th>
                 <th>Eden Redman</th>
-                <!-- <th>Harrison Fah</th>
-                <th>Adam Elamy</th>
-                <th>Marty Rudolf</th> -->
-                <th>David Lam</th>
-                <th>Matthew Danyluk</th>
-                <th>Jiyeon Seo</th>
-                <!-- <th>Eddie Guo</th>
-                <th>Anna Romero</th>
-                <th>Carina Zhou</th> -->
-
-
+                <th>James Davis</th>
+                <th>Landon Fuhr</th>
+                <th>Madeleine Ridgway</th>
+                <th>Portia Rayner</th>
+                <th>Sebastian Aravena Pacheco</th>
               </tr>
 
               <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
-                <td>Team Lead</td>
-                <td>Administrative / Software</td>
-                <td>Software</td>
-                <td>Software</td>
-                <td>Software</td>
-                <td>Software</td>
-                <td>Research</td>
-                <td>Research</td>
-                <td>Research</td>
+                <td><b>Team Lead - Fine Arts and Design</b></td>
+                <td><b>PCB Designer - Electrical Engineering</b></td>
+                <td><b>Body Tracking Lead - Physiology</b></td>
+                <td><b>UX/UI Programmer - Neuroscience</b></td>
+                <td><b>Eye Tracking Lead - Electrical Engineering</b></td>
+                <td><b>Communications - Electrical Engineering</b></td>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1); vertical-align: top;">
+                <td>Responsible for coordinating communication and collaboration between subteams working on the distinct modalities as well as between software and hardware developers, setting project goals and milestones</td>
+                <td>Responsible for aiding all teams in hardware development, with an emphasis on the EEG team . James’s role is to develop the initial prototype that allows for future scalability, through which the project is poised to have a significant impact in the research community, and beyond. </td>
+                <td>None</td>
+                <td>Responsible for designing and programming the user interface for Bermuda. Madeleine is working on integrating the data streams from the project's three elements into a single interface, which will allow easy access to the information and simplify future applications of the system.</td>
+                <td>None</td>
+                <td>Responsible for establishing SPI communication between the Raspberry Pi and the ADS 1299 development board for the EEG team. This will be the core of the EEG device. Moving forward, communication will be done wirelessly using Bluetooth to expand communication capabilities.<br><br>
+
+                Currently working on the SPI communication between the Raspberry Pi and the ADS1299 analog to digital converter used in the collection of EEG data. Because Bermuda will be tracking free moving bodies we want to eliminate wires that could impede movement, so wireless EEG data transfer using Bluetooth will be implemented in the future. The plan is to use a QN9080SIP, an Ultra-low-power Bluetooth 5 SIP, to transfer EEG data to an on-board BLE from a laptop.
+                </td>
               </tr>
             </table>
           </div>
