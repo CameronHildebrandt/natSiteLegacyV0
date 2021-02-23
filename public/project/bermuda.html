@@ -63,231 +63,82 @@
 
       <div id="main">
 
-
-
         <!-- <h1 class="subTitle" style="margin-left: 2%;">Bermuda Hardware Project</h1> -->
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%;">
 
-            <div id="largeInfoBlockMedia">
-              <div id="largeMediaFrame">
-                <img src="/images/ProjectPhotos/bermuda/hardware.jpg" style="width: 100%;"></img>
-              </div>
-              <!-- <a href='https://github.com/neuralbertatech/openComp2020' target="_blank"><button id="smallButton">Github</button></a> -->
+            <div id="largeInfoBlockText">
+              <h1 class="subSubTitle">Bermuda</h1>
+              <p class="paragraph">Bermuda is a custom solution for real-time integrated recording and analysis of EEG, eye-tracking, and body-tracking. Each of these three elements is being developed by a subgroup of the Bermuda team and are all based upon relatively inexpensive and widely accessible components. As a result of taking full advantage of consumer hardware, Bermuda will offer a complete system that is capable of real-time analysis for only a fraction of the cost of comparable systems that have been developed in the past. Additionally, the communications and integration of these 3 data streams are being built from the ground up.</p>
             </div>
 
-            <div id="largeInfoBlockText">
-              <h2 class="subSubTitle">NAT Hardware Project 2021: Bermuda</h2>
-              <p class="paragraph">Bermuda is a custom solution for real-time integrated recording and analysis of EEG, eye-tracking, and body-tracking. Each of these three elements is being developed by a subgroup of the Bermuda team and are all based upon relatively inexpensive and widely accessible components. As a result of taking full advantage of consumer hardware, Bermuda will offer a complete system that is capable of real-time analysis for only a fraction of the cost of comparable systems that have been developed in the past. Additionally, the communications and integration of these 3 data streams are being built from the ground up.</p>
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <img src="/images/ProjectPhotos/bermuda/hardware.jpg" style="width: 80%;"></img>
+              </div>
             </div>
           </div>
         </div>
-
-
-
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <div class="subTitle" style="margin-bottom: 15px;">What is Bermuda?</div>
-
-            <p class="paragraph">
-              The primary goal for Bermuda in the near future is to create a system that researchers can use to investigate novel research questions in areas such as prosthetics and movement disorder research. Ease of adoption and replication are central to the ethos of Bermuda. For this reason, the team has a heavy focus on communicating ideas and enabling the whole team to benefit from every individual’s work. This allows for cross-team idea-sharing and easy onboarding of new members.<br><br>
-
-              Bermuda is currently in the early prototyping stage. For body-tracking, the team has recently achieved real-time tracking of body positions by using the PoseNet deep learning model running locally on a Raspberry Pi. Specifically, two simultaneous images are captured from a stereo camera module on the Raspberry Pi, then PoseNet is used to find the 2D locations of body parts individually in both of these images. The two estimated 2D poses are then combined into a 3D skeleton using OpenCV which will be sent to a central computer. One of the important next steps for this group is to perform an analysis of tracking accuracy by comparing predicted values to real-world measurements. Additionally, the first version of this system does not meet the performance standards required and will need to be improved and optimized to achieve smooth tracking of rapid movements. This could include using external processing modules (e.g. Coral Edge TPU), cloud processing, smaller/lighter machine learning models, or a combination of these.<br><br>
-
+            <div class="subTitle" style="margin-bottom: 25px;">What is Bermuda?</div>
+            <div class="subSubSubTitle" >Objectives</div>
+            <br>
+            <p class="paragraph" >
+              The primary goal for Bermuda in the near future is to create a system that researchers can use to investigate novel research questions in areas such as prosthetics and movement disorder research. Ease of adoption and replication are central to the ethos of Bermuda. For this reason, the team has a heavy focus on communicating ideas and enabling the whole team to benefit from every individual’s work. This allows for cross-team idea-sharing and easy onboarding of new members.<br>
+            </p>
+            <h2 class="subSubSubTitle">Rapid Development</h2>
+            <p class="paragraph" >
+              Bermuda is currently in the early prototyping stage. For body-tracking, the team has recently achieved real-time tracking of body positions by using the PoseNet deep learning model running locally on a Raspberry Pi. Specifically, two simultaneous images are captured from a stereo camera module on the Raspberry Pi, then PoseNet is used to find the 2D locations of body parts individually in both of these images. The two estimated 2D poses are then combined into a 3D skeleton using OpenCV which will be sent to a central computer. One of the important next steps for this group is to perform an analysis of tracking accuracy by comparing predicted values to real-world measurements. Additionally, the first version of this system does not meet the performance standards required and will need to be improved and optimized to achieve smooth tracking of rapid movements. This could include using external processing modules (e.g. Coral Edge TPU), cloud processing, smaller/lighter machine learning models, or a combination of these.<br>
+            </p>
+            <h2 class="subSubSubTitle">User Interaction</h2>
+            <p class="paragraph" >
               At the center of Bermuda, there will be a Python-based graphical user interface (GUI) that streams data wirelessly from all 3 of the components by utilizing parallel processing. This GUI will display eye-gaze, body position, and EEG data in real-time as it is received. For eye-tracking, the team is making use of the Pupil Labs open source eye-tracking platform,
               although there will be significant alterations to the design of the device and communications protocols. Last, but certainly not least, the EEG team has been working on interfacing an ADS1299 development board with a Raspberry Pi which will form the core of the EEG device. This is far from a trivial task and requires solving many low-level electrical engineering problems through a joint effort of many talented team members.
-
             </p>
+          </div>
           </div>
         </div>
-
-
-
-
-        <!-- <div id="largeInfoBlock">
-          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <h1 class="subTitle">Data</h1>
-
-            <p class="paragraph" style="margin-top: 40px;">
-              <b>What does the data look like?</b><br>
-              The data is handled differently for each model that we have. Let's first walk through what we do to the data for the Fourier transform model.
-              <br><br><br>
-
-              <img src="../images/ProjectPhotos/dataExample/0.jpg" id="exampleGif" class="dataExample"></img>
-
-              <br><br>
-              <b>Fourier Model</b>
-              <p id="dataParagraph" class="paragraph">
-                This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter" id="uncoloredLink" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>
-              </p>
-
-              <p class="paragraph">
-                <br><br><br>
-                <b>Average Model</b><br>
-                This model is drastically simpler than the Fourier model. We still pass all of the data through the savgol filter to have smoother samples, but this time, we simply add all of the samples together to create a single "sample" that is really good at capturing spikes that occur over all channels. We then train the model directly off of this.
-
-                <br><br><br>
-                <b>Raw Model</b><br>
-                This model is definitely the simplest of our models. We once again pass the data through a savgol filter and then concatenate all of the samples into one long sample. We then leave 100% of the interpretation of the data up to the model. Depending on the training data, this can lead to surprisingly strong predicting power, sometimes as much as 20% stronger than the next strongest model.
-              </p>
-            </p>
-          </div>
-        </div> -->
-
-
-
-        <!-- <div id="largeInfoBlock">
-          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <h1 class="subTitle">Future Potential</h1>
-            <p class="paragraph" style="margin-top: 40px;">
-              <b>What Can we do With the Controller?</b><br>
-              As briefly mentioned above, from the very beginning of this project, we designed our code base to be expandable. We realized that the simple act of classifying directional labels from brain data has a number of applications beyond just flying a drone. A number of incredibly powerful and potentially life changing applications. Realistically, anyone (since our code base is open source) can take our classifier and attach it to any other peripheral by modifying just a few lines of code. The future possibilities of what exactly this can be connected to is essentially limitless. We chose to connect our controller to a drone to show it's power in an entertaining and fun way, though, this can really be connected to anything from games to wheelchairs to rudamentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability.
-              <br><br>
-              <b>What Can we do to Improve the Prediction Quality in the Future?</b><br>
-              The most obvious way to improve our prediction quality in the future over the long term is to take a much more data-driven approach to the problem. One of the largest drawbacks of our current implementation is that the baseline that is collected must constitue of 100% of the data that will be used for training. This means that we are immediately faced with a compromise, we have to pick a reasonably small amount of time to collect the baseline, so that the setup for flying the drone does not take all day, but we also need to pick a reasonably large amount of time to collect as many baseline samples as possible so that the quality of our model is high enough that it is actually useful.
-              <br><br>
-              The way that we can circumvent needing to make this tradeoff in the first place is by collecting and saving data. A lot of data. Then we can train a model on our large dataset to get reasonably strong predicting power. We can then also use the baseline collection time to collect data that will be used to tailor the existing model to the user, as opposed to creating an entirely new model from scratch, meaning that the time needed to collect the baseline will also be drastically reduced.
-              <br><br>
-              This data-driven approach is actually the first plan that we had for this program. The biggest problem that we faced with the approach, though, is that the sheer magnitude of data necessary for it to outpreform our "run-n-gun" approach is massive. When the headset is taken off and put back on between sessions, the exact position of the electrodes slightly changes, which entirely invalidates the predicting power of the little nuances that the "run-n-gun" aproach thrives off of. To counter this, it is necessary to collect a massive amount of data.
-              <br><br>
-              This need for big data did not scare us, though. We spend months collecting nearly 6000 data samples to begin training this model. By the time that we actually had a prototype for the model up and running, however, we made the unfortunate discovery that there was a one-line error in the training data collection script that invalidated approximately 95% of our dataset. The worst part was that there was also really no way for us to know which of these samples were actually valid. We had to completely pivot the approach that we were taking to solve the problem.
-              <br><br>
-              Fortunately, within a short time constraint, the team was able to very efficently put together the "run-n-gun" model, which ended up preforming much better than we first anticipated. In conclusion, we firmly believe that we can greatly improve the overall quality of our classifier in the long term by switching over to the data-driven approach.
-            </p>
-          </div>
-        </div> -->
-
-
-
-        <!-- <div id="largeInfoBlock">
-          <div id="largeInfoContents" style="display: block;">
-            <h2 class="subTitle" style="text-align: center; margin-bottom: 1%;">Submission Video: <span style="font-weight: 300; font-size: 40px;">The Brain Controlled Drone</span></h2>
-
-            <div id="largeMediaFrame" style="height: 516px; width: 917px; margin: 0 auto;">
-
-
-              <div style="overflow:hidden;position: relative;" id="smallVideoPlayer">
-                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="300.375" height="168.75" type="text/html" src="https://www.youtube.com/embed/-3UTwKpKpcI?autoplay=0&fs=1&iv_load_policy=3&showinfo=1&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080">
-                </iframe>
-
-                <div style="position: absolute;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
-                  <small style="line-height: 1.8;font-size: 0px;background: #fff;">
-                    <a href="https://www.altcodesymbols.com/" rel="nofollow">Special characters</a>
-                  </small>
-                </div>
-
-                <style>.newst{position:relative;text-align:right;height:420px;width:520px;} #gmap_canvas img{max-width:none!important;background:none!important}</style>
-              </div>
-
-              <iframe id="normalVideoPlayer" width="917" height="516" src="https://www.youtube.com/embed/-3UTwKpKpcI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-            </div>
-          </div>
-        </div> -->
-
-
-
-        <!-- We don't actually have mmedia coverage yet, so let's just hide the whole block -->
-        <!-- <div id="largeInfoBlock">
-          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <p class="paragraph" style="margin-top: 20px; text-align: center;"><span style="font-weight: 700;">Check out our media coverage:</span></p>
-            <div id="mediaGrid">
-
-              <div class="mediaLogo">
-                <a href="https://www.cbc.ca/news/canada/edmonton/u-of-a-students-create-video-game-uses-brain-controller-1.5263352" target="_blank">
-                  <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CBC_Logo_1992-Present.svg/1024px-CBC_Logo_1992-Present.svg.png"></image>
-                </a>
-              </div>
-
-              <div class="mediaLogo">
-                <a href="https://edmonton.ctvnews.ca/brain-controlled-video-game-aims-to-improve-accessibility-for-players-1.4567521?cache=yes%3FclipId%3D89531%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue" target="_blank">
-                  <image src="https://upload.wikimedia.org/wikipedia/commons/5/5e/CTV_flat_logo.svg"></image>
-                </a>
-              </div>
-
-              <div class="mediaLogo">
-                <a href="https://edmontonjournal.com/news/local-news/u-of-a-students-create-mind-controlled-video-game/" target="_blank">
-                  <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Edmonton_Journal_%282020-01-15%29.svg/1200px-Edmonton_Journal_%282020-01-15%29.svg.png"></image>
-                </a>
-              </div>
-
-
-              <div class="mediaLogo">
-                <a href="https://www.thestar.com/calgary/2019/08/29/some-alberta-university-students-have-created-a-mind-controlled-video-game-and-the-technology-could-have-real-world-applications.html" target="_blank">
-                  <image src="https://lh3.googleusercontent.com/rNE-n57GBBDjcxbLwY2ouar-aM_ufghjPmpFp5xyEMyhRPxblYXZ0Nx12Z79LIYniGySiB4fo8hr96bJGwqa8kVqT36qLC6m_8pijVx-M6VnoP3oj7xVytWtS6nBfznnh0tZQiaWxQ=w2400"></image>
-                </a>
-              </div>
-
-
-              <div class="mediaLogo">
-                <a href="https://www.facebook.com/CityNewsYEG/videos/2097476683892344/" target="_blank">
-                  <image src="https://lh3.googleusercontent.com/CHVewaOa751dAQnzsPp7KLIaBkRvkuorfJaw0oo7S8X1fqMkDyefiJ2-rwQ3Ux6np5gKde7hvB3QjOhoCcxWOJXx-urQAiSUlhyAljiWcKbZyh0bt-MoxShPaR6ZJlTXV5mFwVfqOA=w2400"></image>
-                </a>
-              </div>
-
-              <div class="mediaLogo">
-                <a href="https://novo.press/university-students-create-first-mind-controlled-video-game-using-neurotechnology/" target="_blank">
-                  <image src="https://novo.press/wp-content/uploads/2017/08/NOVO-logo-1.png"></image></a>
-                </a>
-              </div>
-
-              <div class="mediaLogo">
-                <a href="https://www.ualberta.ca/science/news/2019/august/neurotechnology-video-game.html" target="_blank">
-                  <image src="../images/HostedOnGooglePhotos/MediaLogos/UAlberta.png"></image></a>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div> -->
 
         <div class="greyBG" style="padding:2%;">
 
           <div id="interestedBlockContents">
 
           <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">Bermuda Project Team</span>
-          <!-- <div id="smallImage" style="width: 100%; margin-top: 10px; margin-bottom: 30px; height: 100%;">
-            <img src="../images/Headshots/CameronHeadshot2.jpg" style="width: 100%"></img>
-          </div> -->
-
-
-          <!-- <div style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">Members</div> -->
 
           <div id="viewPastExecsContentScrollContainer">
             <table style="width:100%" class="pastExecsTable">
               <tr>
                 <th>
                   <div id="smallImage">
-                    <a href="mailto:eredman@ualberta.ca"><img src="/images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
+                    <a href="https://www.linkedin.com/in/eden-redman-neuro/"><img src="/images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
 
                 <th>
                   <div id="smallImage">
-                    <a href="mailto:jwdavis@ualberta.ca"><img src="/images/ProjectPhotos/bermuda/team/James.jpg" id="smallImageChild"></img></a>
+                    <a href="https://www.linkedin.com/in/landon-fuhr-8522031b7/"><img src="/images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
 
                 <th>
                   <div id="smallImage">
-                    <a href="mailto:lfuhr@ualberta.ca"><img src="/images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
+                    <a href="https://www.linkedin.com/in/james-davis-68517917a/"><img src="/images/ProjectPhotos/bermuda/team/James.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
+
+                <!-- <th>
+                  <div id="smallImage">
+                    <a href="mailto:rayner@ualberta.ca"><img src="/images/Headshots/PortiaHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th> -->
 
                 <th>
                   <div id="smallImage">
                     <a href="mailto:mridgway@ualberta.ca"><img src="/images/ProjectPhotos/bermuda/team/Madeleine.jpg" id="smallImageChild"></img></a>
                   </div>
                 </th>
-
-
-                <th>
-                  <div id="smallImage">
-                    <a href="mailto:rayner@ualberta.ca"><img src="/images/Headshots/PortiaHeadshot.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
 
                 <th>
                   <div id="smallImage">
@@ -299,39 +150,34 @@
 
               <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
                 <th>Eden Redman</th>
-                <th>James Davis</th>
                 <th>Landon Fuhr</th>
+                <th>James Davis</th>
+                <!-- <th>Portia Rayner</th> -->
                 <th>Madeleine Ridgway</th>
-                <th>Portia Rayner</th>
                 <th>Sebastian Aravena Pacheco</th>
               </tr>
 
               <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
-                <td><b>Team Lead - Fine Arts and Design</b></td>
-                <td><b>PCB Designer - Electrical Engineering</b></td>
-                <td><b>Body Tracking Lead - Physiology</b></td>
-                <td><b>UX/UI Programmer - Neuroscience</b></td>
-                <td><b>Eye Tracking Lead - Electrical Engineering</b></td>
-                <td><b>Communications - Electrical Engineering</b></td>
+                <td><b>Team Lead - BA, Fine Arts and Design</b></td>
+                <td><b>Body Tracking Lead - BSc, Physiology</b></td>
+                <td><b>PCB Designer - BSc, Electrical Engineering</b></td>
+                <!-- <td><b>Eye Tracking Lead - BSc, Electrical Engineering</b></td> -->
+                <td><b>UX/UI Programmer - BSc, Neuroscience</b></td>
+                <td><b>Communications - BSc, Electrical Engineering</b></td>
               </tr>
 
-              <!-- <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1); vertical-align: top;">
-                <td>Responsible for coordinating communication and collaboration between subteams working on the distinct modalities as well as between software and hardware developers, setting project goals and milestones</td>
-                <td>Responsible for aiding all teams in hardware development, with an emphasis on the EEG team . James’s role is to develop the initial prototype that allows for future scalability, through which the project is poised to have a significant impact in the research community, and beyond. </td>
-                <td>None</td>
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1); vertical-align: top;">
+                <td>Responsible for coordinating communication and collaboration between software and hardware developers as well as between the sub-teams working on each of the three modalities that make up Bermuda. Eden also sets project goals and oversees the progression towards these milestones, beyond this he works hands-on where he is needed in order to keep the project moving forward.  </td>
+                <td>Responsible for conceptualizing and developing the body tracking system for Bermuda. Landon is using lightweight deep learning models to provide real-time pose estimation. He is building the system centered around a Raspberry Pi to keep costs down along with a stereo camera module to allow for identification of 3D locations of parts.  </td>
+                <td>Responsible for aiding all teams in hardware development, with an emphasis on the EEG team. James is responsible for developing the initial in-house EEG prototype that allows for future scalability, through which the project is poised to have a significant impact in the research community, and beyond.</td>
+                <!-- <td></td> -->
                 <td>Responsible for designing and programming the user interface for Bermuda. Madeleine is working on integrating the data streams from the project's three elements into a single interface, which will allow easy access to the information and simplify future applications of the system.</td>
-                <td>None</td>
-                <td>Responsible for establishing SPI communication between the Raspberry Pi and the ADS 1299 development board for the EEG team. This will be the core of the EEG device. Moving forward, communication will be done wirelessly using Bluetooth to expand communication capabilities.<br><br>
-
-                Currently working on the SPI communication between the Raspberry Pi and the ADS1299 analog to digital converter used in the collection of EEG data. Because Bermuda will be tracking free moving bodies we want to eliminate wires that could impede movement, so wireless EEG data transfer using Bluetooth will be implemented in the future. The plan is to use a QN9080SIP, an Ultra-low-power Bluetooth 5 SIP, to transfer EEG data to an on-board BLE from a laptop.
-                </td>
-              </tr> -->
+                <td>Responsible for SPI communication between the Raspberry Pi and the ADS1299 analog to digital converter used in the collection of EEG data. One of Bermuda’s main design constraints will be tracking free moving bodies therefore Sebastian works to eliminate wires that could impede movement through the use of a QN9080SIP, an Ultra-low-power Bluetooth 5 SIP, to transfer EEG data to an on-board laptop BLE.</td>
+              </tr> 
 
             </table>
           </div>
-
         </div>
-
       </div>
     </div>
 
@@ -379,9 +225,7 @@
           }
         });
       });
-
     </script>
-
 
     <!-- Show data processing -->
     <script>
