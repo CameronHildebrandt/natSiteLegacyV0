@@ -1583,7 +1583,8 @@ div.pastNewsletter:active {
   }
 
   #smallInfoBlockMedia {
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
+    margin: 0 auto;
   }
 
   .curriculumTable tr td,
@@ -1594,7 +1595,7 @@ div.pastNewsletter:active {
 }
 
 /* Hide Tabs First */
-@media screen and (max-width:975px){
+@media screen and (max-width:1110px){
   #burger {
     display: inline;
   }
@@ -1620,11 +1621,12 @@ div.pastNewsletter:active {
 
   #smallInfoBlockMedia {
     margin: 0 auto;
-    margin-bottom: 50px;
-    margin-top: 20px;
+    /* margin-bottom: 50px;
+    margin-top: 20px; */
 
-    width: 100%;
-    height: auto;
+    /* width: 100%;
+    height: auto; */
+    width: 300px;
   }
 
   #largeInfoBlockMedia {
