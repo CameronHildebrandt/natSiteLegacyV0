@@ -32,22 +32,24 @@
     </div>
 
     <div class="mobileMenu">
-      <a href="../index.html"><button class="mobilePageLink">Home</button></a>
-      <a href="../projects.html"><button class="mobilePageLink">Projects</button></a>
-      <a href="../team.html"><button class="mobilePageLink">Team</button></a>
-      <a href="../events.html"><button class="mobilePageLink">Events</button></a>
-      <a href="../contact.html"><button class="mobilePageLink">Contact</button></a>
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
     </div>
 
     <div id=headerBar>
       <a href="/index.html"><image id="headerImg" src="../images/NATBrain.svg" alt="NAT Brain"></image></a>
       <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
 
-      <a href="../contact.html"><button class="pageLink">Contact</button></a>
-      <a href="../events.html"><button class="pageLink">Events</button></a>
-      <a href="../team.html"><button class="pageLink">Team</button></a>
-      <a href="../projects.html"><button class="pageLink">Projects</button></a>
-      <a href="../index.html"><button class="pageLink">Home</button></a>
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="community.html"><button class="pageLink">Community</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
     </div>
 
     <div style="position: relative"><div class="spinner"></div></div>
@@ -75,7 +77,7 @@
             </div>
 
             <div id="largeInfoBlockText">
-              <h2 class="subSubTitle">NeuroTechX Open Competition 2020 Submission</h2>
+              <div class="subSubTitle" style="margin-bottom: 15px;">NeuroTechX Open Competition 2020 Submission</div>
               <p class="paragraph">At the start of this year, we built a team and set out to build a drone controller for our OpenBCI headset. Thoughout the year, we decided to stick to our original plan of controlling a drone, but we realized that the controller that we were building was actually really generalizable. Once we made this realization, we made it a crucial factor of our code design and treated it as an overall goal for the finalized version of this project: build a BCI controller that can be hooked up to almost anything! </p>
 
             </div>
@@ -87,9 +89,9 @@
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <h1 class="subTitle">Functionality</h1>
+            <div class="subTitle" style=" margin-bottom: 15px;">Functionality</div>
 
-            <p class="paragraph" style="margin-top: 40px;">
+            <p class="paragraph">
               One of the fundamental objectives of this project was to make an application that runs as discretely as possible, allowing for a nearly seamless connection between the BCI and the drone once the initial setup is complete. The only time that you really need to interact with the computer directly is during the setup process. While flying the drone, the computer acts exclusively as a bridge and status display for the flgiht dashboard, as well as an emergency drone kill switch. You indeed control 100% of the drone's actions using the headset.
               <br><br>
               <b>1: Connect BCI</b><br>
@@ -119,9 +121,9 @@
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <h1 class="subTitle">Data</h1>
+            <div class="subTitle" style=" margin-bottom: 15px;">Data</div>
 
-            <p class="paragraph" style="margin-top: 40px;">
+            <p class="paragraph">
               <b>What does the data look like?</b><br>
               The data is handled differently for each model that we have. Let's first walk through what we do to the data for the Fourier transform model.
               <br><br><br>
@@ -131,7 +133,7 @@
               <br><br>
               <b>Fourier Model</b>
               <p id="dataParagraph" class="paragraph">
-                This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>
+                This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter" id="uncoloredLink" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>
               </p>
 
               <p class="paragraph">
@@ -151,8 +153,8 @@
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <h1 class="subTitle">Future Potential</h1>
-            <p class="paragraph" style="margin-top: 40px;">
+            <div class="subTitle" style=" margin-bottom: 15px;">Future Potential</div>
+            <p class="paragraph">
               <b>What Can we do With the Controller?</b><br>
               As briefly mentioned above, from the very beginning of this project, we designed our code base to be expandable. We realized that the simple act of classifying directional labels from brain data has a number of applications beyond just flying a drone. A number of incredibly powerful and potentially life changing applications. Realistically, anyone (since our code base is open source) can take our classifier and attach it to any other peripheral by modifying just a few lines of code. The future possibilities of what exactly this can be connected to is essentially limitless. We chose to connect our controller to a drone to show it's power in an entertaining and fun way, though, this can really be connected to anything from games to wheelchairs to rudamentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability.
               <br><br>
@@ -174,7 +176,7 @@
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="display: block;">
-            <h2 class="subTitle" style="text-align: center; margin-bottom: 1%;">Submission Video: <span style="font-weight: 300; font-size: 40px;">The Brain Controlled Drone</span></h2>
+            <div class="subTitle" style="text-align: center; margin-bottom: 1%;">Submission Video: <span style="font-weight: 300; font-size: 40px;">The Brain Controlled Drone</span></div>
 
             <div id="largeMediaFrame" style="height: 516px; width: 917px; margin: 0 auto;">
 
@@ -426,7 +428,7 @@
         var currStage = 0;
         var dataParagraph = document.getElementById("dataParagraph");
         var stageParagraphs = [
-          'This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>',
+          'This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter"  id="uncoloredLink" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>',
 
           "Now that we have smoothed out the data, it is much easier to see the underlying waves, which means that the Fourier transform will likely be able to better represent what is actually going on with the data. Let's pass each of the individual channels through a Fourier transform. <br><br><b>Click on the data to pass the channels through a Fourier transform.</b>",
 

@@ -22,8 +22,8 @@
     <meta name="viewport" content="width=device-width">
 
     <style>
-    #main {
-      padding-bottom: 60px;
+    .greyBG {
+      margin-top: 60px;
     }
     </style>
   </head>
@@ -41,6 +41,7 @@
       <button class="mobilePageLink" id="currentPageLink">Projects</button>
       <a href="team.html"><button class="mobilePageLink">Team</button></a>
       <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="community.html"><button class="mobilePageLink">Community</button></a>
       <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
     </div>
 
@@ -49,6 +50,7 @@
       <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
 
       <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <a href="community.html"><button class="pageLink">Community</button></a>
       <a href="events.html"><button class="pageLink">Events</button></a>
       <a href="team.html"><button class="pageLink">Team</button></a>
       <button class="pageLink" id="currentPageLink">Projects</button>
@@ -68,25 +70,29 @@
 
 
 
+        <!-- <h1 class="subTitle" style="left:2%;">Current Projects</h1> -->
 
         <!-- This is the start of the 2021 project -->
         <div id="largeInfoBlock">
-          <h1 class="subTitle">In Progress</h1>
+          <h1 class="subTitle">Koalacademy</h1>
           <div id="largeInfoContents">
 
             <div id="largeInfoBlockMedia">
               <div id="largeMediaFrame">
-                <!-- <img src="https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.0-9/100368992_1394016447453095_8392367036981837824_n.jpg?_nc_cat=107&ccb=2&_nc_sid=e3f864&_nc_ohc=y5pa-NHJt2IAX8MrbG2&_nc_ht=scontent.fyyc2-1.fna&oh=311cfcb90aaaf55ff2dee7e40ee6fe0b&oe=5FD8AAEA" style="width: 120%;"></img> -->
-                <img src="https://accountablenow.org/wp-content/uploads/2020/01/placeholder.png" style="width: 120%;"></img>
+                <a href='/project/koalacademy.html' style="text-decoration: none"><img src="/images/ProjectPhotos/koalacademy/equate.png" style="width: 100%;"></img></a>
               </div>
+
+              <a href='/project/koalacademy.html' style="text-decoration: none"><button id="smallButton">View Project</button></a>
 
               <!-- When the project is done, change this link -->
               <!-- <a href='https://github.com' target="_blank"><button id="smallButton">GitHub</button></a> -->
             </div>
 
             <div id="largeInfoBlockText">
-              <h2 class="subSubTitle">NTX Open Competition 2021</h2>
-              <p class="paragraph">As the deadline for NTX's open competition 2021 nears, we will be updating more information about this project! Join the newsletter to keep up to date with our progress on the project!</p>
+              <div class="subSubTitle" style="margin-bottom: 15px;">BCI-Optimized Language Learning</div>
+              <p class="paragraph">
+                We are currently developing an open access web platform that uses electroencephalography, cloud cloud computing, modern web development, and machine learning in order to increase learning efficiency for the Mandarin language!
+              </p>
               <!-- <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p> -->
 
               <!-- <div id="mediaGrid">
@@ -109,7 +115,94 @@
 
 
 
+        <!-- This is the start of the 2021 hardware project -->
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Bermuda</h1>
+          <div id="largeInfoContents">
 
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <a href="/project/bermuda.html"><img src="/images/ProjectPhotos/bermuda/main.jpg" style="width: 120%;"></img></a>
+
+                <!-- <a href='/project/bermuda.html' style="text-decoration: none"><img src="https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.0-9/100368992_1394016447453095_8392367036981837824_n.jpg?_nc_cat=107&ccb=2&_nc_sid=e3f864&_nc_ohc=z5S30GAUMWkAX-csplF&_nc_ht=scontent.fyyc2-1.fna&oh=0a99dbfc3251b2f74f9c2ee60f912826&oe=600820EA" style="width: 120%;"></img></a> -->
+              </div>
+
+              <a href='/project/bermuda.html' style="text-decoration: none"><button id="smallButton">View Project</button></a>
+
+              <!-- When the project is done, change this link -->
+              <!-- <a href='https://github.com' target="_blank"><button id="smallButton">GitHub</button></a> -->
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">Brain, Body, and Eye Tracking</div>
+              <p class="paragraph">
+                We are developing a suite of hardware and software solutions that allows for the reliable, repeatable, and time sycnhronized acquisition of electroencaphalography, eye tracking, and body tracaking data (several orders of magnitude cheaper than current solutions).
+              </p>
+              <!-- <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p> -->
+
+              <!-- <div id="mediaGrid">
+                <a href="https://www.cbc.ca/news/canada/edmonton/u-of-a-students-create-video-game-uses-brain-controller-1.5263352" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CBC_Logo_1992-Present.svg/1024px-CBC_Logo_1992-Present.svg.png"></image>
+                  </div>
+                </a>
+
+                <a href="https://edmonton.ctvnews.ca/brain-controlled-video-game-aims-to-improve-accessibility-for-players-1.4567521?cache=yes%3FclipId%3D89531%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/CTV_flat_logo.svg/1200px-CTV_flat_logo.svg.png"></image>
+                  </div>
+                </a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- This is the end of Bermuda -->
+
+        <!-- This is the start of Neuroprothesis -->
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Neuroprosthesis</h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <a href="/project/neuroprosthesis.html"><img src="/images/ProjectPhotos/bermuda/main.jpg" style="width: 120%;"></img></a>
+
+                <!-- <a href='/project/bermuda.html' style="text-decoration: none"><img src="https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.0-9/100368992_1394016447453095_8392367036981837824_n.jpg?_nc_cat=107&ccb=2&_nc_sid=e3f864&_nc_ohc=z5S30GAUMWkAX-csplF&_nc_ht=scontent.fyyc2-1.fna&oh=0a99dbfc3251b2f74f9c2ee60f912826&oe=600820EA" style="width: 120%;"></img></a> -->
+              </div>
+
+              <a href='/project/neuroprosthesis.html' style="text-decoration: none"><button id="smallButton">View Project</button></a>
+
+              <!-- When the project is done, change this link -->
+              <!-- <a href='https://github.com' target="_blank"><button id="smallButton">GitHub</button></a> -->
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">Brain and Muscle Reactive Prosthetics</div>
+              <p class="paragraph">
+                This team is developing an electroencephalogram and electromyography (EEG/EMG)-controlled prosthetic hand from scratch.
+              </p>
+              <!-- <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p> -->
+
+              <!-- <div id="mediaGrid">
+                <a href="https://www.cbc.ca/news/canada/edmonton/u-of-a-students-create-video-game-uses-brain-controller-1.5263352" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CBC_Logo_1992-Present.svg/1024px-CBC_Logo_1992-Present.svg.png"></image>
+                  </div>
+                </a>
+
+                <a href="https://edmonton.ctvnews.ca/brain-controlled-video-game-aims-to-improve-accessibility-for-players-1.4567521?cache=yes%3FclipId%3D89531%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue" target="_blank">
+                  <div class="mediaLogo">
+                    <image src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/CTV_flat_logo.svg/1200px-CTV_flat_logo.svg.png"></image>
+                  </div>
+                </a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- This is the end of the 2021 hardware project -->
+
+
+        <h1 class="subTitle" style="left:2%;"><br>Past Projects</h1>
 
 
         <!-- This is the start of the drone project -->
@@ -126,8 +219,15 @@
             </div>
 
             <div id="largeInfoBlockText">
-              <a href='project/drone.html' style="text-decoration: none"><h2 class="subSubTitle">NTX Open Competition 2020</h2></a>
-              <p class="paragraph">A drone controlled entirely by your brain waves! Not only is this an incredibly fun project, but this is also a potentially incredibly powerful creation. In reality, over the past few months, we have built a general purpose BCI controller that can be connected to whatever we want! We chose to connect it to a drone to show it's power in an entertaining way, though, this can be connected to anything from games to wheelchairs to rudamentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability. Tap on "View Project" to learn more!</p>
+              <a href='project/drone.html' style="text-decoration: none"><div class="subSubTitle" style="margin-bottom: 15px;">NTX Open Competition 2020</div></a>
+              <p class="paragraph">A drone controlled entirely by your brain waves!</p>
+              <br>
+              <p class="paragraph">
+                Not only was this an incredibly fun project, but it represents a potential for an incredibly powerful creation.
+                Essentially, we have built a general purpose BCI controller that can be connected to whatever we want!
+              </p>
+
+
               <!-- <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p> -->
 
               <!-- <div id="mediaGrid">
@@ -166,112 +266,48 @@
 
             <div id="largeInfoBlockMedia">
               <div id="largeMediaFrame">
-                <a href='project/RemBRAINdt.html' style="text-decoration: none"><img src="images/ProjectPhotos/RemBRAINdtScreencap.jpg" style="width: 100%;"></img></a>
+                <a href='project/RemBRAINdt.html' style="text-decoration: none"><img src="/images/FullSizeHeaderImages/RemBRAINdt.jpg" style="width: 100%; position: absolute; top: 50%; transform: translateY(-50%);"></img></a>
               </div>
               <a href='project/RemBRAINdt.html' style="text-decoration: none"><button id="smallButton">View Project</button></a>
             </div>
 
             <div id="largeInfoBlockText">
-              <a href='project/RemBRAINdt.html' style="text-decoration: none"><h2 class="subSubTitle">Russian NeuroTech Cup 2020</h2></a>
-              <p class="paragraph">Despite the reality of COVID-19, in just a few summer months we remotely developed and submitted an art-generating BCI program (utilizing our new 16-channel OpenBCI) to the Russia-hosted Neurotech Cup 2020 and secured a position as finalists! On October 10th, 2020 we were awarded a People’s Choice Award!</p>
-              <!-- <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p> -->
-
-              <!-- <div id="mediaGrid">
-                <a href="https://www.cbc.ca/news/canada/edmonton/u-of-a-students-create-video-game-uses-brain-controller-1.5263352" target="_blank">
-                  <div class="mediaLogo">
-                    <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CBC_Logo_1992-Present.svg/1024px-CBC_Logo_1992-Present.svg.png"></image>
-                  </div>
-                </a>
-
-                <a href="https://edmonton.ctvnews.ca/brain-controlled-video-game-aims-to-improve-accessibility-for-players-1.4567521?cache=yes%3FclipId%3D89531%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue" target="_blank">
-                  <div class="mediaLogo">
-                    <image src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/CTV_flat_logo.svg/1200px-CTV_flat_logo.svg.png"></image>
-                  </div>
-                </a>
-
-                <a href="https://edmontonjournal.com/news/local-news/u-of-a-students-create-mind-controlled-video-game/" target="_blank">
-                  <div class="mediaLogo">
-                    <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Edmonton_Journal_%282020-01-15%29.svg/1200px-Edmonton_Journal_%282020-01-15%29.svg.png"></image>
-                  </div>
-                </a>
-              </div> -->
-            </div>
-          </div>
-
-          <!-- <button id="viewPastExecsButton" class="buttonTwo">View RemBRAINdt Project Team</button> -->
-          <!-- <div id="viewPastExecsContent" class="contentTwo">
-
-            <div id="viewPastExecsContentContainer" class="containerTwo">
-
-              <div style="font-size: 35px;">RemBRAINdt Project Team</div>
-              <div id="viewPastExecsContentScrollContainer">
-
-                <table style="width:100%" class="pastExecsTable">
-                  <tr>
-                    <th>
-                      <div id="smallImage">
-                        <img src="images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img>
-                      </div>
-                    </th>
-
-                    <th>
-                      <div id="smallImage">
-                        <img src="images/Headshots/ShaneHeadshot.jpg" id="smallImageChild"></img>
-                      </div>
-                    </th>
-
-                    <th>
-                      <div id="smallImage">
-                        <img src="images/Headshots/QuintinHeadshot.jpg" id="smallImageChild"></img>
-                      </div>
-                    </th>
-
-                    <th>
-                      <div id="smallImage">
-                        <img src="images/Headshots/JiyeonHeadshot.jpg" id="smallImageChild"></img>
-                      </div>
-                    </th>
-
-                    <th>
-                      <div id="smallImage">
-                        <img src="images/Headshots/DavidHeadshot.jpg" id="smallImageChild"></img>
-                      </div>
-                    </th>
-
-                    <th>
-                      <div id="smallImage">
-                        <img src="images/Headshots/MatthewHeadshot.jpg" id="smallImageChild"></img>
-                      </div>
-                    </th>
-
-                  </tr>
+              <a href='project/RemBRAINdt.html' style="text-decoration: none"><div class="subSubTitle" style="margin-bottom: 15px;">Russian NeuroTech Cup 2020</div></a>
+              <p class="paragraph">Despite the reality of COVID-19, in just a few summer months we remotely developed and submitted an art-generating BCI program (utilizing our new 16-channel OpenBCI) to the Russia-hosted <a href='https://neurotechcup.com/en' id="uncoloredLink">Neurotech Cup 2020</a> and secured a position as finalists! On October 10th, 2020 we were awarded a <a href='https://neurotechcup.com/winners2020' id="uncoloredLink">People’s Choice Award!</a></p>
+              <br>
+              <p class="paragraph">Several original team members went on compete in <a href='https://neuro-nexus.ca/' id="uncoloredLink">NeuroNexus 2020</a> a provincial neurotechnology design competition, going on to win 1st place in the entrepreneurial stream along with $20,000</p>
+              <br>
+              <p class="paragraph">Now a spin-off company, RemBRAINdt continues to flourish with an official Beta launch to the public, scheduled for September 2021. You can keep up-to-date with the team on their LinkedIn<a href='https://www.linkedin.com/company/70542469/' id="uncoloredLink"> here</a>.
 
 
-                  <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
-                    <th>Eden Redman</th>
-                    <th>Shane Eaton</th>
-                    <th>Quintin Hansen</th>
-                    <th>Jiyeon Seo</th>
-                    <th>David Lam</th>
-                    <th>Matthew Danyluk</th>
 
-                  </tr>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Media Coverage:</span></p>
 
-                  <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
-                    <td>Team Lead</td>
-                    <td>UI/UX Lead</td>
-                    <td>Machine Learning Engineer</td>
-                    <td>Game Developer</td>
-                    <td>Junior Programmer</td>
-                    <td>Junior Data Analyst</td>
+              <div id="mediaGrid">
 
-                  </tr>
-                </table>
+
+                <div class="mediaLogo">
+                  <a href="https://edmonton.ctvnews.ca/this-university-of-alberta-helmet-can-turn-your-thoughts-into-art-1.5266220" target="_blank">
+                    <image src="https://upload.wikimedia.org/wikipedia/commons/5/5e/CTV_flat_logo.svg"></image>
+                  </a>
+                </div>
+
+                <div class="mediaLogo">
+                  <a href="https://www.ualberta.ca/science/news/2021/january/neurotech-student-group.html" target="_blank">
+                    <image src="./images/Logos/MediaLogos/UAlberta.png"></image></a>
+                  </a>
+                </div>
+
+                <div class="mediaLogo">
+                  <a href="https://dailyhive.com/edmonton/canadian-students-rembraindt-thoughts-abstract-art" target="_blank">
+                    <image src="/images/Logos/MediaLogos/dailyhive.png"></image></a>
+                  </a>
+                </div>
+
 
               </div>
-
             </div>
-          </div> -->
+          </div>
 
         </div>
         <!-- This is the end of the RemBRAINdt project -->
@@ -293,9 +329,9 @@
             </div>
 
             <div id="largeInfoBlockText">
-              <a href='project/alphaBlaster.html' style="text-decoration: none"><h2 class="subSubTitle">NTX Open Competition 2019</h2></a>
+              <a href='project/alphaBlaster.html' style="text-decoration: none"><div class="subSubTitle" style="margin-bottom: 15px;">NTX Open Competition 2019</div></a>
               <p class="paragraph">Alpha Blaster is a proof of concept 2D tower defense game controlled entirely by your brain activity. Our game recieved a 5th place award in NeuroTechX's Open Competition 2019!</p>
-              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Check out our media coverage:</span></p>
+              <p class="paragraph" style="margin-top: 20px;"><span style="font-weight: 700;">Media Coverage:</span></p>
 
               <div id="mediaGrid">
 
@@ -339,7 +375,13 @@
 
                 <div class="mediaLogo">
                   <a href="https://www.ualberta.ca/science/news/2019/august/neurotechnology-video-game.html" target="_blank">
-                    <image src="./images/HostedOnGooglePhotos/MediaLogos/UAlberta.png"></image></a>
+                    <image src="./images/Logos/MediaLogos/UAlberta.png"></image></a>
+                  </a>
+                </div>
+
+                <div class="mediaLogo">
+                  <a href="https://www.innovatechnews.com/2019/09/17/university-students-create-the-first-brain-controlled-video-game/" target="_blank">
+                    <image src="../images/Logos/MediaLogos/innovatech.png"></image></a>
                   </a>
                 </div>
 
@@ -467,6 +509,96 @@
 
         </div>
         <!-- This is the end of Alpha Blaster project -->
+
+
+
+
+
+        <div class="greyBG">
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Our Hardware</h1>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="https://www.krigolsonlab.com/uploads/4/3/8/4/43848243/originalmuse_3_orig.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://choosemuse.com/muse-2/" target="_blank"><button id=smallButton>Muse 2</button></a>
+                <a href="https://choosemuse.com/muse-s/" target="_blank"><button id=smallButton>Muse S</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Muse</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>EEG Headset</b>
+                  <br>
+                  The Muse headband is a popular commercial EEG, used to track the brain’s electrical activity, usually during sleep or meditation. We have access to several Muses, which are portable, accessible, and relatively easy to work with, perfect for starter neurotech projects. We also recently acquired a Muse S, a more advanced and powerful version of the Muse used for sleep tracking.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="https://cdn.shopify.com/s/files/1/0613/9353/products/UCM4-Product-2_1024x1024.jpg?v=1476916514" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://shop.openbci.com/collections/frontpage/products/ultracortex-mark-iv" target="_blank"><button id=smallButton>Mark IV</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">OpenBCI</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>EEG Headset</b>
+                  <br>
+                  OpenBCI headsets are among the most powerful and effective commercially available EEGs. With 16 channels, compared to the 4 found in the Muse, the tech allows us to access a more detailed view of brain activity. NAT now has two Ultracortex Mark IV Headsets, which have been used in both the Brain Drone and RemBraindt projects.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="https://cdn.shopify.com/s/files/1/0304/7905/7027/products/square-frame.png?v=1596032896" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://blueberryx.com/" target="_blank"><button id=smallButton>Eyeglasses</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Blueberry</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>fNIRS Eyeglassses</b>
+                  <br>
+                  Blueberry eyeglasses are used to track the concentration of blood oxygenation in the brain, allowing users to monitor their level of focus. The glasses are NAT’s first non-EEG neurotech, and we look forward to applying them in an attention-related project.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="https://www.vive.com/media/filer_public/newsroom/pro-eye.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://www.vive.com/eu/product/vive-pro-eye/overview/" target="_blank"><button id=smallButton>VIVE Pro Eye</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">HTC Vive</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Eye Tracking VR Headset</b>
+                  <br>
+                  We recently bought a VIVE Pro Eye virtual reality headset, with precise eye-tracking built into the hardware. Potential projects include developing neurofeedback protocols involving eye movement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
 
       </div>

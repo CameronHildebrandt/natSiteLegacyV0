@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="scrollBackground.js"></script>
+    <script type="text/javascript" src="burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="team.html"><button class="mobilePageLink">Team</button></a>
+      <button class="mobilePageLink" id="currentPageLink">Community</button>
+      <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <button class="pageLink" id="currentPageLink">Community</button>
+      <a href="team.html"><button class="pageLink">Team</button></a>
+      <a href="events.html"><button class="pageLink">Events</button></a>
+      <a href="projects.html"><button class="pageLink">Projects</button></a>
+      <a href="index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/MeetingEvent.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+        <!-- <div id="smallInfoBlock" style="margin-top: 40px;">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <a href="event/natchat.html"><image src="images/InfoNight/NatChat.jpg" id="eventImage" alt="Info Night Image"></image></a>
+              <a href="event/natchat.html"><button id=smallButton>Learn More</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">Recent NAT Images</div>
+              <p class="paragraph">
+                Pretend this is an image carousel.
+              </p>
+            </div>
+
+          </div>
+        </div> -->
+
+
+        <div class="cardStack">
+
+
+          <div id="smallInfoBlock" style="min-width: 300px;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="images/InfoNight/NATInclusive.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <!-- <a href="event/natchat.html"><button id=smallButton>Learn More</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Values</div>
+                <p class="paragraph">
+                  We believe in an equal opportunity and diverse learning environemnt, enriched via inclusion and involvemnt regardless of the colour of your skin, your gender identity, your age, or any other factor.
+                  We work to promote diversity and to perpetuate a non-decriminatory and accepting group.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="images/InfoNight/NATAcademia.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <!-- <a href="event/natchat.html"><button id=smallButton>Learn More</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Academia</div>
+                <p class="paragraph">
+                  With every project, we aim to push the bleeding edge of the technology and expand our collective knowledge.
+                  In spirit of community and collaboration all of our projects are either open source or open access.
+
+                  We strongly believe knowledge should be available to everyone. We work to provide discounts to our workshops as needed, 
+                  offering complete coverage of workshop fees for attendees in need, who would otherwise be unable to attend.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="images/InfoNight/NATIndustry.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <!-- <a href="event/workshops.html"><button id=smallButton>Learn More</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Industry</div>
+                <p class="paragraph">
+                  We work to support neurotech startups and equip students with competitive skillsets.
+                  Hosting talks and networking session with industry leaders in neurotech and encouraging cross-disciplinary collaboration, we hope to centralize Alberta as a hotspot for neurotech innovation.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <!-- <div style="overflow: scroll;">
+          <table style="width:100%; padding-left: 2%; padding-right: 2%;" class="pastExecsTable">
+            <tr>
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px; margin-left: 0;">
+                  <a href="https://www.linkedin.com/in/cdhildebrandt/" target="_blank"><img src="../images/Headshots/CameronHeadshot2.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/zachary-selk-263b541b4/" target="_blank"><img src="../images/Headshots/ZachHeadshot.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/landon-fuhr-8522031b7/" target="_blank"><img src="../images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/ryan-y-k/" target="_blank"><img src="../images/ProjectPhotos/brainDroneTeam/ryan.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/nevil-kandathil/" target="_blank"><img src="../images/ProjectPhotos/brainDroneTeam/nevil.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/eden-redman-neuro/" target="_blank"><img src="../images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/david-lam-97866115b/" target="_blank"><img src="../images/Headshots/DavidHeadshot.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px;">
+                  <a href="https://www.linkedin.com/in/matthew-danyluik/" target="_blank"><img src="../images/Headshots/MatthewHeadshot.jpg" id="smallImageChild"></img></a>
+                </div>
+              </th>
+
+              <th>
+                <div id="smallImage" style="height: 400px; width: 800px; margin-right: 0;">
+                  <img src="../images/Headshots/JiyeonHeadshot.jpg" id="smallImageChild"></img>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+        <div class="greyBG">
+
+
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Sponsors</h1>
+
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/CAN.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://www.albertaneuro.ca" target="_blank"><button id=smallButton>albertaneuro.ca</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Campus Alberta Neuroscience</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Campus Alberta Neuroscience is delighted to be a gold level sponsor for NAT Chat, hosted by NeurAlbertaTech and recognizes the significant impact this event brings to the neurotech industry and ecosystem in Alberta. CAN has a keen focus on providing opportunities for entrepreneurs working in Neuroscience and Mental Health across Alberta, with a particular interest in the development of the commercialization ecosystem, including supporting the development of new companies, supporting education and knowledge of entrepreneurship as well as securing new investment in the province.
+                  <br><br>
+                  CAN is a provincial organization committed to promoting and increasing the impact and outcomes of Alberta-wide collaborative research, education, translation and innovation initiatives in neuroscience and mental health.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/openBCI.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://openbci.com" target="_blank"><button id=smallButton>openbci.com</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">OpenBCI</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/blueberry.png" id="eventImageNoHover" alt="Info Night Image" style="width: 100px;"></image>
+                <a href="https://blueberryx.com" target="_blank"><button id=smallButton>blueberryx.com</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Blueberry</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/SIC.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://www.ualberta.ca/student-innovation-centre/index.html" target="_blank"><button id=smallButton>Website</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Student Innovation Centre</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/NMHI.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://www.ualberta.ca/neuroscience-and-mental-health-institute/index.html" target="_blank"><button id=smallButton>Website</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">NMHI</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  At the Neuroscience and Mental Health Institute, we are training the next generation of researchers who will find solutions and improve the lives of those affected by neurological and mental health diseases and disorders. We support NeurAlbertaTech as it promotes innovation and education in the neurotechnology space.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/NTX.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://neurotechx.com" target="_blank"><button id=smallButton>neurotechx.com</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">NeuroTechX</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/muse.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="https://choosemuse.com" target="_blank"><button id=smallButton>choosemuse.com</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Muse</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/uri.png" id="eventImageNoHover" alt="Info Night Image" style="width: 150px;"></image>
+                <a href="https://www.ualberta.ca/current-students/undergraduate-research-initiative/index.html" target="_blank"><button id=smallButton>Website</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Undergraduate Research Initiative</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/8bit.png" id="eventImageNoHover" alt="Info Night Image" style="width: 100px;"></image>
+                <a href="https://8bitcortex.com/main_nav/home/" target="_blank"><button id=smallButton>8bitcortex.com</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">8 Bit Cortex</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/Logos/PartnerLogos/neuronexus.png" id="eventImageNoHover" alt="Info Night Image" style="width: 200px;"></image>
+                <a href="https://neuro-nexus.ca" target="_blank"><button id=smallButton>neuro-nexus.ca</button></a>
+                <!-- <a href="https://zoom.us/j/94954646759" target="_blank"><button id=smallButton>Join Zoom</button></a> -->
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Neuro Nexus</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Visit our website to learn more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+      </div>
+
+
+      <h1 class="subTitle" style="left:2%;"><br>Volunteer With NAT</h1>
+
+
+      <div id="smallInfoBlock" style="margin-top: 40px;">
+        <div id="smallInfoContents">
+
+          <div id="smallInfoBlockMedia">
+            <image src="/images/Community/Volunteer/event_planning.png" id="eventImageNoHover" alt="Info Night Image"></image>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScnwMbaTK1Vpv9mQThcLs63qasinHYDveZLvbenJJh5i0M1jQ/viewform"><button id=smallButton>Apply</button></a>
+          </div>
+
+          <div id="smallInfoBlockText">
+            <div class="subSubTitle" style="margin-bottom: 15px;">Event Planning</div>
+            <p class="paragraph">
+              Helping with logistics and planning for NAT events both big and small, including our NAT Chat speaker series.
+            </p>
+
+            <div style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
+              <p class="paragraph">
+                Tasks Include:<br>
+                • Ensuring speakers and advertisers are up-to-date and informed on events<br>
+                • Designing event materials such as presentations and attendee feedback forums.<br>
+                • Assisting with event hosting administration.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="smallInfoBlock" style="margin-top: 40px;">
+        <div id="smallInfoContents">
+
+          <div id="smallInfoBlockMedia">
+            <image src="/images/Community/Volunteer/graphic_design.png" id="eventImageNoHover" alt="Info Night Image"></image>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScnwMbaTK1Vpv9mQThcLs63qasinHYDveZLvbenJJh5i0M1jQ/viewform"><button id=smallButton>Apply</button></a>
+          </div>
+
+          <div id="smallInfoBlockText">
+            <div class="subSubTitle" style="margin-bottom: 15px;">Graphic Design</div>
+            <p class="paragraph">
+              Build your design portfolio by designing NAT merchandise, event posters, club assets, and advertisements!
+            </p>
+
+            <div style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
+              <p class="paragraph">
+                Tasks Include:<br>
+                • Creating posts to be seen by hundreds of followers on social media<br>
+                • Preferrence given to those with experinece in apps such as Photoshop and InDesign
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="smallInfoBlock" style="margin-top: 40px;">
+        <div id="smallInfoContents">
+
+          <div id="smallInfoBlockMedia">
+            <image src="/images/Community/Volunteer/outreach.png" id="eventImageNoHover" alt="Info Night Image"></image>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScnwMbaTK1Vpv9mQThcLs63qasinHYDveZLvbenJJh5i0M1jQ/viewform"><button id=smallButton>Apply</button></a>
+          </div>
+
+          <div id="smallInfoBlockText">
+            <div class="subSubTitle" style="margin-bottom: 15px;">Outreach</div>
+            <p class="paragraph">
+              Support NAT's growing impact through advertising and inclusive recruitment
+            </p>
+
+            <div style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
+              <p class="paragraph">
+                Tasks Include:<br>
+                • Communicating with organizations and institutes for disseminating advertisements, fostering partnerships, and diversity-related initiatives<br>
+                • Spearheading recruitment for interns to be hired for NAT project teams
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="smallInfoBlock" style="margin-top: 40px;">
+        <div id="smallInfoContents">
+
+          <div id="smallInfoBlockMedia">
+            <image src="/images/Community/Volunteer/videography.png" id="eventImageNoHover" alt="Info Night Image"></image>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScnwMbaTK1Vpv9mQThcLs63qasinHYDveZLvbenJJh5i0M1jQ/viewform"><button id=smallButton>Apply</button></a>
+          </div>
+
+          <div id="smallInfoBlockText">
+            <div class="subSubTitle" style="margin-bottom: 15px;">Videography</div>
+            <p class="paragraph">
+              Join a videography and photography team documenting NAT's various activities
+            </p>
+
+            <div style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
+              <p class="paragraph">
+                Tasks Include:<br>
+                • Creating and editing video submissions for local and international competitions<br>
+                • Preference given to those with experience in Premiere Pro or comparable software
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- <h1 class="subTitle" style="left:2%;"><br>Work For NAT</h1>
+
+
+      <div id="smallInfoBlock" style="margin-top: 40px;">
+        <div id="smallInfoContents">
+
+          <div id="smallInfoBlockMedia">
+            <image src="images/InfoNight/NATIndustry.png" id="eventImageNoHover" alt="Info Night Image"></image>
+            <a href="event/workshops.html"><button id=smallButton>Apply</button></a>
+          </div>
+
+          <div id="smallInfoBlockText">
+            <div class="subSubTitle" style="margin-bottom: 15px;">Bermuda Project Internship</div>
+            <p class="paragraph">
+              Loreum Ipsum
+            </p>
+          </div>
+
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        var showingReadMores = [false, false, false, false];
+
+        $('#hardware').click(function(){
+          if(showingReadMores[0]) {
+            document.getElementById("hardwarePara").style.display="none"
+            document.getElementById("hardware").innerHTML = "More Information"
+            showingReadMores[0] = false;
+          } else {
+            document.getElementById("hardwarePara").style.display="block"
+            document.getElementById("hardware").innerHTML = "Less Information"
+            showingReadMores[0] = true;
+          }
+        });
+
+        $('#software').click(function(){
+          if(showingReadMores[1]) {
+            document.getElementById("softwarePara").style.display="none"
+            document.getElementById("software").innerHTML = "More Information"
+            showingReadMores[1] = false;
+          } else {
+            document.getElementById("softwarePara").style.display="block"
+            document.getElementById("software").innerHTML = "Less Information"
+            showingReadMores[1] = true;
+          }
+        });
+
+        $('#neuro').click(function(){
+          if(showingReadMores[2]) {
+            document.getElementById("neuroPara").style.display="none"
+            document.getElementById("neuro").innerHTML = "More Information"
+            showingReadMores[2] = false;
+          } else {
+            document.getElementById("neuroPara").style.display="block"
+            document.getElementById("neuro").innerHTML = "Less Information"
+            showingReadMores[2] = true;
+          }
+        });
+
+        $('#ml').click(function(){
+          if(showingReadMores[3]) {
+            document.getElementById("mlPara").style.display="none"
+            document.getElementById("ml").innerHTML = "More Information"
+            showingReadMores[3] = false;
+          } else {
+            document.getElementById("mlPara").style.display="block"
+            document.getElementById("ml").innerHTML = "Less Information"
+            showingReadMores[3] = true;
+          }
+        });
+
+      })
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
+
+  </body>
+
+</html>

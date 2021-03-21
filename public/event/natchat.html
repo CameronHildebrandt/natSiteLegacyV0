@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="/style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="/scrollBackground.js"></script>
+    <script type="text/javascript" src="/burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="../images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
+
+      <!-- <div class="multiPageLink">
+          <a href="/event/natchat.html"><button class="subPageLink">NatChat</button></a>
+        <a href="/events.html"><button class="pageLink">Events</button></a>
+      </div> -->
+
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/FullSizeHeaderImages/MeetingEvent2.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+        <h1 class="subTitle" style="left: 2%;">NAT Chat</h1>
+
+        <div style="position: relative; left: 2%; margin-top: 25px; width: 96%;">
+          <p class="paragraph">
+            A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. NAT Chat: Innovation in Neurotech is an accessible networking and speaker series focused on neurotechnology where we invite leaders across the field who will be presenting on their innovative solutions in the health sciences and consumer domains. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.
+            <br><br>
+            Be sure to <a href="/contact.html" id="uncoloredLink">contact us</a> with any questions!
+
+            <!-- Each of the speakers will have a talk that revolves around one of these major neurotech topics:
+            <br><br>
+            <b>Neurotech in Health Sciences</b><br>
+            How can we leverage the abilities of neurotech in diagnostics, treatment, and various other health science applications? Join our virtual event to learn more about the technologies and the use of said technologies to help save lives and improve the quality of life for millions of individuals.
+
+            <br><br>
+            <b>Bleeding Edge Neurotech</b><br>
+            Neurotech is a new and rapidly evolving field, with innovations being made seemingly every day! Brain-computer interfacing is often a plot element of utopian/distopyian movies because of its myterious and futuristic connotations, but in reality we are living in that future now and pushing the frontier of innovation all the time! Join this chat to demystify neurotech and learn from the experts what is possible today!
+
+            <br><br>
+            <b>Neurotech in the Consumer Market</b><br>
+            We are living in an exciting transition period where neurotechnology is no longer just restricted to researchers and medical professionals! Consumer neurotech is emerging everywhere in the form of meditation devices and low-cost research grade general EEG development platforms. How can you get started working on EEG today? Join this chat to learn about everything involved with consumer neurotech. -->
+
+            <br><br>
+            Jump to a chat: <a href="#cm" id="uncoloredLink">March 17th</a>, <a href="#pastchats" id="uncoloredLink">Past Chats</a>
+          </p>
+
+        </div>
+
+
+
+        <h1 class="subTitle" style="left: 2%;">Upcoming Chats</h1>
+
+
+
+
+
+
+        <!-- <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/temp.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <h2 class="subSubTitle">Talks are comming soon!</h2>
+              <p class="paragraph">
+                <b>Speaker and talk information will be released as soon as the details are finalized</b>
+                <br>
+                  We are just working out the last details for our NAT Chat series. Check back here soon and we will have updated information for all upcoming chats this semester.
+                  <br><br>
+                  That join button still works though. If you want to RSVP for the first ever NAT Chat you can click that button now!
+              </p>
+            </div>
+
+          </div>
+        </div> -->
+
+
+        <a name="cm"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <!-- <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/NatChat.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(2)" class="speakerButton2">Speakers</button>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div> -->
+
+            <div id="smallInfoBlockMedia">
+              <div id="eventImageNoHover">
+                <h2 class="subSubTitle" style="text-align: center;"><b>Nat Chat:</b><br>March 17th<br>5pm-7pm MDT</h2>
+              </div>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>RSVP</button></a>
+
+              <!-- Invisible button, ruins code if removed -->
+              <button id="smallButton" onclick="toggleCurriculum(2)" class="speakerButton2" style="display: none;">Speakers</button>
+            </div>
+
+            <div id="smallInfoBlockText" style="top: 0px;">
+              <!-- <h2 class="subSubTitle">March 17th, 2021:&nbsp; 5pm-7pm MDT</h2> -->
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer2">
+                <!-- <p class="paragraph">
+                  We are living in an exciting transition period where neurotechnology is no longer just restricted to researchers and medical professionals! Consumer neurotech is emerging everywhere in the form of meditation devices and low-cost research grade general EEG development platforms. How can you get started working on EEG today? Join this chat to learn about everything involved with consumer neurotech.
+                  <br><br>
+                  <b>When: </b> March 17th, 2021, 5pm-7pm MDT<br>
+                  <b>Where: </b> Remote, zoom link in calendar event
+                </p> -->
+              </div>
+
+
+              <div class="speakerList" id="speakerList2">
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C4D03AQGfxvEEH8ybAg/profile-displayphoto-shrink_400_400/0/1516305550859?e=1614816000&v=beta&t=vJRTrBIX6uSbfXfh_Nk3suPHLhKAythnsomXbnnLjbc" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/ryanmfield/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Keynote: Ryan Field</div>
+                      <p class="paragraph">
+                        <b>Chief Technology Officer at Kernel</b>
+                        <br>
+                        Research & Development involving integrated circuit design, sensors, system architecture, firmware, software, and imaging devices for automotive and other LiDAR applications.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.1s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C4D03AQGQEV4CUht7vQ/profile-displayphoto-shrink_400_400/0/1575307265214?e=1614816000&v=beta&t=vjbrtFkKhFNp5mc2E9stXw_L-wMvuBra4qvuh5cv7x8" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/anna-tarasenko-3ab977152/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Anna Tarasenko</div>
+                      <p class="paragraph">
+                        <b>Chief Neuroscientist at BrainPatch</b>
+                        <br>
+                        Neuroscience graduate with a strong quantitative background. Adept at analysing and interpreting complex and diverse data. As a leader, I exercise constant self-reflection and open-mindedness.<br>
+                        Fascinated about complex problems, especially the real-life application of science to improve healthcare.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.2s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQHJsha7pOY4PQ/profile-displayphoto-shrink_400_400/0/1582412905100?e=1616025600&v=beta&t=viJxShTWGXIf6aE0DJ2z_bwQi5O7zYmlC-_4ZeAoPog" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/carola-aguilar/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Carolina Aguilar</div>
+                      <p class="paragraph">
+                        <b>Business with Impact Executive & Board Advisor. Creator of Winning Teams. Innovation Maker</b>
+                        <br>
+                        I’m a learner and a shaper, I like equally strategy and execution and believe on evolution through creativity and de-learning. I really get motivated by big challenges and like to execute in global environments both in emerging and developed markets. I believe in teams and the power of collective thinking. People make companies and is the most important asset of all, a motivated team will conquer the world.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.3s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C4D03AQEQwe3XJMvNSg/profile-displayphoto-shrink_400_400/0/1572374487816?e=1614816000&v=beta&t=ZaPzaG-_YAvU594-MiICQOlVdDd0ubej_tI3PrtjzNA" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/pawelsoluch/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Pawel Soluch</div>
+                      <p class="paragraph">
+                        <b>Founder and CEO of Neuro Device Group S.A.</b>
+                        <br>
+                        Founder and CEO of Neuro Device Group S.A., neuropsychologist, consultant at the Department of Neurosurgery, Medical University of Warsaw completing his doctoral dissertation in the field of functional brain research. Scholarship holder of the Foundation for Polish Science. Combines practical medical knowledge with scientific experience, successfully opening new possibilities for applying technology in medicine. Initiator of numerous research and development projects subsidized by the Committee for Scientific Research, the National Center for Research and Development, and the European Union. Author of several dozen scientific posters, lectures, and publications on functional magnetic resonance imaging (fMRI) and psychophysiology. Pawel's team has received many awards for med-tech innovations. Pawel also serves as a mentor for QuadCover, a German startup operating in computer algorithms.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+
+        <div class="greyBG">
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Why Should You Attend?</h1>
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/InfoNight/merch.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Raffle</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  We will be raffling off exciting prizes throughout the chats, such as:<br>
+                  &nbsp;- NAT merch baskets (shirt, pen, mask, etc.)*<br>
+                  &nbsp;- NAT workshop subscription for any stream
+                  <br><br>
+                  We will also be raffling off a grand prize EEG brain-computer interface* valued at $200+CAD!<br>
+
+                  The headset will be raffled off on March 18th, after the last chat of the semester. You will recieve 1 entry for the headset for every chat that you attend and 1 extra entry for every time that you RSVP within the earlybird RSVP period!<br><br>
+
+                  * Physical prizes will only be shipped to Canadian addresses. If you reside outside of Canada and win a physical prize, you may trade that in for a workshop subscription.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/InfoNight/network.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Networking</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">Building a network is important! One of the strongesst factors contributing to successful job applications is your network. If you think you want to pursue a career in neurotech, neuroscience, or tech, this is the place to build your network! We bring in as many great minds as we can find from all of the fields we are involved in, and this is your chance to meet them.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <a name="pastchats"></a>
+        <h1 class="subTitle" style="left: 2%;">Past Chats</h1>
+
+
+
+
+
+<!--
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents"> -->
+
+            <!-- <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/NatChat.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(1)" class="speakerButton1">Speakers</button>
+              <a href="/rsvp.html" target="_blank"><button id=smallButton>Join</button></a>
+            </div> -->
+
+            <!-- <div id="smallInfoBlockMedia">
+              <div id="eventImageNoHover">
+                <h2 class="subSubTitle" style="text-align: center;"><b>Nat Chat:</b><br>February 24th<br>5pm-7pm MST</h2>
+              </div> -->
+              <!-- <a href="/rsvp.html" target="_blank"><button id=smallButton>RSVP</button></a> -->
+              <!-- <button id=smallButton>Videos Posted Soon...</button> -->
+
+              <!-- Invisible button, ruins code if removed -->
+              <!-- <button id="smallButton" onclick="toggleCurriculum(1)" class="speakerButton1" style="display:none;">Speakers</button> -->
+            <!-- </div> -->
+
+            <!-- <div id="smallInfoBlockText" style="top: 0px;"> -->
+              <!-- <h2 class="subSubTitle">February 24th, 2021:&nbsp; 5pm-7pm MST</h2> -->
+
+
+              <!-- <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer1"> -->
+                <!-- <p class="paragraph">
+                  Neurotech is a new and rapidly evolving field, with innovations being made seemingly every day! Brain-computer interfacing is often a plot element of utopian/distopyian movies because of its myterious and futuristic connotations, but in reality we are living in that future now and pushing the frontier of innovation all the time! Join this chat to demystify neurotech and learn from the experts what is possible today!
+                  <br><br>
+                  <b>When: </b> February 24th, 2021, 5pm-7pm MST<br>
+                  <b>Where: </b> Remote, zoom link in calendar event
+                </p> -->
+              <!-- </div>
+
+
+              <div class="speakerList" id="speakerList1">
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQFjjQPZrX5QlQ/profile-displayphoto-shrink_400_400/0/1575853607382?e=1614816000&v=beta&t=IiQU2l8xFwwRhpAdEi4z3MFfGmj20V6UqNmkDPbBPvA" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/mike-ambinder-578aa89/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <h2 class="subSubTitle">Keynote: Mike Ambinder</h2>
+                      <p class="paragraph">
+                        <b>Principal Experimental Psychologist at Valve</b>
+                        <br>
+                        I’m an experimental psychologist at Valve who works on applying knowledge and methodologies from psychology to game design. I do a fair bit of statistical analysis on gameplay and Steam data, and these days I’m spending time on Brain-Computer Interface research. I’ve been at Valve since 2008 and have worked on basically every game/product we’ve released since then.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.1s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQHtKaEBIfAAzA/profile-displayphoto-shrink_400_400/0/1603966431953?e=1619049600&v=beta&t=n5iRtKaTQxbiBobQKr5Y1b4g0dqLnkPzIK48Gq6TDfw" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <h2 class="subSubTitle">Stefan Chmelik</h2>
+                      <p class="paragraph">
+                        <b>Founder at BioSelf Technology</b>
+                        <br>
+                        - Wellbeing Technology Visionary & Innovator focussed on global impact<br>
+                        - Integrated Healthcare Physician, 30+ years of medical leadership<br>
+                        - Expert in the treatment of stress, anxiety, trauma and complex disease<br>
+                        - Life long meditator, breath coach and teacher helping thousands of people
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.3s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQFPgv8jcbWQpA/profile-displayphoto-shrink_400_400/0/1595968394404?e=1614816000&v=beta&t=ofJfqlpJqeqkcEuc3e98cgF4YBZ89Jv4UrlLkKeE95c" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <h2 class="subSubTitle">Eli Kinney-Lang</h2>
+                      <p class="paragraph">
+                        <b>Postdoctoral Researcher at University of Calgary</b>
+                        <br>
+                        Experienced postdoctoral researcher focused on driving forward design, development and realization of pediatric brain-computer interfaces (BCI). Skills include biomedical signal processing, multi-way analysis, machine learning, EEG acquisition and analysis, BCI gamification and design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.4s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQHge3VFxhU0vw/profile-displayphoto-shrink_400_400/0/1560525954490?e=1614816000&v=beta&t=QahJr_oQirnwoCjMP2KLivOFFGWfieratyqLwoZ4lKA" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/tytheneuroguy/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <h2 class="subSubTitle">Ty McKinney</h2>
+                      <p class="paragraph">
+                        <b>Co-Founder at 8 Bit Cortex</b>
+                        <br>
+                        Ty is currently completing his PhD at the University of Utah with a research focus on brain health assessment. Ty is thrilled to be co-founder of 8 Bit Cortex, a mental health tech start up, and adapt his research expertise to creating accessible and affordable mental health services. Ty is also the Research Director for Branch Out Neurological Foundation, a non-profit that accelerates non-pharmaceutical and tech-based solutions to neurological and mental health disorders. Finally, Ty is also a consultant with ConsciousWorks to promote brain health in the workplace. Through these positions, Ty has cultivated project management, research, science communication, programming skills (In order of skill: R, Matlab, HTML, CSS, Javascript, Python), and entrepreneurial thinking with an eye for the clinical impact.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div> -->
+
+
+
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <!-- <image src="/images/InfoNight/NatChat.jpg" id="eventImageNoHover" alt="Info Night Image"></image> -->
+              <div id="eventImageNoHover">
+                <h2 class="subSubTitle" style="text-align: center;"><b>Nat Chat 2021:</b><br>February 24th<br>5pm-7pm MST</h2>
+
+                <p class="paragraph" style="text-align: center;">
+                  If you are having trouble viewing the videos on mobile, please visit <a href="https://youtube.com/playlist?list=PL3jjdunHUqxw8k2sa1lzFasj2qhhwg0xh" id="uncoloredLink">the YouTube playlist</a>.
+                </p>
+              </div>
+              <button id=smallButton onclick="toggleCurriculum(1)" class="speakerButton1">Recordings</button>
+              <a href="https://youtube.com/playlist?list=PL3jjdunHUqxw8k2sa1lzFasj2qhhwg0xh"><button id=smallButton>YouTube</button></a>
+            </div>
+
+            <div id="smallInfoBlockText" style="top: 0px;">
+
+              <!-- Videos -->
+
+
+              <div class="speakerList" id="smallInfoCardContentContainer1">
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/9nxCthpJccs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/mike-ambinder-578aa89/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Keynote: Mike Ambinder</div>
+                      <p class="paragraph">
+                        Mike is an experimental psychologist at Valve, focusing on BCIs and has worked on many of their games such as TF2 and Portal 2.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://youtube.com/embed/NMQ2R9hSGz0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Stefan Chmelik</div>
+                      <p class="paragraph">
+                        Stefan is the founder and creator of BioSelf Technology. Their product Sensate uses infrasound vagal nerve stimulation to improve subjective well-being amongst consumers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/T1sC6DGCWwA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Eli Kinney-Lang</div>
+                      <p class="paragraph">
+                        Eli Kinney-Lang is a postdoc researcher at the UofC and is a part of the Pediatric BCI lab at the Alberta Children’s Hospital where he leads development of innovative BCIs for kids.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/tWIuyMoG7N4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/tytheneuroguy/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Ty McKinney</div>
+                      <p class="paragraph">
+                        Ty is a co-founder of the mental health tech company 8-Bit Cortex where he focuses on gamifying mental health assessment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Videos -->
+
+              <!-- Speakers -->
+              <div class="speakerList" id="speakerList1">
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQFjjQPZrX5QlQ/profile-displayphoto-shrink_400_400/0/1575853607382?e=1614816000&v=beta&t=IiQU2l8xFwwRhpAdEi4z3MFfGmj20V6UqNmkDPbBPvA" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/mike-ambinder-578aa89/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Keynote: Mike Ambinder</div>
+                      <p class="paragraph">
+                        <b>Principal Experimental Psychologist at Valve</b>
+                        <br>
+                        I’m an experimental psychologist at Valve who works on applying knowledge and methodologies from psychology to game design. I do a fair bit of statistical analysis on gameplay and Steam data, and these days I’m spending time on Brain-Computer Interface research. I’ve been at Valve since 2008 and have worked on basically every game/product we’ve released since then.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.1s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQHtKaEBIfAAzA/profile-displayphoto-shrink_400_400/0/1603966431953?e=1619049600&v=beta&t=n5iRtKaTQxbiBobQKr5Y1b4g0dqLnkPzIK48Gq6TDfw" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Stefan Chmelik</div>
+                      <p class="paragraph">
+                        <b>Founder at BioSelf Technology</b>
+                        <br>
+                        Stefan Chmelik is a life-long meditator and a driven entrepreneur fully focussed on his mission to help build a world less full of fear. He has brought together these two personal drivers in the invention of Sensate, a technology designed to help almost anyone achieve a fast-track to optimal self-regulation in the conquest of anxiety. His career is now entirely devoted to enabling the optimisation of human resilience through the work of BioSelf Technology.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.3s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQFPgv8jcbWQpA/profile-displayphoto-shrink_400_400/0/1595968394404?e=1614816000&v=beta&t=ofJfqlpJqeqkcEuc3e98cgF4YBZ89Jv4UrlLkKeE95c" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Eli Kinney-Lang</div>
+                      <p class="paragraph">
+                        <b>Postdoctoral Researcher at University of Calgary</b>
+                        <br>
+                        Experienced postdoctoral researcher focused on driving forward design, development and realization of pediatric brain-computer interfaces (BCI). Skills include biomedical signal processing, multi-way analysis, machine learning, EEG acquisition and analysis, BCI gamification and design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0.4s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQHge3VFxhU0vw/profile-displayphoto-shrink_400_400/0/1560525954490?e=1614816000&v=beta&t=QahJr_oQirnwoCjMP2KLivOFFGWfieratyqLwoZ4lKA" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/tytheneuroguy/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Ty McKinney</div>
+                      <p class="paragraph">
+                        <b>Co-Founder at 8 Bit Cortex</b>
+                        <br>
+                        Ty is currently completing his PhD at the University of Utah with a research focus on brain health assessment. Ty is thrilled to be co-founder of 8 Bit Cortex, a mental health tech start up, and adapt his research expertise to creating accessible and affordable mental health services. Ty is also the Research Director for Branch Out Neurological Foundation, a non-profit that accelerates non-pharmaceutical and tech-based solutions to neurological and mental health disorders. Finally, Ty is also a consultant with ConsciousWorks to promote brain health in the workplace. Through these positions, Ty has cultivated project management, research, science communication, programming skills (In order of skill: R, Matlab, HTML, CSS, Javascript, Python), and entrepreneurial thinking with an eye for the clinical impact.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Speakers -->
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        <!-- <div id="smallInfoBlock" style="padding-left: 0px; padding-right: 0px;"> -->
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <!-- <image src="/images/InfoNight/NatChat.jpg" id="eventImageNoHover" alt="Info Night Image"></image> -->
+              <div id="eventImageNoHover">
+                <h2 class="subSubTitle" style="text-align: center;"><b>Nat Chat 2021:</b><br>January 20th<br>5pm-7pm MST</h2>
+
+                <p class="paragraph" style="text-align: center;">
+                  If you are having trouble viewing the videos on mobile, please visit <a href="https://youtube.com/playlist?list=PL3jjdunHUqxzeAh3vYW05-8Fx9YgAzrQS" id="uncoloredLink">the YouTube playlist</a>.
+                </p>
+              </div>
+              <!-- <button id="smallButton" onclick="toggleCurriculum(0)" class="speakerButton0">Speakers</button> -->
+              <button id=smallButton onclick="toggleCurriculum(0)" class="speakerButton0">Recordings</button>
+              <a href="https://youtube.com/playlist?list=PL3jjdunHUqxzeAh3vYW05-8Fx9YgAzrQS"><button id=smallButton>YouTube</button></a>
+            </div>
+
+            <div id="smallInfoBlockText" style="top: 0px;">
+
+              <!-- Videos -->
+              <div class="speakerList" id="smallInfoCardContentContainer0"> <!-- smallInfoCardContentContainer -->
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/iIXZW6-0pDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/mikhail-lebedev-1843b210/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle">Keynote: Mikhail Lebedev</div>
+                      <p class="paragraph">
+                        With over 100 publications, decades of cutting-edge research at esteemed institutions, and a multitude of coveted awards, Dr. Lebedev has investigated all levels of brain function from cellular to cortical, with a focus on somatosensory and motor cortices. He has developed bi-directional BCIs that simultaneously read brain activity and deliver sensory information. Mikhail is currently Scientific Head of the Center for Bioelectrical Interfaces, part of the Institute of Cognitive Neuroscience at HSE in Moscow.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/KB_3aetw65g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/andreasforsland/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Andreas Forsland</div>
+                      <p class="paragraph">
+                        Andreas is Founder and CEO of Cognixion where he is providing the hundreds of millions of people with communication disabilities a way to express their voice. Cognixion creates natural interfaces powered by AI to facilitate and improve communication. In addition to Speakprose, a mobile app that uses gestures and eye-tracking to build sentences, the team is developing an entirely wireless BCI with integrated AR.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/hAZnoXJAyQ4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/cayden-pierce-814664b9/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Cayden Pierce</div>
+                      <p class="paragraph">
+                        Cayden helps people upgrade their thinking by creating wearable BCIs and is currently the BCI Lead at Blueberry. Blueberry is building BCI glasses that allow continuous brain state monitoring to help users make better work, break, and rest decisions, overall increasing productivity and satisfaction.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/skqjZUr5KJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/jacobflood/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Jacob Flood</div>
+                      <p class="paragraph">
+                        Originally an engineer, Jacob transitioned towards productivity and science; author of the book Study Smart, founder of a SaaS tutoring company, and now Founder and CEO of Eno. Eno is improving focused productivity with elegant and innovative BCIs for everyday use.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="largeInfoBlockMedia">
+                      <div id="largeMediaFrame">
+                        <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/d9I2yRyTSMc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                      </div>
+
+                      <a href="https://www.linkedin.com/in/jartuso/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Joseph Artuso</div>
+                      <p class="paragraph">
+                        Coming from a Political Science degree at Columbia University, Joseph has honed his marketing and communication skills at companies across the globe including Salesforce, AppNexus, and WPP. Joseph previously managed digital marketing for OpenBCI and now directs OpenBCI’s commercialization and communication strategies.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Videos -->
+
+              <!-- Speakers -->
+              <div class="speakerList" id="speakerList0">
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQGCdx1hm8rU8A/profile-displayphoto-shrink_400_400/0/1517721125456?e=1614816000&v=beta&t=Ml4YU6OR9P_A9aY0uODWyFNsA7FgKiSBLmsEqSw02T8" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/mikhail-lebedev-1843b210/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Keynote: Mikhail Lebedev</div>
+                      <p class="paragraph">
+                        <b>Scientific Head at National Research University — Higher School of Economics</b>
+                        <br>
+                        Mikhail works in the fields of Neurophysiology and Brain-Computer Interfaces. He has more than 100 publications. He has a MS degree in Physics from Moscow Institute of Physics and Technology (1986) and a PhD degree in Neurobiology from the University of Tennessee, Memphis. In 1986-1991, Lebedev conducted research on motor control in Victor Gurfinkel's laboratory at the Institute for Problems of Information Transmission. In 1991-1995, during his stay in Memphis, he investigated single-unit activity in the somatosensory cortex and basal ganglia of awake, behaving primates. In 1995-1995, Lebedev conducted research at SISSA, Trieste, Italy, where he examined plasticity in rat somatosensory cortex. In 1997-2002, Lebedev worked at NIMH, Bethesda, Maryland.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="/images/andreas.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/andreasforsland/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Andreas Forsland</div>
+                      <p class="paragraph">
+                        <b>Founder and CEO of Cognixion</b>
+                        <br>
+                        Cognixion has been internationally recognized for its innovation and use of exponential technologies to solve a social and healthcare global challenge - affecting the lives of 509 million people* affected by speech disabilities. Cognixion has won the prestigious Roddenberry Prize, the Gold Edison Award for Social Impact, the Global Elevate Award and the Singularity University Global Grand Challenge for Education for its potential to impact over a billion lives.
+
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQF9XAGqiTsHSQ/profile-displayphoto-shrink_400_400/0/1605666350541?e=1614816000&v=beta&t=enkI6A2cdNyW4VJ0IniIIrzXeePDa5q3_Fpx3yz_LGs" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/cayden-pierce-814664b9/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Cayden Pierce</div>
+                      <p class="paragraph">
+                        <b>BCI Lead at Blueberry</b>
+                        <br>
+                        Cayden Pierce develops wearable computers and BCI to help people upgrade their thinking. He's the BCI Lead at Blueberry, building BCI glasses to help users upgrade their output by making better work, break, and rest decisions throughout the day.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C5603AQGLxryB4zHzTA/profile-displayphoto-shrink_400_400/0/1568743036612?e=1614816000&v=beta&t=EIwjXHg1UbyBj29crfzqtFMeF9T9titPdcRUomEmbo0" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/jacobflood/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Jacob Flood</div>
+                      <p class="paragraph">
+                        <b>Founder and CEO of Eno</b>
+                        <br>
+                        Visit my LinkedIn for more information!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="smallInfoBlockSubSection" style="animation-delay: 0s;">
+                  <div id="smallInfoContents">
+
+                    <div id="smallInfoBlockMedia">
+                      <image src="https://media-exp1.licdn.com/dms/image/C4E03AQEoSQJzGTT9fQ/profile-displayphoto-shrink_400_400/0/1605640486826?e=1614816000&v=beta&t=m6a9EUe0WJfzcVm3fkPjMA12wEKYZEb5RfWWaBHVUr0" id="eventImageNoHover" alt="Info Night Image"></image>
+                      <a href="https://www.linkedin.com/in/jartuso/" target="_blank"><button id=smallButton>Linkedin</button></a>
+                    </div>
+
+                    <div id="smallInfoBlockText">
+                      <div class="subSubTitle" style="margin-bottom: 15px;">Joseph Artuso</div>
+                      <p class="paragraph">
+                        <b>Director Of Marketing & Business Development at OpenBCI</b>
+                        <br>
+                        Drawing on experience in sales, marketing, and consulting, Joseph is responsible for guiding OpenBCI's commercialization and communication strategies. Prior to joining OpenBCI full-time, Joseph managed OpenBCI's digital marketing as a consultant while working in the US and EMEA at market-leading companies such as Salesforce, AppNexus, and WPP. After returning from living in London, Joseph also briefly coordinated a series of innovative art and music events in NYC. He has a B.A. in Political Science from Columbia University.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- Speakers -->
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+
+    <script>
+      var states = [false, false, false];
+
+      function toggleCurriculum(num) {
+
+        if(states[num]) {
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "block";
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "relative";
+          document.querySelector("#speakerList" + num.toString()).style.display = "none";
+          document.querySelector("#speakerList" + num.toString()).style.position = "absolute";
+          document.querySelector(".speakerButton" + num.toString()).innerHTML = "Speakers";
+          states[num] = false;
+        }
+        else {
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "none";
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "absolute";
+          document.querySelector("#speakerList" + num.toString()).style.display = "block";
+          document.querySelector("#speakerList" + num.toString()).style.position = "relative";
+          document.querySelector(".speakerButton" + num.toString()).innerHTML = "Recordings";
+          states[num] = true;
+        }
+
+      }
+    </script>
+
+    <!-- Lazy workaround to make speakers permanently shown -->
+    <script>
+      $(document).ready(function(){
+        // Toggle twice to show videos first
+        toggleCurriculum(0);
+        toggleCurriculum(0);
+
+        toggleCurriculum(1);
+        toggleCurriculum(1);
+
+        toggleCurriculum(2);
+      });
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>

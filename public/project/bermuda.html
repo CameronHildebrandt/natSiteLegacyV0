@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="../images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="../style.css" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="../scrollBackground.js"></script>
+    <script type="text/javascript" src="../burgerController.js"></script>
+
+    <!-- Add Our Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="/index.html"><image id="headerImg" src="../images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position: relative"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/ProjectPhotos/bermuda/main.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+        <!-- <h1 class="subTitle" style="margin-left: 2%;">Bermuda Hardware Project</h1> -->
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%;">
+
+            <div id="largeInfoBlockText">
+              <h1 class="subSubTitle">Bermuda</h1>
+              <p class="paragraph">Bermuda is a custom solution for real-time integrated recording and analysis of EEG, eye-tracking, and body-tracking. Each of these three elements is being developed by a subgroup of the Bermuda team and are all based upon relatively inexpensive and widely accessible components. As a result of taking full advantage of consumer hardware, Bermuda will offer a complete system that is capable of real-time analysis for only a fraction of the cost of comparable systems that have been developed in the past. Additionally, the communications and integration of these 3 data streams are being built from the ground up.</p>
+            </div>
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <img src="/images/ProjectPhotos/bermuda/hardware.jpg" style="width: 80%;"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 25px;">What is Bermuda?</div>
+            <div class="subSubSubTitle" >Objectives</div>
+            <br>
+            <p class="paragraph" >
+              The primary goal for Bermuda in the near future is to create a system that researchers can use to investigate novel research questions in areas such as prosthetics and movement disorder research. Ease of adoption and replication are central to the ethos of Bermuda. For this reason, the team has a heavy focus on communicating ideas and enabling the whole team to benefit from every individual’s work. This allows for cross-team idea-sharing and easy onboarding of new members.<br>
+            </p>
+            <div class="subSubSubTitle" style="margin-bottom: 15px;">Rapid Development</div>
+            <p class="paragraph" >
+              Bermuda is currently in the early prototyping stage. For body-tracking, the team has recently achieved real-time tracking of body positions by using the PoseNet deep learning model running locally on a Raspberry Pi. Specifically, two simultaneous images are captured from a stereo camera module on the Raspberry Pi, then PoseNet is used to find the 2D locations of body parts individually in both of these images. The two estimated 2D poses are then combined into a 3D skeleton using OpenCV which will be sent to a central computer. One of the important next steps for this group is to perform an analysis of tracking accuracy by comparing predicted values to real-world measurements. Additionally, the first version of this system does not meet the performance standards required and will need to be improved and optimized to achieve smooth tracking of rapid movements. This could include using external processing modules (e.g. Coral Edge TPU), cloud processing, smaller/lighter machine learning models, or a combination of these.<br>
+            </p>
+            <div class="subSubSubTitle" style="margin-bottom: 15px;">User Interaction</div>
+            <p class="paragraph" >
+              At the center of Bermuda, there will be a Python-based graphical user interface (GUI) that streams data wirelessly from all 3 of the components by utilizing parallel processing. This GUI will display eye-gaze, body position, and EEG data in real-time as it is received. For eye-tracking, the team is making use of the Pupil Labs open source eye-tracking platform,
+              although there will be significant alterations to the design of the device and communications protocols. Last, but certainly not least, the EEG team has been working on interfacing an ADS1299 development board with a Raspberry Pi which will form the core of the EEG device. This is far from a trivial task and requires solving many low-level electrical engineering problems through a joint effort of many talented team members.
+            </p>
+          </div>
+          </div>
+        </div>
+
+        <div class="greyBG" style="padding:2%;">
+
+          <div id="interestedBlockContents">
+
+          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">Bermuda Project Team</span>
+
+          <div id="viewPastExecsContentScrollContainer">
+            <table style="width:100%" class="pastExecsTable">
+              <tr>
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/eden-redman-neuro/"><img src="/images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/landon-fuhr-8522031b7/"><img src="/images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/james-davis-68517917a/"><img src="/images/ProjectPhotos/bermuda/team/James.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <!-- <th>
+                  <div id="smallImage">
+                    <a href="mailto:rayner@ualberta.ca"><img src="/images/Headshots/PortiaHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th> -->
+
+                <th>
+                  <div id="smallImage">
+                    <a href="mailto:mridgway@ualberta.ca"><img src="/images/ProjectPhotos/bermuda/team/Madeleine.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="mailto:aravenap@ualberta.ca"><img src="/images/ProjectPhotos/bermuda/team/Sebastian.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+              </tr>
+
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
+                <th>Eden Redman</th>
+                <th>Landon Fuhr</th>
+                <th>James Davis</th>
+                <!-- <th>Portia Rayner</th> -->
+                <th>Madeleine Ridgway</th>
+                <th>Sebastian Aravena Pacheco</th>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
+                <td><b>Team Lead - BA, Fine Arts and Design</b></td>
+                <td><b>Body Tracking Lead - BSc, Physiology</b></td>
+                <td><b>PCB Designer - BSc, Electrical Engineering</b></td>
+                <!-- <td><b>Eye Tracking Lead - BSc, Electrical Engineering</b></td> -->
+                <td><b>UX/UI Programmer - BSc, Neuroscience</b></td>
+                <td><b>Communications - BSc, Electrical Engineering</b></td>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1); vertical-align: top;">
+                <td>Responsible for coordinating communication and collaboration between software and hardware developers as well as between the sub-teams working on each of the three modalities that make up Bermuda. Eden also sets project goals and oversees the progression towards these milestones, beyond this he works hands-on where he is needed in order to keep the project moving forward.  </td>
+                <td>Responsible for conceptualizing and developing the body tracking system for Bermuda. Landon is using lightweight deep learning models to provide real-time pose estimation. He is building the system centered around a Raspberry Pi to keep costs down along with a stereo camera module to allow for identification of 3D locations of parts.  </td>
+                <td>Responsible for aiding all teams in hardware development, with an emphasis on the EEG team. James is responsible for developing the initial in-house EEG prototype that allows for future scalability, through which the project is poised to have a significant impact in the research community, and beyond.</td>
+                <!-- <td></td> -->
+                <td>Responsible for designing and programming the user interface for Bermuda. Madeleine is working on integrating the data streams from the project's three elements into a single interface, which will allow easy access to the information and simplify future applications of the system.</td>
+                <td>Responsible for SPI communication between the Raspberry Pi and the ADS1299 analog to digital converter used in the collection of EEG data. One of Bermuda’s main design constraints will be tracking free moving bodies therefore Sebastian works to eliminate wires that could impede movement through the use of a QN9080SIP, an Ultra-low-power Bluetooth 5 SIP, to transfer EEG data to an on-board laptop BLE.</td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('#viewPastExecsButton').click(function(){
+          if($('#viewPastExecsButton').text() === "View 2019 Project Team") {
+
+            // Button
+            $('#viewPastExecsButton').text("Back");
+            $('#viewPastExecsButton').css('background-color', 'rgba(0, 0, 0, 1)');
+
+            // Content
+            $('#viewPastExecsContent').css("height","500px"); // so we never hit it
+            $('#viewPastExecsContent').css("margin-top","-50px");
+            $('#viewPastExecsContent').css("opacity","100");
+            $('#viewPastExecsContent').css("padding-bottom","2%");
+            $('#viewPastExecsContent').css("padding-top","70px");
+            // $('#viewPastExecsContent').css("transform","scaleY(1)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","block");
+          } else {
+            // Button
+            $('#viewPastExecsButton').text("View 2019 Project Team");
+            $('#viewPastExecsButton').css("background-color", "rgba(0, 0, 0, 0.8)");
+
+            // Content
+            $('#viewPastExecsContent').css("height","0px");
+            $('#viewPastExecsContent').css("margin-top","0px");
+            $('#viewPastExecsContent').css("opacity","0");
+            $('#viewPastExecsContent').css("padding-bottom","0px");
+            $('#viewPastExecsContent').css("padding-top","0px");
+            // $('#viewPastExecsContent').css("transform","scaleY(0)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","none");
+          }
+        });
+      });
+    </script>
+
+    <!-- Show data processing -->
+    <script>
+      $(document).ready(function(){
+        var currStage = 0;
+        var dataParagraph = document.getElementById("dataParagraph");
+        var stageParagraphs = [
+          'This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter"  id="uncoloredLink" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>',
+
+          "Now that we have smoothed out the data, it is much easier to see the underlying waves, which means that the Fourier transform will likely be able to better represent what is actually going on with the data. Let's pass each of the individual channels through a Fourier transform. <br><br><b>Click on the data to pass the channels through a Fourier transform.</b>",
+
+          "Fantastic! Though it may not look like it, you are looking at the exact same data. The Fourier transform doesn't actually change the data at all, it simply changes the way we represent it. Here the data is represented in the frequency domain instead of the time domain, so the different peaks of these graphs show relative strengths of each frequency in the overall signal as opposed to showing the overal signal itself. It may not be immediately obvious what's going on here, but this is actually really powerful. This transform allows us to use our neuroscience knowledge to further interpret this data. <br><br><b>Click on the data to further analyze the data.</b>",
+
+          "This is the exact same thing, but now we have fancy lines drawn on it! These lines are placed to break up the data into the regions of 0.5-4 Hz, 4-7.5 Hz, 7.5-12 Hz, 12-30 Hz, and 30-100 Hz. These regions correspond to the delta, theta, alpha, beta, and gamma power bands respectively. What we want to do now is calculate a numerical representation of the relative strength of each of these bins. To do that, we simply average every point in each of these bins. <br><br><b>Click on the data to find the binned values.</b>",
+
+          "Now we have an incredibly simple representation of the entire sample that contains just 5 numbers, the relative strength of each of the power bins, for each of the 16 channels. Having these bins of data is incredibly powerful, as we can interpret the data over time to see how it changes, and we can even compare how these bins change over time compared to each other to determine rather complex occurances in the brain, such as mood, attention level, and calmness. For our classifier application, however, we sort of skim over this nuance. We don't exactly know how your calmness, attention, etc. correlate to our directional labels, so we are just going to directly feed this data into the LDA classifier and leave it to discover that for us. Let's compress this data a little more. <br><br><b>Click on the data to compress this data further.</b>",
+
+          "Here we have simply averaged the strength of all of the bins to discover 5 numbers that represent the entire sample. We have now preprocessed one sample for the Fourier model! The program follows this process for every sample that we record to build a dataset of these bits of data above that will all go towards training our Fourier LDA Model.<br><br><b>Click on the data to reset this exercise.</b>"];
+
+
+        // Preload images to make activity super snappy
+        var i;
+        for (i = 0; i <= 5; i++) {
+          var img=new Image();
+          img.src="../images/ProjectPhotos/dataExample/" + i + '.jpg';
+        }
+
+        $('.dataExample').click(function(){
+          if(currStage < 5){
+            currStage = currStage + 1
+          }
+          else {
+            currStage = 0
+          }
+
+          $('.dataExample').attr('src', '../images/ProjectPhotos/dataExample/' + currStage + '.jpg');
+          dataParagraph.innerHTML = stageParagraphs[currStage];
+        });
+      })
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>

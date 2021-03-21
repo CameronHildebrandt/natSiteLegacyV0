@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="../images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="../style.css" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="../scrollBackground.js"></script>
+    <script type="text/javascript" src="../burgerController.js"></script>
+
+    <!-- Add Our Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="/index.html"><image id="headerImg" src="/images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position: relative"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/ProjectPhotos/koalacademy/equate.png"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+
+
+        <h1 class="subTitle" style="margin-left: 2%;">Koalacademy</h1>
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%;">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <img src="../images/ProjectPhotos/koalacademy/equate.png" style="width: 100%;"></img>
+              </div>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle"  style="margin-bottom: 15px;">Language Learning With Brain Waves</div>
+              <p class="paragraph">We are developing the world's first language learning platform optimized to directly utilize brain waves. Our project leverages the subsequent memory effect, or the fact that memory outcomes (i.e. whether something will be remembered or forgotten) can be predicted based on brain activity during attempted memory encoding. Accordingly, we plan to develop a language learning game which will provide real-time feedback to users on whether the encoding of a given translation is likely to be successful or not. Initially, we will focus on Mandarin acquisition for English speakers because of the inherent difficulty involved in learning this language. We are aiming to reduce individual barriers in learning this complex but highly relevant language. We also plan to host our application on a remote web server, allowing open access to any users with the requisite hardware. Altogether, we aim to demonstrate the power of commercial BCIs in allowing average consumers to develop practical life skills in an efficient and engaging manner.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 15px;">Underlying Principles</div>
+
+            <p class="paragraph">
+              We take advantage of the subsequent memory effect (SME) which refers to the difference in brain activity between individuals studying items they will later remember and studying items they will later forget. Regarding EEG data, the study of items that will be remembered later is characterized by increased voltage readings over frontal and parietal regions following item presentation, as well as increased spectral power in bands such as theta. Here, we plan to leverage the power of deep machine learning models to exploit the intricacies of the SME beyond voltage and power readings. In particular, we will apply these models while individuals attempt to learn the “items” involved in learning a new language (such as characters or translations) with the goal of providing a real-time assessment of whether the study period was successful and whether it is likely that the individual will remember the item they are currently studying.
+            </p>
+          </div>
+        </div>
+
+
+
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 15px;">Functionality</div>
+
+            <p class="paragraph">
+              In addition to offering feedback at the end of a given learning session (English to Mandarin association, and vice versa), we will offer users stats on their learning across multiple sessions via a profile dashboard as they progress in their learning, which in this case will be increasingly complex Mandarin characters Users can get a sense of their progress at a glance and will be provided a summary of the characters that they need to study more.<br><br>
+
+              <img src="../images/ProjectPhotos/koalacademy/flowchart.png" id="exampleGif" class="dataExample"></img>
+            </p>
+          </div>
+        </div>
+
+
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 15px;">Our Vision</div>
+            <p class="paragraph">
+              This project will culminate in a fully functioning, free to use, web-based game. We expect our project to garner significant media attention given the broad coverage of our first project, AlphaBlaster, in 2019. This will be accomplished by reaching out both within the University of Alberta community as well as the broader Edmonton community. We will also share our project internally throughout the University of Alberta and the University of Calgary. Most importantly, we also plan to submit our project to the 2021 iteration of the NeuroTechX Open Competition, an international undergraduate neurotechnology design contest!
+            </p>
+          </div>
+        </div>
+
+
+        <div id="interestedBlock" style="margin-bottom: 30px;">
+
+          <div id="interestedBlockContents">
+
+          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">Koalacademy Project Team</span>
+
+          <div id="viewPastExecsContentScrollContainer">
+            <table style="width:100%" class="pastExecsTable">
+              <tr>
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/eden-redman-neuro/" target="_blank"><img src="../images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/landon-fuhr-8522031b7/" target="_blank"><img src="../images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/harrison-fah-3858b7204//" target="_blank"><img src="../images/ProjectPhotos/koalacademy/Harrison_Fah.png" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/cdhildebrandt/" target="_blank"><img src="../images/Headshots/CameronHeadshot2.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/matthew-danyluik/" target="_blank"><img src="../images/Headshots/MatthewHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/nicole-wlasitz-she-her-0a523713b/" target="_blank"><img src="../images/Headshots/NicoleHeadshot.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="mailto:dvillarr@ualberta.ca" target="_blank"><img src="../images/ProjectPhotos/koalacademy/dania_villarreal.png" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/xiaoyuwang99/" target="_blank"><img src="../images/ProjectPhotos/koalacademy/Ben_Wang.jpg" id="smallImageChild" ></img></a>
+                  </div>
+                </th>
+
+                <!-- <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/william-chen-4164a8106/" target="_blank"><img src="../images/ProjectPhotos/koalacademy/" id="smallImageChild"></img></a>
+                  </div>
+                </th> -->
+
+                <th>
+                  <div id="smallImage">
+                    <a href="https://www.linkedin.com/in/tanyaradzwa-gozhora-8941b519a/" target="_blank"><img src="../images/ProjectPhotos/koalacademy/Tanya_Gozhora.jpg" id="smallImageChild"></img></a>
+                  </div>
+                </th>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
+                <th>Eden Redman</th>
+                <th>Landon Fuhr</th>
+                <th>Harrison Fah</th>
+                <th>Cameron Hildebrandt</th>
+                <th>Matthew Danyluk</th>
+                <th>Nicole Wlastiz</th>
+                <th>Dania Villarreal</th>
+                <th>Ben Wang</th>
+                <!-- <th>William Chen</th> -->
+                <th>Tanyaradzwa Gozhora</th>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
+                <td>Team Lead - BA, Fine Arts and Design</td>
+                <td>Senior Full Stack Developer - BSc, Physiology</td>
+                <td>Senior Full Stack Developer BSc, Computer Science</td>
+                <td>Senior Front End Developer - BSc, Computer Science</td>
+                <td>Data Analyst - BSc, Neuroscience</td>
+                <td>Junior Front End Developer - BA, Psychology</td>
+                <td>Front End Developer - BSc, Neuroscience</td>
+                <td>Full Stack Developer - BSc, Computer Science</td>
+                <!-- <td>BSc, Computer Science</td> -->
+                <td>Junior Front End Developer - BSc, Computer Science</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('#viewPastExecsButton').click(function(){
+          if($('#viewPastExecsButton').text() === "View 2019 Project Team") {
+
+            // Button
+            $('#viewPastExecsButton').text("Back");
+            $('#viewPastExecsButton').css('background-color', 'rgba(0, 0, 0, 1)');
+
+            // Content
+            $('#viewPastExecsContent').css("height","500px"); // so we never hit it
+            $('#viewPastExecsContent').css("margin-top","-50px");
+            $('#viewPastExecsContent').css("opacity","100");
+            $('#viewPastExecsContent').css("padding-bottom","2%");
+            $('#viewPastExecsContent').css("padding-top","70px");
+            // $('#viewPastExecsContent').css("transform","scaleY(1)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","block");
+          } else {
+            // Button
+            $('#viewPastExecsButton').text("View 2019 Project Team");
+            $('#viewPastExecsButton').css("background-color", "rgba(0, 0, 0, 0.8)");
+
+            // Content
+            $('#viewPastExecsContent').css("height","0px");
+            $('#viewPastExecsContent').css("margin-top","0px");
+            $('#viewPastExecsContent').css("opacity","0");
+            $('#viewPastExecsContent').css("padding-bottom","0px");
+            $('#viewPastExecsContent').css("padding-top","0px");
+            // $('#viewPastExecsContent').css("transform","scaleY(0)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","none");
+          }
+        });
+      });
+
+    </script>
+
+
+    <!-- Show data processing -->
+    <!-- <script>
+      $(document).ready(function(){
+        var currStage = 0;
+        var dataParagraph = document.getElementById("dataParagraph");
+        var stageParagraphs = [
+          'This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter"  id="uncoloredLink" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>',
+
+          "Now that we have smoothed out the data, it is much easier to see the underlying waves, which means that the Fourier transform will likely be able to better represent what is actually going on with the data. Let's pass each of the individual channels through a Fourier transform. <br><br><b>Click on the data to pass the channels through a Fourier transform.</b>",
+
+          "Fantastic! Though it may not look like it, you are looking at the exact same data. The Fourier transform doesn't actually change the data at all, it simply changes the way we represent it. Here the data is represented in the frequency domain instead of the time domain, so the different peaks of these graphs show relative strengths of each frequency in the overall signal as opposed to showing the overal signal itself. It may not be immediately obvious what's going on here, but this is actually really powerful. This transform allows us to use our neuroscience knowledge to further interpret this data. <br><br><b>Click on the data to further analyze the data.</b>",
+
+          "This is the exact same thing, but now we have fancy lines drawn on it! These lines are placed to break up the data into the regions of 0.5-4 Hz, 4-7.5 Hz, 7.5-12 Hz, 12-30 Hz, and 30-100 Hz. These regions correspond to the delta, theta, alpha, beta, and gamma power bands respectively. What we want to do now is calculate a numerical representation of the relative strength of each of these bins. To do that, we simply average every point in each of these bins. <br><br><b>Click on the data to find the binned values.</b>",
+
+          "Now we have an incredibly simple representation of the entire sample that contains just 5 numbers, the relative strength of each of the power bins, for each of the 16 channels. Having these bins of data is incredibly powerful, as we can interpret the data over time to see how it changes, and we can even compare how these bins change over time compared to each other to determine rather complex occurances in the brain, such as mood, attention level, and calmness. For our classifier application, however, we sort of skim over this nuance. We don't exactly know how your calmness, attention, etc. correlate to our directional labels, so we are just going to directly feed this data into the LDA classifier and leave it to discover that for us. Let's compress this data a little more. <br><br><b>Click on the data to compress this data further.</b>",
+
+          "Here we have simply averaged the strength of all of the bins to discover 5 numbers that represent the entire sample. We have now preprocessed one sample for the Fourier model! The program follows this process for every sample that we record to build a dataset of these bits of data above that will all go towards training our Fourier LDA Model.<br><br><b>Click on the data to reset this exercise.</b>"];
+
+
+        // Preload images to make activity super snappy
+        var i;
+        for (i = 0; i <= 5; i++) {
+          var img=new Image();
+          img.src="../images/ProjectPhotos/dataExample/" + i + '.jpg';
+        }
+
+        $('.dataExample').click(function(){
+          if(currStage < 5){
+            currStage = currStage + 1
+          }
+          else {
+            currStage = 0
+          }
+
+          $('.dataExample').attr('src', '../images/ProjectPhotos/dataExample/' + currStage + '.jpg');
+          dataParagraph.innerHTML = stageParagraphs[currStage];
+        });
+      })
+    </script> -->
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>

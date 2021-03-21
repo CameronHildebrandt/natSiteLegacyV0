@@ -142,6 +142,20 @@ body:after{
   hyphens: auto;
 }
 
+.subSubSubTitle {
+  font-size: 30px;
+  color: rgba(30,30,30,1);
+  text-align: left;
+  /* text-shadow: 0px 0px 20px rgba(0,0,0,0.3); */
+  font-weight: 900;
+  /* font-family: 'Maven Pro', sans-serif; */
+  font-family: 'Titillium Web', sans-serif;
+
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 .paragraph {
   font-size: 20px;
   color: rgba(30,30,30,1);
@@ -244,10 +258,63 @@ body:after{
   transform: scale(1.1);
 }
 
+.multiPageLink:hover .subPageLink {
+  opacity: 1;
+}
+
 .pageLink:active {
   background-color: rgba(0,0,0,0.7);
   transform: scale(1);
 }
+
+
+
+.subPageLink {
+  /* Positioning */
+  position: absolute;
+  /* float: right; */
+  right: 100px;
+  top: 64px;
+  font-size: 20px;
+  height: 48px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+
+  z-index: 200;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+  border-radius: 50px;
+
+  background-color: rgba(240,240,240,1);
+  color: rgba(0,0,0,0.8);
+
+  font-weight: 900;
+  font-family: 'Maven Pro', sans-serif;
+
+  border: none;
+
+  opacity: 0;
+}
+
+.subPageLink:hover {
+  transform: scale(1.1);
+}
+
+.subPageLink:active {
+  background-color: rgba(0,0,0,0.7);
+  transform: scale(1);
+}
+
+
+.multiPageLink {
+  background-color: rgba(255,0,0,0.7);
+}
+
+
+
 
 #currentPageLink {
   border: solid;
@@ -477,33 +544,61 @@ body {
 }
 
 #eventImage:hover {
-  /* transform: scale(1.05); */
+  transform: scale(1.05);
 }
 
 #eventImage:active {
   transform: scale(1);
 }
 
+#eventImageNoHover {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
 #smallInfoBlockMedia {
   display: table;
   width: 300px;
+  text-align: center;
+
+  margin-right: 15px;
+
+  /* background-color: rgba(0,255,0,0.5); */
 }
 
 #smallInfoContents {
   display: flex;
-  position: relative;
+  /* flex: 0 0 300px; */
+
+  /* background-color: rgba(0,0,255,0.5); */
+
+  /* display: inline; */
+
+  /* width: -webkit-calc(100% - 30px);
+  width: -moz-calc(100% - 30px);
+  width: calc(100% - 30px); */
+  /* width: 75%; */
+  /* position: relative; */
 }
 
 #smallInfoBlockText {
   position: relative;
 
-  padding-left: 20px;
-  padding-right: 20px;
-  width: -webkit-calc(100% - 340px); /* 300 + 2*20padding */
-  width: -moz-calc(100% - 340px);
-  width: calc(100% - 340px);
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  /* width: -webkit-calc(100% - 80px);  300 + 2*20padding
+  width: -moz-calc(100% - 80px);
+  width: calc(100% - 80px); */
+  /* width: 100%; */
 
-  top: -30px;
+  padding: none;
+  margin: none;
+
+  /* top: -30px; */
+  /* background-color: rgba(255,0,0,0.5); */
+
+  flex: 1;
 }
 
 #smallInfoBlock {
@@ -514,6 +609,7 @@ body {
   text-align: left;
   display: block;
   transition: background-color 0.2s ease-in-out;
+  /* display: flex; */
 
   /* -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1);
   box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1); */
@@ -521,6 +617,34 @@ body {
 
 #smallInfoBlock:hover {
   background-color: rgba(255,255,255,0.95);
+}
+
+#smallInfoBlockSubSection {
+  border-radius: 20px;
+  /* border: 2px solid rgba(240,240,240,1); */
+  padding: 2%;
+  padding-right: 4%;
+  margin: 2%;
+  /* text-align: left; */
+  /* display: block; */
+  transition: box-shadow 0.2s ease-in-out;
+
+
+  box-shadow: 1px 1px 37px -16px rgba(0,0,0,0.8);
+  -webkit-box-shadow: 1px 1px 37px -16px rgba(0,0,0,0.8);
+  -moz-box-shadow: 1px 1px 37px -16px rgba(0,0,0,0.8);
+}
+
+#smallInfoBlockSubSection:hover {
+  box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
+  -webkit-box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
+  -moz-box-shadow: 1px 1px 37px -5px rgba(0,0,0,0.8);
+}
+
+.cardStack {
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
 }
 
 #darkSmallInfoBlock {
@@ -536,6 +660,110 @@ body {
 #darkSmallInfoBlock:hover {
   background-color: rgba(255,255,255,0.15);
 }
+
+
+#contentContainer {
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+
+.speakerList {
+  max-height: 80vh;
+  overflow: scroll;
+  display: none;
+}
+
+.speakerList div {
+  opacity: 0%;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.smallInfoCardContentContainer {
+  /* max-height: 80vh;
+  overflow: scroll;
+  display: none; */
+  position: relative;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* .smallInfoCardContentContainer div {
+  opacity: 0%;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+} */
+
+.curriculumTableContainer {
+  /* overflow-y: auto;
+  height: 400px; */
+  display: none;
+  overflow: scroll;
+}
+
+.curriculumTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 5px 5px;
+  margin-top: -30px;
+  posiiton: relative;
+}
+
+.curriculumTable tr {
+  opacity: 0%;
+  posiiton: relative;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.curriculumTable tr td,
+.curriculumTable tr th{
+  padding: 10px;
+
+  font-size: 20px;
+  color: rgba(30,30,30,1);
+  text-align: left;
+  font-weight: 400;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.curriculumTable tr td {
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.2);
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.curriculumTable tr td:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.curriculumTable tr #num {
+  font-weight: 700;
+}
+
+.curriculumTable tr th {
+  position: sticky;
+  top: 0;
+  font-weight: 700;
+}
+
+
+@keyframes fadeIn {
+  0%   {opacity: 0%;}
+  100%  {opacity: 100%;}
+}
+
+
+
+
+
+
 
 
 #smallButton {
@@ -623,7 +851,7 @@ body {
 }
 
 .greyBG {
-  border-radius: 50px;
+  /* border-radius: 50px; */
   background-color: rgba(48,48,48,1);
   margin-top: 10px;
   padding-top: 1px;
@@ -666,6 +894,17 @@ body {
   background-color: rgba(255,255,255,0.7);
   transform: scale(1);
   /* height: 500px; */
+}
+
+#viewPastExecsContentFull {
+  color: rgba(240,240,240,1);
+  font-size: 24px;
+  font-weight: 900;
+  font-family: 'Maven Pro', sans-serif;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 15px;
+  padding-bottom: 2%;
 }
 
 #viewPastExecsContent {
@@ -722,7 +961,7 @@ body {
   /* text-align: center; */
 
   margin: 2%;
-  border-radius: 50px;
+  border-radius: 20px;
 
   overflow: hidden;
   position: relative;
@@ -759,7 +998,7 @@ body {
 #interestedLinks {
   list-style-type: none; /*to remove bullets*/
   text-align: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 0px;
   /* border:1px solid red; */
   /* display:table; */
@@ -785,7 +1024,7 @@ body {
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
   height: 100px;
-  width: 110%;
+  width: 100%;
 }
 
 #interestedLinks li button.contactPage {
@@ -984,6 +1223,28 @@ select:-webkit-autofill:focus {
   background-color: rgba(255,255,255,0.95);
 }
 
+#darkLargeInfoBlock {
+  margin: 2%;
+  padding: 2%;
+  padding-top: 0.001%;
+  text-align: left;
+  display: block;
+  border-radius: 20px;
+
+  transition: background-color 0.2s ease-in-out;
+  background-color: rgba(255,255,255,0.05);
+
+  /* -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1); */
+}
+
+#darkLargeInfoBlock:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+
+
+
 #largeInfoContents {
   /* background-color: rgba(0,0,255,0.5); */
   display: flex;
@@ -991,6 +1252,8 @@ select:-webkit-autofill:focus {
 }
 
 #largeMediaFrame {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+
   border-radius: 20px;
   overflow: hidden;
   height: 315px;
@@ -999,6 +1262,8 @@ select:-webkit-autofill:focus {
 
   margin-top: 10px;
   position: relative;
+
+  margin-right: 15px;
 }
 
 #largeMediaFrame:hover {
@@ -1041,6 +1306,8 @@ select:-webkit-autofill:focus {
 }
 
 #smallImage {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -1056,13 +1323,20 @@ select:-webkit-autofill:focus {
 }
 
 #smallImage:hover {
+  border-radius: 10px;
   transform: scale(1.02);
   /* border-radius: 20px; */
 }
 
 #smallImage:active {
+  border-radius: 10px;
   transform: scale(1);
   /* border-radius: 20px; */
+}
+
+.smallImageLarger {
+  height: 400px;
+  width: 800px;
 }
 
 #smallImageChild {
@@ -1125,14 +1399,9 @@ select:-webkit-autofill:focus {
 }
 
 .mediaLogo:active {
-  background-color: rgba(255,255,255,0.7);
   transform: scale(1);
 }
 
-#anchorLink img {
-  width: 90px;
-  height: 90px;
-}
 
 #partners {
   background-color: rgba(0,0,0,0.8);
@@ -1149,17 +1418,25 @@ select:-webkit-autofill:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .partnerLogo {
-  width: 300px;
-  height: auto;
-  margin: 10px;
+  /* width: 300px;
+  height: auto; */
+
+  width: auto;
+  height: 75px;
+
+  margin: 30px;
   transition: transform 0.2s ease-in-out;
 }
 
 .partnerLogo img {
-  width: 100%;
+  /* width: 100%; */
+
+  height: 100%;
 
   position: relative;
   top: 50%;
@@ -1167,7 +1444,7 @@ select:-webkit-autofill:focus {
 }
 
 .partnerLogo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -1266,6 +1543,8 @@ div.pastNewsletter:active {
   #largeInfoBlockMedia {
     display: grid;
     width: 300px;
+
+    margin-right: 15px;
   }
 
   #largeMediaFrame {
@@ -1307,6 +1586,11 @@ div.pastNewsletter:active {
     margin-bottom: 50px;
   }
 
+  .curriculumTable tr td,
+  .curriculumTable tr th{
+    font-size: 14px;
+  }
+
 }
 
 /* Hide Tabs First */
@@ -1338,6 +1622,9 @@ div.pastNewsletter:active {
     margin: 0 auto;
     margin-bottom: 50px;
     margin-top: 20px;
+
+    width: 100%;
+    height: auto;
   }
 
   #largeInfoBlockMedia {
@@ -1386,6 +1673,10 @@ div.pastNewsletter:active {
   #exampleGif {
     width: 90%;
   }
+
+  /* #divAboveMainForSnapping {
+    height: 10%;
+  } */
 }
 
 @keyframes mobilePageLinkFade {
@@ -1472,10 +1763,27 @@ div.pastNewsletter:active {
   }
 
   #darkSmallInfoBlock:hover {
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255,255,255,0.09);
   }
 
   .spinner{
     border-top: 3px solid rgba(0,0,0,0.5);
+  }
+
+  .curriculumTable tr td,
+  .curriculumTable tr th{
+    color: rgba(225,225,225,1);
+  }
+
+  .curriculumTable tr td {
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .curriculumTable tr td:hover {
+    background-color: rgba(0,0,0,0.7);
+  }
+
+  #darkLargeInfoBlock {
+    background-color: rgba(255,255,255,0.1);
   }
 }
