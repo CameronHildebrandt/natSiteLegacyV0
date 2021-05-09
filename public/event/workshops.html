@@ -35,7 +35,7 @@
       <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
       <a href="/team.html"><button class="mobilePageLink">Team</button></a>
       <a href="/events.html"><button class="mobilePageLink">Events</button></a>
-      <a href="community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
       <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
     </div>
 
@@ -44,7 +44,7 @@
       <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
 
       <a href="/contact.html"><button class="pageLink">Contact</button></a>
-      <a href="community.html"><button class="pageLink">Community</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
       <a href="/events.html"><button class="pageLink">Events</button></a>
       <a href="/team.html"><button class="pageLink">Team</button></a>
       <a href="/projects.html"><button class="pageLink">Projects</button></a>
@@ -116,9 +116,11 @@
         <div style="position: relative; left: 2%; margin-top: 25px; width: 96%;">
 
           <div style="background-color: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
+            <p class="paragraphGradHeader">
+              <b>Su21 workshops are now open for registration!</b><br>
+            </p>
             <p class="paragraph">
-              <b>Wi21 Workshops are now closed for registration.</b><br>
-              But don't go just yet! We will be hosting the workshops again next semester and registration will be opening soon. Be sure to sign up for our newsletters so that you can be one of the first to know when we open registration!
+              That's right! Due to high demand we're going to be hosting our software and hardware workshop series this summer! Check out the timelines, curriculums and more information about the specific workshops below.
             </p>
           </div>
 
@@ -130,7 +132,6 @@
             <br><br>
             Jump to a workshop: <a href="#Software" id="uncoloredLink">Software</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Neuro" id="uncoloredLink">Neuroscience</a>
           </p>
-          <!-- We are currently hosting two streams at a time, in rotation. So if the stream you are interested in isn't currently being hosted, feel free to hit that join button anyway! You will be signed up for the session hosted next semester.  -->
         </div>
 
 
@@ -142,7 +143,7 @@
             <div id="smallInfoBlockMedia">
               <image src="/images/InfoNight/WSSoft.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
               <button id="smallButton" onclick="toggleCurriculum(0)" class="curriculumButton0">Curriculum</button>
-              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSdn2JtrRkzsJEzr3O91sOPEMfTACvLP0zH7sjY5hhjgi-O-yg/viewform?usp=pp_url&entry.1599473611=Stream" target="_blank"><button id=smallButton>Join</button></a> -->
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJME10GGb1PgVK451C6caXiBksult0u_Lscg6RJB2OwsCA6Q/viewform?usp=pp_url&entry.1599473611=Stream"><button id=smallButton>Join</button></a>
             </div>
 
             <div id="smallInfoBlockText">
@@ -158,17 +159,19 @@
                 <p class="paragraph">
                   This workshop will teach you basic programming, starting with foundational python knowledge and working up to using specific libraries that allow you to work with real brain data! Equipping you with the knowledge to build a brain computer interface from the ground up!
                   <br><br>
-                  <!-- <b>Starting in January</b><br>
-                  Every Friday, 6pm-7pm MST -->
-
-                  <b>Workshops are now closed for registration.</b><br>
-                  We will be opening registration for our next set of workshops soon!
+                </p>
+                <p class="paragraphGradHeader">
+                  <b>Now open for registration!</b><br>
+                </p>
+                <p class="paragraph">
+                  Workshop sessions start in June, running every Thursday from 7pm-8pm MST, so be sure to register ASAP!
 
                   <br><br><u><b><span id="software" style="cursor: pointer;">More Information</span></b></u>
                 </p>
 
                 <div id="softwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
                   <p class="paragraph">
+                    This workshopp costs $25<br>
                     This workshop assumes no prior knowledge in programming or neuroscience.<br>
                     Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
                     Curriculum is subject to change.
@@ -180,6 +183,66 @@
 
           </div>
         </div>
+
+
+
+
+
+        <a name="Hardware"></a>
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSHard.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              <button id="smallButton" onclick="toggleCurriculum(1)" class="curriculumButton1">Curriculum</button>
+              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLScaXdYsKDeEXVLr8o2R8NlGZPuLLzGpWeURtnAMhWic9jXG0A/viewform?usp=pp_url&entry.1325395918=Stream"><button id=smallButton>Join</button></a> -->
+            </div>
+
+            <div id="smallInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">Hardware</div>
+
+              <div class="curriculumTableContainer" id="curriculumTableContainer1">
+                <table class="curriculumTable" id="curriculumTable1">
+                </table>
+              </div>
+
+
+              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer1">
+                <p class="paragraph">
+                This workshop will focus on the basics of hardware development with respect to brain-computer interfaces. How to build your own breadboard/microcontroller EEG system + what to do with the data once you have it. You will get the opportunity to build your own simple EEG system and run some basic live-analysis.
+                <br><br>
+                </p>
+                <p class="paragraph">
+                  <b>Workshop Full!</b><br>
+                </p>
+                <p class="paragraph">
+                  Workshop sessions start in June, running every Tuesday from 7pm-8pm MST. We are currently limiting the signups for this workshop to ensure that everything runs smoothly and so that everyone attending has access to quality assistance when needed! Be sure to <a href="/slack.html" id="uncoloredLink">join our Slack</a> and <a href="https://forms.gle/NxVA1VBqu8VrxjzT6" id="uncoloredLink">signup for the newsletter</a> so you are one of the first to know when we open up registration for the Fall semester!
+
+                <br><br>
+                <u><b><span id="hardware" style="cursor: pointer;">More Information</span></b></u>
+                </p>
+
+                <div id="hardwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                  <p class="paragraph">
+                    To be sure that everyone will be working with the same hardware, we have compiled a kit that we will send out to you! *Restricted to Canadan addresses.<br>
+                    To help offset our added cost of hardware and shipping, this workshop will cost $60. Note that this is the first we are hosting this stream and the price is likely to go up next term, now is the time to enrol! <br>
+                    If you live outside of Canada or you already have some hardware you are comfortable with, then contact us to make some alternate arrangements.<br>
+
+                    <br>
+                    This workshop assumes no prior knowledge in programming or neuroscience.<br>
+                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
+                    Curriculum is subject to change.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
 
 
 
@@ -211,8 +274,8 @@
                   <!-- <b>Starting in January</b><br>
                   Every Saturday, 11am-12pm MST -->
 
-                  <b>Workshops are now closed for registration.</b><br>
-                  We will be opening registration for our next set of workshops soon!
+                  <b>Starting in September!</b><br>
+                  We will be opening registration for Fa21 workshops soon!
 
                   <br><br><u><b><span id="ml" style="cursor: pointer;">More Information</span></b></u>
                 </p>
@@ -260,8 +323,8 @@
                   <!-- <b>Starting in January</b><br>
                   Every Saturday, 12pm-1pm MST -->
 
-                  <b>Workshops are now closed for registration.</b><br>
-                  We will be opening registration for our next set of workshops soon!
+                  <b>Starting in September!</b><br>
+                  We will be opening registration for Fa21 workshops soon!
 
                   <br><br><u><b><span id="neuro" style="cursor: pointer;">More Information</span></b></u>
                 </p>
@@ -282,79 +345,20 @@
 
 
 
-
-        <a name="Hardware"></a>
-        <div id="smallInfoBlock">
-          <div id="smallInfoContents">
-
-            <div id="smallInfoBlockMedia">
-              <image src="/images/InfoNight/WSHard.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
-              <button id="smallButton" onclick="toggleCurriculum(1)" class="curriculumButton1">Curriculum</button>
-              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHrU-F1FX9zAN87M6nPLBrL__J3MIMyG1eBN6HJQ9awASg9w/viewform?usp=pp_url&entry.2127139022=Stream" target="_blank"><button id=smallButton>Join</button></a> -->
-            </div>
-
-            <div id="smallInfoBlockText">
-              <div class="subSubTitle" style="margin-bottom: 15px;">Hardware</div>
-
-              <div class="curriculumTableContainer" id="curriculumTableContainer1">
-                <table class="curriculumTable" id="curriculumTable1">
-                </table>
-              </div>
-
-
-              <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer1">
-                <p class="paragraph">
-                This workshop will focus on the basics of hardware development with respect to brain-computer interfaces. How to build your own breadboard/microcontroller EEG system + what to do with the data once you have it. You will get the opportunity to build your own simple EEG system and run some basic live-analysis.
-                <br><br>
-                <b>Starting in April</b><br>
-                This session is hosted over the spring and summer terms, registration will open soon!
-
-                <br><br>
-                <u><b><span id="hardware" style="cursor: pointer;">More Information</span></b></u>
-                </p>
-
-                <div id="hardwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
-                  <p class="paragraph">
-                    To be sure that everyone will be working with the same hardware, we have compiled a kit that we will send out to you! *Restricted to Canadan addresses.<br>
-                    To help offset our added cost of hardware and shipping, this workshop will cost more than the other streams. We aren't yet sure exactly how much more it will cost, as we are working with sponsors to get this price as low as possible!<br>
-                    If you live outside of Canada or you already have some hardware you are comfortable with, then contact us to make some alternate arrangements.<br>
-
-                    <br>
-                    This workshop assumes no prior knowledge in programming or neuroscience.<br>
-                    Once you join, you will be sent a Google calendar invite containing the meeting link!<br>
-                    Curriculum is subject to change.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-
-
         <div style="position: relative; left: 2%; margin-top: 25px; width: 96%;">
-
-          <p class="paragraph">
-            <br><br>
-            We will be offering attendance based NAT merch prizes (Restricted to UofA Students), so be sure to attend as many sessions as you can!
-            <!-- <br><br>This fee isn't just for show though! We offer participation based merch prizes (which in total cost more than $20)!
-            <br><b>4+ Attendances:</b> NAT Sticker
-            <br><b>6+ Attendances:</b> NAT Pen
-            <br><b>8+ Attendances:</b> NAT T-shirt OR Mask OR Mug and a University of NAT diploma (workshop specialization) -->
-          </p>
 
           <div style="background-color: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
             <p class="paragraph">
               <b>Workshop Payment</b><br>
               - Please send all (non-refundable) eTransfers to <a href="mailto:neuralbertatech@gmail.com" id="uncoloredLink">neuralbertatech@gmail.com</a>.<br>
               - Specify which workshop(s) you are paying for in the eTransfer notes.<br>
-              - If applicable, send the transfer with the password "neuralbertatech" (all lowercase).<br>
+              <!-- - If applicable, send the transfer with the password "neuralbertatech" (all lowercase).<br> -->
               - If you are in multiple workshops, please send all in one etransfer.<br>
-              - Payment deadline will be specified when registration opens.
+              - Application deadline is May 10th, 2021.
               <br><br>
-              Each of the streams have a $20* fee, which covers every one of it's 10 sessions, which means it will only cost you $2/session (slightly cheaper than uni classes)! The workshop fee is not intended as a barrier of entry, so please <a href="mailto:neuralbertatech@gmail.com" id="uncoloredLink">email us</a> if this fee is a barrier and we can work something out.
+              <!-- Each of the streams have a $20* fee, which covers every one of it's 10 sessions, which means it will only cost you $2/session (slightly cheaper than uni classes)! --> The workshop fee is only in place to allow us to host the highest quality workhops and it is not intended as a barrier of entry, please <a href="mailto:neuralbertatech@gmail.com" id="uncoloredLink">email us</a> if this fee is a barrier and we can work something out.
+              <br>
+              We will be offering attendance based NAT merch prizes (Restricted to UofA Students), so be sure to attend as many sessions as you can!
             </p>
           </div>
 
@@ -491,7 +495,7 @@
 
           <a name="David"></a>
           <div id="darkLargeInfoBlock">
-            <h1 class="subTitle" style="color: rgba(240,240,240,1);">David Lam</h1>
+            <div class="subTitle" style="color: rgba(240,240,240,1);">David Lam</div>
             <div id="largeInfoContents">
 
               <div id="largeInfoBlockMedia">
@@ -504,7 +508,7 @@
               </div>
 
               <div id="largeInfoBlockText">
-                <div class="subSubTitle" style="color: rgba(240,240,240,1);" style="margin-bottom: 15px;">NAT VP Operations and Finance</div>
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">NAT VP Operations and Finance</div>
                 <p class="paragraph" style="color: rgba(240,240,240,1);">
                   <b>Presenting in: </b> &nbsp;<a href="#Neuro" id="uncoloredLink">Neuroscience</a><br>
                   I am in my 4th year of Neuroscience honors. I have helped out and worked for a cognitive neuroscience lab as well as an electrophysiology lab. I have been part of NAT since it started and love the integration of theoretical concepts of neuroscience with the practicality of computer science and machine learning.

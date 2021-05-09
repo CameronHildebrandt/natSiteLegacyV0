@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <link rel="icon" type="image/png" href="/images/NATBrain.png"/>
+    <!-- <link rel="icon" type="../image/png" href="/images/NATBrain.svg"/> -->
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="../style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="../scrollBackground.js"></script>
+    <script type="text/javascript" src="../burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="../images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/event/hackathon.gif"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+
+        <!-- <h1 class="subTitle" style="left: 2%;">natHACK</h1> -->
+
+
+        <div id="smallInfoBlock">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/event/Nathan.png" id="eventImageNoHover" alt="Info Night Image"></image>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button id=smallButton>Register</button></a>
+            </div>
+
+            <div id="smallInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">natHACK</div>
+
+
+              <p class="paragraphGradHeader">
+                <b>Now open for registration!</b><br>
+              </p>
+              <p class="paragraph">
+                Sign up now to participate in natHACKS, Alberta’s inaugural brain-computer interface hackathon. This is a completely remote hackathon with thousands of dollars in prizes available! natHACKS will be an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we’re thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.<br><br>
+                Begins: <b>July 30th 5:00PM MDT</b><br>
+                Ends: <b>August 2nd 10:00AM MDT</b>
+
+              </p>
+
+              <!-- <p class="paragraph">
+                <br><br><u><b><span id="software" style="cursor: pointer;">More Information</span></b></u>
+              </p>
+
+              <div id="softwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; display: none;">
+                <p class="paragraph">
+
+                </p>
+              </div> -->
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="greyBG">
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Why Should You Attend?</h1>
+
+          <div class="cardStack">
+
+            <div id="darkSmallInfoBlock" style="min-width: 300px;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                  <image src="/images/InfoNight/Award.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Prizes</div>
+                  <p class="paragraph" style="color: rgba(240,240,240,1);">
+                    Senior Stream:<br>
+                    1st Place:<b> $2750 CAD</b><br>
+                    2nd Place:<b> $1500 CAD</b><br><br>
+
+                    Junior Stream:<br>
+                    1st Place:<b> $1000 CAD</b><br>
+                    2nd Place:<b> $500 CAD</b><br><br>
+
+                    <!-- Note: due to legal restrictions, we will only award cash prizes to ressidents of Canada. -->
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="min-width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                  <image src="/images/InfoNight/Experience.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Experience</div>
+                  <p class="paragraph" style="color: rgba(240,240,240,1);">
+                    You will have BCI tech shipped right to you, so you can have a hands on experience with real hardware!
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="min-width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                  <image src="/images/InfoNight/NATAcademia.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Learning</div>
+                  <p class="paragraph" style="color: rgba(240,240,240,1);">
+                    Leading up to and during the hackathon, we will be hosting mini workshops to get you up to speed on BCIs, Arduinos, Pyhthon, Github, and more!
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="min-width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                  <image src="/images/InfoNight/newMerch.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Swag Bags</div>
+                  <p class="paragraph" style="color: rgba(240,240,240,1);">
+                    You are elligible to recieve exclusive NAT swag just by completing your submission!
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="min-width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                  <image src="/images/InfoNight/network.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">Networking</div>
+                  <p class="paragraph" style="color: rgba(240,240,240,1);">
+                    Building a network is important! One of the strongest factors contributing to successful job applications is your network. If you think you want to pursue a career in neurotech, neuroscience, or tech, this is the place to build your network!
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+
+
+        <div id="smallInfoBlock">
+          <!-- <div id="smallInfoContents"> -->
+
+            <!-- <div id="smallInfoBlockMedia">
+              <image src="/images/InfoNight/WSHard.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+            </div> -->
+
+            <!-- <div id="smallInfoBlockText"> -->
+              <div class="subSubTitle" style="margin-bottom: 15px;">Schedule</div>
+
+              <!-- <p class="paragraph">
+                Put the schedule here
+              </p> -->
+
+              <table class="curriculumTable">
+                <tr>
+                  <th>July 26th</th>
+                  <th>Pre-Hack Workshops</th>
+                </tr>
+                <tr>
+                  <td>time - time</td>
+                  <td>Pre-Hack WS</td>
+                </tr>
+                <tr>
+                  <td>time - time</td>
+                  <td>Pre-Hack WS</td>
+                </tr>
+                <tr>
+                  <td>time - time</td>
+                  <td>Pre-Hack WS</td>
+                </tr>
+
+                <tr>
+                  <th>July 28th</th>
+                  <th>Pre-Hack Workshops</th>
+                </tr>
+                <tr>
+                  <td>time - time</td>
+                  <td>Pre-Hack WS</td>
+                </tr>
+                <tr>
+                  <td>time - time</td>
+                  <td>Pre-Hack WS</td>
+                </tr>
+                <tr>
+                  <td>time - time</td>
+                  <td>Pre-Hack WS</td>
+                </tr>
+
+
+                <tr>
+                  <th>&nbsp</th>
+                </tr>
+                <tr>
+                  <th>&nbsp</th>
+                </tr>
+
+
+                <tr>
+                  <th>July 30th</th>
+                  <th>Opening Day</th>
+                </tr>
+                <tr>
+                  <td>17:00 - 18:00</td>
+                  <td>Pre-Opening Networking Session</td>
+                </tr>
+                <tr>
+                  <td>18:00 - 19:00</td>
+                  <td>Opening Ceremony</td>
+                </tr>
+                <tr>
+                  <td>19:00</td>
+                  <td><b>Hacking Starts!</b></td>
+                </tr>
+
+                <tr>
+                  <th>July 31st</th>
+                  <th>Hacking Day</th>
+                </tr>
+                <tr>
+                  <td>10:00-11:00</td>
+                  <td><a href="#openbci" id="uncoloredLink">Sponsor Workshop</a></td>
+                </tr>
+                <tr>
+                  <td>12:00-12:30</td>
+                  <td>Trivia Round 1</td>
+                </tr>
+                <tr>
+                  <td>14:00-15:00</td>
+                  <td><a href="#openbci" id="uncoloredLink">Sponsor Workshop</a></td>
+                </tr>
+                <tr>
+                  <td>17:00-17:30</td>
+                  <td>Trivia Round 2</td>
+                </tr>
+                <tr>
+                  <td>18:00-19:00</td>
+                  <td><a href="#openbci" id="uncoloredLink">Sponsor Workshop</a></td>
+                </tr>
+                <tr>
+                  <td>21:00-21:30</td>
+                  <td>Trivia Round 3</td>
+                </tr>
+                <tr>
+                  <td>23:00-00:30</td>
+                  <td>Movie Night</td>
+                </tr>
+
+                <tr>
+                  <th>August 1st</th>
+                  <th>Hacking Day</th>
+                </tr>
+                <tr>
+                  <td>9:30-10:00</td>
+                  <td>Trivia Round 4</td>
+                </tr>
+                <tr>
+                  <td>10:00-11:00</td>
+                  <td><a href="#openbci" id="uncoloredLink">Sponsor Workshop</a></td>
+                </tr>
+                <tr>
+                  <td>12:30-13:00</td>
+                  <td>Trivia Round 5</td>
+                </tr>
+                <tr>
+                  <td>14:00-13:00</td>
+                  <td><a href="#openbci" id="uncoloredLink">Sponsor Workshop</a></td>
+                </tr>
+                <tr>
+                  <td>16:30-17:00</td>
+                  <td>Trivia Round 6</td>
+                </tr>
+                <tr>
+                  <td>18:00-19:00</td>
+                  <td><a href="#openbci" id="uncoloredLink">Sponsor Workshop</a></td>
+                </tr>
+                <tr>
+                  <td>20:30-21:00</td>
+                  <td>Trivia Round 6</td>
+                </tr>
+                <tr>
+                  <td>23:00-00:30</td>
+                  <td>Movie Night</td>
+                </tr>
+
+                <tr>
+                  <th>August 2nd</th>
+                  <th>Award Day</th>
+                </tr>
+                <tr>
+                  <td>10:00</td>
+                  <td><b>Submission Deadline</b></td>
+                </tr>
+                <tr>
+                  <td>10:00-13:30</td>
+                  <td>Project Evaluation Period (Nap Time)</td>
+                </tr>
+                <tr>
+                  <td>13:30-14:30</td>
+                  <td>Closing Ceremony - Awards Presented</td>
+                </tr>
+              </table>
+            <!-- </div> -->
+
+          <!-- </div> -->
+        </div>
+
+
+
+        <div id="smallInfoBlock">
+          <div class="subSubTitle" style="margin-bottom: 15px;">Workshops</div>
+
+
+          <!-- <div id="softwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; padding-left: 20px;">
+
+            <a name="openbci">
+            <p class="paragraph">
+              <b>Github Workshop</b><br>
+              Cillum voluptate exquisitaque, sunt eruditionem quamquam malis nostrud, sed noster eram ubi incurreret, malis admodum transferrem. A de quorum possumus. Magna ingeniis tractavissent, nisi fabulas concursionibus, incurreret magna Export o ea summis constias. Et eu magna litteris. Ita noster irure de excepteur. Occaecat esse anim ne malis in admodum tamen ullamco ea officia de arbitror iis ita proident philosophari, ipsum quamquam o quae sunt te litteris
+              <br><br>
+              <b>July 30th 18:00 - 19:00</b>
+            </p>
+          </div>
+
+          <br>
+
+          <div id="softwarePara" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px; padding-left: 20px;">
+
+            <a name="openbci">
+            <p class="paragraph">
+              <b>Github Workshop</b><br>
+              Cillum voluptate exquisitaque, sunt eruditionem quamquam malis nostrud, sed noster eram ubi incurreret, malis admodum transferrem. A de quorum possumus. Magna ingeniis tractavissent, nisi fabulas concursionibus, incurreret magna Export o ea summis constias. Et eu magna litteris. Ita noster irure de excepteur. Occaecat esse anim ne malis in admodum tamen ullamco ea officia de arbitror iis ita proident philosophari, ipsum quamquam o quae sunt te litteris
+              <br><br>
+              <b>July 30th 18:00 - 19:00</b>
+            </p>
+          </div> -->
+
+
+
+
+          <table class="curriculumTable">
+            <a name="openbci">
+            <tr>
+              <th>July 26th</th>
+              <th>18:00 - 19:00</th>
+            </tr>
+            <tr>
+              <td><b>Github Workshop</b></td>
+              <td>
+                Cillum voluptate exquisitaque, sunt eruditionem quamquam malis nostrud, sed noster eram ubi incurreret, malis admodum transferrem. A de quorum possumus. Magna ingeniis tractavissent, nisi fabulas concursionibus, incurreret magna Export o ea summis constias. Et eu magna litteris. Ita noster irure de excepteur. Occaecat esse anim ne malis in admodum tamen ullamco ea officia de arbitror iis ita proident philosophari, ipsum quamquam o quae sunt te litteris
+              </td>
+            </tr>
+
+            <a name="muse">
+            <tr>
+              <th>July 26th</th>
+              <th>18:00 - 19:00</th>
+            </tr>
+            <tr>
+              <td><b>Github Workshop</b></td>
+              <td>
+                Cillum voluptate exquisitaque, sunt eruditionem quamquam malis nostrud, sed noster eram ubi incurreret, malis admodum transferrem. A de quorum possumus. Magna ingeniis tractavissent, nisi fabulas concursionibus, incurreret magna Export o ea summis constias. Et eu magna litteris. Ita noster irure de excepteur. Occaecat esse anim ne malis in admodum tamen ullamco ea officia de arbitror iis ita proident philosophari, ipsum quamquam o quae sunt te litteris
+              </td>
+            </tr>
+
+            <tr>
+              <th>July 26th</th>
+              <th>18:00 - 19:00</th>
+            </tr>
+            <tr>
+              <td><b>Github Workshop</b></td>
+              <td>
+                Cillum voluptate exquisitaque, sunt eruditionem quamquam malis nostrud, sed noster eram ubi incurreret, malis admodum transferrem. A de quorum possumus. Magna ingeniis tractavissent, nisi fabulas concursionibus, incurreret magna Export o ea summis constias. Et eu magna litteris. Ita noster irure de excepteur. Occaecat esse anim ne malis in admodum tamen ullamco ea officia de arbitror iis ita proident philosophari, ipsum quamquam o quae sunt te litteris
+              </td>
+            </tr>
+
+          </table>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="greyBG">
+
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Partners</h1>
+
+
+
+
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/event/partnership.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="mailto:neuralbertatech@gmail.com?subject=We're%20Interested%20in%20Partnering%20With%20You!&body=Hey%20NeurAlbertaTech,%0d%0dWe're%20interested%20in%20helping foster%20the%20future%20of%20innovators%20and%20are%20considering%20sponsoring%20natHACK!%20Would%20you%20be%20able%20to%20send%20us%20a%20copy%20of%20your%20sponsorship%20document?" rel="EMAIL"><button id=smallButton>Contact Us</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Your Logo Here</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Interested in helping further our goals of demystifying neurotechnology and fostering future innovators? Your partnertship makes this whole event possible and helps us push the bleeding edge of neurotech. Please <a href="mailto:neuralbertatech@gmail.com?subject=We're%20Interested%20in%20Partnering%20With%20You!&body=Hey%20NeurAlbertaTech,%0d%0dWe're%20interested%20in%20helping foster%20the%20future%20of%20innovators%20and%20are%20considering%20sponsoring%20natHACK!%20Would%20you%20be%20able%20to%20send%20us%20a%20copy%20of%20your%20sponsorship%20document?" rel="EMAIL" id="uncoloredLink">contact us</a> if you would be interested in recieving a copy of our sponsorship document and learning more about the long list of benefits we offer.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        var showingReadMores = [false, false, false, false];
+
+        $('#hardware').click(function(){
+          if(showingReadMores[0]) {
+            document.getElementById("hardwarePara").style.display="none"
+            document.getElementById("hardware").innerHTML = "More Information"
+            showingReadMores[0] = false;
+          } else {
+            document.getElementById("hardwarePara").style.display="block"
+            document.getElementById("hardware").innerHTML = "Less Information"
+            showingReadMores[0] = true;
+          }
+        });
+
+        $('#software').click(function(){
+          if(showingReadMores[1]) {
+            document.getElementById("softwarePara").style.display="none"
+            document.getElementById("software").innerHTML = "More Information"
+            showingReadMores[1] = false;
+          } else {
+            document.getElementById("softwarePara").style.display="block"
+            document.getElementById("software").innerHTML = "Less Information"
+            showingReadMores[1] = true;
+          }
+        });
+
+        $('#neuro').click(function(){
+          if(showingReadMores[2]) {
+            document.getElementById("neuroPara").style.display="none"
+            document.getElementById("neuro").innerHTML = "More Information"
+            showingReadMores[2] = false;
+          } else {
+            document.getElementById("neuroPara").style.display="block"
+            document.getElementById("neuro").innerHTML = "Less Information"
+            showingReadMores[2] = true;
+          }
+        });
+
+        $('#ml').click(function(){
+          if(showingReadMores[3]) {
+            document.getElementById("mlPara").style.display="none"
+            document.getElementById("ml").innerHTML = "More Information"
+            showingReadMores[3] = false;
+          } else {
+            document.getElementById("mlPara").style.display="block"
+            document.getElementById("ml").innerHTML = "Less Information"
+            showingReadMores[3] = true;
+          }
+        });
+
+      })
+    </script>
+
+    <script>
+      var states = [false, false, false, false];
+
+      function toggleCurriculum(num) {
+
+        if(states[num]) {
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "block";
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "relative";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.display = "none";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.position = "absolute";
+          document.querySelector(".curriculumButton" + num.toString()).innerHTML = "Curriculum";
+          states[num] = false;
+        }
+        else {
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "none";
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "absolute";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.display = "block";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.position = "relative";
+          document.querySelector(".curriculumButton" + num.toString()).innerHTML = "Info";
+          states[num] = true;
+        }
+
+      }
+    </script>
+
+
+    <script>
+      const API_KEY = 'AIzaSyC9Vyuw1ymOH9gttGEpgQx7jwgONGgQVjI';
+      const RANGE = 'A1:D11';
+
+      // In order [software, hardware, ml, neuro]
+      const SHEET_IDS = ['1QvrGCrgMgsK9kpenL9GHBRQkejV8z9DFMcwnAF1LtJE', '1lApMDfK8-IiUfwoWuxDq52EzeWb8FnJRUy0VqYg3AEM', '1uk23a1MyaPadKUhlwvhaXbjInA35J8xwp5zBs-V5YRY', '1dV73FjdyeTXg3hD4lvI2hVeRG1ES3fwGBc9BGOThrHs'];
+      const OUR_TABLES = ["#curriculumTable0", "#curriculumTable1", "#curriculumTable2", "#curriculumTable3"];
+
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[0]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 0);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[1]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 1);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[2]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 2);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[3]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 3);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+
+
+      function createSchedule(content, wsStreamNum) {
+          let table = document.querySelector(OUR_TABLES[wsStreamNum]);
+          let thead = table.createTHead();
+          var row = thead.insertRow();
+          var rowNum = 0; // Keep track of what row we are on
+          for (let title of content[0]) {
+              var th = document.createElement("th");
+              var text = document.createTextNode(title);
+              th.appendChild(text);
+              row.appendChild(th);
+          }
+
+          let tbody = table.createTBody();
+
+          for (var i=1; i<content.length; i++) {
+              row = tbody.insertRow();
+              row.style.animationDelay = (0.05 * rowNum).toString() + "s";
+              rowNum += 1;
+
+              var colNum = 0;
+              for (let item of content[i]) {
+                  var td = document.createElement("td");
+
+                  // Bold the first column
+                  if(colNum == 0) {
+                    td.id = "num";
+                  }
+
+                  var text = document.createTextNode(item);
+
+                  // Link last column
+                  if(colNum == 3) {
+                    // Create anchor element.
+                    var a = document.createElement('a');
+                    a.id = "uncoloredLink";
+                    a.href = "#" + text.textContent;
+
+                    console.log("#" + text.textContent);
+
+                    // Append the text node to anchor element.
+                    a.appendChild(text);
+
+                    text = a;
+                  }
+
+                  td.appendChild(text);
+                  row.appendChild(td);
+
+                  colNum += 1;
+              }
+          }
+      }
+    </script>
+
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>
