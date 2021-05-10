@@ -770,6 +770,11 @@ body {
   font-weight: 700;
 }
 
+.curriculumTableHeaderSizer2 {
+  width: 88%;
+  min-width: 200px;
+}
+
 .curriculumTableHeaderSizer {
   width: 22%;
   min-width: 200px;
