@@ -766,9 +766,68 @@ body {
 
 .curriculumTable tr th {
   position: sticky;
-  top: 0;
+  top: -10px;
   font-weight: 700;
 }
+
+.curriculumTableHeaderSizer {
+  width: 22%;
+  min-width: 200px;
+}
+
+.curriculumTableHeaderSizerTime {
+  min-width: 150px;
+}
+
+#ctHalfHeight {
+  line-height: 10px;
+}
+
+/* Alternate Colours */
+#ctbgRed {
+  background-color: rgba(255,0,0,0.2);
+}
+
+#ctbgRed:hover {
+  background-color: rgba(255,0,0,0.4);
+}
+
+#ctbgPink {
+  background-color: rgba(189,30,107,0.2);
+}
+
+#ctbgPink:hover {
+  background-color: rgba(189,30,107,0.4);
+}
+
+#ctbgPurple {
+  background-color: rgba(182,66,245,0.2);
+}
+
+#ctbgPurple:hover {
+  background-color: rgba(182,66,245,0.4);
+}
+
+#ctbgBlue {
+  background-color: rgba(0,0,255,0.2);
+}
+
+#ctbgBlue:hover {
+  background-color: rgba(0,0,255,0.4);
+}
+
+#ctbgGreen {
+  background-color: rgba(0,255,0,0.2);
+}
+
+#ctbgGreen:hover {
+  background-color: rgba(0,255,0,0.4);
+}
+
+#ctbgInvisible {
+  background-color: rgba(0,0,0,0);
+}
+/* Alternate Colours */
 
 
 @keyframes fadeIn {
@@ -779,6 +838,18 @@ body {
 
 
 
+/* Display Alternate Info */
+.altInfoContainer .altInfo {
+  display: none;
+}
+
+.altInfoContainer:hover .altInfo {
+  display: inline;
+}
+
+.altInfoContainer:hover .primaryInfo {
+  display: none;
+}
 
 
 
@@ -1607,6 +1678,10 @@ div.pastNewsletter:active {
   .curriculumTable tr td,
   .curriculumTable tr th{
     font-size: 14px;
+  }
+
+  .curriculumTableHeaderSizerTime {
+    min-width: 100px;
   }
 
 }
