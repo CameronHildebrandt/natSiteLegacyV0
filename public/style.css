@@ -574,6 +574,16 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
+#eventImageWideFrame {
+  height: 100px;
+  width: 300px;
+}
+
+#eventImageNoHoverWide {
+  height: 100px;
+  max-width: 100%;
+}
+
 #smallInfoBlockMedia {
   display: table;
   width: 300px;
