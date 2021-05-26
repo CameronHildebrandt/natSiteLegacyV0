@@ -183,6 +183,102 @@ body:after{
   -webkit-text-fill-color: transparent;
 }
 
+.paragraphGradHeaderPlatinum {
+  font-size: 20px;
+  /* color: rgba(30,30,30,1); */
+  text-align: left;
+  font-weight: 400;
+  margin-top: -20px;
+  /* font-family: 'Maven Pro', sans-serif; */
+  font-family: 'Titillium Web', sans-serif;
+  display: inline-block;
+
+
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(30deg, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(30deg, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraphGradHeaderGold {
+  font-size: 20px;
+  /* color: rgba(30,30,30,1); */
+  text-align: left;
+  font-weight: 400;
+  margin-top: -20px;
+  /* font-family: 'Maven Pro', sans-serif; */
+  font-family: 'Titillium Web', sans-serif;
+  display: inline-block;
+
+
+  background: #f12711;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(30deg, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(30deg, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraphGradHeaderSilver {
+  font-size: 20px;
+  /* color: rgba(30,30,30,1); */
+  text-align: left;
+  font-weight: 400;
+  margin-top: -20px;
+  /* font-family: 'Maven Pro', sans-serif; */
+  font-family: 'Titillium Web', sans-serif;
+  display: inline-block;
+
+
+  background: #C9D6FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(30deg, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(30deg, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraphGradHeaderBronze {
+  font-size: 20px;
+  /* color: rgba(30,30,30,1); */
+  text-align: left;
+  font-weight: 400;
+  margin-top: -20px;
+  /* font-family: 'Maven Pro', sans-serif; */
+  font-family: 'Titillium Web', sans-serif;
+  display: inline-block;
+
+
+  background: #FF5F6D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(30deg, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(30deg, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.paragraphGradHeaderCommunity {
+  font-size: 20px;
+  /* color: rgba(30,30,30,1); */
+  text-align: left;
+  font-weight: 400;
+  margin-top: -20px;
+  /* font-family: 'Maven Pro', sans-serif; */
+  font-family: 'Titillium Web', sans-serif;
+  display: inline-block;
+
+
+  background: #ef32d9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(30deg, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(30deg, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 #uncoloredLink {
   color: rgba(30,30,30,1);
 }
