@@ -317,6 +317,62 @@ body:after{
   filter: blur(0px);
 } */
 
+.dimBG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1001;
+}
+
+.popupImageContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1002;
+}
+
+.popupImage {
+  position: absolute;
+  width: 70%;
+  border-radius: 50px;
+  z-index: 1002;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popupImageClose {
+  border: none;
+  background-color: rgba(240,240,240,1);
+  border-radius: 50px;
+  color: rgba(0,0,0,1);
+  font-size: 24px;
+  font-weight: 900;
+  font-family: 'Maven Pro', sans-serif;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  height: 50px;
+  width: 60%;
+
+  position: absolute;
+  z-index: 1002;
+}
+
+.popupImageClose:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.popupImageClose:active {
+  background-color: rgba(255,255,255,0.7);
+  transform: scale(1);
+}
+
 .pageLink {
   /* Positioning */
   position: relative;
