@@ -740,10 +740,7 @@ body {
   display: table;
   width: 300px;
   text-align: center;
-
   margin-right: 15px;
-
-  /* background-color: rgba(0,255,0,0.5); */
 }
 
 #smallInfoContents {
@@ -824,6 +821,24 @@ body {
   display: flex;
   flex-direction: row;
   overflow-y: scroll;
+}
+
+.homepageCardStack {
+  min-width: 600px;
+}
+
+.homepageSmallInfoBlock {
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 2%;
+  margin: 2%;
+  text-align: left;
+  display: block;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.homepageSmallInfoBlock:hover {
+  background-color: rgba(255,255,255,0.95);
 }
 
 #darkSmallInfoBlock {
@@ -1458,6 +1473,226 @@ select:-webkit-autofill:focus {
   color: rgba(200,200,200,1);
 }
 
+.execScrollContainer {
+  white-space: nowrap;
+  position: relative;
+  overflow-x: scroll;
+
+  /* Nonsense to ensure that shadows display properly */
+  padding-top: 25px;
+  margin-top: -25px;
+  padding-bottom: 25px;
+  margin-bottom: -25px;
+}
+
+.execContainer {
+  margin-right: 2%;
+  display: inline-block;
+  border-radius: 40px;
+  height: 589px;
+  width: 350px;
+  overflow: hidden;
+  vertical-align: top;
+  overflow: hidden;
+
+  text-align: center;
+
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: rgba(255,255,255,0.7);
+
+  -webkit-box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.69);
+}
+
+.execContainer:hover {
+  -webkit-box-shadow: 0px 0px 17px -3px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 17px -3px rgba(0,0,0,0.69);
+}
+
+.execContainerScroll {
+  border-radius: 40px;
+  height: 480px;
+  overflow: scroll;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.execContainerAnimation {
+  height: 350px; /* transitions to 589px; */
+
+  animation-timing-function: ease-in-out;
+  animation-name: reveal;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  /* animation-play-state: paused; */
+}
+
+@keyframes reveal {
+  from {height: 350px;}
+  to {height: 589px;}
+}
+
+.execImageContainer {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 40px;
+  display:flex;
+  justify-content: center;
+
+  -webkit-box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.69);
+}
+
+.execImage {
+  height: 400px;
+}
+
+.execName {
+  font-size: 32px;
+  color: rgba(30,30,30,1);
+  font-weight: 900;
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: 20px;
+
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.execTitle {
+  font-size: 20px;
+  color: rgba(30,30,30,1);
+  font-weight: 500;
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: -10px;
+  margin-bottom: 20px;
+
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.execTitleGraddirectors {
+  display: inline-block;
+  background: #7F7FD5;
+  background: -webkit-linear-gradient(30deg, #91EAE4, #86A8E7, #7F7FD5);
+  background: linear-gradient(30deg, #91EAE4, #86A8E7, #7F7FD5);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.execTitleGraduofa {
+  display: inline-block;
+  background: rgba(0,124,65,1);
+  background: -webkit-linear-gradient(30deg, rgba(0,124,65,1) 0%, rgba(255,219,5,1) 100%);
+  background: linear-gradient(30deg, rgba(0,124,65,1) 0%, rgba(255,219,5,1) 100%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.execTitleGraduofc {
+  display: inline-block;
+  background: rgba(214,0,28,1);
+  background: -webkit-linear-gradient(30deg, rgba(214,0,28,1) 0%, rgba(255,205,0,1) 100%);
+  background: linear-gradient(30deg, rgba(214,0,28,1) 0%, rgba(255,205,0,1) 100%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.item {
+  background-color: rgba(255,255,0,0.5);
+  height: 100px;
+  width: 100px;
+}
+
+.execButton {
+  position: relative;
+  height: 50px;
+  width: 320px;
+  border-radius: 25px;
+
+  text-decoration: none;
+
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background-color: rgba(51,51,51,1);
+  color: rgba(240,240,240,1);
+
+  font-size: 24px;
+  font-weight: 900;
+  font-family: 'Maven Pro', sans-serif;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.execButton a {
+  text-decoration: none;
+  color: rgba(240,240,240,1);
+}
+
+.execButton:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.execButton:active {
+  background-color: rgba(255,255,255,0.7);
+  transform: scale(1);
+}
+
+
+
+/* TO BE REPLACED WITH NAT LOGO LOADER */
+.loaderContainer {
+  width: 100%;
+}
+
+.lds-dual-ring {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  left: 2%;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #000;
+  border-color: #000 transparent #000 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .lds-dual-ring:after {
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+  }
+}
+/* TO BE REPLACED WITH NAT LOGO LOADER */
+
+
+
+
 
 #largeInfoBlock {
   margin: 2%;
@@ -1842,6 +2077,10 @@ div.pastNewsletter:active {
     margin: 0 auto;
   }
 
+  .homepageCardStack {
+    min-width: 300px;
+  }
+
   .curriculumTable tr td,
   .curriculumTable tr th{
     font-size: 14px;
@@ -1989,9 +2228,26 @@ div.pastNewsletter:active {
     background-color: rgba(40,40,40,0.95);
   }
 
+  .homepageSmallInfoBlock {
+    background-color: rgba(40,40,40,0.75);
+  }
+
+  .homepageSmallInfoBlock:hover {
+    background-color: rgba(40,40,40,0.95);
+  }
+
   #smallButton {
     color: rgba(0,0,0,0.8);
     background-color: rgba(225,225,225,1);
+  }
+
+  .execButton {
+    color: rgba(51,51,51,1);
+    background-color: rgba(225,225,225,1);
+  }
+
+  .execButton a {
+    color: rgba(51,51,51,1);
   }
 
   div.pastNewsletter {
@@ -2000,6 +2256,22 @@ div.pastNewsletter:active {
 
   div.pastNewsletter:hover {
     background-color: rgba(0,0,0,1);
+  }
+
+  .execContainer {
+    background-color: rgba(40,40,40,0.75);
+  }
+
+  .execContainer:hover {
+    background-color: rgba(40,40,40,0.85);
+  }
+
+  .execName {
+    color: rgba(255,255,255,1);
+  }
+
+  .execTitle {
+    color: rgba(255,255,255,1);
   }
 
   #largeInfoBlock {
