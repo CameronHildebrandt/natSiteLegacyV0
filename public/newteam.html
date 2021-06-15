@@ -80,7 +80,7 @@
 
         <div class="greyBG" id="viewPastExecsContentFull">
 
-          <div id="darkSmallInfoBlock" style="margin-top: 0px;">
+          <div id="darkSmallInfoBlock">
             <div id="smallInfoContents">
 
               <div id="smallInfoBlockMedia">
@@ -179,7 +179,7 @@
         //    1 = UofA
         //    2 = UofC
 
-        sheetNumber += 1; // The URL uses 1-based indexing;
+        sheetNumber += 2; // The URL uses 1-based indexing and the HOW TO USE sheet is index=1;
 
         let url = 'https://spreadsheets.google.com/feeds/cells/1Zmm57mPLt7s4zJ8s5si-gsEpaYsQwwUcmwh3X00B7nk/' + String(sheetNumber) + '/public/values?alt=json';
         var allExecs = [];
