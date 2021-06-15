@@ -373,6 +373,52 @@ body:after{
   transform: scale(1);
 }
 
+.tab {
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+}
+
+.tab button {
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.25s;
+    color: rgba(255,255,255,1);
+
+    flex-grow: 1;
+
+    /* background-color: rgba(255,255,255,0.25); */
+    background-color: inherit;
+
+    border-radius: 25px;
+
+    font-size: 48px;
+
+    font-weight: 900;
+    font-family: 'Titillium Web', sans-serif;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    /* margin-left: 10px; */
+
+    min-width: 275px;
+}
+
+.tab button:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.tab button.active {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.tab button:active {
+	background-color: rgba(255,255,255,0.2);
+	transform: scale(0.9);
+}
+
 .pageLink {
   /* Positioning */
   position: relative;
