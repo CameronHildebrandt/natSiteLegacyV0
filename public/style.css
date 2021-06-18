@@ -419,6 +419,13 @@ body:after{
 	transform: scale(0.9);
 }
 
+.tabcontent {
+  opacity: 0%;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+}
+
 .pageLink {
   /* Positioning */
   position: relative;
@@ -1839,6 +1846,21 @@ select:-webkit-autofill:focus {
 
 #exampleGif:active {
   transform: scale(1);
+}
+
+.simpleImage {
+  border-radius: 40px;
+  width: 350px;
+
+  transition: box-shadow 0.2s ease-in-out;
+
+  -webkit-box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.69);
+}
+
+.simpleImage:hover {
+  -webkit-box-shadow: 0px 0px 17px -3px rgba(0,0,0,0.69);
+  box-shadow: 0px 0px 17px -3px rgba(0,0,0,0.69);
 }
 
 #smallImage {

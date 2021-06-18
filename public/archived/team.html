@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="scrollBackground.js"></script>
+    <script type="text/javascript" src="burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="projects.html"><button class="mobilePageLink">Projects</button></a>
+      <button class="mobilePageLink" id="currentPageLink">Team</button>
+      <a href="events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="index.html"><image id="headerImg" src="images/NATBrain.svg" alt="NAT Brain"></image></a>
+      <button id="title">Neur<span style="color: rgba(255,219,5,1);">Alberta</span>Tech</button>
+
+      <a href="contact.html"><button class="pageLink">Contact</button></a>
+      <a href="community.html"><button class="pageLink">Community</button></a>
+      <a href="events.html"><button class="pageLink">Events</button></a>
+      <button class="pageLink" id="currentPageLink">Team</button>
+      <a href="projects.html"><button class="pageLink">Projects</button></a>
+      <a href="index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/ProjectTeam2019.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+      <a name="Eden"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+
+      <div id="main">
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Eden Redman <span style="font-weight: 300; font-size: 24px;">he/him</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+
+                <img src="images/Headshots/EdenHeadshot.jpg" style="height: 100%;"></img>
+
+              </div>
+              <a href='mailto:eredman@ualberta.ca' target="_blank"><button id="smallButton">eredman@ualberta.ca</button></a>
+              <a href='https://www.linkedin.com/in/eden-redman-neuro/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">President</div>
+              <p class="paragraph">Hey there, welcome to the club! I'm Eden, I'm in an after-degree focusing on Industrial Design and East Asian Language Studies, with 4+ years of research experience across Psychology, Computational Neuroscience, Physiology, and Psychiatry. I've touched on everything from brain surgery to oil painting, and many things in-between. I like getting my hands dirty soldering or coding alongside fellow project team members, pushing projects forward, and helping knock down barriers for students from all backgrounds. I hope to teach as much as I have to learn from the opportunity to lead NeurAlbertaTech. Aside from chronic workaholism, lately I have been enjoying sculpture, gaming, and rock climbing.
+              <br>
+              <br>
+              "What is now proved was once only imagined" - <b>William Blake</b></p>
+            </div>
+          </div>
+          <a name="Cameron"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Cameron Hildebrandt <span style="font-weight: 300; font-size: 24px;">he/him</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+
+                <img src="images/Headshots/CameronHeadshot2.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:childebr@ualberta.ca' target="_blank"><button id="smallButton">childebr@ualberta.ca</button></a>
+              <a href='https://www.linkedin.com/in/cdhildebrandt/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">VP Software</div>
+              <p class="paragraph">Hey, my name is Cameron and I am a computing science major rolling into my third year of studies here at the UofA! I have grown a really strong interest for anything and everyhting ML and I'm really looking forward to bringing everything I am learning from my collection of CMPUT classes this year to the club and projects! I am excited to see everything that this new role entails and more importantly, how much more the club will grow this year! When I am fortunate enough to have a little bit of free time, I like to develop websites, take photos, and cross things off of that backlog of exciting side projects.
+              <br>
+              <br>
+              "One day you'll leave this world behind, so live a life you will remember" - <b>Tim Bergling</b></p>
+            </div>
+          </div>
+          <a name="Portia"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Portia Rayner <span style="font-weight: 300; font-size: 24px;">she/her</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+
+                <img src="images/Headshots/PortiaHeadshot.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:rayner@ualberta.ca' target="_blank"><button id="smallButton">rayner@ualberta.ca</button></a>
+              <a href='https://www.linkedin.com/in/portia-rayner-376689172/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">VP Hardware</div>
+              <p class="paragraph">Hi! I'm Portia and I'm in my third year of mechanical engineering.  I'm really interested in how different open source technologies can be used to create affordable medical devices. I enjoy doing all kinds of hardware projects and I've recently been learning about different kinds of robotics. In my spare time, I like reading anything from "Sapiens" to "The Hitchhiker's Guide to the Galaxy", trying to bake, and playing with my dog. I'm excited to be joining the team this year and I look forward to working on some incredibly cool neurotech projects!
+              <br>
+              <br>
+              "Study hard whatinterests you the most in the most undisciplined, irreverent, and original manner possible." - <b>Richard P. Feynman</b></p>
+            </div>
+          </div>
+          <a name="David"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">David Lam <span style="font-weight: 300; font-size: 24px;">he/him</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+                <img src="images/Headshots/DavidHeadshot.jpg" style="width: 100%;"></img>
+              </div>
+              <a href='mailto:dlam@ualberta.ca' target="_blank"><button id="smallButton">dlam@ualberta.ca</button></a>
+              <a href='https://www.linkedin.com/in/david-lam-97866115b/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;"> VP Operations and Finance</div>
+              <p class="paragraph">Hi! I'm in my fourth year of Honors Neuroscience and I'll be coordinating all of our teams so everything goes as smoothly as possible! Aside from this, I help out in a cognitive psychology lab, an electrophysiology lab, as well as other volunteer groups on campus. During my free time (aka time that should be spent studying) I like to play the piano, hit the gym, and "game" on my outdated potato PC. I am excited for the things we will achieve and look forward to working with all of you!
+              <br>
+              <br>
+              "Every day is a chance to get better"</p>
+            </div>
+          </div>
+          <a name="Matthew"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Matthew Danyluik <span style="font-weight: 300; font-size: 24px;">he/him</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+
+                <img src="images/Headshots/MatthewHeadshot2.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:danyluk@ualberta.ca' target="_blank"><button id="smallButton">danyluk@ualberta.ca</button></a>
+              <a href='https://www.linkedin.com/in/matthew-danyluik/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;"> VP Internal</div>
+              <p class="paragraph">Hey, I'm Matt, and I'll be serving as your VP Internal! I'm in my fourth year of the Neuroscience program, where I'm putting together my thesis on the role of oscillatory brain activity in adaptive learning. Off campus, I love watching hockey, playing soccer, and keeping myself occupied with a good book or album. I'm looking forward to putting together more incredible projects with everyone in my last year with the club!<br><br>"He not busy being born is busy dying." - <b>Bob Dylan</b></p>
+            </div>
+          </div>
+          <a name="Quintin"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Quintin Hansen <span style="font-weight: 300; font-size: 24px;">he/him</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+
+                <img src="images/Headshots/QuintinHeadshot2.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:qhansen@ualberta.ca' target="_blank"><button id="smallButton">qhansen@ualberta.ca</button></a>
+              <a href='www.linkedin.com/in/quintin-hansen' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;"> VP External</div>
+              <p class="paragraph"> Hey! I'm Quintin and I'm in my 4th year of BSc Psych and Cmput double major, I also help out in a ML/Neuroscience lab here on campus. My biggest interests lie in merging machine learning with the brain and hopefully one day understanding consciousness through computational models. In my free time I like to learn about ML and neuroscience as well as work on programming side projects. Aside from this I am passionate about music and my main hobby is performing as a Dj (before Covid), I also enjoy hiking and most things outdoors. I'm excited to see what the field of neurotech has to offer and the amazing projects we will create! </p>
+            </div>
+          </div>
+          <a name="Landon"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Landon Fuhr <span style="font-weight: 300; font-size: 24px;">he/him</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+
+                <img src="images/Headshots/LandonHeadshot.jpg" style="width: 100%;"></img>
+
+              </div>
+              <a href='mailto:lfuhr@ualberta.ca' target="_blank"><button id="smallButton">lfuhr@ualberta.ca</button></a>
+              <a href='https://www.linkedin.com/in/landon-fuhr-8522031b7/' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">VP Communications</div>
+              <p class="paragraph">Hey! I'm Landon and I'm in my third year of Physiology here at the UofA and also do research in the Psychiatry department involving brain imaging in mice. Outside of school, I like mountain biking, working out, and have recently gotten into bouldering. I also enjoy reading self-help books and wasting time by watching YouTube videos on everything from minimalism to machine learning. I'm super excited to be working with everyone to make some awesome neurotech!
+              <br>
+              <br>
+              "Any sufficiently advanced technology is indistinguishable from magic" - <b>Aurthur Clarke</b></p>
+            </div>
+          </div>
+          <a name="Nicole"></a>  <!-- Anchor for linking, in past section so that there is space above -->
+        </div>
+
+
+        <div id="largeInfoBlock">
+          <h1 class="subTitle">Nicole Wlasitz <span style="font-weight: 300; font-size: 24px;">she/her</span></h1>
+          <div id="largeInfoContents">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrameNoHover">
+                <img src="images/Headshots/NicoleHeadshot.jpg" style="width: 100%;"></img>
+              </div>
+              <a href='mailto:wlasitz@ualberta.ca' target="_blank"><button id="smallButton">wlasitz@ualberta.ca</button></a>
+              <a href='https://ca.linkedin.com/in/nicole-wlasitz-she-her-0a523713b' target="_blank"><button id="smallButton">LinkedIn</button></a>
+            </div>
+
+            <div id="largeInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;"> VP Academic</div>
+              <p class="paragraph">
+                Hey team, my name is Nicole and I'm your VP Academic! My role is centered around organizing the awesome workshops we put on. When I'm not busy with finishing my BSc Specialization in Psychology, I love playing with my service dog, reading, watching Netflix, and learning about cool neurotech. I can't wait to see how far neurotech can take us as a society!
+                <br>
+                <br>
+                "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light." - <b>Dumbledore</b></p>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Past Quotes, Archiving in case they will be useful -->
+        <!-- 2020 -->
+        <!-- David lam - President:
+            Hi! I'm in my third year of Honors Neuroscience and I'll be coordinating all of our teams so everything goes as smoothly as possible! Aside from this, I help out in a cognitive psychology lab, an electrophysiology lab, as well as other volunteer groups on campus. During my free time (aka time that should be spent studying) I like to play the piano, hit the gym, and "game" on my outdated potato PC. I am excited for the things we will achieve and look forward to working with all of you!-->
+        <!-- Zach Selk - VP Tech:
+            Hello! I am a third year transfer student completing my major in Computing Science here at the U of A after spending two years of the University of Lethbridge. I have been doing work in neuroscience labs over the past year or so, working on behavioral and cognitive neuroscience. In my free time I like to hack together projects involving AI/ML, games, and low-level programming, and I love finding ways that I can apply what I know of Computing Science to Neuroscience in awesome applications. I am excited to build, explore, and learn along with all of you and create some fantastic things! -->
+        <!-- Jieyon Seo - VP Operations & Finance:
+            Hello! I'm in the fourth year of my Honours Neuroscience degree at the UofA. I've been involved in a neuropsychology/psychiatry research lab as well as a research project on a medical chatbot, and I'm currently doing my undergraduate thesis on movement kinematics and prosthetics. But I also like doing sports, gaming (albeit occasionally), and making music in my spare time. I'm really excited to be working with you all!-->
+        <!-- Matthew Danyluk - VP Internal:
+            Hey, I'm Matt, and I'm serving as your VP Internal. I'm heading into my fourth year of my Neuroscience degree, and I've been with NeurAlbertaTech since the club began. On campus, I fill my time with different volunteering and extracurricular activities, highlighted by my current work in a memory lab. Off campus, I'm a big hockey fan, and love playing soccer (when I'm not perpetually injured!). I'm looking forward to putting together more incredible projects with everyone during my final year with the club!-->
+        <!-- Eden Redman - VP External:
+            null-->
+        <!-- Cameron Hildebrandt - VP Communications:
+            Hello! I am in my third year of Honours Computing Science here at UAlberta. I am very excited to be a part of the executive team this year and I'm really looking forward to whatever awesome project we end up putting together! In my free time, I like to tinker with microcontrollers, LED light strips, and build websites!-->
+
+
+        <a name="pastExecs"></a> <!-- Anchor for linking to Past Execs -->
+        <!-- <button id="viewPastExecsButton">View Past Executive Teams</button> -->
+        <!-- <div id="viewPastExecsContent" style="height: auto; margin-top: 20px; margin-bottom: 3%; opacity: 100; padding-top: 2%;"> -->
+        <div class="greyBG" id="viewPastExecsContentFull">
+          <!-- <div id="viewPastExecsContentContainer"> -->
+            <div style="font-size: 50px; margin-bottom: 10px;">Past Executive Teams</div>
+            <div style="font-size: 35px;">2021 Executive Team</div>
+            <div id="viewPastExecsContentScrollContainer">
+              <table style="width:100%" class="pastExecsTable">
+                <tr>
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <a href='https://www.linkedin.com/in/landon-fuhr-8522031b7/' target="_blank"><img src="images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/QuintinHeadshot2.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <a href='https://www.linkedin.com/in/david-lam-97866115b/' target="_blank"><img src="images/Headshots/DavidHeadshot.jpg" id="smallImageChild"></img></a>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <a href='https://www.linkedin.com/in/matthew-danyluik/' target="_blank"><img src="images/Headshots/MatthewHeadshot2.jpg" id="smallImageChild"></img></a>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/CameronHeadshot2.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/PortiaHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/NicoleHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>Eden Redman</th>
+                  <th>Landon Fuhr</th>
+                  <th>Quintin Hanson</th>
+                  <th>David Lam</th>
+                  <th>Matthew Danyluk</th>
+                  <th>Cameron Hildebrandt</th>
+                  <th>Portia Rayner</th>
+                  <th>Nicole Wlasitz </th>
+                </tr>
+
+                <tr>
+                  <td>President</td>
+                  <td>VP Communications</td>
+                  <td>VP External</td>
+                  <td>VP Opertations and Finance</td>
+                  <td>VP Internal</td>
+                  <td>VP Software</td>
+                  <td>VP Hardware</td>
+                  <td>VP Academic</td>
+                </tr>
+              </table>
+
+            </div>
+
+            <div style="font-size: 35px;">2020 Executive Team</div>
+            <div id="viewPastExecsContentScrollContainer">
+              <table style="width:100%" class="pastExecsTable">
+                <tr>
+                  <th>
+                    <div id="smallImage">
+                      <a href='https://www.linkedin.com/in/david-lam-97866115b/' target="_blank"><img src="images/Headshots/DavidHeadshot.jpg" id="smallImageChild"></img></a>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/CameronHeadshot.png" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/JiyeonHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <a href='https://www.linkedin.com/in/matthew-danyluik/' target="_blank"><img src="images/Headshots/MatthewHeadshot.jpg" id="smallImageChild"></img></a>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/ZachHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>David Lam</th>
+                  <th>Cameron Hildebrandt</th>
+                  <th>Eden Redman</th>
+                  <th>Jiyeon Seo</th>
+                  <th>Matthew Danyluk</th>
+                  <th>Zach Selk</th>
+                </tr>
+
+                <tr>
+                  <td>President</td>
+                  <td>VP Communications</td>
+                  <td>VP External</td>
+                  <td>VP Opertations and Finance</td>
+                  <td>VP Internal</td>
+                  <td>VP Software</td>
+                </tr>
+              </table>
+
+            </div>
+
+
+            <div style="font-size: 35px;">2019 Executive Team</div>
+            <div id="viewPastExecsContentScrollContainer">
+              <table style="width:100%" class="pastExecsTable">
+                <tr>
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/TayemHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/NicoleHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/InfoNight/Error.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <a href='https://www.linkedin.com/in/david-lam-97866115b/' target="_blank"><img src="images/Headshots/DavidHeadshot.jpg" id="smallImageChild"></img></a>
+                    </div>
+                  </th>
+
+                  <th>
+                    <div id="smallImage">
+                      <img src="images/Headshots/ZachHeadshot.jpg" id="smallImageChild"></img>
+                    </div>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>Abdel Tayem</th>
+                  <th>Nicole Wlasitz</th>
+                  <th>Eden Redman</th>
+                  <th>Jenn Burrell</th>
+                  <th>David Lam</th>
+                  <th>Zach Selk</th>
+                </tr>
+
+                <tr>
+                  <td>President</td>
+                  <td>VP Communications</td>
+                  <td>VP External</td>
+                  <td>VP Opertations and Finance</td>
+                  <td>VP Internal</td>
+                  <td>VP Software</td>
+                </tr>
+              </table>
+
+            </div>
+          <!-- </div> -->
+        </div>
+
+
+        <!-- Anchor for linking to the join team -->
+        <!-- <a name="joinTeam"></a>
+        <div id="partners" style="padding-bottom: 15px;">
+          <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">Join The Team!</span></h1>
+
+          <p class="paragraph centredText" style="margin-top: 40px; margin-bottom: 0px; font-size: 24px;"><span style="color: rgba(255,255,255,1);">Get involved in the world of neurotech, learn about programming and neuroscience, and help build the future! Sign up as a general member below to gain access to everything we offer!</span></p>
+
+          <div id="interestedLinksParentMobile">
+            <ol id="interestedLinks">
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSegfw6KtGT9pCorvVXlvpxulO2EJymF2rTLGrUynnUa5Qk_sQ/viewform?usp=sf_link"><button>Sign Up</button></a></li>
+            </ol>
+          </div>
+
+          <p class="paragraph centredText" style="margin-top: 40px; margin-bottom: 0px; font-size: 16px;"><span style="color: rgba(255,255,255,1);">Note: Joining NAT as a general member is currently restricted to students at the University of Alberta. If you don't attend UofA and are still interested in keeping up with what we are doing, don't worry! You can still sign up for the newsletter on the home page! If there is some error with the embedded Google Form below, please try opening another tab and logging into your UAlberta Google account or visit the <a href="https://forms.gle/17qK89HhCNc7HRkMA" style="color: rgba(255,255,255,1);" target="_blank"> original Google Form</a>.</span><br><br></p>
+
+          <div id="partnersGrid">
+            /* Embedded Google Form */
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSegfw6KtGT9pCorvVXlvpxulO2EJymF2rTLGrUynnUa5Qk_sQ/viewform?embedded=true" width="800" height="800" frameborder="0" marginheight="0" marginwidth="0" id="embeddedGoogleFormToHideWhenOnMobile">Loading…</iframe>
+          </div>
+
+        </div> -->
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+
+    <!-- Only used if we have the disclosure thing -->
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('#viewPastExecsButton').click(function(){
+          if($('#viewPastExecsButton').text() === "View Past Executive Teams") {
+
+            // Button
+            $('#viewPastExecsButton').text("Back");
+            $('#viewPastExecsButton').css('background-color', 'rgba(0, 0, 0, 1)');
+
+            // Content
+            $('#viewPastExecsContent').css("height","500px"); // so we never hit it
+            $('#viewPastExecsContent').css("margin-top","-50px");
+            $('#viewPastExecsContent').css("opacity","100");
+            $('#viewPastExecsContent').css("padding-bottom","2%");
+            $('#viewPastExecsContent').css("padding-top","70px");
+            // $('#viewPastExecsContent').css("transform","scaleY(1)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","block");
+          } else {
+            // Button
+            $('#viewPastExecsButton').text("View Past Executive Teams");
+            $('#viewPastExecsButton').css("background-color", "rgba(0, 0, 0, 0.8)");
+
+            // Content
+            $('#viewPastExecsContent').css("height","0px");
+            $('#viewPastExecsContent').css("margin-top","0px");
+            $('#viewPastExecsContent').css("opacity","0");
+            $('#viewPastExecsContent').css("padding-bottom","0px");
+            $('#viewPastExecsContent').css("padding-top","0px");
+            // $('#viewPastExecsContent').css("transform","scaleY(0)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","none");
+          }
+        });
+      });
+
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="dynamicLoad.js"></script>
+
+  </body>
+
+</html>
