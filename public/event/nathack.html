@@ -55,6 +55,39 @@
     <img id="headerBGImg" lsrc="/images/event/hackathon.gif"></img>
     <img id="headerBGDiv"></img>
 
+    <div class="popup" id="registerPopup">
+
+      <div>
+        <p class="popupClose" onClick="closePopup()">&times;</p>
+
+        <p class="subSubTitle" style="margin-bottom: 25px; margin-top: 0px;">How to Register</p>
+
+        <p class="paragraph">
+          <b>1.</b>&nbsp; Register as a participant on both Devpost <b>and</b> through NeurAlbertaTech's internal sign-up form. The individual registration deadline to receive exclusive natHACKS merch is <b>July 5 at 23:59 MDT</b>. The final registration deadline is <b>July 12 at 23:59 MDT</b>.<br>
+
+          <a href="https://nathacks.devpost.com" target="_blank"><button id="smallButton" style="width: 200px;">Devpost</button></a>
+          <a href="https://docs.google.com/forms/u/0/d/1uzneVn5_OoSVTCMK10yOB7T-Hy3xqbi2x11NyNFYTiE/viewform?edit_requested=true" target="_blank"><button id="smallButton" style="width: 200px; margin-left: 10px;">Signup Form</button></a>
+          <br><br>
+
+
+          <b>2.</b>&nbsp; Apply for brain-computer interface hardware to use during the event (if desired). The hardware application deadline is <b>July 5 at 23:59 MDT</b>.<br>
+          <a href="ttps://forms.gle/HVib91yRsGBmRV937" target="_blank"><button id="smallButton" style="width: 410px;">Apply for Hardware</button></a>
+          <br><br>
+
+
+          <b>3.</b>&nbsp; Form a team (if desired). If you (like many others) are looking for teammates, we have a channel dedicated to that on Discord! Teams should be declared through NeurAlbertaTech's team declaration form no later than <b>July 30 at 17:00 MDT</b>.<br>
+          <a href="https://discord.gg/X2ECHC5nb" target="_blank"><button id="smallButton" style="width: 200px;">Discord</button></a>
+          <a href="doesnotyetexist" target="_blank"><button id="smallButton" style="width: 200px; margin-left: 10px;">Team Form</button></a>
+          <br><br>
+
+          <b>That's all you need to do to get registered!</b><br> Next, be sure to join our Opening Ceremony on <b>July 30th at 18:00 MDT</b> and get ready to start hacking right after at <b>19:00 MDT</b>! Lastly, <b>MAKE SURE</b> to submit your project on Devpost before <b>August 2nd at 10:00 MDT</b>.
+        </p>
+
+      </div>
+
+
+    </div>
+
 
     <div id=scrollContainer>
       <div id=divAboveMainForSnapping></div>
@@ -71,7 +104,8 @@
 
             <div id="smallInfoBlockMedia">
               <image src="/images/event/natHACKs/nathanGlow.png" id="eventImageNoHover" alt="Info Night Image"></image>
-              <a href="https://docs.google.com/forms/u/0/d/1uzneVn5_OoSVTCMK10yOB7T-Hy3xqbi2x11NyNFYTiE/viewform?edit_requested=true"><button id=smallButton>Register</button></a>
+              <!-- <a href="https://docs.google.com/forms/u/0/d/1uzneVn5_OoSVTCMK10yOB7T-Hy3xqbi2x11NyNFYTiE/viewform?edit_requested=true"><button id=smallButton>Register</button></a> -->
+              <button id=smallButton onClick="displayPopup()">Register</button>
             </div>
 
             <div id="smallInfoBlockText">
@@ -97,26 +131,24 @@
         </div>
 
 
-        <!-- <div id="smallInfoBlock" style="margin-bottom: 0px;">
-          <div id="smallInfoContents">
+        <script type="text/javascript">
+          var popup = document.getElementById("registerPopup");
+          function displayPopup() {
+            popup.style.display = "flex";
+          }
 
-            <div id="smallInfoBlockMedia">
-              <a href="https://docs.google.com/forms/d/1HBti1H8VYMpggySkyknBnwbG12ucGToF4esLYiJ9vT4/edit"><button id=smallButton>RSVP</button></a>
-            </div>
+          function closePopup() {
+            popup.style.display = "none";
+          }
 
-            <div id="smallInfoBlockText">
-              <div class="subSubTitle" style="margin-bottom: 15px;">Info Sessions</div>
+          // close popup if user clicks on bg
+          window.onclick = function(event) {
+            if (event.target == popup) {
+              popup.style.display = "none";
+            }
+          }
+        </script>
 
-              <p class="paragraph">
-                Potential participants can attend our Info Sessions occurring during June and July for more details regarding natHACKS before officially signing up. These sessions will allow those enthusiastic about Neurotech to see brain interface hardware in action, along with providing them with the opportunity to engage with other members of the Alberta Neurotech community.
-              </p>
-            </div>
-
-          </div>
-        </div> -->
-
-
-        <!-- <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Why Should You Attend?</h1> -->
 
         <div class="cardStack">
 
@@ -748,7 +780,7 @@
               <b>1.</b> We are only able to ship hardware to the US and Canada (except for Quebec)<br>
               <b>2.</b> At least one team member must reside in Alberta to be elligible for cash awards<br><br>
 
-              The compresensive set of rules is <a href="https://docs.google.com/document/d/1dq57mijkfNhW1zNpNYMfB7YzS-_vv5RRQ708WGUxeS8" id="uncoloredLink">here</a>.
+              If you're interested in reading the rest of the rules, visit <a href="https://docs.google.com/document/d/1dq57mijkfNhW1zNpNYMfB7YzS-_vv5RRQ708WGUxeS8" id="uncoloredLink">this document</a>!
             </p>
           </div>
         </div>

@@ -299,79 +299,73 @@ body:after{
   text-shadow: 0px 0px 10px rgba(0,0,0,1);
 }
 
-/* #headerBG {
-  max-width: 100%;
-  min-height: 100%;
-
-  left: 0%;
-
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-
-  position: absolute;
-
-  transition: top 0.5s ease-in-out, filter 0.5s ease-in-out;
-
-  -webkit-filter: blur(0px);
-  filter: blur(0px);
-} */
-
-.dimBG {
+.popup {
+  /* Dimmed background */
+  display: none; /* Changed to flex, to allow for centring */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.75);
   z-index: 1001;
+
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0%;
+  animation-name: fadeIn;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
 }
 
-.popupImageContainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 100vh;
-  z-index: 1002;
-}
-
-.popupImage {
-  position: absolute;
-  width: 70%;
-  border-radius: 50px;
-  z-index: 1002;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.popupImageClose {
-  border: none;
+.popup div {
   background-color: rgba(240,240,240,1);
-  border-radius: 50px;
-  color: rgba(0,0,0,1);
-  font-size: 24px;
-  font-weight: 900;
-  font-family: 'Maven Pro', sans-serif;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  border-radius: 20px;
+  padding: 2%;
 
-  height: 50px;
-  width: 60%;
+  width: 80%;
+  max-height: 80%;
+  text-align: left;
+  display: block;
+  transition: background-color 0.2s ease-in-out;
 
-  position: absolute;
-  z-index: 1002;
+  animation-name: dropIn;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+
+  overflow: scroll;
+
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.1);
 }
 
-.popupImageClose:hover {
-  transform: scale(1.05);
+.popupClose {
+  font-size: 45px;
+  position: fixed;
+  right: 25px;
+  top: 5px;
+  margin-top: 0px;
+
+  opacity: 50%;
+  transition: opacity 0.2s ease-in-out;
+
   cursor: pointer;
 }
 
-.popupImageClose:active {
-  background-color: rgba(255,255,255,0.7);
-  transform: scale(1);
+.popupClose:hover {
+  opacity: 100%;
 }
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 .tab {
   display: flex;
@@ -2294,6 +2288,10 @@ div.pastNewsletter:active {
 
   #smallInfoBlock:hover {
     background-color: rgba(40,40,40,0.95);
+  }
+
+  .popup div {
+    background-color: rgba(30,30,30,1);
   }
 
   .homepageSmallInfoBlock {
