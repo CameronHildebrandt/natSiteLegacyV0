@@ -1622,8 +1622,8 @@ select:-webkit-autofill:focus {
 .execTitleGraddirectors {
   display: inline-block;
   background: #7F7FD5;
-  background: -webkit-linear-gradient(30deg, #91EAE4, #86A8E7, #7F7FD5);
-  background: linear-gradient(30deg, #91EAE4, #86A8E7, #7F7FD5);
+  background: -webkit-linear-gradient(120deg, #7F7FD5, #86A8E7, #91EAE4);
+  background: linear-gradient(120deg, #7F7FD5, #86A8E7, #91EAE4);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1632,8 +1632,8 @@ select:-webkit-autofill:focus {
 .execTitleGraduofa {
   display: inline-block;
   background: rgba(0,124,65,1);
-  background: -webkit-linear-gradient(30deg, rgba(0,124,65,1) 0%, rgba(255,219,5,1) 100%);
-  background: linear-gradient(30deg, rgba(0,124,65,1) 0%, rgba(255,219,5,1) 100%);
+  background: -webkit-linear-gradient(120deg, rgba(0,124,65,1) 0%, rgba(255,219,5,1) 100%);
+  background: linear-gradient(120deg, rgba(0,124,65,1) 0%, rgba(255,219,5,1) 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1642,8 +1642,8 @@ select:-webkit-autofill:focus {
 .execTitleGraduofc {
   display: inline-block;
   background: rgba(214,0,28,1);
-  background: -webkit-linear-gradient(30deg, rgba(214,0,28,1) 0%, rgba(255,205,0,1) 100%);
-  background: linear-gradient(30deg, rgba(214,0,28,1) 0%, rgba(255,205,0,1) 100%);
+  background: -webkit-linear-gradient(120deg, rgba(214,0,28,1) 0%, rgba(255,205,0,1) 100%);
+  background: linear-gradient(120deg, rgba(214,0,28,1) 0%, rgba(255,205,0,1) 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

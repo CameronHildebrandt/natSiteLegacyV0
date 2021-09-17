@@ -173,28 +173,23 @@
       }
 
       function loadExecSheet(sheetNumber) {
-        // sheetNumber
-        //    0 = Directors
-        //    1 = UofA
-        //    2 = UofC
-
-        sheetNumber += 2; // The URL uses 1-based indexing and the HOW TO USE sheet is index=1;
-
-        // https://docs.google.com/spreadsheets/d/e/2PACX-1vT73ZyLNLIt5uFdKhT8fxDVyVzyO8nC5lu9TAnT12swp1jvguqZhF5dzgNctJ_kTa9Gs5qgYq4aiTBG/pubhtml#
-
-        let url = 'https://spreadsheets.google.com/feeds/cells/1Zmm57mPLt7s4zJ8s5si-gsEpaYsQwwUcmwh3X00B7nk/' + String(sheetNumber) + '/public/values?alt=json';
+        const sheetNames = ['Directors', 'UofA\ Chapter', 'UofC\ Chapter'];
+        const sheetId = '1Zmm57mPLt7s4zJ8s5si-gsEpaYsQwwUcmwh3X00B7nk';
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetNames[sheetNumber]}`
         var allExecs = [];
 
         return new Promise(resolve => {
           fetch(url)
-          .then(res => res.json())
-          .then((out) => {
-            let table = out.feed;
-            let rowCount = table.gs$rowCount.$t;
-            let colCount = table.gs$colCount.$t;
+          .then(res => res.text())
+          .then(text => {
+            const out = JSON.parse(text.substr(47).slice(0, -2))
+
+            let table = out.table;
+            let rowCount = table.rows.length;
+            let colCount = table.cols.length;
 
             //// Testing ////
-            // console.log(out);
+            // console.log(table.rows[0].c[3].v);
             // console.log("----------------");
             // console.log("rowCount: " + rowCount);
             // console.log("colCount: " + colCount);
@@ -209,39 +204,41 @@
             let currentYearsExecList = [];
             let currentExecsYear = 0;
 
-            for(var i = 0; i < rowCount*colCount; i++) { // iterate through entire table
-              let currentValue = table.entry[i].content.$t;
+            for(var i = 0; i < rowCount; i++) { // iterate through entire table
+              for(var j = 0; j < colCount; j++) {
+                let currentValue = table.rows[i].c[j].v;
 
 
-              // Found a year number, save current exec and listen for next
-              if(!isNaN(currentValue)) {
+                // Found a year number, save current exec and listen for next
+                if(!isNaN(currentValue)) {
 
-                // Save Current Exec //
-                let nextExecsYear = currentValue;
-                currentYearsExecList.push(new ExecCard(...currentExec));
-                // Save Current Exec //
+                  // Save Current Exec //
+                  let nextExecsYear = currentValue;
+                  currentYearsExecList.push(new ExecCard(...currentExec));
+                  // Save Current Exec //
 
 
-                // Found a NEW year number, save all execs to year and move to next year
-                if(currentExecsYear != nextExecsYear) {
-                  allExecs.push(new ExecYear(currentExecsYear, currentYearsExecList));  // Save all execs to year
-                  currentYearsExecList = [];  // Move to next year
+                  // Found a NEW year number, save all execs to year and move to next year
+                  if(currentExecsYear != nextExecsYear) {
+                    allExecs.push(new ExecYear(currentExecsYear, currentYearsExecList));  // Save all execs to year
+                    currentYearsExecList = [];  // Move to next year
+                  }
+                  // Found a NEW year number, save all execs to year and move to next year
+
+
+                  // Listen for Next //
+                  currentExec = [];
+                  currentExecsYear = nextExecsYear
+                  // Listen for Next //
                 }
-                // Found a NEW year number, save all execs to year and move to next year
 
+                // Reading a current exec
+                else {
+                  currentExec.push(currentValue);
+                }
 
-                // Listen for Next //
-                currentExec = [];
-                currentExecsYear = nextExecsYear
-                // Listen for Next //
-              }
-
-              // Reading a current exec
-              else {
-                currentExec.push(currentValue);
-              }
-
-            } // END FOR //
+              } // END FOR j //
+            } // END FOR i //
 
             // Finalize loop
             currentYearsExecList.push(new ExecCard(...currentExec));  // Add the last exec
