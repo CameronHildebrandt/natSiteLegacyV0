@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+.infoBlockListSideScrollerWrapper {
+  position: relative;
+  margin-top: 40px;
+}
+
+.infoBlockListSideScrollerWrapper::after {
+  height: 100%;
+  width: 120px;
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.infoBlockListSideScroller {
+  align-items: stretch;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-left: 25px;
+  padding-right: 150px;
+  position: relative;
+}
+
+.eventImage {
+  border-radius: 20px;
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.infoBlockScrollItem {
+  flex: 0 0 580px;
+}
+
+.smallInfoBlock {
+  height: 100%;
+  padding: 50px;
+  margin-right: 9%;
+  border-radius: 20px;
+}
+
+.smallInfoBlockText {
+  color: #fff;
+  font-family: "Montserrat";
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.cardTitle {
+  font-size: 36px;
+  font-family: 'Montserrat';
+  font-weight: 900;
+  hyphens: auto;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+[type="dark"] {
+  background-color: rgba(255,255,255,0.1);
+  transition: background-color 0.2s ease-in-out;
+}
+
+[type="light"] {
+  background-color: rgba(40,40,40,0.75);
+  transition: background-color 0.2s ease-in-out;
+}
+
+[type="dark"]:hover {
+  background-color: rgba(255,255,255,0.09);
+}
+
+[type="light"]:hover {
+  background-color: rgba(40,40,40,0.95);
+}
+
+.secondary-btn {
+  background-color: rgba(240,240,240,1);
+  color: rgba(48,48,48,1);
+  border: none;
+  border-radius: 50px;
+  max-width: 300px;
+  margin: 25px auto;
+  font-size: 24px;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-banner {
+  background: linear-gradient(
+  80deg, rgba(255,40,147,1) 0%, rgba(18,76,255,1) 100%);
+    background-image: linear-gradient(
+  90deg, #00C9FF 0%, #92FE9D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  animation-name: animate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  background-size: 250% 250%;
+  margin-bottom: 25px;
+}
+
+@keyframes animate {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+}

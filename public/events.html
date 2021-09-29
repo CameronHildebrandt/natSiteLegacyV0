@@ -12,6 +12,7 @@
     <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
 
     <!-- External CSS -->
+    <link href="./styles/events-page.css" rel="stylesheet" type="text/css">
     <link href="style.css?v0.1" rel="stylesheet" type="text/css">
 
     <!-- External JS -->
@@ -138,86 +139,93 @@
           <div id="darkSmallInfoBlock">
             <iframe src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FEdmonton&amp;src=Y19qY3RhMWlqbGdyOHJsMXRrNTJzODNqcDJ2b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237CB342&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=MONTH" style="border:solid 1px #777" width="800" height="300" frameborder="0" scrolling="no"></iframe>
           </div> -->
-
-          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">More Events</h1>
-
-          <div id="smallInfoBlock" style="margin-top: 40px;">
-            <div id="smallInfoContents">
-
-              <div id="smallInfoBlockMedia">
-                <a href="event/workshops.html"><image src="images/InfoNight/WSML.jpg" id="eventImage" alt="Info Night Image"></image></a>
-                <a href="event/workshops.html"><button id=smallButton>Learn More</button></a>
+          <h1 class="subTitle" style="left: 2%;">More Events</h1>
+          <div class="infoBlockListSideScrollerWrapper">
+            <div class="infoBlockListSideScroller">
+              <div class="infoBlockScrollItem">
+                <div class="smallInfoBlock" type="light">
+                  <div class="smallInfoBlockContents">
+                    <div class="smallInfoBlockMedia">
+                      <a href="event/workshops.html">
+                        <img src="./images/InfoNight/WSML.jpg" class="eventImage" alt="Info Night Image" />
+                      </a>
+                      <a href="event/workshops.html" class="secondary-btn">
+                        Learn more
+                      </a>
+                    </div>
+                    <div class="smallInfoBlockText">
+                      <h3 class="cardTitle">Workshop Series</h3>
+                      <p class="text-banner">Fa21 Workshops are now open for registration!</p>
+                      <p>If you want to learn about the stuff we do in a fun, interactive, low-stress environment, 
+                        this is the event for you! We currently offer four unique 10-session workshop streams 
+                        (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction 
+                        to each of the key pilars of brain computer interfacing programs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <div id="smallInfoBlockText">
-                <div class="subSubTitle" style="margin-bottom: 15px; color: rgba(240,240,240,1);">Workshop Series</div>
-                <p class="paragraphGradHeader">
-                  <b>Fa21 workshops are now open for registration!</b><br>
-                </p>
-                <p class="paragraph" style="color: rgba(240,240,240,1);">If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.
-                </p>
+              <div class="infoBlockScrollItem">
+                <div class="smallInfoBlock" type="dark">
+                  <div class="smallInfoBlockContents">
+                    <div class="smallInfoBlockMedia">
+                      <a href="event/workshops.html">
+                        <img src="./images/event/natHACKs/nathanGlow.png" class="eventImage" alt="Info Night Image" />
+                      </a>
+                      <a href="event/workshops.html" class="secondary-btn">
+                        Learn more
+                      </a>
+                    </div>
+                    <div class="smallInfoBlockText">
+                      <h3 class="cardTitle">natHacks</h3>
+                      <p>Alberta’s inaugural brain-computer interface hackathon. This is a completely remote 
+                        hackathon with thousands of dollars in prizes available! natHACKS will be an event 
+                        like no other, inspiring beginners to develop practical neurotech skills and challenging 
+                        competent hackers to apply themselves in this growing and exciting field. Spanning 
+                        two weeks and culminating in a 64-hour hackathon weekend, the event will combine 
+                        workshops, challenges, and networking opportunities for anyone interested in 
+                        neurotechnology. With three different streams and separate judging criteria based 
+                        on experience level, we’re thrilled to allow neurotech enthusiasts to get their hands 
+                        dirty in a diverse selection of projects.
+                        <br />
+                        <br />
+                        Begins: <b>July 30th 5:00PM MDT</b>
+                        <br />
+                        Ends: <b>August 2nd 10:00AM MDT</b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-
+              <div class="infoBlockScrollItem">
+                <div class="smallInfoBlock" type="light">
+                  <div class="smallInfoBlockContents">
+                    <div class="smallInfoBlockMedia">
+                      <a href="event/workshops.html">
+                        <img src="./images/InfoNight/NatChat.jpg" class="eventImage" alt="Info Night Image" />
+                      </a>
+                      <a href="event/workshops.html" class="secondary-btn">
+                        Learn more
+                      </a>
+                    </div>
+                    <div class="smallInfoBlockText">
+                      <h3 class="cardTitle">natChat</h3>
+                      <p>Fa21 Workshops are now open for registration</p>
+                      <p>If you want to learn about the stuff we do in a fun, interactive, low-stress environment, 
+                        this is the event for you! We currently offer four unique 10-session workshop streams 
+                        (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction 
+                        to each of the key pilars of brain computer interfacing programs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div id="darkSmallInfoBlock" style="margin-bottom: 0;">
-            <div id="smallInfoContents">
-
-              <div id="smallInfoBlockMedia">
-                <a href="/event/nathack.html"><image src="/images/event/natHACKs/nathanGlow.png" id="eventImage" alt="Info Night Image"></image></a>
-                <a href="/event/nathack.html"><button id=smallButton>Learn More</button></a>
-              </div>
-
-              <div id="smallInfoBlockText">
-                <div class="subSubTitle" style="margin-bottom: 15px; color: rgba(240,240,240,1)";>natHACKS</div>
-
-
-                <!-- <p class="paragraphGradHeader">
-                  <b>Now open for registration!</b><br>
-                </p> -->
-                <p class="paragraph" style="color: rgba(240,240,240,1);">
-                  Alberta’s inaugural brain-computer interface hackathon. This is a completely remote hackathon with thousands of dollars in prizes available! natHACKS will be an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we’re thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.<br><br>
-                  Begins: <b>July 30th 5:00PM MDT</b><br>
-                  Ends: <b>August 2nd 10:00AM MDT</b>
-
-                </p>
-
-              </div>
-
-            </div>
-          </div>
-
-          <div id="smallInfoBlock">
-            <div id="smallInfoContents">
-
-              <div id="smallInfoBlockMedia">
-                <a href="event/natchat.html"><image src="images/InfoNight/NatChat.jpg" id="eventImage" alt="Info Night Image"></image></a>
-                <a href="event/natchat.html"><button id=smallButton>Learn More</button></a>
-              </div>
-
-              <div id="smallInfoBlockText">
-                <div class="subSubTitle" style="margin-bottom: 15px; color: rgba(240,240,240,1);">natChat</div>
-                <p class="paragraph" style="color: rgba(240,240,240,1);">
-                  A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.
-                  <br><br>
-                  Speakers for the Fall 2021 series will be announced here soon!
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-
-
-        </div>
-
-
-
-
-
 
         <h1 class="subTitle" style="left: 2%;">Past Events</h1>
+
+
 
 
 
