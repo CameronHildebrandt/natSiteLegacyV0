@@ -2253,6 +2253,10 @@ div.pastNewsletter:active {
     color: rgba(255,255,255,1);
   }
 
+  .subSubSubTitle {
+    color: rgba(255,255,255,1);
+  }
+
   .paragraph {
     color: rgba(225,225,225,1);
   }
