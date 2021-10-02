@@ -51,8 +51,8 @@
       <a href="/index.html"><button class="pageLink">Home</button></a>
     </div>
 
-    <div style="position: relative"><div class="spinner"></div></div>
-    <img id="headerBGImg" lsrc="/images/ProjectPhotos/bermuda/main.jpg"></img>
+    <!-- <div style="position: relative"><div class="spinner"></div></div> -->
+    <!-- <img id="headerBGImg" lsrc="/images/ProjectPhotos/koalacademy/equate.png"></img> -->
     <img id="headerBGDiv"></img>
 
 
@@ -62,125 +62,119 @@
 
       <div id="main">
 
-        <!-- <h1 class="subTitle" style="margin-left: 2%;">Bermuda Hardware Project</h1> -->
+
+
+        <h1 class="subTitle" style="margin-left: 2%;">Open Stroke Rehab</h1>
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%;">
 
-            <div id="largeInfoBlockText">
-              <h1 class="subSubTitle">Bermuda</h1>
-              <p class="paragraph">Bermuda is a custom solution for real-time integrated recording and analysis of EEG, eye-tracking, and body-tracking. Each of these three elements is being developed by a subgroup of the Bermuda team and are all based upon relatively inexpensive and widely accessible components. As a result of taking full advantage of consumer hardware, Bermuda will offer a complete system that is capable of real-time analysis for only a fraction of the cost of comparable systems that have been developed in the past. Additionally, the communications and integration of these 3 data streams are being built from the ground up.</p>
-            </div>
-
             <div id="largeInfoBlockMedia">
               <div id="largeMediaFrame">
-                <img src="/images/ProjectPhotos/bermuda/hardware.jpg" style="width: 80%;"></img>
+                <img src="../images/ProjectPhotos/osr/main.png" style="width: 90%;"></img>
               </div>
+            </div>
+            <div id="largeInfoBlockText">
+              <div class="subTitle"  style="margin-bottom: 15px; padding-top: 15px; padding-bottom: 15px;">Stimulating Relevant Sensorimotor Circuits:</div>
+                <div class="subSubTitle"  style="margin-bottom: 15px;">Facilitating Gross Upper Limb Movement Recovery in Indivudals Recovering from Stroke</div>
+              <br>
+              <p class="paragraph">An entirely open source platform for providing nonpharamacological support for assisting in upper limb motor recovery from stroke.
+              </p>
             </div>
           </div>
         </div>
+
 
         <div id="largeInfoBlock">
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
-            <div class="subTitle" style="margin-bottom: 25px;">What is Bermuda?</div>
-            <div class="subSubTitle" style="margin-bottom: 15px;">Objectives</div>
-            <br>
-            <p class="paragraph" >
-              The primary goal for Bermuda in the near future is to create a system that researchers can use to investigate novel research questions in areas such as prosthetics and movement disorder research. Ease of adoption and replication are central to the ethos of Bermuda. For this reason, the team has a heavy focus on communicating ideas and enabling the whole team to benefit from every individual’s work. This allows for cross-team idea-sharing and easy onboarding of new members.<br>
-            </p>
-            <div class="subSubTitle" style="margin-bottom: 15px;">Rapid Development</div>
-            <p class="paragraph" >
-              Bermuda is currently in the early prototyping stage. For body-tracking, the team has recently achieved real-time tracking of body positions by using the PoseNet deep learning model running locally on a Raspberry Pi. Specifically, two simultaneous images are captured from a stereo camera module on the Raspberry Pi, then PoseNet is used to find the 2D locations of body parts individually in both of these images. The two estimated 2D poses are then combined into a 3D skeleton using OpenCV which will be sent to a central computer. One of the important next steps for this group is to perform an analysis of tracking accuracy by comparing predicted values to real-world measurements. Additionally, the first version of this system does not meet the performance standards required and will need to be improved and optimized to achieve smooth tracking of rapid movements. This could include using external processing modules (e.g. Coral Edge TPU), cloud processing, smaller/lighter machine learning models, or a combination of these.
-              <br><br>
-              The EEG system of Bermuda is being rapidly developed and prototyped currently. This system has a few major parts, outlined in the following paragraph:
-              The first part of the system has to do with the power and battery charging which will aid us in having the EEG part of Bermuda be completely wireless. Next, there is the Analog to Digital Converter, a device that will allow us to take the raw EEG data and turn it into signals which can be read by a microcontroller or a computer over an SPI interface. Next, we have a temperature probe and accelerometer which will give more useful information for researchers conducting EEG experiments. Lastly, we have a BlueTooth module that both acts as the on-board microcontroller and is how this EEG system is able to wirelessly stream data to a computer or even a phone.
-              <br><br>
-              As of June 2020, the system has a schematic which outlines all electrical connections for each part of the board as well as a layout of the prototype PCB. We are now working to revise this layout to ensure that everything will work correctly and there are no faults.
-            </p>
+            <div class="subTitle" style="margin-bottom: 15px;">Project Goals:</div>
 
+              <div class="subSubSubTitle"  style="margin-bottom: 15px;">Open Access and Community Driven</div>
+              <p class="paragraph">
+                Started by a small group of students at the University of Alberta located in Edmonton, Alberta, Canada we are not profit-driven and hope to "stimulate" fruitful cross-institute collaborations to further development of the platform. 
+              </p>
 
-            <div class="subSubTitle" style="margin-bottom: 15px;">User Interaction</div>
-            <p class="paragraph" >
-              At the center of Bermuda, there will be a Python-based graphical user interface (GUI) that streams data wirelessly from all 3 of the components by utilizing parallel processing. This GUI will display eye-gaze, body position, and EEG data in real-time as it is received. For eye-tracking, the team is making use of the Pupil Labs open source eye-tracking platform,
-              although there will be significant alterations to the design of the device and communications protocols. Last, but certainly not least, the EEG team has been working on interfacing an ADS1299 development board with a Raspberry Pi which will form the core of the EEG device. This is far from a trivial task and requires solving many low-level electrical engineering problems through a joint effort of many talented team members.
-            </p>
-          </div>
+              <div class="subSubSubTitle"  style="margin-bottom: 15px;">Easy to Replicate</div>
+              <p class="paragraph">
+                Basic and widely accessible circuits with instructions for replication. 
+              </p>
+
+              <div class="subSubSubTitle"  style="margin-bottom: 15px;">Demonstrate a Practical BCI Usecase</div>
+              <p class="paragraph">
+                In parallel with a number of other NeurAlbertaTech projects we seek to demonstrate novel use cases for BCI in day-today life. 
+                <br>
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="greyBG" style="padding:2%;">
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 15px;">Development</div>
+
+            <div class="subSubTitle"  style="margin-bottom: 15px;">CAD Modeling</div>
+            <p class="paragraph">
+              We are modifying OpenBCI's open source Ultra Cortex IV headset to more densly cluster electrodes about the primary motor cortex
+            </p>
+
+            <div class="subSubTitle"  style="margin-bottom: 15px;">Detecting Intention to Initiate Movement</div>
+            <p class="paragraph">
+              We will be using a local lightweight SVM to distinguish in real-time the user's intention to move.
+            </p>
+
+            <div class="subSubTitle" style="margin-bottom: 15px;">Custom Stimulation Circuits with Safety Front of Mind</div>
+            <p class="paragraph">
+              Protoyping with BT enabled Arduinos we are working to create a simple circuits with several hardware safeguards, including fuses, diodes to handle current backflow, current lmiiting transistors, and optoisolated relays.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div id="interestedBlock" style="margin-bottom: 30px;">
 
           <div id="interestedBlockContents">
 
-          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">Bermuda Project Team</span>
-
+          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">The Core Team is Still Forming! </span>
+<!-- 
           <div id="viewPastExecsContentScrollContainer">
             <table style="width:100%" class="pastExecsTable">
               <tr>
                 <th>
-                  <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/eden-redman-neuro/"><img src="/images/Headshots/EdenHeadshot.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
-                <th>
-                  <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/landon-fuhr-8522031b7/"><img src="/images/Headshots/LandonHeadshot.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
-                <th>
-                  <div id="smallImage">
-                    <a href="https://www.linkedin.com/in/james-davis-68517917a/"><img src="/images/ProjectPhotos/bermuda/team/James.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
-                <!-- <th>
-                  <div id="smallImage">
-                    <a href="mailto:rayner@ualberta.ca"><img src="/images/Headshots/PortiaHeadshot.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th> -->
-
-                <th>
-                  <div id="smallImage">
-                    <a href="mailto:mridgway@ualberta.ca"><img src="/images/ProjectPhotos/bermuda/team/Madeleine.jpg" id="smallImageChild"></img></a>
-                  </div>
-                </th>
-
-                <th>
-                  <div id="smallImage">
-                    <a href="mailto:aravenap@ualberta.ca"><img src="/images/ProjectPhotos/bermuda/team/Sebastian.jpg" id="smallImageChild"></img></a>
+                  <div id="smallMediumImage">
+                    <a href="https://www.linkedin.com/in/eden-redman-neuro/" target="_blank"><img src="../images/ProjectPhotos/koalacademy/Eden_Redman.jpg" id="smallMediumImageChild"></img></a>
                   </div>
                 </th>
               </tr>
-
 
               <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
                 <th>Eden Redman</th>
-                <th>Landon Fuhr</th>
-                <th>James Davis</th>
-                <th>Madeleine Ridgway</th>
-                <th>Sebastian Aravena Pacheco</th>
+                <th>Harrison Fah</th>
+                <th>Matthew Danyluk</th>
+                <th>Dania Villarreal</th>
+                <th>William Chen</th>
+                <th>Khaled Al-Amoodi</th>
+                <th>Julie Pilz</th>
+                <th>Shelly Xue</th>
+                <th>Tanyaradzwa Gozhora</th>
               </tr>
 
               <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
-                <td><b>Team Lead - BA, Fine Arts and Design</b></td>
-                <td><b>Body Tracking Lead - BSc, Physiology</b></td>
-                <td><b>PCB Designer - BSc, Electrical Engineering</b></td>
-                <td><b>UX/UI Programmer - BSc, Neuroscience</b></td>
-                <td><b>Communications - BSc, Electrical Engineering</b></td>
+                <td>Team Lead - BA, Fine Arts and Design</td>
+                <td>Client Analytics Team Lead - BSc, Computer Science</td>
+                <td>Server Analytics Team Lead - BSc, Neuroscience</td>
+                <td>Front End Team Lead - BSc, Neuroscience</td>
+                <td>Game Development Team Lead - BSc, Computer Science</td>
+                <td>Client Analytics Developer - PhD, Computer Engineering</td>
+                <td>Front End Developer - Bsc, Computer Science & Psychology</td>
+                <td>Front End Developer - BSc, Computer Science</td>
+                <td>Front End Developer - BSc, Computer Science</td>
               </tr>
-
-              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1); vertical-align: top;">
-                <td>Responsible for coordinating communication and collaboration between software and hardware developers as well as between the sub-teams working on each of the three modalities that make up Bermuda. Eden also sets project goals and oversees the progression towards these milestones, beyond this he works hands-on where he is needed in order to keep the project moving forward.  </td>
-                <td>Responsible for conceptualizing and developing the body tracking system for Bermuda. Landon is using lightweight deep learning models to provide real-time pose estimation. He is building the system centered around a Raspberry Pi to keep costs down along with a stereo camera module to allow for identification of 3D locations of parts.  </td>
-                <td>Responsible for aiding all teams in hardware development, with an emphasis on the EEG team. James is responsible for developing the initial in-house EEG prototype that allows for future scalability, through which the project is poised to have a significant impact in the research community, and beyond.</td>
-                <td>Responsible for designing and programming the user interface for Bermuda. Madeleine is working on integrating the data streams from the project's three elements into a single interface, which will allow easy access to the information and simplify future applications of the system.</td>
-                <td>Responsible for SPI communication between the Raspberry Pi and the ADS1299 analog to digital converter used in the collection of EEG data. One of Bermuda’s main design constraints will be tracking free moving bodies therefore Sebastian works to eliminate wires that could impede movement through the use of a QN9080SIP, an Ultra-low-power Bluetooth 5 SIP, to transfer EEG data to an on-board laptop BLE.</td>
-              </tr>
-
             </table>
           </div>
+ -->
         </div>
+
       </div>
     </div>
 
@@ -228,10 +222,12 @@
           }
         });
       });
+
     </script>
 
+
     <!-- Show data processing -->
-    <script>
+    <!-- <script>
       $(document).ready(function(){
         var currStage = 0;
         var dataParagraph = document.getElementById("dataParagraph");
@@ -268,7 +264,7 @@
           dataParagraph.innerHTML = stageParagraphs[currStage];
         });
       })
-    </script>
+    </script> -->
 
     <!-- Dynamically Load Header -->
     <script type="text/javascript" src="/dynamicLoad.js"></script>
