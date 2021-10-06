@@ -111,17 +111,17 @@
           <div id="largeInfoContents" style="margin-top: 1%; display: block;">
             <div class="subTitle" style="margin-bottom: 15px;">Development</div>
 
-            <div class="subSubTitle"  style="margin-bottom: 15px;">CAD Modeling</div>
+            <div class="subSubSubTitle"  style="margin-bottom: 15px;">CAD Modeling</div>
             <p class="paragraph">
               We are modifying OpenBCI's open source Ultra Cortex IV headset to more densly cluster electrodes about the primary motor cortex
             </p>
 
-            <div class="subSubTitle"  style="margin-bottom: 15px;">Detecting Intention to Initiate Movement</div>
+            <div class="subSubSubTitle"  style="margin-bottom: 15px;">Detecting Intention to Initiate Movement</div>
             <p class="paragraph">
               We will be using a local lightweight SVM to distinguish in real-time the user's intention to move.
             </p>
 
-            <div class="subSubTitle" style="margin-bottom: 15px;">Custom Stimulation Circuits with Safety Front of Mind</div>
+            <div class="subSubSubTitle" style="margin-bottom: 15px;">Custom Stimulation Circuits with Safety Front of Mind</div>
             <p class="paragraph">
               Protoyping with BT enabled Arduinos we are working to create a simple circuits with several hardware safeguards, including fuses, diodes to handle current backflow, current lmiiting transistors, and optoisolated relays.
             </p>
@@ -220,47 +220,6 @@
       });
 
     </script>
-
-
-    <!-- Show data processing -->
-    <!-- <script>
-      $(document).ready(function(){
-        var currStage = 0;
-        var dataParagraph = document.getElementById("dataParagraph");
-        var stageParagraphs = [
-          'This is what the raw data from the OpenBCI looks like. Each graph represents a one second window of one of the 16 channels, hence why there is 16 graphs for the single sample. You may notice that this data is actually quite spiky and sporradic. While it is true that some of that spiky data represents high frequency (gamma) brain waves, the grand majority of it is actually noise and imperfect representations of our data. A rather straightforward thing that we can do to muffle the noise and "hone in" on the brain signal is just smooth out the curve. We can apply something called a Savitzky-Golay (savgol) filter, which will do precicely that. You can read more about how exactly a savgol filter works <a href="https://en.wikipedia.org/wiki/Savitzky-Golay_filter"  id="uncoloredLink" target="_blank">here</a>. <br><br><b>Click on the data to apply the savgol filter.</b>',
-
-          "Now that we have smoothed out the data, it is much easier to see the underlying waves, which means that the Fourier transform will likely be able to better represent what is actually going on with the data. Let's pass each of the individual channels through a Fourier transform. <br><br><b>Click on the data to pass the channels through a Fourier transform.</b>",
-
-          "Fantastic! Though it may not look like it, you are looking at the exact same data. The Fourier transform doesn't actually change the data at all, it simply changes the way we represent it. Here the data is represented in the frequency domain instead of the time domain, so the different peaks of these graphs show relative strengths of each frequency in the overall signal as opposed to showing the overal signal itself. It may not be immediately obvious what's going on here, but this is actually really powerful. This transform allows us to use our neuroscience knowledge to further interpret this data. <br><br><b>Click on the data to further analyze the data.</b>",
-
-          "This is the exact same thing, but now we have fancy lines drawn on it! These lines are placed to break up the data into the regions of 0.5-4 Hz, 4-7.5 Hz, 7.5-12 Hz, 12-30 Hz, and 30-100 Hz. These regions correspond to the delta, theta, alpha, beta, and gamma power bands respectively. What we want to do now is calculate a numerical representation of the relative strength of each of these bins. To do that, we simply average every point in each of these bins. <br><br><b>Click on the data to find the binned values.</b>",
-
-          "Now we have an incredibly simple representation of the entire sample that contains just 5 numbers, the relative strength of each of the power bins, for each of the 16 channels. Having these bins of data is incredibly powerful, as we can interpret the data over time to see how it changes, and we can even compare how these bins change over time compared to each other to determine rather complex occurances in the brain, such as mood, attention level, and calmness. For our classifier application, however, we sort of skim over this nuance. We don't exactly know how your calmness, attention, etc. correlate to our directional labels, so we are just going to directly feed this data into the LDA classifier and leave it to discover that for us. Let's compress this data a little more. <br><br><b>Click on the data to compress this data further.</b>",
-
-          "Here we have simply averaged the strength of all of the bins to discover 5 numbers that represent the entire sample. We have now preprocessed one sample for the Fourier model! The program follows this process for every sample that we record to build a dataset of these bits of data above that will all go towards training our Fourier LDA Model.<br><br><b>Click on the data to reset this exercise.</b>"];
-
-
-        // Preload images to make activity super snappy
-        var i;
-        for (i = 0; i <= 5; i++) {
-          var img=new Image();
-          img.src="../images/ProjectPhotos/dataExample/" + i + '.jpg';
-        }
-
-        $('.dataExample').click(function(){
-          if(currStage < 5){
-            currStage = currStage + 1
-          }
-          else {
-            currStage = 0
-          }
-
-          $('.dataExample').attr('src', '../images/ProjectPhotos/dataExample/' + currStage + '.jpg');
-          dataParagraph.innerHTML = stageParagraphs[currStage];
-        });
-      })
-    </script> -->
 
     <!-- Dynamically Load Header -->
     <script type="text/javascript" src="/dynamicLoad.js"></script>

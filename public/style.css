@@ -1898,7 +1898,7 @@ select:-webkit-autofill:focus {
   transform: translateY(-50%);
 }
 
-#smallMediumImage {
+#mediumImage {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   position: relative;
@@ -1915,7 +1915,7 @@ select:-webkit-autofill:focus {
   width: 470px;
 }
 
-#smallMediumImageChild {
+#mediumImageChild {
   width: 100%;
   position: absolute;
   top: 50%;
