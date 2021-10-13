@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+    <!-- <link rel="icon" type="image/png" href="../images/NATBrain.png"/> -->
+    <link rel="icon" type="image/png" href="/images/NATBrain.svg"/>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="../style.css" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="../scrollBackground.js"></script>
+    <script type="text/javascript" src="../burgerController.js"></script>
+
+    <!-- Add Our Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="/index"><image id="headerImg" src="/images/nat.svg" alt="NAT Logo"></image></a>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <!-- <div style="position: relative"><div class="spinner"></div></div> -->
+    <!-- <img id="headerBGImg" lsrc="/images/ProjectPhotos/koalacademy/equate.png"></img> -->
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+
+
+        <h1 class="subTitle" style="margin-left: 2%;">Open Stroke Rehab</h1>
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%;">
+
+            <div id="largeInfoBlockMedia">
+              <div id="largeMediaFrame">
+                <img src="../images/ProjectPhotos/osr/main.png" style="width: 90%;"></img>
+              </div>
+            </div>
+            <div id="largeInfoBlockText">
+              <div class="subTitle"  style="margin-bottom: 15px; padding-top: 15px; padding-bottom: 15px;">Stimulating Relevant Sensorimotor Circuits:</div>
+                <div class="subSubTitle"  style="margin-bottom: 15px;">Facilitating Gross Upper Limb Movement Recovery in Indivudals Recovering from Stroke</div>
+              <br>
+              <p class="paragraph">An entirely open source platform for providing nonpharamacological support for assisting in upper limb motor recovery from stroke.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 15px;">Project Goals:</div>
+
+              <div class="subSubSubTitle"  style="margin-bottom: 15px;">Open Access and Community Driven</div>
+              <p class="paragraph">
+                Started by a small group of students at the University of Alberta located in Edmonton, Alberta, Canada we are not profit-driven and hope to "stimulate" fruitful cross-institute collaborations to further development of the platform. 
+              </p>
+
+              <div class="subSubSubTitle"  style="margin-bottom: 15px;">Easy to Replicate</div>
+              <p class="paragraph">
+                Basic and widely accessible circuits with instructions for replication. 
+              </p>
+
+              <div class="subSubSubTitle"  style="margin-bottom: 15px;">Demonstrate a Practical BCI Usecase</div>
+              <p class="paragraph">
+                In parallel with a number of other NeurAlbertaTech projects we seek to demonstrate novel use cases for BCI in day-today life. 
+                <br>
+              </p>
+            </div>
+          </div>
+
+
+        <div id="largeInfoBlock">
+          <div id="largeInfoContents" style="margin-top: 1%; display: block;">
+            <div class="subTitle" style="margin-bottom: 15px;">Development</div>
+
+            <div class="subSubSubTitle"  style="margin-bottom: 15px;">CAD Modeling</div>
+            <p class="paragraph">
+              We are modifying OpenBCI's open source Ultra Cortex IV headset to more densly cluster electrodes about the primary motor cortex
+            </p>
+
+            <div class="subSubSubTitle"  style="margin-bottom: 15px;">Detecting Intention to Initiate Movement</div>
+            <p class="paragraph">
+              We will be using a local lightweight SVM to distinguish in real-time the user's intention to move.
+            </p>
+
+            <div class="subSubSubTitle" style="margin-bottom: 15px;">Custom Stimulation Circuits with Safety Front of Mind</div>
+            <p class="paragraph">
+              Protoyping with BT enabled Arduinos we are working to create a simple circuits with several hardware safeguards, including fuses, diodes to handle current backflow, current lmiiting transistors, and optoisolated relays.
+            </p>
+          </div>
+
+        <div id="interestedBlock" style="margin-bottom: 30px;">
+
+          <div id="interestedBlockContents">
+
+          <span style="color: rgba(255,255,255,1); font-size: 35px; font-weight: 900; font-family: 'Maven Pro', sans-serif;">The Core Team is Still Forming! </span>
+          <!-- 
+          <div id="viewPastExecsContentScrollContainer">
+            <table style="width:100%" class="pastExecsTable">
+              <tr>
+                <th>
+                  <div id="smallMediumImage">
+                    <a href="https://www.linkedin.com/in/eden-redman-neuro/" target="_blank"><img src="../images/ProjectPhotos/koalacademy/Eden_Redman.jpg" id="smallMediumImageChild"></img></a>
+                  </div>
+                </th>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
+                <th>Eden Redman</th>
+                <th>Harrison Fah</th>
+                <th>Matthew Danyluk</th>
+                <th>Dania Villarreal</th>
+                <th>William Chen</th>
+                <th>Khaled Al-Amoodi</th>
+                <th>Julie Pilz</th>
+                <th>Shelly Xue</th>
+                <th>Tanyaradzwa Gozhora</th>
+              </tr>
+
+              <tr style="font-family: 'Maven Pro'; color: rgba(255,255,255,1);">
+                <td>Team Lead - BA, Fine Arts and Design</td>
+                <td>Client Analytics Team Lead - BSc, Computer Science</td>
+                <td>Server Analytics Team Lead - BSc, Neuroscience</td>
+                <td>Front End Team Lead - BSc, Neuroscience</td>
+                <td>Game Development Team Lead - BSc, Computer Science</td>
+                <td>Client Analytics Developer - PhD, Computer Engineering</td>
+                <td>Front End Developer - Bsc, Computer Science & Psychology</td>
+                <td>Front End Developer - BSc, Computer Science</td>
+                <td>Front End Developer - BSc, Computer Science</td>
+              </tr>
+            </table>
+          </div>
+             -->
+        </div>
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('#viewPastExecsButton').click(function(){
+          if($('#viewPastExecsButton').text() === "View 2019 Project Team") {
+
+            // Button
+            $('#viewPastExecsButton').text("Back");
+            $('#viewPastExecsButton').css('background-color', 'rgba(0, 0, 0, 1)');
+
+            // Content
+            $('#viewPastExecsContent').css("height","500px"); // so we never hit it
+            $('#viewPastExecsContent').css("margin-top","-50px");
+            $('#viewPastExecsContent').css("opacity","100");
+            $('#viewPastExecsContent').css("padding-bottom","2%");
+            $('#viewPastExecsContent').css("padding-top","70px");
+            // $('#viewPastExecsContent').css("transform","scaleY(1)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","block");
+          } else {
+            // Button
+            $('#viewPastExecsButton').text("View 2019 Project Team");
+            $('#viewPastExecsButton').css("background-color", "rgba(0, 0, 0, 0.8)");
+
+            // Content
+            $('#viewPastExecsContent').css("height","0px");
+            $('#viewPastExecsContent').css("margin-top","0px");
+            $('#viewPastExecsContent').css("opacity","0");
+            $('#viewPastExecsContent').css("padding-bottom","0px");
+            $('#viewPastExecsContent').css("padding-top","0px");
+            // $('#viewPastExecsContent').css("transform","scaleY(0)");
+
+            // Container
+            $('#viewPastExecsContentContainer').css("display","none");
+          }
+        });
+      });
+
+    </script>
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>

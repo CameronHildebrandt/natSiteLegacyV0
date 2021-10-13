@@ -1890,6 +1890,30 @@ select:-webkit-autofill:focus {
   transform: translateY(-50%);
 }
 
+#mediumImage {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+
+  /* margin-top: 10px; */
+  margin-left: 5px;
+  margin-right: 5px;
+  display: inline-block;
+  /* position: relative; */
+  height: 355px;
+  width: 470px;
+}
+
+#mediumImageChild {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 #smallVideoPlayer {
   display: none;
   height: 169px;
