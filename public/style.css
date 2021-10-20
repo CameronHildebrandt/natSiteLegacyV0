@@ -54,7 +54,7 @@
   filter: blur(10px);
   opacity: 0%;
 
-  transition: filter 0.75s ease-in-out, opacity 0.3s ease-in-out;
+  transition: filter 0.05s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 
