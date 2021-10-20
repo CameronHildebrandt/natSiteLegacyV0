@@ -931,6 +931,16 @@ body {
   animation-fill-mode: forwards;
 } */
 
+#calendar {
+  margin: auto;
+  display: block;
+  border-style: none;
+}
+
+#calendarContainer {
+  text-align: center;
+}
+
 .curriculumTableContainer {
   /* overflow-y: auto;
   height: 400px; */
