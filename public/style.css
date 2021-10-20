@@ -54,7 +54,7 @@
   filter: blur(10px);
   opacity: 0%;
 
-  transition: filter 0.75s ease-in-out, opacity 0.3s ease-in-out;
+  transition: filter 0.05s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 
@@ -930,6 +930,16 @@ body {
   animation-duration: 1s;
   animation-fill-mode: forwards;
 } */
+
+#calendar {
+  margin: auto;
+  display: block;
+  border-style: none;
+}
+
+#calendarContainer {
+  text-align: center;
+}
 
 .curriculumTableContainer {
   /* overflow-y: auto;
