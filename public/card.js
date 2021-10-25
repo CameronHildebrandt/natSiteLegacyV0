@@ -1,4 +1,16 @@
-class WholeRowCard {
+function isAlpha(c) {
+  return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+function isNumeric(c) {
+  return (c >= '0' && c <= '9');
+}
+
+function isAlphaNumeric(c) {
+  return (isAlpha(c) || isNumeric(c));
+}
+
+class Card {
   header = "";
   subHeader = "";
   paragraph = "";
@@ -6,9 +18,11 @@ class WholeRowCard {
   buttonText = "";
   link = "";
   location = "";
+  altText = "";
   startDate = null;
   endDate = null;
   dark = false;
+  large = false;
 
   constructor(args) {
     this.setHeader(args["header"]); 
@@ -18,13 +32,15 @@ class WholeRowCard {
     this.setButtonText(args["buttonText"]);
     this.setLink(args["link"]);
     this.setLocation(args["location"]);
+    this.setAltText(args["altText"]);
     this.setStartDate(args["startDate"]);
     this.setEndDate(args["endDate"]);
     this.setDark(args["dark"]);
+    this.setLarge(args["large"]);
   }
 
   clone() {
-    return new WholeRowCard({
+    return new Card({
       header: this.header,
       subHeader: this.subHeader,
       paragraph: this.paragraph,
@@ -33,7 +49,8 @@ class WholeRowCard {
       link: this.link,
       location: this.location,
       date: this.date,
-      dark: this.dark
+      dark: this.dark,
+      large: this.large,
     });
   }
 
@@ -79,6 +96,12 @@ class WholeRowCard {
     }
   }
 
+  setAltText(altText) {
+    if (altText !== undefined) {
+      this.altText = altText;
+    }
+  }
+
   setStartDate(date) {
     if (date !== undefined) {
       this.startDate = date;
@@ -97,36 +120,97 @@ class WholeRowCard {
     }
   }
 
-  generateElement() {
-    var cardRoot = document.createElement("div");
-    if (this.dark) {
-      cardRoot.id = "darkSmallInfoBlock";  // TODO: Change to class.
-    } else {
-      cardRoot.id = "smallInfoBlock";  // TODO: Change to class.
+  setLarge(large) {
+    if (large !== undefined) {
+      this.large = large;
     }
-    cardRoot.style = "magin-bottom: 0px;";
+  }
+
+  _linkToText(link) {
+    for (var i = link.length; i > 0; --i) {
+      if (link[i-1] == '.') {
+        link = link.substr(0, i-1);
+        break;
+      }
+    }
+
+    link = link.split("/");
+    link = link[link.length-1];
+    var text = "";
+    if (link.length > 0) {
+      text = link[0].toUpperCase();
+    }
+    for (var i = 1; i < link.length; ++i) {
+      if (link[i] == link[i].toUpperCase() && link[i-1] != link[i-1].toUpperCase() && isAlphaNumeric(link[i])) {
+        text += " "
+      }
+      text += link[i];
+    }
+
+    return text;
+  }
+
+  generateElement() {
+    var rootBlockType = "smallInfoBlock";
+    var rootBlockStyle = "margin-bottom: 0px";
+    var contentsType = "smallInfoContents";
+    var textColorStyle = "";
+    var buttonType = "smallButton";
+    var mediaFrameType = "smallMediaFrame";
+    var mediaImageType = "eventImageNoHover";
+    var mediaHref = "";
+    var mediaAltText = this.altText;
+    
+    if (this.large) {
+      rootBlockType = "largeInfoBlock";
+      contentsType = "largeInfoContents";
+      mediaFrameType = "largeMediaFrame";
+    }
+    if (this.dark) {
+      rootBlockType = "dark" + rootBlockType[0].toUpperCase() + 
+        rootBlockType.substr(1, rootBlockType.length);
+      textColorStyle = "color: rgba(240,240,240,1);"
+    }
+    if (this.link) {
+      mediaHref = this.link;
+      mediaImageType = "eventImage";
+    }
+    if (mediaAltText == "") {
+      // Attempt to auto generate a useful alt text using the image name if
+      // no alt is given.
+      if (this.image.length > 0 && this.image[0] == "/") {
+        mediaAltText = this._linkToText(this.image);
+      } else {
+        mediaAltText = "Image not found";
+      }
+    }
+
+    var cardRoot = document.createElement("div");
+    cardRoot.id = rootBlockType;  // TODO: Change to class.
+    cardRoot.style = rootBlockStyle;
 
     var cardBlock = document.createElement("div");
-    cardBlock.id = "smallInfoContents";  // TODO: Change to class.
-
-    var lightTextColorStyle = "color: rgba(240,240,240,1);";
+    cardBlock.id = contentsType;  // TODO: Change to class.
 
     // Create media section.
     var mediaBlock = document.createElement("div");
+    var mediaFrame = document.createElement("div");
     var mediaLink = document.createElement("a");
     var mediaImage = document.createElement("img");
-    mediaBlock.id = "smallInfoBlockMedia";  // TODO: Change to class.
-    if (this.link) {
-      mediaLink.href = this.link;
+    mediaBlock.id = rootBlockType + "Media";  // TODO: Change to class.
+    mediaFrame.id = mediaFrameType;  // TODO: Change to class.
+    if (mediaHref != "") {
+      mediaLink.href = mediaHref;
     }
     mediaImage.src = this.image;
-    mediaImage.id = "eventImage"  // TODO: Change to class.
-    //mediaImage.alt = ""  // TODO: Add.
+    mediaImage.id = mediaImageType;  // TODO: Change to class.
+    mediaImage.alt = mediaAltText;
     mediaLink.appendChild(mediaImage);
-    mediaBlock.appendChild(mediaLink);
+    mediaFrame.appendChild(mediaLink);
+    mediaBlock.appendChild(mediaFrame);
     if (this.buttonText) {
       var mediaButton = document.createElement("button");
-      mediaButton.id = "smallButton"  // TODO: Change to class.
+      mediaButton.id = buttonType;  // TODO: Change to class.
       mediaButton.innerHTML = this.buttonText;
       var mediaLinkCopy = mediaLink.cloneNode();
       mediaLinkCopy.appendChild(mediaButton);
@@ -140,13 +224,9 @@ class WholeRowCard {
     var textBlock = document.createElement("div");
     var headerBlock = document.createElement("div");
     var paragraphText = document.createElement("p");
-    textBlock.id = "smallInfoBlockText"  // TODO: Change to class.
+    textBlock.id = rootBlockType + "Text"  // TODO: Change to class.
     headerBlock.classList.add("subSubTitle");
-    if (this.dark) {
-      headerBlock.style = "margin-bottom: 15px; " + lightTextColorStyle;
-    } else {
-      headerBlock.style = "margin-bottom: 15px;";
-    }
+    headerBlock.style = "margin-bottom: 15px; " + textColorStyle;
     headerBlock.innerHTML = this.header;
     textBlock.appendChild(headerBlock);
     if (this.subHeader) {
@@ -159,9 +239,7 @@ class WholeRowCard {
       subHeaderBlock.appendChild(br);
       textBlock.appendChild(subHeaderBlock);
     }
-    if (this.dark) {
-      paragraphText.style = lightTextColorStyle;
-    }
+    paragraphText.style = textColorStyle;
     paragraphText.classList.add("paragraph");
     paragraphText.innerHTML = this.paragraph;
     textBlock.appendChild(paragraphText);
@@ -173,7 +251,7 @@ class WholeRowCard {
 }
 
 // Defined cards.
-var womenInNeuroCard = new WholeRowCard({
+var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
   subHeader: "RSVPs for natChat Fa21 are now open!",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
@@ -188,7 +266,7 @@ var womenInNeuroCard = new WholeRowCard({
 var womenInNeuroDarkCard = womenInNeuroCard.clone();
 womenInNeuroDarkCard.setDark(true);
 
-var workshopSeriesDarkCard = new WholeRowCard({
+var workshopSeriesDarkCard = new Card({
   header: "Workshop Series",
   paragraph: `If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
   image: "images/InfoNight/WSML.jpg",
@@ -197,7 +275,7 @@ var workshopSeriesDarkCard = new WholeRowCard({
   dark: true,
 });
 
-var natHacksDarkCard = new WholeRowCard({
+var natHacksDarkCard = new Card({
   header: "natHACKS",
   paragraph: `Alberta’s inaugural brain-computer interface hackathon. This is a completely remote hackathon with thousands of dollars in prizes available! natHACKS will be an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we’re thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.
   <br><br>
@@ -207,7 +285,7 @@ var natHacksDarkCard = new WholeRowCard({
   dark: true,
 });
 
-var museAmassadorCard = new WholeRowCard({
+var museAmassadorCard = new Card({
   header: "Muse Ambassador",
   paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
   image: "images/event/muse-ambassador.jpg",
@@ -216,7 +294,7 @@ var museAmassadorCard = new WholeRowCard({
 });
 
 
-var superNaturalCard = new WholeRowCard({
+var superNaturalCard = new Card({
   header: "SuperNATural Activities",
   paragraph: `Drop by the natFlat any time during our office hours the week before Halloween for some superNATural trick-or-treats! (costume optional) Check out the spookified flat while picking up some candy and merch. You can find directions to the flat and the hours that we'll be there on our natFlat page!
   <br><br>
@@ -232,7 +310,7 @@ var superNaturalCard = new WholeRowCard({
   endDate: new Date("October 29, 2021"),
 });
 
-var startupWeekCard = new WholeRowCard({
+var startupWeekCard = new Card({
   header: "Edmonton Startup Week",
   paragraph: `We will start with a quick introduction to the NPO, NeurAlbertaTech, with a recap of projects we have supported since our founding in February of 2019.<br><br>
   Then we will dive deep into the specifics of one of our current projects, "Koalacademy" (submission to the Russian Neurotech Cup 2021), and how we are scientifically validating a Brain Computer Interface-accelerated language learning platform through traditional academic research avenues at the University of Alberta.<br><br>
@@ -245,7 +323,7 @@ var startupWeekCard = new WholeRowCard({
   endDate: new Date("October 21, 2021, 16:30"),
 });
 
-var fa21InfoNightCard = new WholeRowCard({
+var fa21InfoNightCard = new Card({
   header: "Fa21 Info Night",
   paragraph: `We are a super beginner friendly club open to any and all skill levels (even if you have never touched CS or Neuroscience!) Come out to Info Night to see how you can get involved!
   <br><br>
@@ -261,7 +339,7 @@ var fa21InfoNightCard = new WholeRowCard({
   endDate: new Date("September 13, 2021 20:00"),
 });
 
-var musingAboutHardwareCard = new WholeRowCard({
+var musingAboutHardwareCard = new Card({
   header: "MUSEing About Hardware",
   paragraph: `Are you wondering how to go about collecting real brain data? Muse® by Interaxon Inc. headbands are perfect for starter neurotech projects as they are an accessible means of gathering EEG (electroencephalography) data. MUSEing About Hardware will include an introduction to the Muse S headband, a walk-through of working with data gathered by the Muse, and networking with like-minded neurotech innovators!
   <br><br>
@@ -271,7 +349,7 @@ var musingAboutHardwareCard = new WholeRowCard({
   endDate: new Date("June 23, 2021 19:00"),
 });
 
-var natFlowCard = new WholeRowCard({
+var natFlowCard = new Card({
   header: "NAT + Flow Neuroscience Event",
   paragraph: `Join NeurAlbertaTech and Flow Neuroscience for some insight into an emerging neurotechnology startup! Submit your questions ahead of time, then join us for a live discussion with Flow’s founders, Erik and Daniel. Stay afterwards for the chance to chat with the founders yourself.
   <br><br>
@@ -281,7 +359,7 @@ var natFlowCard = new WholeRowCard({
   endDate: new Date("June 1, 2021 12:15"),
 });
 
-var wi21InfoNightCard = new WholeRowCard({
+var wi21InfoNightCard = new Card({
   header: "Wi21 Info Night",
   paragraph: `Learn about what NeurAlbertaTech does and how you can get involved! We will have presentations on our past projects as well as details on all the exciting things we are doing in the near future. This is the perfect opportunity for you if you are interested in neurotechnology but don't know where to start, or if you are looking for a group where you can put your skills to use!
   <br><br>
@@ -293,7 +371,7 @@ var wi21InfoNightCard = new WholeRowCard({
   endDate: new Date("January 18, 2021 19:00"),
 });
 
-var wi21ClubsFairCard = new WholeRowCard({
+var wi21ClubsFairCard = new Card({
   header: "Wi21 Clubs Fair",
   paragraph: `Join us during virtual clubs fair to learn about the stuff we do and for some opportunities to get involved with the club!
   <br><br>
@@ -305,7 +383,7 @@ var wi21ClubsFairCard = new WholeRowCard({
   endDate: new Date("January 6, 2021 16:00"),
 });
 
-var startupWeek2020Card = new WholeRowCard({
+var startupWeek2020Card = new Card({
   header: "Edmonton Startup Week",
   paragraph: `We start with a quick introduction to the group and a recap of our submissions to international neurotechnology competitions since our founding in February of 2019. Then we dive deep into the specifics of our current "RemBRAINdt" project (Finalists for the Russian Neurotech Cup 2020) and how we are leveraging this project as our group's first foray into entrepreneurship developing a highly customizable and easy-to-use interface for real-time generation of visual art from live brain signals, for use in private and public events. On October 10th, we won a People's Choice Award at NeuroTech Cup 2020 at the BCI Samara Conference in Russia!
   <br><br>
@@ -317,7 +395,7 @@ var startupWeek2020Card = new WholeRowCard({
   endDate: new Date("October 23, 2020 12:00"),
 });
 
-var fa20InfoNightCard = new WholeRowCard({
+var fa20InfoNightCard = new Card({
   header: "Fa20 Info Night",
   paragraph: `Are you interested in computing science, neuroscience, or brain computer interfaces? Do you already know a little bit about us and are thinking about joining the project team? This is your event! There will be some talks, more information about our club and what we do, and refreshments will be available!
   <br><br>
@@ -329,7 +407,7 @@ var fa20InfoNightCard = new WholeRowCard({
   endDate: new Date("September 7, 18:00"),
 });
 
-var fa20ClubsFairCard = new WholeRowCard({
+var fa20ClubsFairCard = new Card({
   header: "Fa20 Clubs Fair",
   paragraph: `Visit our online chat in this year's all new virtual clubs fair to learn about what we do at NeurAlbertaTech and to learn what you can do to help push the bleeding edge of neurotech! We will be hosting a live demo of a project the team has worked on from 2pm-3pm MDT on Thursday and 3pm-4pm MDT on Friday, so make sure you don't miss that!
   <br><br>
@@ -341,7 +419,7 @@ var fa20ClubsFairCard = new WholeRowCard({
   endDate: new Date("September 4, 2020 16:00"),
 });
 
-var wi20InfoNightCard = new WholeRowCard({
+var wi20InfoNightCard = new Card({
   header: "Wi20 Info Night",
   paragraph: `Are you interested in computing science, neuroscience, or brain computer interfaces? Do you already know a little bit about us and are thinking about joining the project team? This is your event! There will be some talks, more information about our club and what we do, and refreshments will be available!
   <br><br>
@@ -353,7 +431,7 @@ var wi20InfoNightCard = new WholeRowCard({
   endDate: new Date("January 13, 2020 19:00"),
 });
 
-var wi20ClubsFair = new WholeRowCard({
+var wi20ClubsFair = new Card({
   header: "Wi20 Clubs Fair",
   paragraph: `Come out to see our booth at UASU's Winter 20 clubs fair and talk with us about the bleeding edge of neurotech!
   <br><br>
@@ -365,7 +443,7 @@ var wi20ClubsFair = new WholeRowCard({
   endDate: new Date("January 13, 2020 16:00"),
 });
 
-var milleniumStemWorkshopCard = new WholeRowCard({
+var milleniumStemWorkshopCard = new Card({
   header: "NAT Workshops Hosted by Millenium Stem Alberta",
   paragraph: `Want to learn more about BCIs and get some hands on experience with python? This is your event! Our workshops will give you all the baseline knowledge you will need to understand what a BCI is and how we use them to work on our projects!
   <br><br>
@@ -377,7 +455,7 @@ var milleniumStemWorkshopCard = new WholeRowCard({
   endDate: new Date("November 16, 2019 14:30"),
 });
 
-var fa19InfoNight = new WholeRowCard({
+var fa19InfoNight = new Card({
   header: "Fa19 Info Night",
   paragraph: `Are you interested in computing science, neuroscience, or brain computer interfaces? Do you already know a little bit about us and are thinking about joining the project team? This is your event! There will be some talks, more information about our club and what we do, and refreshments will be available!
   <br><br>
