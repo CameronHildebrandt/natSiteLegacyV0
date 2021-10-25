@@ -10,25 +10,34 @@ function isAlphaNumeric(c) {
   return (isAlpha(c) || isNumeric(c));
 }
 
+Array.prototype.mutate = function (func) {
+  this.forEach(func);
+  return this;
+}
+
 class Card {
   header = "";
   subHeader = "";
   paragraph = "";
   image = "";
+  video = "";
   buttonText = "";
   link = "";
   location = "";
   altText = "";
+  largeHeader = ""
   startDate = null;
   endDate = null;
   dark = false;
   large = false;
+  featured = false;
 
   constructor(args) {
     this.setHeader(args["header"]); 
     this.setSubHeader(args["subHeader"]);
     this.setParagraph(args["paragraph"]);
     this.setImage(args["image"]);
+    this.setVideo(args["video"]);
     this.setButtonText(args["buttonText"]);
     this.setLink(args["link"]);
     this.setLocation(args["location"]);
@@ -37,6 +46,8 @@ class Card {
     this.setEndDate(args["endDate"]);
     this.setDark(args["dark"]);
     this.setLarge(args["large"]);
+    this.setLargeHeader(args["largeHeader"]);
+    this.setFeatured(args["featured"]);
   }
 
   clone() {
@@ -45,85 +56,133 @@ class Card {
       subHeader: this.subHeader,
       paragraph: this.paragraph,
       image: this.image,
+      video: this.video,
       buttonText: this.buttonText,
       link: this.link,
       location: this.location,
       date: this.date,
       dark: this.dark,
       large: this.large,
+      largeHeader: this.largeHeader,
+      featured: this.featured,
     });
+  }
+
+  isFinished() {
+    return this.endDate !== undefined && this.endDate < Date.now();
+  }
+
+  isFeatured() {
+    return this.featured;
+  }
+
+  isDark() {
+    return this.dark;
   }
 
   setHeader(header) {
     if (header !== undefined) {
       this.header = header;
     }
+    return this;
   }
 
   setSubHeader(subHeader) {
     if (subHeader !== undefined) {
       this.subHeader = subHeader;
     }
+    return this;
   }
 
   setParagraph(paragraph) {
     if (paragraph !== undefined) {
       this.paragraph = paragraph;
     }
+    return this;
   }
 
   setImage(image) {
     if (image !== undefined) {
       this.image = image;
     }
+    return this;
+  }
+
+  setVideo(video) {
+    if (video !== undefined) {
+      this.video = video;
+    }
+    return this;
   }
 
   setLink(link) {
     if (link !== undefined) {
       this.link = link;
     }
+    return this;
   }
 
   setButtonText(buttonText) {
     if (buttonText !== undefined) {
       this.buttonText = buttonText;
     }
+    return this;
   }
 
   setLocation(location) {
     if (location !== undefined) {
       this.location = location;
     }
+    return this;
   }
 
   setAltText(altText) {
     if (altText !== undefined) {
       this.altText = altText;
     }
+    return this;
   }
 
   setStartDate(date) {
     if (date !== undefined) {
       this.startDate = date;
     }
+    return this;
   }
 
   setEndDate(date) {
     if (date !== undefined) {
       this.endDate = date;
     }
+    return this;
   }
 
   setDark(dark) {
     if (dark !== undefined) {
       this.dark = dark;
     }
+    return this;
   }
 
   setLarge(large) {
     if (large !== undefined) {
       this.large = large;
     }
+    return this;
+  }
+
+  setLargeHeader(header) {
+    if (header !== undefined) {
+      this.largeHeader = header;
+    }
+    return this;
+  }
+
+  setFeatured(featured) {
+    if (featured !== undefined) {
+      this.featured = featured;
+    }
+    return this;
   }
 
   _linkToText(link) {
@@ -189,6 +248,14 @@ class Card {
     cardRoot.id = rootBlockType;  // TODO: Change to class.
     cardRoot.style = rootBlockStyle;
 
+    // Add the large header if it exitsts.
+    if (this.largeHeader !== "") {
+      var largeHeaderElement = document.createElement("h1");
+      largeHeaderElement.classList.add("subTitle");
+      largeHeaderElement.innerHTML = this.largeHeader;
+      cardRoot.appendChild(largeHeaderElement);
+    }
+
     var cardBlock = document.createElement("div");
     cardBlock.id = contentsType;  // TODO: Change to class.
 
@@ -196,17 +263,32 @@ class Card {
     var mediaBlock = document.createElement("div");
     var mediaFrame = document.createElement("div");
     var mediaLink = document.createElement("a");
-    var mediaImage = document.createElement("img");
     mediaBlock.id = rootBlockType + "Media";  // TODO: Change to class.
     mediaFrame.id = mediaFrameType;  // TODO: Change to class.
     if (mediaHref != "") {
       mediaLink.href = mediaHref;
     }
-    mediaImage.src = this.image;
-    mediaImage.id = mediaImageType;  // TODO: Change to class.
-    mediaImage.alt = mediaAltText;
-    mediaLink.appendChild(mediaImage);
-    mediaFrame.appendChild(mediaLink);
+
+    // <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/-3UTwKpKpcI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    // Defualt create a video in case of conflict.
+    if (this.video != "") {
+      var mediaVideo = document.createElement("iframe");
+      mediaVideo.id = "normalVideoPlayer";
+      mediaVideo.width = "560";
+      mediaVideo.height = "315";
+      mediaVideo.src = this.video;
+      mediaVideo.frameBorder = "0";
+      mediaVideo.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      mediaVideo.allowFullscreen = true;
+      mediaFrame.appendChild(mediaVideo);
+    } else {
+      var mediaImage = document.createElement("img");
+      mediaImage.src = this.image;
+      mediaImage.id = mediaImageType;  // TODO: Change to class.
+      mediaImage.alt = mediaAltText;
+      mediaLink.appendChild(mediaImage);
+      mediaFrame.appendChild(mediaLink);
+    }
     mediaBlock.appendChild(mediaFrame);
     if (this.buttonText) {
       var mediaButton = document.createElement("button");
@@ -250,7 +332,170 @@ class Card {
   }
 }
 
-// Defined cards.
+// Defined cards. /////////////////////////////////////////////////////////////
+
+// Featured.
+var museAmassadorCard = new Card({
+  header: "Muse Ambassador",
+  paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
+  image: "/images/event/muse-ambassador.jpg",
+  buttonText: "Shop Now",
+  link: "https://mbsy.co/3qhP3N",
+});
+
+var ntxOpenComp20Card = new Card({
+  header: "Last Project: NTX Open Competition 2020",
+  paragraph: `A drone controlled entirely by your brain waves! Not only is this an incredibly fun project, but this is also a potentially incredibly powerful creation. In reality, over the past few months, we have built a general purpose BCI controller that can be connected to whatever we want! We chose to connect it to a drone to show it's power in an entertaining way, though, this can be connected to anything from games to wheelchairs to rudamentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability. Tap on "View Project" to learn more!`,
+  video: "https://www.youtube.com/embed/-3UTwKpKpcI",
+  buttonText: "View Project",
+  link: "project/drone.html",
+  large: true,
+});
+
+
+// Projects.
+var koalacademyCard = new Card({
+  largeHeader: "Koalacademy",
+  header: "BCI-Optimized Language Learning",
+  paragraph: `We are currently developing an open access web platform that uses electroencephalography, cloud cloud computing, modern web development, and machine learning in order to increase learning efficiency for the Mandarin language!`,
+  image: "/images/ProjectPhotos/koalacademy/equate.png",
+  buttonText: "View Project",
+  link: "/project/koalacademy.html",
+  large: true,
+});
+
+var bermudaCard = new Card({
+  largeHeader: "Bermuda",
+  header: "Brain, Body, and Eye Tracking",
+  paragraph: `We are developing a suite of hardware and software solutions that allows for the reliable, repeatable, and time sycnhronized acquisition of electroencaphalography, eye tracking, and body tracaking data (several orders of magnitude cheaper than current solutions).`,
+  image: "/images/ProjectPhotos/bermuda/main.jpg",
+  buttonText: "View Project",
+  link: "/project/bermuda.html",
+  large: true,
+});
+
+var openStrokeRehabCard = new Card({
+  largeHeader: "Open Stroke Rehab",
+  header: "Acessable Multi-modal Stroke Rehab",
+  paragraph: `This team is developing an open software/hardware stack incorporating electroencephalogram (EEG), transcranial direct current stimulation (tDCS), and transcutaneous electrical nerve stimulation (TENS) for the purpose of providing an accessible treatment and research platform.`,
+  image: "/images/ProjectPhotos/osr/main.png",
+  buttonText: "View Project",
+  link: "/project/osr.html",
+  large: true,
+});
+
+var brainDroneCard = new Card({
+  largeHeader: "Brain Drone",
+  header: "NTX Open Competition 2020",
+  paragraph: `A drone controlled entirely by your brain waves!
+    <br><br>
+    Not only was this an incredibly fun project, but it represents a potential for an incredibly powerful creation. Essentially, we have built a general purpose BCI controller that can be connected to whatever we want!`,
+  image: "/images/ProjectPhotos/BrainDroneThumbnail.jpg",
+  buttonText: "View Project",
+  link: "/project/drone.html",
+  large: true,
+});
+
+var rembraindtCard = new Card({
+  largeHeader: "RemBRAINdt",
+  header: "Russian NeuroTech Cup 2020",
+  paragraph: `Despite the reality of COVID-19, in just a few summer months we remotely developed and submitted an art-generating BCI program (utilizing our new 16-channel OpenBCI) to the Russia-hosted <a href="https://neurotechcup.com/en" id="uncoloredLink">Neurotech Cup 2020</a> and secured a position as finalists! On October 10th, 2020 we were awarded a <a href="https://neurotechcup.com/winners2020" id="uncoloredLink">People’s Choice Award!</a>
+    <br><br>
+    Several original team members went on compete in <a href="https://neuro-nexus.ca/" id="uncoloredLink">NeuroNexus 2020</a> a provincial neurotechnology design competition, going on to win 1st place in the entrepreneurial stream along with $20,000
+    <br><br>
+    Now a spin-off company, RemBRAINdt continues to flourish with an official Beta launch to the public, scheduled for September 2021. You can keep up-to-date with the team on their LinkedIn<a href="https://www.linkedin.com/company/70542469/" id="uncoloredLink"> here</a>.
+    <br><br>
+    <span style="font-weight: 700;">Media Coverage:</span>
+    <div id="mediaGrid">
+      <div class="mediaLogo">
+        <a href="https://edmonton.ctvnews.ca/this-university-of-alberta-helmet-can-turn-your-thoughts-into-art-1.5266220" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/CTV_flat_logo.svg">
+        </a>
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://www.ualberta.ca/science/news/2021/january/neurotech-student-group.html" target="_blank">
+          <img src="./images/Logos/MediaLogos/UAlberta.png"></a>
+        
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://dailyhive.com/edmonton/canadian-students-rembraindt-thoughts-abstract-art" target="_blank">
+          <img src="/images/Logos/MediaLogos/dailyhive.png"></a>
+        
+      </div>
+    </div>`,
+  image: "/images/FullSizeHeaderImages/RemBRAINdt.jpg",
+  buttonText: "View Project",
+  link: "/project/RemBRAINdt.html",
+  large: true,
+});
+
+var alphaBlasterCard = new Card({
+  largeHeader: "AlphaBlaster",
+  header: "NTX Open Competition 2019",
+  paragraph: `Alpha Blaster is a proof of concept 2D tower defense game controlled entirely by your brain activity. Our game recieved a 5th place award in NeuroTechX's Open Competition 2019!
+    <br><br>
+    <span style="font-weight: 700;">Media Coverage:</span>
+    <div id="mediaGrid">
+      <div class="mediaLogo">
+        <a href="https://www.cbc.ca/news/canada/edmonton/u-of-a-students-create-video-game-uses-brain-controller-1.5263352" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CBC_Logo_1992-Present.svg/1024px-CBC_Logo_1992-Present.svg.png">
+        </a>
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://edmonton.ctvnews.ca/brain-controlled-video-game-aims-to-improve-accessibility-for-players-1.4567521?cache=yes%3FclipId%3D89531%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3Fot%3DAjaxLayout%3FautoPlay%3Dtrue%3FautoPlay%3Dtrue" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/CTV_flat_logo.svg">
+        </a>
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://edmontonjournal.com/news/local-news/u-of-a-students-create-mind-controlled-video-game/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Edmonton_Journal_%282020-01-15%29.svg/1200px-Edmonton_Journal_%282020-01-15%29.svg.png">
+        </a>
+      </div>
+
+
+      <div class="mediaLogo">
+        <a href="https://www.thestar.com/calgary/2019/08/29/some-alberta-university-students-have-created-a-mind-controlled-video-game-and-the-technology-could-have-real-world-applications.html" target="_blank">
+          <img src="https://lh3.googleusercontent.com/rNE-n57GBBDjcxbLwY2ouar-aM_ufghjPmpFp5xyEMyhRPxblYXZ0Nx12Z79LIYniGySiB4fo8hr96bJGwqa8kVqT36qLC6m_8pijVx-M6VnoP3oj7xVytWtS6nBfznnh0tZQiaWxQ=w2400">
+        </a>
+      </div>
+
+
+      <div class="mediaLogo">
+        <a href="https://www.facebook.com/CityNewsYEG/videos/2097476683892344/" target="_blank">
+          <img src="https://lh3.googleusercontent.com/CHVewaOa751dAQnzsPp7KLIaBkRvkuorfJaw0oo7S8X1fqMkDyefiJ2-rwQ3Ux6np5gKde7hvB3QjOhoCcxWOJXx-urQAiSUlhyAljiWcKbZyh0bt-MoxShPaR6ZJlTXV5mFwVfqOA=w2400">
+        </a>
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://novo.press/university-students-create-first-mind-controlled-video-game-using-neurotechnology/" target="_blank">
+          <img src="https://novo.press/wp-content/uploads/2017/08/NOVO-logo-1.png"></a>
+        
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://www.ualberta.ca/science/news/2019/august/neurotechnology-video-game.html" target="_blank">
+          <img src="./images/Logos/MediaLogos/UAlberta.png"></a>
+        
+      </div>
+
+      <div class="mediaLogo">
+        <a href="https://www.innovatechnews.com/2019/09/17/university-students-create-the-first-brain-controlled-video-game/" target="_blank">
+          <img src="../images/Logos/MediaLogos/innovatech.png"></a>
+        
+      </div>
+    </div>`,
+  image: "/images/ProjectPhotos/AlphaBlasterScreencap.jpg",
+  buttonText: "View Project",
+  link: "/project/alphaBlaster.html",
+  large: true,
+});
+
+
+// Events.
 var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
   subHeader: "RSVPs for natChat Fa21 are now open!",
@@ -261,12 +506,11 @@ var womenInNeuroCard = new Card({
   location: "natFlat (CCIS L1)",
   startDate: new Date("October 27, 2021 17:00"),
   endDate: new Date("October 27, 2021 19:00"),
+  dark: true,
+  featured: true,
 });
 
-var womenInNeuroDarkCard = womenInNeuroCard.clone();
-womenInNeuroDarkCard.setDark(true);
-
-var workshopSeriesDarkCard = new Card({
+var workshopSeriesCard = new Card({
   header: "Workshop Series",
   paragraph: `If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
   image: "/images/workshop/mlLogo.png",
@@ -275,7 +519,7 @@ var workshopSeriesDarkCard = new Card({
   dark: true,
 });
 
-var natHacksDarkCard = new Card({
+var natHacksCard = new Card({
   header: "natHACKS",
   paragraph: `Alberta’s inaugural brain-computer interface hackathon. This is a completely remote hackathon with thousands of dollars in prizes available! natHACKS will be an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we’re thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.
   <br><br>
@@ -284,15 +528,6 @@ var natHacksDarkCard = new Card({
   image: "/images/event/natHACKs/nathanGlow.png",
   dark: true,
 });
-
-var museAmassadorCard = new Card({
-  header: "Muse Ambassador",
-  paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
-  image: "/images/event/muse-ambassador.jpg",
-  buttonText: "Shop Now",
-  link: "https://mbsy.co/3qhP3N",
-});
-
 
 var superNaturalCard = new Card({
   header: "SuperNATural Activities",
@@ -308,6 +543,7 @@ var superNaturalCard = new Card({
   link: "/natflat",
   startDate: new Date("October 25, 2021"),
   endDate: new Date("October 29, 2021"),
+  featured: true,
 });
 
 var startupWeekCard = new Card({
@@ -321,6 +557,7 @@ var startupWeekCard = new Card({
   link: "https://emamo.com/event/techstars-edmonton-startup-week",
   startDate: new Date("October 21, 2021, 16:00"),
   endDate: new Date("October 21, 2021, 16:30"),
+  featured: true,
 });
 
 var fa21InfoNightCard = new Card({
@@ -469,9 +706,23 @@ var fa19InfoNight = new Card({
 
 
 var featuredCards = [
-  womenInNeuroCard,
-  superNaturalCard,
   museAmassadorCard,
+];
+
+var homePageCards = [
+  ntxOpenComp20Card,
+];
+
+var currentProjectCards = [
+  koalacademyCard,
+  bermudaCard,
+  openStrokeRehabCard,
+];
+
+var pastProjectCards = [
+  brainDroneCard,
+  rembraindtCard,
+  alphaBlasterCard,
 ];
 
 var eventCards = [
@@ -492,33 +743,45 @@ var eventCards = [
 ];
 
 var moreEventCards = [
-  womenInNeuroDarkCard,
-  workshopSeriesDarkCard,
-  natHacksDarkCard,
+  womenInNeuroCard,
+  workshopSeriesCard,
+  natHacksCard,
 ];
 
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
+var homePageCardsElement = document.getElementById("homePageCards");
+var currentProjectCardsElement = document.getElementById("currentProjectCards");
+var pastProjectCardsElement = document.getElementById("pastProjectCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
 var moreEventCardsElement = document.getElementById("moreEventCards");
 
+if (featuredCardsElement && homePageCardsElement) {  // index.html
+  // Add all present and future featured event cards to the featured list,
+  // then add them to the page.
+  eventCards
+    .concat(moreEventCards)
+    .filter(card => card.isFeatured() && !card.isFinished())
+    .mutate(card => card.setDark(false))
+    .concat(featuredCards)
+    .forEach(card => featuredCardsElement.appendChild(card.generateElement()));
 
-if (featuredCardsElement) {
-  for (var i = 0; i < featuredCards.length; ++i) {
-    featuredCardsElement.appendChild(featuredCards[i].generateElement());
-  }
-} else if (currentEventCardsElement && pastEventCardsElement) {
-  for (var i = 0; i < eventCards.length; ++i) {
-    if (eventCards[i].endDate < Date.now()) {
-      pastEventCardsElement.appendChild(eventCards[i].generateElement())
-    } else {
-      currentEventCardsElement.appendChild(eventCards[i].generateElement());
-    }
-  }
-}
+  homePageCards.forEach(card => homePageCardsElement.appendChild(card.generateElement()));
+} else if (currentProjectCardsElement && pastProjectCardsElement) {  // projects.html
+  // Adds all present and future project cards to the projects page.
+  currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
+  pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
 
-if (moreEventCardsElement) {
-  for (var i = 0; i < moreEventCards.length; ++i) {
-    moreEventCardsElement.appendChild(moreEventCards[i].generateElement());
-  }
+} else if (currentEventCardsElement && 
+           pastEventCardsElement && 
+           moreEventCardsElement) {  // events.html
+  // Add all of the event cards to either currentEvents or pastEvents.
+  eventCards.forEach(card =>
+    card.isFinished() ?
+      pastEventCardsElement.appendChild(card.generateElement()) :
+      currentEventCardsElement.appendChild(card.generateElement()))
+
+  // Add all of the moreEvent cards to the moreEvents section.
+  moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
+  
 }
