@@ -255,7 +255,7 @@ var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
   subHeader: "RSVPs for natChat Fa21 are now open!",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
-  image: "images/InfoNight/NatChat.jpg",
+  image: "/images/event/natChat/natChatLogo.png",
   buttonText: "Learn More",
   link: "/event/natchat.html",
   location: "natFlat (CCIS L1)",
@@ -269,7 +269,7 @@ womenInNeuroDarkCard.setDark(true);
 var workshopSeriesDarkCard = new Card({
   header: "Workshop Series",
   paragraph: `If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
-  image: "images/InfoNight/WSML.jpg",
+  image: "/images/workshop/mlLogo.png",
   buttonText: "Learn More",
   link: "event/workshops.html",
   dark: true,
@@ -288,7 +288,7 @@ var natHacksDarkCard = new Card({
 var museAmassadorCard = new Card({
   header: "Muse Ambassador",
   paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
-  image: "images/event/muse-ambassador.jpg",
+  image: "/images/event/muse-ambassador.jpg",
   buttonText: "Shop Now",
   link: "https://mbsy.co/3qhP3N",
 });
@@ -303,7 +303,7 @@ var superNaturalCard = new Card({
   <b>When:</b> Monday, October 25th - Friday, October 29th
   <br><br>
   <b>Where:</b> <a href="/natflat" id="uncoloredLink">natFlat</a>`,
-  image: "images/Logos/misc/spook.png",
+  image: "/images/Logos/misc/spook.png",
   buttonText: "natFlat",
   link: "/natflat",
   startDate: new Date("October 25, 2021"),
@@ -316,7 +316,7 @@ var startupWeekCard = new Card({
   Then we will dive deep into the specifics of one of our current projects, "Koalacademy" (submission to the Russian Neurotech Cup 2021), and how we are scientifically validating a Brain Computer Interface-accelerated language learning platform through traditional academic research avenues at the University of Alberta.<br><br>
   <b>When:</b> Friday October 21st, 2021, 16:00-16:30 MT<br><br>
   <b>Where:</b> Virtual!`,
-  image: "images/InfoNight/natStartupWeek21.png",
+  image: "/images/InfoNight/natStartupWeek21.png",
   buttonText: "RSVP",
   link: "https://emamo.com/event/techstars-edmonton-startup-week",
   startDate: new Date("October 21, 2021, 16:00"),
@@ -334,7 +334,7 @@ var fa21InfoNightCard = new Card({
   <b>When:</b> Monday, September 13th, 6:00pm-8:00pm MT
   <br><br>
   <b>Where:</b> CCIS 1-160`,
-  image: "images/InfoNight/INBlue.jpg",
+  image: "/images/InfoNight/INBlue.jpg",
   startDate: new Date("September 13, 2021 18:00"),
   endDate: new Date("September 13, 2021 20:00"),
 });
@@ -366,7 +366,7 @@ var wi21InfoNightCard = new Card({
   <b>When:</b> January 18th, 2021 17:00-19:00 MDT
   <br><br>
   <b>Where:</b> Zoom`,
-  image: "images/InfoNight/INPurple.jpg",
+  image: "/images/InfoNight/INPurple.jpg",
   startDate: new Date("January 18, 2021 17:00"),
   endDate: new Date("January 18, 2021 19:00"),
 });
@@ -378,7 +378,7 @@ var wi21ClubsFairCard = new Card({
   <b>When:</b> January 4th-6th, 2021 10:00-16:00 MDT each day
   <br><br>
   <b>Where:</b> Zoom`,
-  image: "images/InfoNight/CFPink.jpg",
+  image: "/images/InfoNight/CFPink.jpg",
   startDate: new Date("January 4, 2021 10:00"),
   endDate: new Date("January 6, 2021 16:00"),
 });
@@ -390,7 +390,7 @@ var startupWeek2020Card = new Card({
   <b>When:</b> Friday October 23, 2020 11:30am - 12:00pm MDT
   <br><br>
   <b>Where:</b> Virtual!`,
-  image: "images/InfoNight/NAT_Startup_Week.jpg",
+  image: "/images/InfoNight/NAT_Startup_Week.jpg",
   startDate: new Date("October 23, 2020 11:30"),
   endDate: new Date("October 23, 2020 12:00"),
 });
@@ -402,7 +402,7 @@ var fa20InfoNightCard = new Card({
   <b>When:</b> Monday, September 7th 4pm-6pm
   <br><br>
   <b>Where:</b> Virtual, on Google Meet! Link is shared once you RSVP!`,
-  image: "images/InfoNight/INPink.jpg",
+  image: "/images/InfoNight/INPink.jpg",
   startDate: new Date("September 7, 16:00"),
   endDate: new Date("September 7, 18:00"),
 });
@@ -414,7 +414,7 @@ var fa20ClubsFairCard = new Card({
   <b>When:</b> Monday, August 31 - Friday September 4th, 10am - 4pm each day
   <br><br>
   <b>Where:</b> Virtual Clubs Fair`,
-  image: "images/InfoNight/CFPastel.jpg",
+  image: "/images/InfoNight/CFPastel.jpg",
   startDate: new Date("August 31, 2020 10:00"),
   endDate: new Date("September 4, 2020 16:00"),
 });
@@ -426,7 +426,7 @@ var wi20InfoNightCard = new Card({
   <b>When:</b> Monday, January 13th, 2020 5:00pm - 7:00pm
   <br><br>
   <b>Where:</b> Upper Floor Student Innovation Centre (Near CCIS Remedey)`,
-  image: "images/InfoNight/INMagenta.jpg",
+  image: "/images/InfoNight/INMagenta.jpg",
   startDate: new Date("January 13, 2020 17:00"),
   endDate: new Date("January 13, 2020 19:00"),
 });
@@ -438,7 +438,7 @@ var wi20ClubsFair = new Card({
   <b>When:</b> Monday, January 13th, 2020 10:00am - 4:00pm
   <br><br>
   <b>Where:</b> Upper Floor Student's Union Building`,
-  image: "images/InfoNight/CFPink.jpg",
+  image: "/images/InfoNight/CFPink.jpg",
   startDate: new Date("January 13, 2020 10:00"),
   endDate: new Date("January 13, 2020 16:00"),
 });
@@ -462,7 +462,7 @@ var fa19InfoNight = new Card({
   <b>When:</b> Monday, September 9th, 2019 5:00pm - 7:00pm
   <br><br>
   <b>Where:</b> Upper Floor Student Innovation Centre (Near CCIS Remedey)`,
-  image: "images/InfoNight/INTeal.jpg",
+  image: "/images/InfoNight/INTeal.jpg",
   startDate: new Date("September 9, 2019 17:00"),
   endDate: new Date("September 9, 2019 19:00"),
 });
@@ -470,7 +470,6 @@ var fa19InfoNight = new Card({
 
 var featuredCards = [
   womenInNeuroCard,
-  startupWeekCard,
   superNaturalCard,
   museAmassadorCard,
 ];
