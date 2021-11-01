@@ -514,6 +514,74 @@ var alphaBlasterCard = new Card({
 });
 
 
+// Hardware
+var muse2HardwareCard = new Card({
+  header: "Muse",
+  paragraph: `<b>EEG Headset</b>
+  <br>
+  The Muse 2 headband is a popular commercial EEG, used to track the brain’s electrical activity, usually during meditation. We have access to several Muses, which are portable, accessible, and relatively easy to work with, perfect for starter neurotech projects.`,
+  image: "/images/hardware/muse2.jpg",
+  buttonText: "Muse 2",
+  link: "https://mbsy.co/3qhP3N",
+  dark: true,
+});
+
+var museSHardwareCard = new Card({
+  header: "Muse",
+  paragraph: `<b>EEG Headset</b>
+  <br>
+  The Muse S headband is a popular commercial EEG, used to track the brain’s electrical activity, usually during sleep. We have access to several Muses, which are portable, accessible, and relatively easy to work with, perfect for starter neurotech projects. Compared to ther Muse 2, the Muse S a more advanced and powerful version used primarily for sleep related studies.`,
+  image: "/images/hardware/muses.jpg",
+  buttonText: "Muse S",
+  link: "https://mbsy.co/3qhP3N",
+  dark: true,
+});
+
+var blueberryHardwareCard = new Card({
+  header: "Blueberry",
+  paragraph: `<b>fNIRS Eyeglassses</b>
+  <br>
+  Blueberry eyeglasses are used to track the concentration of blood oxygenation in the brain, allowing users to monitor their level of focus. The glasses are NAT’s first non-EEG neurotech, and we look forward to applying them in an attention-related project.`,
+  image: "/images/hardware/blueberry.jpg",
+  buttonText: "Eyeglasses",
+  link: "https://blueberryx.com/",
+  dark: true,
+});
+
+var upsideDownLabsHardwareCard = new Card({
+  header: "Upside Down Labs",
+  paragraph: `<b>DIY BCI Hardware</b>
+  <br>
+  This is a small single chip Bio-potential amplifier for recording any Bio-potential signal non-invasively. This piece of hardware can be used in conjunction with all sorts of bio sensors to achieve anything that you can think of! The sky is the limit!`,
+  image: "/images/hardware/bioamp.jpg",
+  buttonText: "BioAmp v1.5",
+  link: "https://github.com/upsidedownlabs/BioAmp-v1.5",
+  dark: true,
+});
+
+var openBCIHardwareCard = new Card({
+  header: "OpenBCI",
+  paragraph: `<b>EEG Headset</b>
+  <br>
+  OpenBCI headsets are among the most powerful and effective commercially available EEGs. With 16 channels, compared to the 4 found in the Muse, the tech allows us to access a more detailed view of brain activity. NAT now has two Ultracortex Mark IV Headsets, which have been used in both the Brain Drone and RemBraindt projects.`,
+  image: "/images/hardware/openbci.jpg",
+  buttonText: "Mark IV",
+  link: "https://shop.openbci.com/collections/frontpage/products/ultracortex-mark-iv",
+  dark: true,
+});
+
+var HTCViveHardwareCard = new Card({
+  header: "HTC Vive",
+  paragraph: `<b>Eye Tracking VR Headset</b>
+  <br>
+  We recently bought a VIVE Pro Eye virtual reality headset, with precise eye-tracking built into the hardware. Potential projects include developing neurofeedback protocols involving eye movement.`,
+  image: "/images/hardware/vive.jpg",
+  buttonText: "VIVE Pro Eye",
+  link: "https://www.vive.com/eu/product/vive-pro-eye/overview/",
+  dark: true,
+});
+
+
 // Sponsors
 var campusAlbertaNeuroscienceSponsorCard = new Card({
   header: "Campus Alberta Neuroscience",
@@ -842,6 +910,15 @@ var pastProjectCards = [
   alphaBlasterCard,
 ];
 
+var hardwareCards = [
+  muse2HardwareCard,
+  museSHardwareCard,
+  blueberryHardwareCard,
+  upsideDownLabsHardwareCard,
+  openBCIHardwareCard,
+  HTCViveHardwareCard,
+];
+
 var sponsorCards = [
   campusAlbertaNeuroscienceSponsorCard,
   openBCISponsorCard,
@@ -882,6 +959,7 @@ var featuredCardsElement = document.getElementById("homeFeaturedCards");
 var homePageCardsElement = document.getElementById("homePageCards");
 var currentProjectCardsElement = document.getElementById("currentProjectCards");
 var pastProjectCardsElement = document.getElementById("pastProjectCards");
+var hardwareCardsElement = document.getElementById("hardwareCards");
 var sponsorCardsElement = document.getElementById("sponsorCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
@@ -898,10 +976,11 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
     .forEach(card => featuredCardsElement.appendChild(card.generateElement()));
 
   homePageCards.forEach(card => homePageCardsElement.appendChild(card.generateElement()));
-} else if (currentProjectCardsElement && pastProjectCardsElement) {  // projects.html
+} else if (currentProjectCardsElement && pastProjectCardsElement && hardwareCardsElement) {  // projects.html
   // Adds all present and future project cards to the projects page.
   currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
   pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
+  hardwareCards.forEach(card => hardwareCardsElement.appendChild(card.generateElement()));
 
 } else if (sponsorCardsElement) {  // community.html
   sponsorCards.forEach(card => sponsorCardsElement.appendChild(card.generateElement()));
