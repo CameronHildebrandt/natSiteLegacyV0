@@ -20,6 +20,7 @@ class Card {
   subHeader = "";
   paragraph = "";
   image = "";
+  imageWidth = "";
   video = "";
   buttonText = "";
   link = "";
@@ -37,6 +38,7 @@ class Card {
     this.setSubHeader(args["subHeader"]);
     this.setParagraph(args["paragraph"]);
     this.setImage(args["image"]);
+    this.setImageWidth(args["imageWidth"]);
     this.setVideo(args["video"]);
     this.setButtonText(args["buttonText"]);
     this.setLink(args["link"]);
@@ -56,6 +58,7 @@ class Card {
       subHeader: this.subHeader,
       paragraph: this.paragraph,
       image: this.image,
+      imageWidth: this.imageWidth,
       video: this.video,
       buttonText: this.buttonText,
       link: this.link,
@@ -106,6 +109,12 @@ class Card {
       this.image = image;
     }
     return this;
+  }
+  
+  setImageWidth(imageWidth) {
+    if (imageWidth !== undefined) {
+      this.imageWidth = imageWidth;
+    }
   }
 
   setVideo(video) {
@@ -219,12 +228,19 @@ class Card {
     var mediaImageType = "eventImageNoHover";
     var mediaHref = "";
     var mediaAltText = this.altText;
+    var mediaImageStyle = "";
     
     if (this.large) {
       rootBlockType = "largeInfoBlock";
       contentsType = "largeInfoContents";
       mediaFrameType = "largeMediaFrame";
     }
+
+    // We create these elements here because `darkSmallInfoBlockMedia` and 
+    // `darkSmallInfoBlockText` do not exist.
+    var mediaBlockType = rootBlockType + "Media";
+    var textBlockType = rootBlockType + "Text";
+
     if (this.dark) {
       rootBlockType = "dark" + rootBlockType[0].toUpperCase() + 
         rootBlockType.substr(1, rootBlockType.length);
@@ -242,6 +258,9 @@ class Card {
       } else {
         mediaAltText = "Image not found";
       }
+    }
+    if (this.imageWidth != "") {
+      mediaImageStyle += `width: ${this.imageWidth}`;
     }
 
     var cardRoot = document.createElement("div");
@@ -263,13 +282,12 @@ class Card {
     var mediaBlock = document.createElement("div");
     var mediaFrame = document.createElement("div");
     var mediaLink = document.createElement("a");
-    mediaBlock.id = rootBlockType + "Media";  // TODO: Change to class.
+    mediaBlock.id = mediaBlockType;  // TODO: Change to class.
     mediaFrame.id = mediaFrameType;  // TODO: Change to class.
     if (mediaHref != "") {
       mediaLink.href = mediaHref;
     }
 
-    // <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/-3UTwKpKpcI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     // Defualt create a video in case of conflict.
     if (this.video != "") {
       var mediaVideo = document.createElement("iframe");
@@ -286,6 +304,7 @@ class Card {
       mediaImage.src = this.image;
       mediaImage.id = mediaImageType;  // TODO: Change to class.
       mediaImage.alt = mediaAltText;
+      mediaImage.style = mediaImageStyle;
       mediaLink.appendChild(mediaImage);
       mediaFrame.appendChild(mediaLink);
     }
@@ -306,7 +325,7 @@ class Card {
     var textBlock = document.createElement("div");
     var headerBlock = document.createElement("div");
     var paragraphText = document.createElement("p");
-    textBlock.id = rootBlockType + "Text"  // TODO: Change to class.
+    textBlock.id = textBlockType  // TODO: Change to class.
     headerBlock.classList.add("subSubTitle");
     headerBlock.style = "margin-bottom: 15px; " + textColorStyle;
     headerBlock.innerHTML = this.header;
@@ -492,6 +511,104 @@ var alphaBlasterCard = new Card({
   buttonText: "View Project",
   link: "/project/alphaBlaster.html",
   large: true,
+});
+
+
+// Sponsors
+var campusAlbertaNeuroscienceSponsorCard = new Card({
+  header: "Campus Alberta Neuroscience",
+  paragraph: `Campus Alberta Neuroscience is delighted to be a gold level sponsor for NAT Chat, hosted by NeurAlbertaTech and recognizes the significant impact this event brings to the neurotech industry and ecosystem in Alberta. CAN has a keen focus on providing opportunities for entrepreneurs working in Neuroscience and Mental Health across Alberta, with a particular interest in the development of the commercialization ecosystem, including supporting the development of new companies, supporting education and knowledge of entrepreneurship as well as securing new investment in the province.
+  <br><br>
+  CAN is a provincial organization committed to promoting and increasing the impact and outcomes of Alberta-wide collaborative research, education, translation and innovation initiatives in neuroscience and mental health.`,
+  image: "/images/Logos/PartnerLogos/CAN.png",
+  buttonText: "albertaneuro.ca",
+  link: "https://www.albertaneuro.ca",
+  dark: true,
+});
+
+var openBCISponsorCard = new Card({
+  header: "OpenBCI",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/openBCI.png",
+  buttonText: "openbci.com",
+  link: "https://openbci.com",
+  dark: true,
+});
+
+var blueberrySponsorCard = new Card({
+  header: "Blueberry",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/blueberry.png",
+  buttonText: "blueberryx.com",
+  link: "https://blueberryx.com",
+  imageWidth: "100px",
+  dark: true,
+});
+
+var studentInnovationCentreSponsorCard = new Card({
+  header: "Student Innovation Centre",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/SIC.png",
+  buttonText: "Website",
+  link: "https://www.ualberta.ca/student-innovation-centre/index.html",
+  dark: true,
+});
+
+var neuroscienceAndMentalHealthInstituteSponsorCard = new Card({
+  header: "NMHI",
+  paragraph: `At the Neuroscience and Mental Health Institute, we are training the next generation of researchers who will find solutions and improve the lives of those affected by neurological and mental health diseases and disorders. We support NeurAlbertaTech as it promotes innovation and education in the neurotechnology space.`,
+  image: "/images/Logos/PartnerLogos/NMHI.png",
+  buttonText: "Website",
+  link: "https://www.ualberta.ca/neuroscience-and-mental-health-institute/index.html",
+  dark: true,
+})
+
+var neuroTechXSponsorCard = new Card({
+  header: "NeuroTechX",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/NTX.png",
+  buttonText: "neurotechx.com",
+  link: "https://neurotechx.com",
+  dark: true,
+});
+
+var museSponsorCard = new Card({
+  header: "Muse",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/muse.png",
+  buttonText: "choosemuse.com",
+  link: "https://choosemuse.com",
+  dark: true,
+});
+
+var undergraduateResearchInitiativeSponsorCard = new Card({
+  header: "Undergraduate Research Initiative",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/uri.png",
+  buttonText: "Website",
+  link: "https://www.ualberta.ca/current-students/undergraduate-research-initiative/index.html",
+  imageWidth: "150px",
+  dark: true,
+});
+
+var eightBitCortexSponsorCard = new Card({
+  header: "8 Bit Cortex",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/8bit.png",
+  buttonText: "8bitcortex.com",
+  link: "https://8bitcortex.com/main_nav/home/",
+  imageWidth: "100px",
+  dark: true,
+});
+
+var neuroNexusSponsorCard = new Card({
+  header: "Neuro Nexus",
+  paragraph: "Visit our website to learn more!",
+  image: "/images/Logos/PartnerLogos/neuronexus.png",
+  buttonText: "neuro-nexus.ca",
+  link: "https://neuro-nexus.ca",
+  imageWidth: "200px",
+  dark: true,
 });
 
 
@@ -725,6 +842,19 @@ var pastProjectCards = [
   alphaBlasterCard,
 ];
 
+var sponsorCards = [
+  campusAlbertaNeuroscienceSponsorCard,
+  openBCISponsorCard,
+  blueberrySponsorCard,
+  studentInnovationCentreSponsorCard,
+  neuroscienceAndMentalHealthInstituteSponsorCard,
+  neuroTechXSponsorCard,
+  museSponsorCard,
+  undergraduateResearchInitiativeSponsorCard,
+  eightBitCortexSponsorCard,
+  neuroNexusSponsorCard,
+];
+
 var eventCards = [
   startupWeekCard,
   superNaturalCard,
@@ -752,6 +882,7 @@ var featuredCardsElement = document.getElementById("homeFeaturedCards");
 var homePageCardsElement = document.getElementById("homePageCards");
 var currentProjectCardsElement = document.getElementById("currentProjectCards");
 var pastProjectCardsElement = document.getElementById("pastProjectCards");
+var sponsorCardsElement = document.getElementById("sponsorCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
 var moreEventCardsElement = document.getElementById("moreEventCards");
@@ -771,6 +902,9 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Adds all present and future project cards to the projects page.
   currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
   pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
+
+} else if (sponsorCardsElement) {  // community.html
+  sponsorCards.forEach(card => sponsorCardsElement.appendChild(card.generateElement()));
 
 } else if (currentEventCardsElement && 
            pastEventCardsElement && 
