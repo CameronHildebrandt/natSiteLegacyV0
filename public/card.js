@@ -10,6 +10,16 @@ function isAlphaNumeric(c) {
   return (isAlpha(c) || isNumeric(c));
 }
 
+function isExternalLink(link) {
+  if (link.length >= 4) {
+    if (link.slice(0, 4) === "http") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 Array.prototype.mutate = function (func) {
   this.forEach(func);
   return this;
@@ -286,6 +296,9 @@ class Card {
     mediaFrame.id = mediaFrameType;  // TODO: Change to class.
     if (mediaHref != "") {
       mediaLink.href = mediaHref;
+      if (isExternalLink(mediaHref)) {
+        mediaLink.target = "_blank";
+      }
     }
 
     // Defualt create a video in case of conflict.
