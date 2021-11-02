@@ -75,26 +75,8 @@
 
       <div id="main">
 
-        <div id="currentProjectCards">
-
-        </div>
-
-        <h1 class="subTitle" style="left:2%;"><br>Past Projects</h1>
-
-        <div id="pastProjectCards">
-
-        </div>
-
-        <div class="greyBG">
-          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Our Hardware</h1>
-
-          <div id="hardwareCards">
-
-          </div>
-
-        </div>
-
       </div>
+
     </div>
 
 
@@ -185,6 +167,23 @@
     <script type="text/javascript" src="dynamicLoad.js"></script>
 
     <script type="text/javascript" src="card.js"></script>
+
+    <script type="text/javascript">
+      var main = document.getElementById("main");
+      var currentProjects = new CardSection();
+      var pastProjects = new CardSection({ header: "Past Projects" });
+      var ourHardware = new CardSection({
+        header: "Our Hardware",
+        dark: true,
+      });
+    
+      currentProjects.setCards(currentProjectCards);
+      pastProjects.setCards(pastProjectCards);
+      ourHardware.setCards(hardwareCards);
+      main.appendChild(currentProjects.generateElement()); 
+      main.appendChild(pastProjects.generateElement()); 
+      main.appendChild(ourHardware.generateElement()); 
+    </script>
 
 
   </body>

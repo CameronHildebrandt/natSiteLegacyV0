@@ -69,33 +69,8 @@
 
       <div id="main">
 
-        <div id="currentEventCards">
-
-        </div>
-
-        <div class="greyBG">
-          <!-- <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">NeurAlbertaTech Events Calendar</h1>
-
-          <div id="darkSmallInfoBlock">
-            <iframe src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FEdmonton&amp;src=Y19qY3RhMWlqbGdyOHJsMXRrNTJzODNqcDJ2b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237CB342&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=MONTH" style="border:solid 1px #777" width="800" height="300" frameborder="0" scrolling="no"></iframe>
-          </div> -->
-
-          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">More Events</h1>
-
-          <div id="moreEventCards">
-
-          </div>
-
-        </div>
-
-
-        <h1 class="subTitle" style="left: 2%;">Past Events</h1>
-
-        <div id="pastEventCards">
-
-        </div>
-
       </div>
+
     </div>
 
 
@@ -163,6 +138,25 @@
     <script type="text/javascript" src="dynamicLoad.js"></script>
 
     <script type="text/javascript" src="card.js"></script>
+
+    <script type="text/javascript">
+      var main = document.getElementById("main");
+      var events = new CardSection();
+      var moreEvents = new CardSection({
+        header: "MoreEvents",
+        dark: true,
+      });
+      var pastEvents = new CardSection({ header: "Past Events"});
+    
+      eventCards.forEach(card =>
+        card.isFinished() ? pastEvents.addCard(card) : events.addCard(card));
+    
+      moreEvents.setCards(moreEventCards);
+    
+      main.appendChild(events.generateElement());
+      main.appendChild(moreEvents.generateElement());
+      main.appendChild(pastEvents.generateElement());
+    </script>
   </body>
 
 </html>

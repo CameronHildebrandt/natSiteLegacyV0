@@ -36,12 +36,14 @@ class Card {
   link = "";
   location = "";
   altText = "";
-  largeHeader = ""
+  largeHeader = "";
+  cardWidth = "";
   startDate = null;
   endDate = null;
   dark = false;
   large = false;
   featured = false;
+  vertical = false;
 
   constructor(args) {
     this.setHeader(args["header"]); 
@@ -54,12 +56,14 @@ class Card {
     this.setLink(args["link"]);
     this.setLocation(args["location"]);
     this.setAltText(args["altText"]);
+    this.setLargeHeader(args["largeHeader"]);
+    this.setCardWidth(args["cardWidth"]);
     this.setStartDate(args["startDate"]);
     this.setEndDate(args["endDate"]);
     this.setDark(args["dark"]);
     this.setLarge(args["large"]);
-    this.setLargeHeader(args["largeHeader"]);
     this.setFeatured(args["featured"]);
+    this.setVertical(args["vertical"]);
   }
 
   clone() {
@@ -73,11 +77,14 @@ class Card {
       buttonText: this.buttonText,
       link: this.link,
       location: this.location,
+      altText: this.cardWidth,
+      largeHeader: this.largeHeader,
+      cardWidth: this.cardWidth,
       date: this.date,
       dark: this.dark,
       large: this.large,
-      largeHeader: this.largeHeader,
       featured: this.featured,
+      vertical: this.vertical,
     });
   }
 
@@ -125,6 +132,8 @@ class Card {
     if (imageWidth !== undefined) {
       this.imageWidth = imageWidth;
     }
+
+    return this;
   }
 
   setVideo(video) {
@@ -162,6 +171,21 @@ class Card {
     return this;
   }
 
+  setLargeHeader(header) {
+    if (header !== undefined) {
+      this.largeHeader = header;
+    }
+    return this;
+  }
+
+  setCardWidth(width) {
+    if (width !== undefined) {
+      this.cardWidth = width;
+    }
+    
+    return this;
+  }
+
   setStartDate(date) {
     if (date !== undefined) {
       this.startDate = date;
@@ -190,16 +214,16 @@ class Card {
     return this;
   }
 
-  setLargeHeader(header) {
-    if (header !== undefined) {
-      this.largeHeader = header;
+  setFeatured(featured) {
+    if (featured !== undefined) {
+      this.featured = featured;
     }
     return this;
   }
 
-  setFeatured(featured) {
-    if (featured !== undefined) {
-      this.featured = featured;
+  setVertical(vertical) {
+    if (vertical !== undefined) {
+      this.vertical = vertical;
     }
     return this;
   }
@@ -230,8 +254,9 @@ class Card {
 
   generateElement() {
     var rootBlockType = "smallInfoBlock";
-    var rootBlockStyle = "margin-bottom: 0px";
+    var rootBlockStyle = "margin-bottom: 0px; ";
     var contentsType = "smallInfoContents";
+    var contentsStyle = "";
     var textColorStyle = "";
     var buttonType = "smallButton";
     var mediaFrameType = "smallMediaFrame";
@@ -272,6 +297,13 @@ class Card {
     if (this.imageWidth != "") {
       mediaImageStyle += `width: ${this.imageWidth}`;
     }
+    if (this.cardWidth != "") {
+      rootBlockStyle += `width: ${this.cardWidth}; `;
+      rootBlockStyle += "box-sizing: border-box; ";  // TODO: Figure out horizontal margin colapsing.
+    }
+    if (this.vertical) {
+      contentsStyle += "display: inline; ";
+    }
 
     var cardRoot = document.createElement("div");
     cardRoot.id = rootBlockType;  // TODO: Change to class.
@@ -287,6 +319,7 @@ class Card {
 
     var cardBlock = document.createElement("div");
     cardBlock.id = contentsType;  // TODO: Change to class.
+    cardBlock.style = contentsStyle;
 
     // Create media section.
     var mediaBlock = document.createElement("div");
@@ -364,6 +397,107 @@ class Card {
   }
 }
 
+class CardStack {
+  dark = false;
+  cards = [];
+  constructor(...cardSpec) {
+    for (var i = 0; i < cardSpec.length-1; i += 2) {
+      this.cards.push([cardSpec[i], cardSpec[i+1]]);
+    }
+    if (cardSpec.length % 2 == 1) {
+      cards.push([cardSpec[cardSpec.length-1], "100%"]);
+    }
+  }
+
+  add(card, size="100%") {
+    this.cards.push([card, size]);
+
+    return this;
+  }
+
+  setDark(dark) {
+    if (dark !== undefined) {
+      this.dark = dark;
+    }
+
+    return this;
+  }
+
+  generateElement() {
+    var cardStackRoot = document.createElement("div");
+    cardStackRoot.classList.add("cardStack");
+    cardStackRoot.style = "margin-top: 0px; margin-bottom: 0px;";
+    this.cards.forEach(item => item[0].setCardWidth(item[1]));
+    if (this.dark) {
+      this.cards.forEach(item => item[0].setDark(this.dark));
+    }
+    this.cards.forEach(item => cardStackRoot.appendChild(item[0].generateElement()));
+    
+    return cardStackRoot;
+  }
+}
+
+class CardSection {
+  header = "";
+  dark = false;
+  cards = [];
+  constructor(args={}) {
+    this.setHeader(args["header"]);
+    this.setDark(args["dark"]);
+  }
+
+  clone() {
+    return new CardSection({
+      header: this.header,
+    });
+  }
+
+  setCards(cards) {
+    this.cards = cards;
+  }
+
+  addCard(card) {
+    this.cards.push(card);
+  }
+
+  setHeader(header) {
+    if (header !== undefined) {
+      this.header = header;
+    }
+
+    return this;
+  }
+
+  setDark(dark) {
+    if (dark !== undefined) {
+      this.dark = dark;
+    }
+
+    return this;
+  }
+
+  generateElement() {
+    var cardSection = document.createElement("div");
+    if (this.header != "") {
+      var headerElement = document.createElement("h1");
+      headerElement.classList.add("subTitle");
+      headerElement.style = "left: 2%;";
+      if (this.dark) {
+        headerElement.style = "left: 2%; color: rgba(240, 240, 240, 1); ";
+      }
+      headerElement.innerHTML = this.header;
+      cardSection.appendChild(headerElement);
+    }
+    if (this.dark) {
+      this.cards.forEach(card => card.setDark(this.dark));
+      cardSection.classList.add("greyBG");
+    }
+    this.cards.forEach(card => cardSection.appendChild(card.generateElement()));
+
+    return cardSection;
+  }
+}
+
 // Defined cards. /////////////////////////////////////////////////////////////
 
 // Featured.
@@ -382,6 +516,22 @@ var ntxOpenComp20Card = new Card({
   buttonText: "View Project",
   link: "project/drone.html",
   large: true,
+});
+
+
+// Home Page
+var nonProfitInfoCard = new Card({
+  header: "NeurAlbertaTech is now a non-profit organization!",
+  paragraph: `NeurAlbertaTech Neurotechnologies Ltd. will continue to handle all of the day-to-day operations, events, communications, and special project teams. Student chapters at the UofA and UofC will handle special project teams and social events. If you are a student at the UofA or UofC, please join our NAT Student Chapters for additional opportunities to get involved! More information coming soon.`,
+  image: "/images/Logos/OurLogos/NATnl.svg",
+});
+
+var natFlatInfoCard = new Card({
+  header: "natFlat!",
+  paragraph: `NeurAlbertaTech now has an office space on campus at the Univerity of Alberta! In this space, you will be able to get your hands on some neurotech, attend our events, and more!`,
+  image: "/images/natflat.jpg",
+  buttonText: "Directions",
+  link: "/natflat",
 });
 
 
@@ -592,6 +742,29 @@ var HTCViveHardwareCard = new Card({
   buttonText: "VIVE Pro Eye",
   link: "https://www.vive.com/eu/product/vive-pro-eye/overview/",
   dark: true,
+});
+
+
+// Community Values
+var valuesCard = new Card({
+  header: "Values",
+  paragraph: `We believe in an equal opportunity and diverse learning environment, enriched via inclusion and involvement regardless of the colour of your skin, your gender identity, your age, or any other factor. We work to promote diversity and to perpetuate a non-discriminatory and accepting group.`,
+  image: "/images/InfoNight/NATInclusive.png",
+  vertical: true,
+});
+
+var academiaCard = new Card({
+  header: "Academia",
+  paragraph: `With every project, we aim to push the bleeding edge of the technology and expand our collective knowledge. In spirit of community and collaboration all of our projects are either open source or open access. We strongly believe knowledge should be available to everyone. We work to provide discounts to our workshops as needed, offering complete coverage of workshop fees for attendees in need, who would otherwise be unable to attend.`,
+  image: "/images/InfoNight/NATAcademia.png",
+  vertical: true,
+});
+
+var industryCard = new Card({
+  header: "Industy",
+  paragraph: `We work to support neurotech startups and equip students with competitive skillsets. Hosting talks and networking session with industry leaders in neurotech and encouraging cross-disciplinary collaboration, we hope to centralize Alberta as a hotspot for neurotech innovation.`,
+  image: "/images/InfoNight/NATIndustry.png",
+  vertical: true,
 });
 
 
@@ -902,12 +1075,14 @@ var fa19InfoNight = new Card({
   endDate: new Date("September 9, 2019 19:00"),
 });
 
+var homePageStack = new CardStack(nonProfitInfoCard, "65%", natFlatInfoCard, "35%");
 
 var featuredCards = [
   museAmassadorCard,
 ];
 
 var homePageCards = [
+  homePageStack,
   ntxOpenComp20Card,
 ];
 
@@ -967,47 +1142,3 @@ var moreEventCards = [
   workshopSeriesCard,
   natHacksCard,
 ];
-
-var featuredCardsElement = document.getElementById("homeFeaturedCards");
-var homePageCardsElement = document.getElementById("homePageCards");
-var currentProjectCardsElement = document.getElementById("currentProjectCards");
-var pastProjectCardsElement = document.getElementById("pastProjectCards");
-var hardwareCardsElement = document.getElementById("hardwareCards");
-var sponsorCardsElement = document.getElementById("sponsorCards");
-var currentEventCardsElement = document.getElementById("currentEventCards");
-var pastEventCardsElement = document.getElementById("pastEventCards");
-var moreEventCardsElement = document.getElementById("moreEventCards");
-
-if (featuredCardsElement && homePageCardsElement) {  // index.html
-  // Add all present and future featured event cards to the featured list,
-  // then add them to the page.
-  eventCards
-    .concat(moreEventCards)
-    .filter(card => card.isFeatured() && !card.isFinished())
-    .mutate(card => card.setDark(false))
-    .concat(featuredCards)
-    .forEach(card => featuredCardsElement.appendChild(card.generateElement()));
-
-  homePageCards.forEach(card => homePageCardsElement.appendChild(card.generateElement()));
-} else if (currentProjectCardsElement && pastProjectCardsElement && hardwareCardsElement) {  // projects.html
-  // Adds all present and future project cards to the projects page.
-  currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
-  pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
-  hardwareCards.forEach(card => hardwareCardsElement.appendChild(card.generateElement()));
-
-} else if (sponsorCardsElement) {  // community.html
-  sponsorCards.forEach(card => sponsorCardsElement.appendChild(card.generateElement()));
-
-} else if (currentEventCardsElement && 
-           pastEventCardsElement && 
-           moreEventCardsElement) {  // events.html
-  // Add all of the event cards to either currentEvents or pastEvents.
-  eventCards.forEach(card =>
-    card.isFinished() ?
-      pastEventCardsElement.appendChild(card.generateElement()) :
-      currentEventCardsElement.appendChild(card.generateElement()))
-
-  // Add all of the moreEvent cards to the moreEvents section.
-  moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
-  
-}
