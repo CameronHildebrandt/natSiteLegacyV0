@@ -496,6 +496,7 @@ var alphaBlasterCard = new Card({
 
 
 // Events.
+
 var natUriCard = new Card({
   header: "NAT + URI: Summer Funding Opportunities",
   subHeader: "RSVPs are open now!",
@@ -509,6 +510,22 @@ var natUriCard = new Card({
   location: "Virtual - Link will be sent to those who RSVP.",
   startDate: new Date("November 18, 2021 17:00"),
   endDate: new Date("November 18, 2021 18:00"),
+});
+
+var natUCInfoNightFa21 = new Card({
+  header: "natUC Info Night Fa21",
+  paragraph: `Are you interested in cutting-edge neuroscience and advanced technologies? Join us for a sneak peak into the exciting projects and events put on by NeurAlbertaTech! Learn about our plans for the Calgary chapter and weigh-in on the types of workshops, hands-on projects, networking events, and international competitions that you want to see here at UCalgary!
+  <br><br>
+  <b>When:</b> Wednesday, November 24th,18:00-19:00 MST
+  <br>
+  <b>Where:</b> Virtual
+  `,
+  image: "/images/InfoNight/ucInfoNightFa21.png",
+  buttonText: "RSVP",
+  link: "/rsvpnatuc",
+  location: "Virtual",
+  startDate: new Date("November 24, 2021 18:00"),
+  endDate: new Date("November 24, 2021 19:00"),
   featured: true,
 });
 
@@ -742,6 +759,7 @@ var pastProjectCards = [
 
 var eventCards = [
   natUriCard,
+  natUCInfoNightFa21,
   startupWeekCard,
   superNaturalCard,
   fa21InfoNightCard,
