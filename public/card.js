@@ -33,7 +33,7 @@ class Card {
   featured = false;
 
   constructor(args) {
-    this.setHeader(args["header"]); 
+    this.setHeader(args["header"]);
     this.setSubHeader(args["subHeader"]);
     this.setParagraph(args["paragraph"]);
     this.setImage(args["image"]);
@@ -219,14 +219,14 @@ class Card {
     var mediaImageType = "eventImageNoHover";
     var mediaHref = "";
     var mediaAltText = this.altText;
-    
+
     if (this.large) {
       rootBlockType = "largeInfoBlock";
       contentsType = "largeInfoContents";
       mediaFrameType = "largeMediaFrame";
     }
     if (this.dark) {
-      rootBlockType = "dark" + rootBlockType[0].toUpperCase() + 
+      rootBlockType = "dark" + rootBlockType[0].toUpperCase() +
         rootBlockType.substr(1, rootBlockType.length);
       textColorStyle = "color: rgba(240,240,240,1);"
     }
@@ -327,7 +327,7 @@ class Card {
     textBlock.appendChild(paragraphText);
     cardBlock.appendChild(textBlock);
     cardRoot.appendChild(cardBlock);
-    
+
     return cardRoot;
   }
 }
@@ -416,13 +416,13 @@ var rembraindtCard = new Card({
       <div class="mediaLogo">
         <a href="https://www.ualberta.ca/science/news/2021/january/neurotech-student-group.html" target="_blank">
           <img src="./images/Logos/MediaLogos/UAlberta.png"></a>
-        
+
       </div>
 
       <div class="mediaLogo">
         <a href="https://dailyhive.com/edmonton/canadian-students-rembraindt-thoughts-abstract-art" target="_blank">
           <img src="/images/Logos/MediaLogos/dailyhive.png"></a>
-        
+
       </div>
     </div>`,
   image: "/images/FullSizeHeaderImages/RemBRAINdt.jpg",
@@ -473,19 +473,19 @@ var alphaBlasterCard = new Card({
       <div class="mediaLogo">
         <a href="https://novo.press/university-students-create-first-mind-controlled-video-game-using-neurotechnology/" target="_blank">
           <img src="https://novo.press/wp-content/uploads/2017/08/NOVO-logo-1.png"></a>
-        
+
       </div>
 
       <div class="mediaLogo">
         <a href="https://www.ualberta.ca/science/news/2019/august/neurotechnology-video-game.html" target="_blank">
           <img src="./images/Logos/MediaLogos/UAlberta.png"></a>
-        
+
       </div>
 
       <div class="mediaLogo">
         <a href="https://www.innovatechnews.com/2019/09/17/university-students-create-the-first-brain-controlled-video-game/" target="_blank">
           <img src="../images/Logos/MediaLogos/innovatech.png"></a>
-        
+
       </div>
     </div>`,
   image: "/images/ProjectPhotos/AlphaBlasterScreencap.jpg",
@@ -496,6 +496,23 @@ var alphaBlasterCard = new Card({
 
 
 // Events.
+var natUCInfoNightFa21 = new Card({
+  header: "natUC Info Night Fa21",
+  paragraph: `Are you interested in cutting-edge neuroscience and advanced technologies? Join us for a sneak peak into the exciting projects and events put on by NeurAlbertaTech! Learn about our plans for the Calgary chapter and weigh-in on the types of workshops, hands-on projects, networking events, and international competitions that you want to see here at UCalgary!
+  <br><br>
+  <b>When:</b> Wednesday, November 24th,18:00-19:00 MST
+  <br>
+  <b>Where:</b> Virtual
+  `,
+  image: "/images/InfoNight/ucInfoNightFa21.png",
+  buttonText: "RSVP",
+  link: "/rsvpnatuc",
+  location: "Virtual",
+  startDate: new Date("November 24, 2021 18:00"),
+  endDate: new Date("November 24, 2021 19:00"),
+  featured: true,
+});
+
 var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
   subHeader: "RSVPs for natChat Fa21 are now open!",
@@ -726,6 +743,7 @@ var pastProjectCards = [
 ];
 
 var eventCards = [
+  natUCInfoNightFa21,
   startupWeekCard,
   superNaturalCard,
   fa21InfoNightCard,
@@ -772,8 +790,8 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
   pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
 
-} else if (currentEventCardsElement && 
-           pastEventCardsElement && 
+} else if (currentEventCardsElement &&
+           pastEventCardsElement &&
            moreEventCardsElement) {  // events.html
   // Add all of the event cards to either currentEvents or pastEvents.
   eventCards.forEach(card =>
@@ -783,5 +801,5 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
 
   // Add all of the moreEvent cards to the moreEvents section.
   moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
-  
+
 }
