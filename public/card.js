@@ -510,6 +510,7 @@ var natUriCard = new Card({
   location: "Virtual - Link will be sent to those who RSVP.",
   startDate: new Date("November 18, 2021 17:00"),
   endDate: new Date("November 18, 2021 18:00"),
+  featured: true,
 });
 
 var natUCInfoNightFa21 = new Card({
