@@ -33,7 +33,7 @@ class Card {
   featured = false;
 
   constructor(args) {
-    this.setHeader(args["header"]); 
+    this.setHeader(args["header"]);
     this.setSubHeader(args["subHeader"]);
     this.setParagraph(args["paragraph"]);
     this.setImage(args["image"]);
@@ -219,14 +219,14 @@ class Card {
     var mediaImageType = "eventImageNoHover";
     var mediaHref = "";
     var mediaAltText = this.altText;
-    
+
     if (this.large) {
       rootBlockType = "largeInfoBlock";
       contentsType = "largeInfoContents";
       mediaFrameType = "largeMediaFrame";
     }
     if (this.dark) {
-      rootBlockType = "dark" + rootBlockType[0].toUpperCase() + 
+      rootBlockType = "dark" + rootBlockType[0].toUpperCase() +
         rootBlockType.substr(1, rootBlockType.length);
       textColorStyle = "color: rgba(240,240,240,1);"
     }
@@ -327,7 +327,7 @@ class Card {
     textBlock.appendChild(paragraphText);
     cardBlock.appendChild(textBlock);
     cardRoot.appendChild(cardBlock);
-    
+
     return cardRoot;
   }
 }
@@ -416,13 +416,13 @@ var rembraindtCard = new Card({
       <div class="mediaLogo">
         <a href="https://www.ualberta.ca/science/news/2021/january/neurotech-student-group.html" target="_blank">
           <img src="./images/Logos/MediaLogos/UAlberta.png"></a>
-        
+
       </div>
 
       <div class="mediaLogo">
         <a href="https://dailyhive.com/edmonton/canadian-students-rembraindt-thoughts-abstract-art" target="_blank">
           <img src="/images/Logos/MediaLogos/dailyhive.png"></a>
-        
+
       </div>
     </div>`,
   image: "/images/FullSizeHeaderImages/RemBRAINdt.jpg",
@@ -473,19 +473,19 @@ var alphaBlasterCard = new Card({
       <div class="mediaLogo">
         <a href="https://novo.press/university-students-create-first-mind-controlled-video-game-using-neurotechnology/" target="_blank">
           <img src="https://novo.press/wp-content/uploads/2017/08/NOVO-logo-1.png"></a>
-        
+
       </div>
 
       <div class="mediaLogo">
         <a href="https://www.ualberta.ca/science/news/2019/august/neurotechnology-video-game.html" target="_blank">
           <img src="./images/Logos/MediaLogos/UAlberta.png"></a>
-        
+
       </div>
 
       <div class="mediaLogo">
         <a href="https://www.innovatechnews.com/2019/09/17/university-students-create-the-first-brain-controlled-video-game/" target="_blank">
           <img src="../images/Logos/MediaLogos/innovatech.png"></a>
-        
+
       </div>
     </div>`,
   image: "/images/ProjectPhotos/AlphaBlasterScreencap.jpg",
@@ -496,9 +496,24 @@ var alphaBlasterCard = new Card({
 
 
 // Events.
+var natUriCard = new Card({
+  header: "NAT + URI: Summer Funding Opportunities",
+  subHeader: "RSVPs are open now!",
+  paragraph: `NeurAlbertaTech and the Undergraduate Research Initiative present an interactive discussion on how you can contribute to local neurotechnology development. Learn about the project work done at NAT, how the URI is available to support summer research students with funding and resources, and (most importantly) how you can take advantage of these opportunities!
+  <br><br>
+  <b>When:</b> Thursday, November 18, 17:00-18:00 MST<br>
+  <b>Where:</b> Virtual - Link will be sent to those who RSVP.`,
+  image: "/images/event/misc./n+uri.png",
+  buttonText: "RSVP",
+  link: "/rsvp.html",
+  location: "Virtual - Link will be sent to those who RSVP.",
+  startDate: new Date("November 18, 2021 17:00"),
+  endDate: new Date("November 18, 2021 18:00"),
+  featured: true,
+});
+
 var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
-  subHeader: "RSVPs for natChat Fa21 are now open!",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
   image: "/images/event/natChat/natChatLogo.png",
   buttonText: "Learn More",
@@ -726,6 +741,7 @@ var pastProjectCards = [
 ];
 
 var eventCards = [
+  natUriCard,
   startupWeekCard,
   superNaturalCard,
   fa21InfoNightCard,
@@ -772,8 +788,8 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
   pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
 
-} else if (currentEventCardsElement && 
-           pastEventCardsElement && 
+} else if (currentEventCardsElement &&
+           pastEventCardsElement &&
            moreEventCardsElement) {  // events.html
   // Add all of the event cards to either currentEvents or pastEvents.
   eventCards.forEach(card =>
@@ -783,5 +799,5 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
 
   // Add all of the moreEvent cards to the moreEvents section.
   moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
-  
+
 }
