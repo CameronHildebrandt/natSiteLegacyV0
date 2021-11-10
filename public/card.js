@@ -496,6 +496,23 @@ var alphaBlasterCard = new Card({
 
 
 // Events.
+
+var natUriCard = new Card({
+  header: "NAT + URI: Summer Funding Opportunities",
+  subHeader: "RSVPs are open now!",
+  paragraph: `NeurAlbertaTech and the Undergraduate Research Initiative present an interactive discussion on how you can contribute to local neurotechnology development. Learn about the project work done at NAT, how the URI is available to support summer research students with funding and resources, and (most importantly) how you can take advantage of these opportunities!
+  <br><br>
+  <b>When:</b> Thursday, November 18, 17:00-18:00 MST<br>
+  <b>Where:</b> Virtual - Link will be sent to those who RSVP.`,
+  image: "/images/event/misc./n+uri.png",
+  buttonText: "RSVP",
+  link: "/rsvp.html",
+  location: "Virtual - Link will be sent to those who RSVP.",
+  startDate: new Date("November 18, 2021 17:00"),
+  endDate: new Date("November 18, 2021 18:00"),
+  featured: true,
+});
+
 var natUCInfoNightFa21 = new Card({
   header: "natUC Info Night Fa21",
   paragraph: `Are you interested in cutting-edge neuroscience and advanced technologies? Join us for a sneak peak into the exciting projects and events put on by NeurAlbertaTech! Learn about our plans for the Calgary chapter and weigh-in on the types of workshops, hands-on projects, networking events, and international competitions that you want to see here at UCalgary!
@@ -515,7 +532,6 @@ var natUCInfoNightFa21 = new Card({
 
 var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
-  subHeader: "RSVPs for natChat Fa21 are now open!",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
   image: "/images/event/natChat/natChatLogo.png",
   buttonText: "Learn More",
@@ -743,6 +759,7 @@ var pastProjectCards = [
 ];
 
 var eventCards = [
+  natUriCard,
   natUCInfoNightFa21,
   startupWeekCard,
   superNaturalCard,
