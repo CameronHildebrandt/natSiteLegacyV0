@@ -28,6 +28,9 @@
 
     <!-- Enable Reactive Website -->
     <meta name="viewport" content="width=device-width">
+
+    <!-- Carousel component CSS -->
+    <link rel="stylesheet" href="./components/carousel/slider.css">
   </head>
 
   <body>
@@ -82,8 +85,12 @@
 
           <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">More Events</h1>
 
-          <div id="moreEventCards">
-
+          <div class="slider">
+            <div id="moreEventCards" class="sliderContainer"></div>
+            <div class="controls">
+              <button class="leftControl control-button"></button>
+              <button class="rightControl control-button"></button>
+            </div>
           </div>
 
         </div>
@@ -162,7 +169,11 @@
     <!-- Dynamically Load Header -->
     <script type="text/javascript" src="dynamicLoad.js"></script>
 
+    <!-- Card Component -->
     <script type="text/javascript" src="card.js"></script>
+
+    <!-- Slider Component -->
+    <script src="./components/carousel/slider.js"></script>
   </body>
 
 </html>

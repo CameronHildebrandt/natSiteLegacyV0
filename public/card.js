@@ -327,7 +327,7 @@ class Card {
     textBlock.appendChild(paragraphText);
     cardBlock.appendChild(textBlock);
     cardRoot.appendChild(cardBlock);
-    
+
     return cardRoot;
   }
 }
@@ -338,7 +338,7 @@ class Card {
 var museAmassadorCard = new Card({
   header: "Muse Ambassador",
   paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
-  image: "/images/event/muse-ambassador.jpg",
+  image: "./images/event/muse-ambassador.jpg",
   buttonText: "Shop Now",
   link: "https://mbsy.co/3qhP3N",
 });
@@ -500,7 +500,7 @@ var womenInNeuroCard = new Card({
   header: "NATChat: Women in Neurotech",
   subHeader: "RSVPs for natChat Fa21 are now open!",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
-  image: "/images/event/natChat/natChatLogo.png",
+  image: "./images/event/natChat/natChatLogo.png",
   buttonText: "Learn More",
   link: "/event/natchat.html",
   location: "natFlat (CCIS L1)",
@@ -513,7 +513,7 @@ var womenInNeuroCard = new Card({
 var workshopSeriesCard = new Card({
   header: "Workshop Series",
   paragraph: `If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
-  image: "/images/workshop/mlLogo.png",
+  image: "./images/workshop/mlLogo.png",
   buttonText: "Learn More",
   link: "event/workshops.html",
   dark: true,
@@ -525,7 +525,7 @@ var natHacksCard = new Card({
   <br><br>
   Begins: <b>July 30th 5:00PM MDT</b><br>
   Ends: <b>August 2nd 10:00AM MDT</b>`,
-  image: "/images/event/natHACKs/nathanGlow.png",
+  image: "./images/event/natHACKs/nathanGlow.png",
   dark: true,
 });
 
