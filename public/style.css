@@ -1365,6 +1365,31 @@ body {
   transition: transform 0.5s ease-in-out;
 }
 
+.outlineButton {
+  background-color: rgba(0,0,0,0);
+  border: 3px solid rgba(32,32,32,1);
+  border-radius: 20px;
+  color: rgba(32,32,32,1);
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+
+  transition: transform 0.15s ease-in-out;
+}
+
+.outlineButton:hover {
+  transform: scale(1.05);
+}
+
+.outlineButton:active {
+  transform: scale(1);
+}
+
 #mailingListSignup {
   position: absolute;
 
@@ -2070,16 +2095,15 @@ div.pastNewsletter:active {
 /* Loading Drip */
 .spinner{
   position: absolute;
-  top: 11vh;
+  /* top: 11vh; */
 
-  left: -webkit-calc(50% - 25px);
-  left: -moz-calc(50% - 25px);
-  left: calc(50% - 25px);
+  left: 50vw;
+  margin: 12vh 0 0 -37.5px;
 
-  width: 8vh;
-  height: 8vh;
+  width: 75px;
+  height: 75px;
 
-  opacity: 50%;
+  opacity: 100%;
 
   border-top: 3px solid rgba(255,255,255,0.5);
   border-right: 3px solid transparent;
