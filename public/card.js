@@ -500,7 +500,7 @@ var alphaBlasterCard = new Card({
 var natUriCard = new Card({
   header: "NAT + URI: Summer Funding Opportunities",
   subHeader: "RSVPs are open now!",
-  paragraph: `NeurAlbertaTech and the Undergraduate Research Initiative present an interactive discussion on how you can contribute to local neurotechnology development. Learn about the project work done at NAT, how the URI is available to support summer research students with funding and resources, and (most importantly) how you can take advantage of these opportunities!
+  paragraph: `NeurAlbertaTech and the Undergraduate Research Initiative present an interactive discussion on how you can contribute to local neurotechnology development. Learn about the project work done at NAT, how the URI is available to support summer research students with funding and resources, and (most importantly) how you can take advantage of these opportunities! Note: This is only open to Alberta-based undergraduate students.
   <br><br>
   <b>When:</b> Thursday, November 18, 17:00-18:00 MST<br>
   <b>Where:</b> Virtual - Link will be sent to those who RSVP.`,
