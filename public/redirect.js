@@ -4,18 +4,38 @@ class Redirect {
   }
 
   add(link) {
-    this.links.push(link);
+    const isAlreadyAdded = this.links.some(element => element.slug === link.slug);
+    if(!isAlreadyAdded) {
+      this.links.push(link);
+      return;
+    }
+    console.error("Attempted to add duplicate link record. Skipped adding " + JSON.stringify(link));
   }
 
   send(slug) {
     for (let i = 0; i < this.links.length; i++) {
       if(this.links[i].slug == slug) {
         if(this.links[i].expire && this.links[i].expire < Date.now()) {
+
+          // Track Event in Google Analytics
+          ga('send', {
+            hitType: 'social',
+            eventCategory: 'Link',
+            eventAction: 'usedExpiredRedirect',
+            eventLabel: this.links[i].location
+          });
+
           window.location.replace("/expired.html");
           return;
         }
 
-        // TODO increment some counter for google analytics
+        // Track Event in Google Analytics
+        ga('send', {
+          hitType: 'social',
+          eventCategory: 'Link',
+          eventAction: 'usedRedirect',
+          eventLabel: this.links[i].location
+        });
 
         window.location.replace(this.links[i].location);
         return;
@@ -37,7 +57,7 @@ class Link {
 
   setSlug(slug) {
     if (!slug) {
-      console.error("Please provide a slug for all redirects");
+      console.error("All links must have a slug.");
       return;
     }
     this.slug = slug;
@@ -46,8 +66,8 @@ class Link {
 
   setLocation(location) {
     if (!location) {
-      console.error("Please provide a location for all redirects");
-      return;
+      console.error("No location provided for the link. Defaulting to the 500 error page.");
+      return "500";
     }
     this.location = location;
     return this;
@@ -60,93 +80,76 @@ class Link {
 }
 
 
+function formatExpire(expire) {
+  if(expire === "-") {
+    return null;
+  }
+
+  let format = new Date(expire);
+
+  if(format instanceof Date && !isNaN(format)) {
+    return format;
+  } else {
+    console.error("Was not able to parse date: " + expire + ". Expiry date has been removed from this record.");
+    return null;
+  }
+}
 
 
+function loadRedirectSheet() {
+  const sheetName = 'Redirects';
+  const sheetId = '1spr0VSqwKbOM7kAKnqKSmItOl7noNgRb427od-f3oHw';
+  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`
 
+  return new Promise(resolve => {
+    fetch(url)
+    .then(res => res.text())
+    .then(text => {
 
+      const out = JSON.parse(text.substr(47).slice(0, -2));
 
+      let table = out.table;
+      let rowCount = table.rows.length;
+      let colCount = table.cols.length;
+
+      // Testing //
+      // console.log(table.rows[1].c[1].v);
+      // console.log("----------------");
+      // console.log("rowCount: " + rowCount);
+      // console.log("colCount: " + colCount);
+      // console.log("----------------");
+      // console.log(table);
+      // Testing //
+
+      for(var i = 1; i < rowCount; i++) {
+        redirect.add(new Link({
+          slug: table.rows[i].c[0].v,
+          location: table.rows[i].c[1].v,
+          expire: formatExpire(table.rows[i].c[2].v),
+        }));
+      }
+      resolve(redirect);
+    })
+    .catch(err => { console.error(err); });
+  });
+}
 
 
 
 
 let redirect = new Redirect();
 
-redirect.add(new Link({
-  slug: "facebook",
-  location: "https://www.facebook.com/NeurAlbertaTech/",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "messenger",
-  location: "http://m.me/NeurAlbertaTech",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "linkedin",
-  location: "https://www.linkedin.com/company/neuralbertatech/",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "instagram",
-  location: "https://www.instagram.com/neuralberta/",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "twitter",
-  location: "https://twitter.com/neuralbertatech",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "slack",
-  location: "https://join.slack.com/t/neuralbertatech/shared_invite/zt-r4bf4crb-WmljePHzGBrrLOjvaCsnJg",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "newsletter",
-  location: "http://eepurl.com/gjhjMz",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "email",
-  location: "mailto:neuralbertatech@gmail.com",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "tracing",
-  location: "https://forms.gle/EfGr2a9TjqCzQMyg9",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "rsvp",
-  location: "https://forms.gle/c6LZvHiFAac3fiDF9",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "rsvpnatuc",
-  location: "https://ucalgary.zoom.us/meeting/register/tJIkdO-srzMqHNcvxElJVI7d3mBcN_S8vGJg",
-  expire: new Date('November 24, 2021 19:00:00'),
-}));
-
-
-
-
-
-
-
-window.addEventListener('load', function () {
+window.addEventListener('load', async function () {
+  const maxRequestLengthTimeoutMS = 10000;
   const slug = window.location.pathname.substring(1);
+  const p1 = loadRedirectSheet();
+  const p2 = new Promise((res) => setTimeout(() => res(false), maxRequestLengthTimeoutMS));
 
-  setTimeout(() => {
-    redirect.send(slug);
-  }, 500);
+  const success = await Promise.race([p1, p2]);
+
+  if(!success) {
+    window.location.replace("/500.html");
+    return;
+  }
+  redirect.send(slug);
 });

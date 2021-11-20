@@ -41,19 +41,24 @@
         z-index: -1;
       }
 
-      .spinner {
-        top: 50%;
-        left: 50%;
-        margin: 100px 0 0 -37.5px;
-      }
-
-      .natLogo {
-        width: 300px;
-
+      .verticallyCentre {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+      }
+
+      .horizontallyCentre {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .natLogo {
+        width: 300px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
       }
     </style>
   </head>
@@ -61,31 +66,15 @@
   <body>
 
     <div style="position: relative; height: 100vh; width: 100vw;">
-
-      <!-- <image class="natLogo" src="/images/Logos/OurLogos/NATg.svg" alt="NAT Logo"></image>
-
-      <div class="spinner"></div> -->
-
-      <div style="display: table-row">
+      <div class='verticallyCentre'>
         <image class="natLogo" src="/images/Logos/OurLogos/NATg.svg" alt="NAT Logo"></image>
-        <div class="spinner"></div>
+        <h1 class="subTitle centredText" style="margin-top: 0px;"><span style="color: rgba(32,32,32,1);">Error 500</span></h1>
+        <p class="paragraph centredText" style="margin-top: 0px;"><span style="color: rgba(32,32,32,1);">Internal Server Error</span></p>
+        <p class="paragraph centredText" style="margin-top: 0px;"><span style="color: rgba(32,32,32,1);">Please try again. If this error persists, please report it.</span></p>
+        <div class="horizontallyCentre"><a href="mailto:neuralbertatech@gmail.com?subject=500%20Error%20Occurred%20on%20natSite&body=Please%20briefly%20describe%20how%20you%20got%20to%20this%20page%3A%0A"><button class="outlineButton">Report</button></a></div>
+        <div class="horizontallyCentre" style="margin-top: 80px;"><a href="/index.html"><button class="outlineButton">Home</button></a></div>
       </div>
     </div>
-
-
-    <!-- Google Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'G-RN71WM9LGS', 'auto');
-    ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
-
-    <script type="text/javascript" src="redirect.js"></script>
 
   </body>
 

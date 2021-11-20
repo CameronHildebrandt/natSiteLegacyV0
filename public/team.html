@@ -190,7 +190,7 @@
           fetch(url)
           .then(res => res.text())
           .then(text => {
-            const out = JSON.parse(text.substr(47).slice(0, -2))
+            const out = JSON.parse(text.substr(47).slice(0, -2));
 
             let table = out.table;
             let rowCount = table.rows.length;
