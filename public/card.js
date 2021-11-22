@@ -504,7 +504,7 @@ var natUriCard = new Card({
   <br><br>
   <b>When:</b> Thursday, November 18, 17:00-18:00 MST<br>
   <b>Where:</b> Virtual - Link will be sent to those who RSVP.`,
-  image: "/images/event/misc./n+uri.png",
+  image: "/images/event/misc./nuriWhite.png",
   buttonText: "RSVP",
   link: "rsvp",
   location: "Virtual - Link will be sent to those who RSVP.",
