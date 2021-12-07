@@ -335,13 +335,22 @@ class Card {
 // Defined cards. /////////////////////////////////////////////////////////////
 
 // Featured.
+// var museAmassadorCard = new Card({
+//   header: "Muse Ambassador",
+//   paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
+//   image: "/images/event/muse-ambassador.jpg",
+//   buttonText: "Shop Now",
+//   link: "https://mbsy.co/3qhP3N",
+// });
+// TEMP (FOR CHRISTMAS)
 var museAmassadorCard = new Card({
   header: "Muse Ambassador",
-  paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
-  image: "/images/event/muse-ambassador.jpg",
+  paragraph: `Happy Holidays! We are super excited to announce that our affiliate link now gives you <b>15% Off</b> of all products on the Muse store this holiday season. Use the 'Shop Now' button to purchase a Muse and support NeurAlbertaTech in furthering our goal of making brain-computer interfacing technology accessible to everyone!`,
+  image: "/images/event/museChristmas.jpg",
   buttonText: "Shop Now",
   link: "https://mbsy.co/3qhP3N",
 });
+// TEMP (FOR CHRISTMAS)
 
 var ntxOpenComp20Card = new Card({
   header: "Last Project: NTX Open Competition 2020",
