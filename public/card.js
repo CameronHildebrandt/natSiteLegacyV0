@@ -343,14 +343,15 @@ class Card {
 //   link: "https://mbsy.co/3qhP3N",
 // });
 // TEMP (FOR CHRISTMAS)
-var museAmassadorCard = new Card({
-  header: "Muse Ambassador",
-  paragraph: `Happy Holidays! We are super excited to announce that our affiliate link now gives you <b>15% Off</b> of all products on the Muse store this holiday season. Use the 'Shop Now' button to purchase a Muse and support NeurAlbertaTech in furthering our goal of making brain-computer interfacing technology accessible to everyone!`,
-  image: "/images/event/museChristmas.jpg",
-  buttonText: "Shop Now",
-  link: "https://mbsy.co/3qhP3N",
+
+var workshopSeriesCardHome = new Card({
+  header: "Workshop Series",
+  paragraph: `<b>Now Open for Registration!</b> <br> If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
+  image: "/images/workshop/mlLogo.png",
+  buttonText: "Learn More",
+  link: "event/workshops.html",
+  dark: false,
 });
-// TEMP (FOR CHRISTMAS)
 
 var ntxOpenComp20Card = new Card({
   header: "Last Project: NTX Open Competition 2020",
@@ -748,7 +749,7 @@ var fa19InfoNight = new Card({
 
 
 var featuredCards = [
-  museAmassadorCard,
+  workshopSeriesCardHome,
 ];
 
 var homePageCards = [
