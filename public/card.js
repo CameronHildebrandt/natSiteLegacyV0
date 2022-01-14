@@ -346,7 +346,7 @@ class Card {
 
 var workshopSeriesCardHome = new Card({
   header: "Workshop Series",
-  paragraph: `<b>Now Open for Registration!</b> <br> If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
+  paragraph: `<p class="paragraphGradHeader"><b>Now open for registration!</b></p> <br> If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
   image: "/images/workshop/mlLogo.png",
   buttonText: "Learn More",
   link: "event/workshops.html",
