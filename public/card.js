@@ -541,7 +541,7 @@ var natUCInfoNightFa21 = new Card({
 });
 
 var womenInNeuroCard = new Card({
-  header: "NATChat: Women in Neurotech",
+  header: "NATChat: Neurotech in Gaming",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
   image: "/images/event/natChat/natChatLogo.png",
   buttonText: "Learn More",
