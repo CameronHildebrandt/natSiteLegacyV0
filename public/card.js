@@ -540,7 +540,7 @@ var natUCInfoNightFa21 = new Card({
   featured: true,
 });
 
-var womenInNeuroCard = new Card({
+var natChatCard = new Card({
   header: "NATChat: Neurotech in Gaming",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
   image: "/images/event/natChat/natChatLogo.png",
@@ -550,6 +550,19 @@ var womenInNeuroCard = new Card({
   startDate: new Date("October 27, 2021 17:00"),
   endDate: new Date("October 27, 2021 19:00"),
   dark: true,
+  featured: true,
+});
+
+var natChatCardHome = new Card({
+  header: "NATChat: Neurotech in Gaming",
+  paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
+  image: "/images/event/natChat/natChatLogo.png",
+  buttonText: "Learn More",
+  link: "/event/natchat.html",
+  location: "natFlat (CCIS L1)",
+  startDate: new Date("October 27, 2021 17:00"),
+  endDate: new Date("October 27, 2021 19:00"),
+  dark: false,
   featured: true,
 });
 
@@ -750,6 +763,7 @@ var fa19InfoNight = new Card({
 
 var featuredCards = [
   workshopSeriesCardHome,
+  natChatCardHome,
 ];
 
 var homePageCards = [
@@ -788,7 +802,7 @@ var eventCards = [
 ];
 
 var moreEventCards = [
-  womenInNeuroCard,
+  natChatCard,
   workshopSeriesCard,
   natHacksCard,
 ];
