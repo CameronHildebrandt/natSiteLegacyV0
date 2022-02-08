@@ -762,7 +762,6 @@ var fa19InfoNight = new Card({
 
 
 var featuredCards = [
-  workshopSeriesCardHome,
   natChatCardHome,
 ];
 
