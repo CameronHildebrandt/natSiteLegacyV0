@@ -15,11 +15,60 @@ Array.prototype.mutate = function (func) {
   return this;
 }
 
+const natEvent = {
+  natChat: 'natChat',
+  natHACKS: 'natHACKS',
+  workshops: 'workshops'
+};
+
+const sponsorshipTier = {
+  platinum: 'platinum',
+  gold: 'gold',
+  silver: 'silver',
+  bronze: 'bronze',
+}
+
+class eventSponsored {
+  event = "";
+  tier = "";
+
+  constructor(args) {
+    this.setEvent(args["event"]);
+    this.setTier(args["tier"]);
+  }
+
+  setEvent(event) {
+    if (event !== undefined) {
+      this.event = event;
+    }
+    return this;
+  }
+
+  setTier(tier) {
+    if (tier !== undefined) {
+      this.tier = tier;
+    }
+    return this;
+  }
+
+  getEvent() {
+    return this.event;
+  }
+
+  getTier() {
+    return this.tier;
+  }
+}
+
 class Card {
   header = "";
   subHeader = "";
   paragraph = "";
   image = "";
+  colourLogo = ""; // TODO add constructor
+  lightLogo = ""; // TODO add constructor
+  darkLogo = ""; // TODO add constructor
+  eventsSponsored = [];
   video = "";
   buttonText = "";
   link = "";
@@ -48,6 +97,7 @@ class Card {
     this.setLarge(args["large"]);
     this.setLargeHeader(args["largeHeader"]);
     this.setFeatured(args["featured"]);
+    this.setEventsSponsored(args["eventsSponsored"]);
   }
 
   clone() {
@@ -185,6 +235,29 @@ class Card {
     return this;
   }
 
+  setEventsSponsored(eventsSponsored) {
+    if (eventsSponsored !== undefined) {
+      this.eventsSponsored = eventsSponsored;
+    }
+    return this;
+  }
+
+  _generateEventsSponsoredTags() {
+    var rootEventTagImageSrc = "/images/Logos/event/";
+    var eventSponsoredTagContainer = document.createElement("div");
+    eventSponsoredTagContainer.classList.add("eventSponsoredTagContainer");
+
+    // TODO hypperlink each event to their sponsorship card on the respective page.
+    this.eventsSponsored.forEach(event => {
+      var eventTag = document.createElement('img');
+      eventTag.classList.add("eventSponsoredTag");
+      eventTag.src = rootEventTagImageSrc + event.getEvent() + ".png";
+      eventSponsoredTagContainer.appendChild(eventTag);
+    });
+
+    return eventSponsoredTagContainer
+  }
+
   _linkToText(link) {
     for (var i = link.length; i > 0; --i) {
       if (link[i-1] == '.') {
@@ -210,6 +283,7 @@ class Card {
   }
 
   generateElement() {
+    // For partner card: give them an anchor tag, link to anchor from index.html
     var rootBlockType = "smallInfoBlock";
     var rootBlockStyle = "margin-bottom: 0px";
     var contentsType = "smallInfoContents";
@@ -259,6 +333,9 @@ class Card {
     var cardBlock = document.createElement("div");
     cardBlock.id = contentsType;  // TODO: Change to class.
 
+    // If there are event sponsored tags to add, create the block
+    var eventSponsoredTagBlock = this._generateEventsSponsoredTags();
+
     // Create media section.
     var mediaBlock = document.createElement("div");
     var mediaFrame = document.createElement("div");
@@ -290,6 +367,7 @@ class Card {
       mediaFrame.appendChild(mediaLink);
     }
     mediaBlock.appendChild(mediaFrame);
+    mediaBlock.appendChild(eventSponsoredTagBlock)
     if (this.buttonText) {
       var mediaButton = document.createElement("button");
       mediaButton.id = buttonType;  // TODO: Change to class.
@@ -761,6 +839,21 @@ var fa19InfoNight = new Card({
 });
 
 
+// Sponsors //////////////////////////////////////////////////////////////////////////
+var sponsorOpenBCI = new Card({
+  header: "OpenBCI",
+  paragraph: `Campus Alberta Neuroscience is delighted to be a gold level sponsor for NAT Chat, hosted by NeurAlbertaTech and recognizes the significant impact this event brings to the neurotech industry and ecosystem in Alberta. CAN has a keen focus on providing opportunities for entrepreneurs working in Neuroscience and Mental Health across Alberta, with a particular interest in the development of the commercialization ecosystem, including supporting the development of new companies, supporting education and knowledge of entrepreneurship as well as securing new investment in the province.`,
+  image: "/images/Logos/WhiteLogos/openBCI.png",
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.platinum}),
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.platinum}),
+    new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.platinum}),
+  ],
+  lightLogo: "/images/Logos/PartnerLogos/openBCI.png",
+  endDate: new Date("September 9, 2019 19:00"),
+});
+
+
 var featuredCards = [
   natChatCardHome,
 ];
@@ -806,6 +899,10 @@ var moreEventCards = [
   natHacksCard,
 ];
 
+var partnerCards = [
+  sponsorOpenBCI,
+];
+
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
 var homePageCardsElement = document.getElementById("homePageCards");
 var currentProjectCardsElement = document.getElementById("currentProjectCards");
@@ -813,6 +910,11 @@ var pastProjectCardsElement = document.getElementById("pastProjectCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
 var moreEventCardsElement = document.getElementById("moreEventCards");
+
+var partnerCardsPlatinum = document.getElementById("partnerCardsPlatinum");
+var partnerCardsGold = document.getElementById("partnerCardsGold");
+var partnerCardsSilver = document.getElementById("partnerCardsSilver");
+var partnerCardsBronze = document.getElementById("partnerCardsBronze");
 
 if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Add all present and future featured event cards to the featured list,
@@ -842,4 +944,26 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Add all of the moreEvent cards to the moreEvents section.
   moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
 
+} else if (partnerCardsPlatinum && partnerCardsGold && partnerCardsSilver && partnerCardsBronze) { // partners.html
+  partnerCards
+    .mutate(card => card.setDark(false))
+    .forEach(card => {
+      // TODO here goes alg for determining max tier, right now hardcoded to platinum
+      switch(sponsorshipTier.platinum) {
+        case sponsorshipTier.platinum:
+          partnerCardsPlatinum.appendChild(card.generateElement());
+          break;
+        case sponsorshipTier.gold:
+          partnerCardsGold.appendChild(card.generateElement());
+          break;
+        case sponsorshipTier.silver:
+          partnerCardsSilver.appendChild(card.generateElement());
+          break;
+        case sponsorshipTier.bronze:
+          partnerCardsBronze.appendChild(card.generateElement());
+          break;
+        default:
+          console.error("Failed to generate sponsor card. Ensure the card has a sponsor tier");
+      }
+    });
 }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#7967e1">
+    <meta name="apple-mobile-web-app-title" content="NeurAlbertaTech">
+    <meta name="application-name" content="NeurAlbertaTech">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#323232">
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="scrollBackground.js"></script>
+    <script type="text/javascript" src="burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RN71WM9LGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RN71WM9LGS');
+    </script>
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/natflat.html"><button class="mobilePageLink">natFlat</button></a>
+      <button class="mobilePageLink" id="currentPageLink">Community</button>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="/index"><image id="headerImg" src="/images/nat.svg" alt="NAT Logo"></image></a>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <button class="pageLink" id="currentPageLink">Community</button>
+      <a href="/natflat.html"><button class="pageLink">natFlat</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="images/FullSizeHeaderImages/MeetingEvent.jpg"></img>
+    <img id="headerBGDiv"></img>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+        <div class="subTitle sponsorTitleGradPlatinum" style="left: 2%; margin-top: 15px;">Platinum Sponsors</div>
+        <div class="cardStack">
+
+          <div id="platinumSponsorBlock">
+            <div class="platinumSponsorHeroImageContainer">
+              <img src="/images/Logos/WhiteLogos/openBCI.png" class="platinumSponsorHeroLogo">
+              <div class="platinumSponsorHeroEventSponsoredTagContainer">
+                <!-- Link to the card on the specific event page -->
+                <img src="/images/Logos/event/workshops.png" class="eventSponsoredTag">
+                <img src="/images/Logos/event/natHACKS.png" class="eventSponsoredTag">
+                <img src="/images/Logos/event/natChat.png" class="eventSponsoredTag">
+              </div>
+              <img src="/images/openbci.jpg" class="platinumSponsorHeroImg">
+            </div>
+            <div class="platinumSponsorInfoContainer">
+              <p class="paragraph" style="margin-bottom: 0px; text-align: center">OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.</p>
+              <div class="smallButtonCentringContainer">
+                <button id="smallButton">Visit the OpenBCI Website</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="platinumSponsorBlock" style="margin-bottom: 0px; margin-left: 0px;">
+            <div class="platinumSponsorHeroImageContainer">
+              <img src="/images/Logos/WhiteLogos/openBCI.png" class="platinumSponsorHeroLogo">
+              <div class="platinumSponsorHeroEventSponsoredTagContainer">
+                <img src="/images/Logos/event/workshops.png" class="eventSponsoredTag">
+                <img src="/images/Logos/event/natHACKS.png" class="eventSponsoredTag">
+                <img src="/images/Logos/event/natChat.png" class="eventSponsoredTag">
+              </div>
+              <img src="/images/openbci.jpg" class="platinumSponsorHeroImg">
+            </div>
+            <div class="platinumSponsorInfoContainer">
+              <p class="paragraph" style="margin-bottom: 0px; text-align: center">OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.</p>
+              <div class="smallButtonCentringContainer">
+                <button id="smallButton">Visit the OpenBCI Website</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <br><br><br><br>
+        
+        <div id="partnerCardsPlatinum"></div>
+
+        <div class="subTitle sponsorTitleGradGold" style="left: 2%; margin-top: 15px;">Gold Sponsors</div>
+        <div id="partnerCardsGold"></div>
+
+        <div class="subTitle sponsorTitleGradSilver" style="left: 2%; margin-top: 15px;">Silver Sponsors</div>
+        <div id="partnerCardsSilver"></div>
+
+        <div class="subTitle sponsorTitleGradBronze" style="left: 2%; margin-top: 15px;">Bronze Sponsors</div>
+        <div id="partnerCardsBronze"></div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript"> menuToggle(); </script>
+    <script type="text/javascript" src="dynamicLoad.js"></script>
+    <script type="text/javascript" src="card.js"></script>
+
+  </body>
+
+</html>
