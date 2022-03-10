@@ -10,9 +10,89 @@ function isAlphaNumeric(c) {
   return (isAlpha(c) || isNumeric(c));
 }
 
+function determineDisplayTier(events) {
+  if (!events) {
+    return sponsorshipTier.bronze;
+  }
+  largestTierFound = false;
+
+  events.forEach(event => {
+    if (event.getTier() == sponsorshipTier.platinum) {
+      largestTierFound = true;
+    }
+  });
+  if(largestTierFound) {return sponsorshipTier.platinum;}
+
+  events.forEach(event => {
+    if (event.getTier() == sponsorshipTier.gold) {
+      largestTierFound = true;
+    }
+  });
+  if(largestTierFound) {return sponsorshipTier.gold;}
+
+  events.forEach(event => {
+    if (event.getTier() == sponsorshipTier.silver) {
+      largestTierFound = true;
+    }
+  });
+  if(largestTierFound) {return sponsorshipTier.silver;}
+
+  return sponsorshipTier.bronze;
+}
+
 Array.prototype.mutate = function (func) {
   this.forEach(func);
   return this;
+}
+
+const natEvent = {
+  natChat: 'natChat',
+  natHACKS: 'natHACKS',
+  workshops: 'workshops'
+};
+
+const sponsorshipTier = {
+  platinum: 'platinum',
+  gold: 'gold',
+  silver: 'silver',
+  bronze: 'bronze',
+}
+
+const cardType = {
+  sponsor: 'sponsor',
+  normal: 'normal',
+}
+
+class eventSponsored {
+  event = "";
+  tier = "";
+
+  constructor(args) {
+    this.setEvent(args["event"]);
+    this.setTier(args["tier"]);
+  }
+
+  setEvent(event) {
+    if (event !== undefined) {
+      this.event = event;
+    }
+    return this;
+  }
+
+  setTier(tier) {
+    if (tier !== undefined) {
+      this.tier = tier;
+    }
+    return this;
+  }
+
+  getEvent() {
+    return this.event;
+  }
+
+  getTier() {
+    return this.tier;
+  }
 }
 
 class Card {
@@ -20,17 +100,23 @@ class Card {
   subHeader = "";
   paragraph = "";
   image = "";
+  colourLogo = ""; // TODO add constructor
+  lightLogo = "";
+  darkLogo = "";
+  eventsSponsored = [];
   video = "";
   buttonText = "";
   link = "";
   location = "";
   altText = "";
   largeHeader = ""
+  type = null;
   startDate = null;
   endDate = null;
   dark = false;
   large = false;
   featured = false;
+  userUsingDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   constructor(args) {
     this.setHeader(args["header"]);
@@ -42,12 +128,16 @@ class Card {
     this.setLink(args["link"]);
     this.setLocation(args["location"]);
     this.setAltText(args["altText"]);
+    this.setType(args["type"]);
     this.setStartDate(args["startDate"]);
     this.setEndDate(args["endDate"]);
     this.setDark(args["dark"]);
     this.setLarge(args["large"]);
     this.setLargeHeader(args["largeHeader"]);
     this.setFeatured(args["featured"]);
+    this.setLightLogo(args["lightLogo"]);
+    this.setDarkLogo(args["darkLogo"]);
+    this.setEventsSponsored(args["eventsSponsored"]);
   }
 
   clone() {
@@ -143,6 +233,13 @@ class Card {
     return this;
   }
 
+  setType(type) {
+    if (type !== undefined) {
+      this.type = type;
+    }
+    return this;
+  }
+
   setStartDate(date) {
     if (date !== undefined) {
       this.startDate = date;
@@ -185,6 +282,73 @@ class Card {
     return this;
   }
 
+  setLightLogo(lightLogo) {
+    if (lightLogo !== undefined) {
+      this.lightLogo = lightLogo;
+    }
+    return this;
+  }
+
+  setDarkLogo(darkLogo) {
+    if (darkLogo !== undefined) {
+      this.darkLogo = darkLogo;
+    }
+    return this;
+  }
+
+  setEventsSponsored(eventsSponsored) {
+    if (eventsSponsored !== undefined) {
+      this.eventsSponsored = eventsSponsored;
+    }
+    return this;
+  }
+
+  _generatePlatinumSponsoredTagContainer() {
+    var containerClass = "platinumSponsorHeroEventSponsoredTagContainer";
+    var container = this.generateSponsoredTags();
+    container.classList.add(containerClass);
+
+    return container;
+  }
+  
+  _generateSponsoredTagContainer() {
+    var containerClass = "eventSponsoredTagContainer";
+    var container = this.generateSponsoredTags();
+    container.classList.add(containerClass);
+
+    return container;
+  }
+
+  generateSponsoredTags() {
+    //TODO link to the specific page
+    var tagClass = "eventSponsoredTag";
+    var rootTagImageURL = "/images/Logos/event/";
+    var tooltipClass = "tooltiptext";
+    var tooltipContainerClass = "tooltipContainer";
+
+    var container = document.createElement("div");
+    this.eventsSponsored.forEach(event => {
+      var tooltipContainer = document.createElement("div");
+      tooltipContainer.classList.add(tooltipContainerClass);
+
+      var tooltip = document.createElement("span");
+      tooltip.classList.add(tooltipClass);
+      tooltip.innerHTML = "Sponsored " + event.event;
+
+      var eventTag = document.createElement("img");
+      eventTag.classList.add(tagClass);
+      eventTag.src = rootTagImageURL + event.event + ".png";
+
+      tooltipContainer.appendChild(eventTag);
+      tooltipContainer.appendChild(tooltip);
+      container.appendChild(tooltipContainer);
+
+      console.log(container);
+    });
+
+    return container;
+  }
+
   _linkToText(link) {
     for (var i = link.length; i > 0; --i) {
       if (link[i-1] == '.') {
@@ -209,7 +373,18 @@ class Card {
     return text;
   }
 
+  _generateMediaAltText() {
+    // Attempt to auto generate a useful alt text using the image name if
+    // no alt is given.
+    if (this.image.length > 0 && this.image[0] == "/") {
+      return this._linkToText(this.image);
+    } else {
+      return "Image not found";
+    }
+  }
+
   generateElement() {
+    // For partner card: give them an anchor tag, link to anchor from index.html
     var rootBlockType = "smallInfoBlock";
     var rootBlockStyle = "margin-bottom: 0px";
     var contentsType = "smallInfoContents";
@@ -219,6 +394,32 @@ class Card {
     var mediaImageType = "eventImageNoHover";
     var mediaHref = "";
     var mediaAltText = this.altText;
+    var displayTier = "";
+
+    // sponsorship card exceptions
+    if(this.type == cardType.sponsor) {
+      const today = new Date();
+      if(this.endDate < today) {
+        console.warn(`No longer displaying sponsorship card for ${this.header}. The sponsorship end date has been reached.`);
+        return document.createElement("div");
+      }
+      if(this.startDate > today) {
+        console.warn(`${this.header} is not yet being displayed as their sponsorship has not yet started.`);
+        return document.createElement("div");
+      }
+
+      displayTier = determineDisplayTier(this.eventsSponsored);
+
+      if (displayTier == sponsorshipTier.platinum) {
+        return this.generatePlatinumSponsorCard();
+      }
+
+      if (displayTier == sponsorshipTier.bronze) {
+        return this.generateBronzeSponsorCard();
+      }
+
+      // The gold and silver cards are basically just normal cards, they don't need a special generate function.
+    }
 
     if (this.large) {
       rootBlockType = "largeInfoBlock";
@@ -235,18 +436,16 @@ class Card {
       mediaImageType = "eventImage";
     }
     if (mediaAltText == "") {
-      // Attempt to auto generate a useful alt text using the image name if
-      // no alt is given.
-      if (this.image.length > 0 && this.image[0] == "/") {
-        mediaAltText = this._linkToText(this.image);
-      } else {
-        mediaAltText = "Image not found";
-      }
+      mediaAltText = this._generateMediaAltText();
     }
 
     var cardRoot = document.createElement("div");
-    cardRoot.id = rootBlockType;  // TODO: Change to class.
     cardRoot.style = rootBlockStyle;
+    if (this.type == cardType.sponsor && displayTier == sponsorshipTier.silver) {
+      cardRoot.classList.add("silverSponsorBlock");
+    } else {
+      cardRoot.id = rootBlockType;  // TODO: Change to class.
+    }
 
     // Add the large header if it exitsts.
     if (this.largeHeader !== "") {
@@ -257,7 +456,14 @@ class Card {
     }
 
     var cardBlock = document.createElement("div");
-    cardBlock.id = contentsType;  // TODO: Change to class.
+    if (this.type == cardType.sponsor && displayTier == sponsorshipTier.silver) {
+      cardBlock.classList.add("silverSponsorContents");
+    } else {
+      cardBlock.id = contentsType;  // TODO: Change to class.
+    }
+
+    // If there are event sponsored tags to add, create the block
+    var eventSponsoredTagBlock = this._generateSponsoredTagContainer();
 
     // Create media section.
     var mediaBlock = document.createElement("div");
@@ -283,13 +489,22 @@ class Card {
       mediaFrame.appendChild(mediaVideo);
     } else {
       var mediaImage = document.createElement("img");
-      mediaImage.src = this.image;
+      if (this.type == cardType.sponsor) {
+        if(this.userUsingDarkMode) {
+          mediaImage.src = this.lightLogo;
+        } else {
+          mediaImage.src = this.darkLogo;
+        }
+      } else {
+        mediaImage.src = this.image;
+      }
       mediaImage.id = mediaImageType;  // TODO: Change to class.
       mediaImage.alt = mediaAltText;
       mediaLink.appendChild(mediaImage);
       mediaFrame.appendChild(mediaLink);
     }
     mediaBlock.appendChild(mediaFrame);
+    mediaBlock.appendChild(eventSponsoredTagBlock);
     if (this.buttonText) {
       var mediaButton = document.createElement("button");
       mediaButton.id = buttonType;  // TODO: Change to class.
@@ -324,11 +539,181 @@ class Card {
     paragraphText.style = textColorStyle;
     paragraphText.classList.add("paragraph");
     paragraphText.innerHTML = this.paragraph;
+    if(this.type == cardType.sponsor && this.paragraph == "") {
+      paragraphText.innerHTML = "Visit our website to learn more!";
+    }
     textBlock.appendChild(paragraphText);
     cardBlock.appendChild(textBlock);
     cardRoot.appendChild(cardBlock);
 
     return cardRoot;
+  }
+
+  generatePlatinumSponsorCard() {
+    var rootBlockType = "platinumSponsorBlock";
+    var heroImageClass = "platinumSponsorHeroImg";
+    var heroLogoClass = "platinumSponsorHeroLogo";
+    var heroContainerClass = "platinumSponsorHeroImageContainer";
+    var infoContainerClass = "platinumSponsorInfoContainer";
+    var titleClass = "subSubTitle";
+    var titleStyle = "margin-bottom: 10px; text-align: center";
+    var textClass = "paragraph";
+    var textStyle = "margin-bottom: 0px; text-align: center";
+    var buttonClass = "smallButtonCentringContainer";
+    var buttonType = "smallButton";
+
+    var cardRoot = document.createElement("div");
+    cardRoot.classList.add(rootBlockType);
+
+
+    // hero container
+    var heroContainer = document.createElement("div");
+    heroContainer.classList.add(heroContainerClass);
+
+    var heroImage = document.createElement("img");
+    heroImage.classList.add(heroImageClass);
+    heroImage.src = this.image;
+    heroImage.alt = this._generateMediaAltText();
+
+    var correctlyThemedLogo = this.userUsingDarkMode ? this.lightLogo : this.darkLogo;
+    var heroLogo = document.createElement("img");
+    heroLogo.classList.add(heroLogoClass);
+    heroLogo.src = correctlyThemedLogo;
+    heroLogo.alt = this._generateMediaAltText();
+
+    heroContainer.appendChild(heroLogo);
+    heroContainer.appendChild(this._generatePlatinumSponsoredTagContainer());
+    heroContainer.appendChild(heroImage);
+
+
+    // info container
+    var infoContainer = document.createElement("div");
+    infoContainer.classList.add(infoContainerClass);
+
+    var titleContainer = document.createElement("div");
+    titleContainer.classList.add(titleClass);
+    titleContainer.style = titleStyle;
+    titleContainer.innerHTML = this.header;
+
+    var textContainer = document.createElement("div");
+    textContainer.classList.add(textClass);
+    textContainer.style = textStyle;
+    textContainer.innerHTML = this.paragraph;
+
+    var websiteButton = document.createElement("button");
+    websiteButton.id = buttonType;
+    websiteButton.innerHTML = this.buttonText;
+    
+    var buttonLink = document.createElement("a");
+    buttonLink.href = this.link;
+    
+    var buttonContainer = document.createElement("div");
+    buttonContainer.classList.add(buttonClass);
+    
+    buttonLink.appendChild(websiteButton);
+    buttonContainer.appendChild(buttonLink);
+
+    infoContainer.appendChild(titleContainer);
+    infoContainer.appendChild(textContainer);
+    infoContainer.appendChild(buttonContainer);
+
+
+    cardRoot.appendChild(heroContainer);
+    cardRoot.appendChild(infoContainer);
+
+    return cardRoot;
+
+    // Example Card
+    // <div class="platinumSponsorBlock">
+    //   <div class="platinumSponsorHeroImageContainer">
+    //     <img src="/images/Logos/WhiteLogos/openBCI.png" class="platinumSponsorHeroLogo">
+    //     <div class="platinumSponsorHeroEventSponsoredTagContainer">
+    //       Link to the card on the specific event page
+    //       <img src="/images/Logos/event/workshops.png" class="eventSponsoredTag">
+    //       <img src="/images/Logos/event/natHACKS.png" class="eventSponsoredTag">
+    //       <img src="/images/Logos/event/natChat.png" class="eventSponsoredTag">
+    //     </div>
+    //     <img src="/images/openbci.jpg" class="platinumSponsorHeroImg">
+    //   </div>
+    //   <div class="platinumSponsorInfoContainer">
+    //     <div class="subSubTitle" style="margin-bottom: 10px; text-align: center">OpenBCI</div>
+    //     <p class="paragraph" style="margin-bottom: 0px; text-align: center">OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.</p>
+    //     <div class="smallButtonCentringContainer">
+    //       <a href="https://example.com"><button id="smallButton">Visit the OpenBCI Website</button></a>
+    //     </div>
+    //   </div>
+    // </div>
+  }
+
+  generateBronzeSponsorCard() {
+    var cardClass = "bronzeSponsorBlock";
+    var cardStyle = "width: 300px;";
+    var contentsContainerClass = "smallInfoContents";
+    var mediaClass = "smallInfoBlockMedia";
+    var logoContainerClass = "eventImageWideFrame";
+    var logoClass = "eventImageNoHoverWide";
+    var titleClass = "subSubTitle";
+    var titleStyle = "margin-bottom: 10px; text-align: center";
+    var buttonType = "smallButton";
+
+
+    var cardBlock = document.createElement("div");
+    cardBlock.classList.add(cardClass);
+    cardBlock.style = cardStyle;
+
+    var contentsContainer = document.createElement("div");
+    contentsContainer.id = contentsContainerClass;
+
+    var mediaContainer = document.createElement("div");
+    mediaContainer.id = mediaClass;
+
+    var logoContainer = document.createElement("div");
+    logoContainer.id = logoContainerClass;
+
+    var correctlyThemedLogo = this.userUsingDarkMode ? this.lightLogo : this.darkLogo;
+    var logo = document.createElement("img");
+    logo.id = logoClass;
+    logo.src = correctlyThemedLogo;
+    logo.alt = this._generateMediaAltText();
+
+    var titleContainer = document.createElement("div");
+    titleContainer.classList.add(titleClass);
+    titleContainer.style = titleStyle;
+    titleContainer.innerHTML = this.header;
+
+    var websiteButton = document.createElement("button");
+    websiteButton.id = buttonType;
+    websiteButton.innerHTML = this.buttonText;
+    
+    var buttonLink = document.createElement("a");
+    buttonLink.href = this.link;
+
+    
+    buttonLink.appendChild(websiteButton);
+    logoContainer.appendChild(logo);
+
+    mediaContainer.appendChild(logoContainer);
+    // mediaContainer.appendChild(titleContainer); // Hide title?
+    mediaContainer.appendChild(this._generateSponsoredTagContainer());
+    mediaContainer.appendChild(buttonLink);
+
+    contentsContainer.appendChild(mediaContainer);
+    cardBlock.appendChild(contentsContainer);
+
+    return cardBlock;
+
+    // Example Card
+    // <div id="smallInfoBlock" style="width: 300px;">
+    //   <div id="smallInfoContents" style="display: inline;">
+
+    //     <div id="smallInfoBlockMedia">
+    //       <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/UAIS.svg" id="eventImageNoHoverWide" alt="UAIS Logo"></image></div>
+    //       <div class="subSubTitle" style="margin-bottom: 10px; text-align: center">UAIS</div>
+    //       <a href="https://uais.dev"><button id=smallButton>uais.dev</button></a>
+    //     </div>
+
+    //   </div>
+    // </div>
   }
 }
 
@@ -761,6 +1146,309 @@ var fa19InfoNight = new Card({
 });
 
 
+// Sponsors //////////////////////////////////////////////////////////////////////////
+
+// NOTE When displaying, shuffle order
+var sponsorOpenBCI = new Card({
+  type: cardType.sponsor,
+  header: "OpenBCI",
+  paragraph: `OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.`,
+  image: "/images/Logos/partnerHeroImage/openbci.jpg",
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.bronze}),
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.platinum}),
+    new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/openBCI.png",
+  darkLogo: "/images/Logos/4to1/openBCIdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "openbci.com",
+  link: "https://openbci.com",
+});
+
+var sponsorCampusAlbertaNeuroscience = new Card({
+  type: cardType.sponsor,
+  header: "Campus Alberta Neuroscience",
+  paragraph: `Campus Alberta Neuroscience is delighted to be a gold level sponsor for natHACKs, hosted by NeurAlbertaTech and recognizes the significant impact this event brings to the neurotech industry and ecosystem in Alberta. CAN has a keen focus on providing opportunities for entrepreneurs working in Neuroscience and Mental Health across Alberta, with a particular interest in the development of the commercialization ecosystem, including supporting the development of new companies, supporting education and knowledge of entrepreneurship as well as securing new investment in the province. `,
+  image: "/images/Logos/partnerHeroImage/CAN.png",
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.bronze}),
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.platinum}),
+    new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/CANcolor.png",
+  darkLogo: "/images/Logos/4to1/CANcolor.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "albertaneuro.ca",
+  link: "https://www.albertaneuro.ca/",
+});
+
+var sponsorHunterHub = new Card({
+  type: cardType.sponsor,
+  header: "Hunter Hub",
+  paragraph: `The Hunter Hub for Entrepreneurial Thinking is the University of Calgary's central community hub that transforms lives and economies through fostering entrepreneurial thinking in students, faculty and the community. Our mission is to create and support game-changing innovators and accelerate their ideas from conception to impact.<br><br>The Hunter Hub is proud to be a sponosor of natHACKS. Alberta is home to a strong entrepreneurial community, and there is vast potential in the neurotechnology field. natHACKS will inspire both beginners and experienced hackers to discover the incredible opportunities in this field.`,
+  image: "/images/Logos/partnerHeroImage/hunterHub.jpg",
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.platinum}),
+  ],
+  lightLogo: "/images/Logos/4to1/hunterHub.png",
+  darkLogo: "/images/Logos/4to1/hunterHub.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ucalgary.ca",
+  link: "https://www.ucalgary.ca/hunter-hub",
+});
+
+var sponsorAltaML = new Card({
+  type: cardType.sponsor,
+  header: "AltaML",
+  paragraph: `AltaML is an Applied AI Studio for product innovation, guided by a purpose to elevate human potential through applied AI. We are a 2020 Deloitte Fast 50 Canada Companies-to-Watch winner, and were recognized with a 2020 Responsible AI Award by AI Global, now Responsible AI Institute. We work with organizations as an invested partner, bringing together our AI experts with their domain experts. Together, we create and deploy data-driven solutions that enable better decision making. We are a team of 120+ strong, working with partners across Canada and the U.S.`,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.gold}),
+  ],
+  lightLogo: "/images/Logos/4to1/altaML.png",
+  darkLogo: "/images/Logos/4to1/altaMLdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "altaml.com",
+  link: "https://www.altaml.com/",
+});
+
+var sponsorBranchOutNeurologicalFoundation = new Card({
+  type: cardType.sponsor,
+  header: "Branch Out Neurological Foundation",
+  paragraph: `Branch Out funds research into complementary and alternative modalities of treating brain disorders, which we have termed NeuroCAM. We added Neurotechnology as a modality to our funding mandate in 2016 to complement our existing research funding streams of Mind and Body Modalities, Nutraceutical treatments, and Personalized Medicine. We are thrilled to be supporting the innovation involving BCI technology at NeurAlbertaTech's natHACKS event. With applications ranging from diagnostic tools and biofeedback platforms in the general population to communication aids in neurodevelopmental populations, the technology that could emerge from natHACKS would actively advance our mandate of supporting laboratory ideas to community impact.`,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.gold}),
+    new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.gold}),
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.gold}),
+  ],
+  lightLogo: "/images/Logos/4to1/BONF.png",
+  darkLogo: "/images/Logos/4to1/BONF.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "branchoutfoundation",
+  link: "https://www.branchoutfoundation.com/",
+});
+
+var sponsorThinAirLabs = new Card({
+  type: cardType.sponsor,
+  header: "Thin Air Labs",
+  paragraph: `Thin Air Labs is an ecosystem studio building future-fit ventures for What's Next. We ignite growth for many ventures, ecosystem partners and the innovation ecosystem itself creating massive human impact as well as investment return.<br><br>Thin Air Labs - Building What's Next.`,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.gold}),
+  ],
+  lightLogo: "/images/Logos/4to1/thinair.png",
+  darkLogo: "/images/Logos/4to1/thinair.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "thinairlabs.ca",
+  link: "https://www.thinairlabs.ca/",
+});
+
+var sponsorUAFOS = new Card({
+  type: cardType.sponsor,
+  header: "University of Alberta Faculty of Science",
+  paragraph: `The University of Alberta's Faculty of Science is committed to supporting student innovation—and is proud to support NeurAlbertaTehch’s natHACKS hackathon. Student innovation can take many forms, from developing new technology to pursuing entrepreneurship. Supporting this experiential learning beyond the classroom is a key part of how we are training the next generation of talented scientists, innovators, and entrepreneurs.`,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.gold}),
+  ],
+  lightLogo: "/images/Logos/4to1/FoS.png",
+  darkLogo: "/images/Logos/4to1/FoSdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ualberta.ca/science",
+  link: "https://www.ualberta.ca/science/index.html",
+});
+
+var sponsorUpsideDownLabs = new Card({
+  type: cardType.sponsor,
+  header: "Upside Down Labs",
+  paragraph: `Upside Down Labs is an Indian tech startup based out of New Delhi, making the technology advancement process efficient for all. Their open-source hardware and software products benefit makers, researchers, students, and learners around the world. Currently, they are working on projects related to Bio-Electronics and DIY Neuroscience.`,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.gold}),
+    new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.gold}),
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.gold}),
+  ],
+  lightLogo: "/images/Logos/4to1/UDLabs.png",
+  darkLogo: "/images/Logos/4to1/UDLabsdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "upsidedownlabs.tech",
+  link: "https://upsidedownlabs.tech/",
+});
+
+var sponsorBMEUC = new Card({
+  type: cardType.sponsor,
+  header: "University of Calgary Biomedical Engineering",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.silver}),
+  ],
+  lightLogo: "/images/Logos/4to1/BMEuCalgary.png",
+  darkLogo: "/images/Logos/4to1/BMEuCalgarydark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ucalgary.ca/bme",
+  link: "https://research.ucalgary.ca/bme/home",
+});
+
+var sponsorPreciscionHealthUA = new Card({
+  type: cardType.sponsor,
+  header: "University of Alberta Precision Health",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.silver}),
+  ],
+  lightLogo: "/images/Logos/4to1/precHealth.png",
+  darkLogo: "/images/Logos/4to1/precHealthdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ualberta.ca",
+  link: "https://www.ualberta.ca/precision-health/index.html",
+});
+
+var sponsorAI4S = new Card({
+  type: cardType.sponsor,
+  header: "Ai4 Society",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/ai4s.png",
+  darkLogo: "/images/Logos/4to1/ai4s.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ai4society.ca",
+  link: "https://ai4society.ca/",
+});
+
+var sponsorFORMDCD = new Card({
+  type: cardType.sponsor,
+  header: "Faculty of Rehabilitation Medicine",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/FORMDCD.png",
+  darkLogo: "/images/Logos/4to1/FORMDCDdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ualberta.ca",
+  link: "https://www.ualberta.ca/communications-sciences-and-disorders/index.html",
+});
+
+var sponsorCybera = new Card({
+  type: cardType.sponsor,
+  header: "Cybera",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/cybera.png",
+  darkLogo: "/images/Logos/4to1/cyberadark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "cybera.ca",
+  link: "https://www.cybera.ca/",
+});
+
+var sponsorMuse = new Card({
+  type: cardType.sponsor,
+  header: "Muse",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.bronze}),
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+    new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/muse.png",
+  darkLogo: "/images/Logos/4to1/muse.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "choosemuse.com",
+  link: "https://mbsy.co/3qhP3N",
+});
+
+var sponsorRemBRAINdt = new Card({
+  type: cardType.sponsor,
+  header: "RemBRAINdt",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/rembraindt.png",
+  darkLogo: "/images/Logos/4to1/rembraindt.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "rembraindt",
+  link: "https://linktr.ee/rembraindt",
+});
+
+var sponsorRisingYouth = new Card({
+  type: cardType.sponsor,
+  header: "Rising Youth",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/risingYouth.png",
+  darkLogo: "/images/Logos/4to1/risingYouthdarl.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "risingyouth.ca",
+  link: "https://www.risingyouth.ca/",
+});
+
+var sponsorURI = new Card({
+  type: cardType.sponsor,
+  header: "Undergraduate Research Initiative",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/uriColour.png",
+  darkLogo: "/images/Logos/4to1/uriColour.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "ualberta.ca",
+  link: "https://www.ualberta.ca/current-students/undergraduate-research-initiative/index.html",
+});
+
+var sponsorPrintMachine = new Card({
+  type: cardType.sponsor,
+  header: "Print Machine",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/printMachine.png",
+  darkLogo: "/images/Logos/4to1/printMachinedark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "printmachine.ca",
+  link: "https://printmachine.ca/",
+});
+
+var sponsorUAIS = new Card({
+  type: cardType.sponsor,
+  header: "Undergraduate Artificial Intelligence Society",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/UAIS.png",
+  darkLogo: "/images/Logos/4to1/UAIS.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("May 1, 2022 23:59"),
+  buttonText: "uais.dev",
+  link: "https://uais.dev/",
+});
+
+
+
 var featuredCards = [
   natChatCardHome,
 ];
@@ -806,6 +1494,26 @@ var moreEventCards = [
   natHacksCard,
 ];
 
+var partnerCards = [
+  sponsorOpenBCI,
+  sponsorCampusAlbertaNeuroscience,
+  sponsorHunterHub,
+  sponsorAltaML,
+  sponsorBranchOutNeurologicalFoundation,
+  sponsorThinAirLabs,
+  sponsorUAFOS,
+  sponsorUpsideDownLabs,
+  sponsorBMEUC,
+  sponsorPreciscionHealthUA,
+  sponsorAI4S,
+  sponsorFORMDCD,
+  sponsorCybera,
+  sponsorMuse,
+  sponsorRemBRAINdt,
+  sponsorRisingYouth,
+  sponsorURI
+];
+
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
 var homePageCardsElement = document.getElementById("homePageCards");
 var currentProjectCardsElement = document.getElementById("currentProjectCards");
@@ -813,6 +1521,11 @@ var pastProjectCardsElement = document.getElementById("pastProjectCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
 var moreEventCardsElement = document.getElementById("moreEventCards");
+
+var partnerCardsPlatinum = document.getElementById("partnerCardsPlatinum");
+var partnerCardsGold = document.getElementById("partnerCardsGold");
+var partnerCardsSilver = document.getElementById("partnerCardsSilver");
+var partnerCardsBronze = document.getElementById("partnerCardsBronze");
 
 if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Add all present and future featured event cards to the featured list,
@@ -842,4 +1555,27 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Add all of the moreEvent cards to the moreEvents section.
   moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
 
+} else if (partnerCardsPlatinum && partnerCardsGold && partnerCardsSilver && partnerCardsBronze) { // partners.html 
+  // Randomize the order we display sponsors
+  const shuffledArray = partnerCards.sort((a, b) => 0.5 - Math.random()); 
+  shuffledArray
+    .mutate(card => card.setDark(false))
+    .forEach(card => {
+      switch(this.determineDisplayTier(card.eventsSponsored)) {
+        case sponsorshipTier.platinum:
+          partnerCardsPlatinum.appendChild(card.generateElement());
+          break;
+        case sponsorshipTier.gold:
+          partnerCardsGold.appendChild(card.generateElement());
+          break;
+        case sponsorshipTier.silver:
+          partnerCardsSilver.appendChild(card.generateElement());
+          break;
+        case sponsorshipTier.bronze:
+          partnerCardsBronze.appendChild(card.generateElement());
+          break;
+        default:
+          console.error("Failed to generate a sponsor card. Ensure every sponsor has an event sponsored");
+      }
+    });
 }
