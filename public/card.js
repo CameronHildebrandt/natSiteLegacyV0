@@ -342,8 +342,6 @@ class Card {
       tooltipContainer.appendChild(eventTag);
       tooltipContainer.appendChild(tooltip);
       container.appendChild(tooltipContainer);
-
-      console.log(container);
     });
 
     return container;
