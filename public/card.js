@@ -937,14 +937,14 @@ var natChatCard = new Card({
 });
 
 var natChatCardHome = new Card({
-  header: "NATChat: Neurotech in Gaming",
+  header: "NATChat: Neurotech in Medicine",
   paragraph: `A <b>FREE</b> virtual chat session hosted by NeurAlbertaTech. We invite guest speakers to talk about important topics in neuroscience, tech, and the neurotech industry. At this event you will have the chance to win some exclusive NAT swag and more importantly, you will have the chance to build your network and expand your professional reach.`,
-  image: "/images/event/natChat/natChatLogo.png",
+  image: "/images/event/natChat/natChatInMedicine.png",
   buttonText: "Learn More",
   link: "/event/natchat.html",
   location: "natFlat (CCIS L1)",
-  startDate: new Date("October 27, 2021 17:00"),
-  endDate: new Date("October 27, 2021 19:00"),
+  startDate: new Date("March 23, 2022 17:00"),
+  endDate: new Date("March 23, 2022 19:00"),
   dark: false,
   featured: true,
 });
