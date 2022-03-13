@@ -28,6 +28,16 @@
 
     <!-- Enable Reactive Website -->
     <meta name="viewport" content="width=device-width">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RN71WM9LGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RN71WM9LGS');
+    </script>
   </head>
 
   <body>
@@ -43,6 +53,7 @@
       <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
       <a href="/team.html"><button class="mobilePageLink">Team</button></a>
       <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/natflat.html"><button class="mobilePageLink">natFlat</button></a>
       <a href="/community.html"><button class="mobilePageLink">Community</button></a>
       <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
     </div>
@@ -52,6 +63,7 @@
 
       <a href="/contact.html"><button class="pageLink">Contact</button></a>
       <a href="/community.html"><button class="pageLink">Community</button></a>
+      <a href="/natflat.html"><button class="pageLink">natFlat</button></a>
       <a href="/events.html"><button class="pageLink">Events</button></a>
       <a href="/team.html"><button class="pageLink">Team</button></a>
       <a href="/projects.html"><button class="pageLink">Projects</button></a>
@@ -124,10 +136,10 @@
 
           <div style="background-color: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px; padding-top: 30px; padding-bottom: 1px;">
             <!-- <p class="paragraphGradHeader">
-              <b>Fa21 workshops are now open for registration!</b><br>
+              <b>Wi22 workshops are now open for registration!</b><br>
             </p> -->
             <p class="paragraph">
-              <b>Wi22 workshops will open for registration soon!</b>
+              <b>Su22 workshops will open for registration soon!</b>
               Learn all that you need to know to get off the ground with brain computer interfacing!
               <br><br>
               These workshops, offered by NATnl, will all be 100% virtual.
@@ -157,7 +169,7 @@
             <div id="smallInfoBlockMedia">
               <image src="/images/workshop/swLogo.png" id="eventImageNoHover" alt="Info Night Image"></image>
               <button id="smallButton" onclick="toggleCurriculum(0)" class="curriculumButton0">Curriculum</button>
-              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8fmWpcWlVjm4pnyda0qSkhqni1kvFY5FW7fY5aSC4IyZ6yw/viewform?usp=pp_url&entry.1599473611=Stream" target="_blank"><button id=smallButton>Join</button></a> -->
+              <!-- <a href="https://forms.gle/J6QtRW1g5fXY1t2S6" target="_blank"><button id=smallButton>Join</button></a> -->
             </div>
 
             <div id="smallInfoBlockText">
@@ -183,7 +195,7 @@
                 </p>
 
                 <p class="paragraph">
-                  Software workshop sessions start Monday, September 27th, running every following Monday from 7pm-8pm MT.
+                  Software workshop sessions start Monday, January 31st, running every following Monday from 6pm-7pm MT.
                   <br><br><u><b><span id="software" style="cursor: pointer;">More Information</span></b></u>
                 </p>
 
@@ -212,7 +224,9 @@
 
             <div id="smallInfoBlockMedia">
               <image src="/images/workshop/hwLogo.png" id="eventImageNoHover" alt="Info Night Image"></image>
-              <button id="smallButton" onclick="toggleCurriculum(1)" class="curriculumButton1">Curriculum</button>
+              <!-- ~~ TEMP!!! Uncomment when ws is offered again ~~ -->
+              <!-- <button id="smallButton" onclick="toggleCurriculum(1)" class="curriculumButton1">Curriculum</button> -->
+              <a href="https://docs.google.com/document/d/1G4d9--_-06lAl80L4LlnYIGnqYb0YNMj8UaFjLj2eLA/edit?usp=sharing" target="_blank"><button id="smallButton" class="curriculumButton1">Curriculum</button></a>
               <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLScaXdYsKDEXVLr8o2R8NlGZPuLLzGpWeURtnAMhWic9jXG0A/viewform?usp=pp_url&entry.1325395918=Stream"><button id=smallButton>Join</button></a> -->
             </div>
 
@@ -228,16 +242,19 @@
 
               <div class="smallInfoCardContentContainer" id="smallInfoCardContentContainer1">
                 <p class="paragraph">
-                Learn to build your own BCI hardware, from the comfort of your own home. This workshop will teach participants critical Circuit Design skills and how to apply them in creating an EEG device. Enrollment fee includes the cost of basic circuit components, a printed circuit board, an arduino nano, and shipping expenses. Limited to those currently residing in Canada. No previous experience required. <b>This workshop contains a setup "Day 0" workshop with James on September 29th to get you all set up for the series!</b>
+                Learn to build your own BCI hardware, from the comfort of your own home. This workshop will teach participants critical Circuit Design skills and how to apply them in creating an EEG device. Enrollment fee includes the cost of basic circuit components, a printed circuit board, an arduino nano, and shipping expenses. Limited to those currently residing in Canada. No previous experience required.
                 <br><br>
                 </p>
                 <p class="paragraph">
-                  <b>Workshop Full!</b><br>
+                  <b>This Workshop Will be Offered Next Semester!</b><br>
                 </p>
+                <!-- <p class="paragraph">
+                  <b>Workshop Full!</b><br>
+                </p> -->
                 <p class="paragraph">
-                  Workshop sessions start in September, running every Wednesday from 7pm-8pm MT.<br>
-                  We are currently limiting the signups for this workshop to ensure that everything runs smoothly and so that everyone attending has access to quality assistance when needed!<br>
-                  Be sure to <a href="/slack.html" id="uncoloredLink">join our Slack</a> and <a href="https://forms.gle/NxVA1VBqu8VrxjzT6" id="uncoloredLink">signup for the newsletter</a> so you are one of the first to know when we open up registration for the Winter semester!
+                  <!-- Workshop sessions start in September, running every Wednesday from 7pm-8pm MT.<br>
+                  We are currently limiting the signups for this workshop to ensure that everything runs smoothly and so that everyone attending has access to quality assistance when needed!<br> -->
+                  We’re taking a short break on this workshop - be sure to <a href="/slack" id="uncoloredLink">join our Slack</a> and <a href="/newsletter" id="uncoloredLink">signup for the newsletter</a> so you are one of the first to know when we are offering this workshop again!
 
                 <br><br>
                 <u><b><span id="hardware" style="cursor: pointer;">More Information</span></b></u>
@@ -274,7 +291,9 @@
 
             <div id="smallInfoBlockMedia">
               <image src="/images/workshop/mlLogo.png" id="eventImageNoHover" alt="Info Night Image"></image>
-              <button id="smallButton" onclick="toggleCurriculum(2)" class="curriculumButton2">Curriculum</button>
+              <!-- ~~ TEMP!!! Uncomment when ws is offered again ~~ -->
+              <!-- <button id="smallButton" onclick="toggleCurriculum(2)" class="curriculumButton2">Curriculum</button> -->
+              <a href="https://docs.google.com/document/d/19qcNUZy3q3I7CRAJM4mREK27uPN7MiQ7R7IcshXYGdU/edit?usp=sharing" target="_blank"><button id="smallButton" class="curriculumButton2">Curriculum</button></a>
               <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8fmWpcWlVjm4pnyda0qSkhqni1kvFY5FW7fY5aSC4IyZ6yw/viewform?usp=pp_url&entry.770205424=Stream" target="_blank"><button id=smallButton>Join</button></a> -->
 
             </div>
@@ -298,11 +317,15 @@
                   <b>Now open for registration!</b><br>
                 </p> -->
                 <p class="paragraph">
-                  <b>Workshop Full!</b><br>
+                  <b>This Workshop Will be Offered Next Semester!</b><br>
                 </p>
+                <!-- <p class="paragraph">
+                  <b>Workshop Full!</b><br>
+                </p> -->
 
                 <p class="paragraph">
-                  Machine Learning workshop sessions start Tueday, September 28th, running every following Tueday from 7pm-8pm MT.
+                  <!-- Machine Learning workshop sessions start Tueday, September 28th, running every following Tueday from 7pm-8pm MT. -->
+                  We’re taking a short break on this workshop - be sure to <a href="/slack" id="uncoloredLink">join our Slack</a> and <a href="/newsletter" id="uncoloredLink">signup for the newsletter</a> so you are one of the first to know when we are offering this workshop again!
                   <br><br><u><b><span id="ml" style="cursor: pointer;">More Information</span></b></u>
                 </p>
 
@@ -329,7 +352,9 @@
 
             <div id="smallInfoBlockMedia">
               <image src="/images/workshop/nrLogo.png" id="eventImageNoHover" alt="Info Night Image"></image>
-              <button id="smallButton" onclick="toggleCurriculum(3)" class="curriculumButton3">Curriculum</button>
+              <!-- ~~ TEMP!!! Uncomment when ws is offered again ~~ -->
+              <!-- <button id="smallButton" onclick="toggleCurriculum(3)" class="curriculumButton3">Curriculum</button> -->
+              <a href="https://docs.google.com/document/d/1gc-iH2jAMp6PQQ_zyNjMQ9AGHEoUOtLWpMQhMwOvYwE/edit?usp=sharing" target="_blank"><button id="smallButton" class="curriculumButton3">Curriculum</button></a>
               <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8fmWpcWlVjm4pnyda0qSkhqni1kvFY5FW7fY5aSC4IyZ6yw/viewform?usp=pp_url&entry.1654845901=Stream" target="_blank"><button id=smallButton>Join</button></a> -->
             </div>
 
@@ -352,11 +377,15 @@
                   <b>Now open for registration!</b><br>
                 </p> -->
                 <p class="paragraph">
-                  <b>Workshop Full!</b><br>
+                  <b>This Workshop Will be Offered Next Semester!</b><br>
                 </p>
+                <!-- <p class="paragraph">
+                  <b>Workshop Full!</b><br>
+                </p> -->
 
                 <p class="paragraph">
-                  Neuro workshop sessions start Thursday, September 30th, running every following Thursday from 7pm-8pm MT.
+                  <!-- Neuro workshop sessions start Thursday, September 30th, running every following Thursday from 7pm-8pm MT. -->
+                  We’re taking a short break on this workshop - be sure to <a href="/slack" id="uncoloredLink">join our Slack</a> and <a href="/newsletter" id="uncoloredLink">signup for the newsletter</a> so you are one of the first to know when we are offering this workshop again!
 
                   <br><br><u><b><span id="neuro" style="cursor: pointer;">More Information</span></b></u>
                 </p>
@@ -387,7 +416,7 @@
               - Specify which workshop(s) you are paying for in the eTransfer notes.<br>
               <!-- - If applicable, send the transfer with the password "neuralbertatech" (all lowercase).<br> -->
               - If you are in multiple workshops, please send all in one etransfer.<br>
-              - Application deadline is October 1st, 2021.
+              - Application and payment deadline are both February 7th, 2022.
               <br><br>
               <!-- Each of the streams have a $20* fee, which covers every one of it's 10 sessions, which means it will only cost you $2/session (slightly cheaper than uni classes)! --> The workshop fee is only in place to allow us to host the highest quality workhops and it is not intended as a barrier of entry, please <a href="mailto:neuralbertatech@gmail.com" id="uncoloredLink">email us</a> if this fee is a barrier and we can work something out.
               <br>
@@ -423,7 +452,7 @@
 
           <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Presenters</h1>
 
-          <a name="Eden"></a>
+          <!-- <a name="Eden"></a>
           <div id="darkLargeInfoBlock">
             <h1 class="subTitle" style="color: rgba(240,240,240,1);">Eden Redman</h1>
             <div id="largeInfoContents">
@@ -445,8 +474,32 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
+
+
+          <a name="Noah"></a>
+          <div id="darkLargeInfoBlock">
+            <h1 class="subTitle" style="color: rgba(240,240,240,1);">Noah Batiuk</h1>
+            <div id="largeInfoContents">
+
+              <div id="largeInfoBlockMedia">
+                <div id="largeMediaFrameNoHover">
+
+                  <img src="/images/leaders/noahCropped.jpg" style="width: 100%;"></img>
+
+                </div>
+                <a href="https://www.linkedin.com/in/noah-batiuk/" target="_blank"><button id="smallButton">LinkedIn</button></a>
+              </div>
+
+              <div id="largeInfoBlockText">
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">natNL Director of Events</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a><br>
+                  Hi, I’m Noah, and I’m NeurAlbertaTech’s token Engineering student! Over the past few years I have had the amazing opportunity to help run events, workshops and coding competitions all aimed at introducing beginners to the world of computer programming. I absolutely love to teach people about coding, and I cannot wait to begin presenting workshops as a part of NAT’s Presenter Team!
+              </div>
+            </div>
+          </div>
 
 
           <a name="Cameron"></a>
@@ -464,10 +517,11 @@
               </div>
 
               <div id="largeInfoBlockText">
-                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">natNL Director of Technology, natUA President, Brain Drone Team Lead</div>
+                <div class="subSubTitle" style="color: rgba(240,240,240,1); margin-bottom: 15px;">natNL Director of Technology, natUA President</div>
                 <p class="paragraph" style="color: rgba(240,240,240,1);">
-                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a>, <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a><br>
-                  Hey, I’m Cameron and I’m in my third year of a computing science degree at the UofA! I usually focus on helping with anything that has to do with programming, but I’ll help out with anything that needs getting done. I’m looking forward to our new new workshop series and I’m really looking forward to meeting you all!
+                  <b>Presenting in: </b> &nbsp;<a href="#Software" id="uncoloredLink">Software</a><br>
+                  <!-- , <a href="#ML" id="uncoloredLink">Machine Learning</a>, <a href="#Hardware" id="uncoloredLink">Hardware</a><br> -->
+                  Hey, I’m Cameron and I’m in my fourth year of a computing science degree at the UofA! I usually focus on helping with anything that has to do with programming, but I’ll help out with anything that needs getting done. I’m looking forward to our new new workshop series and I’m really looking forward to meeting you all!
               </div>
             </div>
           </div>
@@ -500,7 +554,7 @@
 
 
 
-          <a name="Araz"></a>
+          <!-- <a name="Araz"></a>
           <div id="darkLargeInfoBlock">
             <h1 class="subTitle" style="color: rgba(240,240,240,1);">Araz Minhas</h1>
             <div id="largeInfoContents">
@@ -522,11 +576,11 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
-          <a name="David"></a>
+          <!-- <a name="David"></a>
           <div id="darkLargeInfoBlock">
             <div class="subTitle" style="color: rgba(240,240,240,1);">David Lam</div>
             <div id="largeInfoContents">
@@ -548,9 +602,9 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
-
+<!-- 
           <a name="Gino"></a>
           <div id="darkLargeInfoBlock">
             <h1 class="subTitle" style="color: rgba(240,240,240,1);">Giancarlo Pernudi Segura</h1>
@@ -573,7 +627,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
           <!-- <a name="Matthew"></a>
@@ -601,7 +655,7 @@
           </div> -->
 
 
-          <a name="Paul"></a>
+          <!-- <a name="Paul"></a>
           <div id="darkLargeInfoBlock">
             <h1 class="subTitle" style="color: rgba(240,240,240,1);">Paul Saunders</h1>
             <div id="largeInfoContents">
@@ -623,11 +677,11 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
-
+<!-- 
           <a name="Nicole"></a>
           <div id="darkLargeInfoBlock">
             <h1 class="subTitle" style="color: rgba(240,240,240,1);">Nicole Wlasitz</h1>
@@ -650,11 +704,11 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
-          <a name="James"></a>
+          <!-- <a name="James"></a>
           <div id="darkLargeInfoBlock">
             <h1 class="subTitle" style="color: rgba(240,240,240,1);">James Davis</h1>
             <div id="largeInfoContents">
@@ -675,7 +729,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
