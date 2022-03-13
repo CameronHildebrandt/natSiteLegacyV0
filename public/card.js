@@ -383,12 +383,13 @@ class Card {
 
   generateElement() {
     // For partner card: give them an anchor tag, link to anchor from index.html
+    const today = new Date();
     var rootBlockType = "smallInfoBlock";
     var rootBlockStyle = "margin-bottom: 0px";
     var contentsType = "smallInfoContents";
     var textColorStyle = "";
     var buttonType = "smallButton";
-    var mediaFrameType = "smallMediaFrame";
+    var mediaFrameType = "smallInfoBlockMedia";
     var mediaImageType = "eventImageNoHover";
     var mediaHref = "";
     var mediaAltText = this.altText;
@@ -396,7 +397,6 @@ class Card {
 
     // sponsorship card exceptions
     if(this.type == cardType.sponsor) {
-      const today = new Date();
       if(this.endDate < today) {
         console.warn(`No longer displaying sponsorship card for ${this.header}. The sponsorship end date has been reached.`);
         return document.createElement("div");
@@ -417,6 +417,12 @@ class Card {
       }
 
       // The gold and silver cards are basically just normal cards, they don't need a special generate function.
+    }
+
+    // Do not allow link clicking for past events.
+    if(this.endDate !== null && this.endDate < today) {
+      this.link = "";
+      this.buttonText = "";
     }
 
     if (this.large) {
@@ -892,12 +898,12 @@ var alphaBlasterCard = new Card({
 
 var natUriCard = new Card({
   header: "NAT + URI: Summer Funding Opportunities",
-  subHeader: "RSVPs are open now!",
+  // subHeader: "RSVPs are open now!",
   paragraph: `NeurAlbertaTech and the Undergraduate Research Initiative present an interactive discussion on how you can contribute to local neurotechnology development. Learn about the project work done at NAT, how the URI is available to support summer research students with funding and resources, and (most importantly) how you can take advantage of these opportunities! Note: This is only open to Alberta-based undergraduate students.
   <br><br>
   <b>When:</b> Thursday, November 18, 17:00-18:00 MST<br>
   <b>Where:</b> Virtual - Link will be sent to those who RSVP.`,
-  image: "/images/event/misc./nuri.png",
+  image: "/images/event/misc/nuri.png",
   buttonText: "RSVP",
   link: "rsvp",
   location: "Virtual - Link will be sent to those who RSVP.",
@@ -930,8 +936,8 @@ var natChatCard = new Card({
   buttonText: "Learn More",
   link: "/event/natchat.html",
   location: "natFlat (CCIS L1)",
-  startDate: new Date("October 27, 2021 17:00"),
-  endDate: new Date("October 27, 2021 19:00"),
+  // startDate: new Date("March 23, 2022 17:00"),
+  // endDate: new Date("March 23, 2022 19:00"),
   dark: true,
   featured: true,
 });
@@ -943,8 +949,8 @@ var natChatCardHome = new Card({
   buttonText: "Learn More",
   link: "/event/natchat.html",
   location: "natFlat (CCIS L1)",
-  startDate: new Date("March 23, 2022 17:00"),
-  endDate: new Date("March 23, 2022 19:00"),
+  // startDate: new Date("March 23, 2022 17:00"),
+  // endDate: new Date("March 23, 2022 19:00"),
   dark: false,
   featured: true,
 });
