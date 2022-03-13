@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>NeurAlbertaTech</title>
+
+    <!-- Website created by Cameron Hildebrandt -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#7967e1">
+    <meta name="apple-mobile-web-app-title" content="NeurAlbertaTech">
+    <meta name="application-name" content="NeurAlbertaTech">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#323232">
+
+    <!-- Import JQuery -->
+    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+    <!-- External CSS -->
+    <link href="../style.css?v0.1" rel="stylesheet" type="text/css">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="../scrollBackground.js"></script>
+    <script type="text/javascript" src="../burgerController.js"></script>
+
+    <!-- Enable Reactive Website -->
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RN71WM9LGS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RN71WM9LGS');
+    </script>
+  </head>
+
+  <body>
+
+    <div id="burger">
+      <div class="burgerPart" id="topBun"></div>
+      <div class="burgerPart" id="patty"></div>
+      <div class="burgerPart" id="bottomBun"></div>
+    </div>
+
+    <div class="mobileMenu">
+      <a href="/index.html"><button class="mobilePageLink">Home</button></a>
+      <a href="/projects.html"><button class="mobilePageLink">Projects</button></a>
+      <a href="/team.html"><button class="mobilePageLink">Team</button></a>
+      <a href="/events.html"><button class="mobilePageLink">Events</button></a>
+      <a href="/natflat.html"><button class="mobilePageLink">natFlat</button></a>
+      <a href="/community.html"><button class="mobilePageLink">Community</button></a>
+      <a href="/contact.html"><button class="mobilePageLink">Contact</button></a>
+    </div>
+
+    <div id=headerBar>
+      <a href="/index"><image id="headerImg" src="/images/nat.svg" alt="NAT Logo"></image></a>
+
+      <a href="/contact.html"><button class="pageLink">Contact</button></a>
+      <a href="/community.html"><button class="pageLink">Community</button></a>
+      <a href="/natflat.html"><button class="pageLink">natFlat</button></a>
+      <a href="/events.html"><button class="pageLink">Events</button></a>
+      <a href="/team.html"><button class="pageLink">Team</button></a>
+      <a href="/projects.html"><button class="pageLink">Projects</button></a>
+      <a href="/index.html"><button class="pageLink">Home</button></a>
+    </div>
+
+    <div style="position:relative;"><div class="spinner"></div></div>
+    <img id="headerBGImg" lsrc="/images/event/hackathon.gif"></img>
+    <img id="headerBGDiv"></img>
+
+    <div class="popup" id="registerPopup">
+
+      <div>
+        <p class="popupClose" onClick="closePopup()">&times;</p>
+
+        <p class="subSubTitle" style="margin-bottom: 25px; margin-top: 0px;">How to Register</p>
+
+        <p class="paragraph">
+          <b>1.</b>&nbsp; Register as a participant on both Devpost <b>and</b> through NeurAlbertaTech's internal sign-up form. The individual registration deadline to receive exclusive natHACKS merch is <b>July 5 at 23:59 MDT</b>. The final registration deadline is <b>July 15 at 23:59 MDT</b>.<br>
+
+          <a href="https://nathacks.devpost.com" target="_blank"><button id="smallButton" style="width: 200px;">Devpost</button></a>
+          <a href="https://docs.google.com/forms/u/0/d/1uzneVn5_OoSVTCMK10yOB7T-Hy3xqbi2x11NyNFYTiE/viewform?edit_requested=true" target="_blank"><button id="smallButton" style="width: 200px; margin-left: 10px;">Signup Form</button></a>
+          <br><br>
+
+
+          <b>2.</b>&nbsp; Apply for brain-computer interface hardware to use during the event (if desired). The hardware application deadline is <b>July 9 at 23:59 MDT</b>.<br>
+          <a href="https://forms.gle/HVib91yRsGBmRV937" target="_blank"><button id="smallButton" style="width: 410px;">Apply for Hardware</button></a>
+          <br><br>
+
+
+          <b>3.</b>&nbsp; Form a team (if desired). If you (like many others) are looking for teammates, we have a channel dedicated to that on Discord! Teams should be declared through NeurAlbertaTech's team declaration form no later than <b>July 30 at 17:00 MDT</b>.<br>
+          <a href="https://discord.gg/9uzebxZtQF" target="_blank"><button id="smallButton" style="width: 200px;">Discord</button></a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLoieiK5_6f_1uzXID71fcmrezD5RV1u24U5b2jpXlV6lhlg/viewform" target="_blank"><button id="smallButton" style="width: 200px; margin-left: 10px;">Team Form</button></a>
+          <br><br>
+
+          <b>That's all you need to do to get registered!</b><br> Next, be sure to join our Opening Ceremony on <b>July 30th at 18:00 MDT</b> and get ready to start hacking right after at <b>19:00 MDT</b>! Lastly, <b>MAKE SURE</b> to submit your project on Devpost before <b>August 2nd at 10:00 MDT</b>.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div id=scrollContainer>
+      <div id=divAboveMainForSnapping></div>
+      <div id=divAboveMainForGradient></div>
+
+      <div id="main">
+
+
+        <!-- <h1 class="subTitle" style="left: 2%;">natHACK</h1> -->
+
+
+        <div id="smallInfoBlock" style="margin-bottom: 0px;">
+          <div id="smallInfoContents">
+
+            <div id="smallInfoBlockMedia">
+              <image src="/images/event/natHACKs/nathanGlow.png" id="eventImageNoHover" alt="Info Night Image"></image>
+              <!-- <a href="https://docs.google.com/forms/u/0/d/1uzneVn5_OoSVTCMK10yOB7T-Hy3xqbi2x11NyNFYTiE/viewform?edit_requested=true"><button id=smallButton>Register</button></a> -->
+              <!-- <button id=smallButton onClick="displayPopup()">Register</button> -->
+            </div>
+
+            <div id="smallInfoBlockText">
+              <div class="subSubTitle" style="margin-bottom: 15px;">natHACKS</div>
+
+
+              <!-- <p class="paragraphGradHeader">
+                <b>Last Chance to Register - Deadline Extended!</b><br>
+              </p> -->
+              <p class="paragraph">
+                <b>Registration Closed</b><br>
+                Just getting your signup in last minute? That's the hackathon spirit! Signup now for Alberta’s inaugural brain-computer interface hackathon before our newly extended deadline of Thursday July 15th! This is a completely remote hackathon with more than $10,000 in prizes available!<br>
+                64-hour hackathon weekend, the event will combine workshops, networking opportunities, and more.<br>
+                This is an event for all skill levels.
+                <br><br>
+                Begins: <b>July 30th 5:00PM MDT</b><br>
+                Ends: <b>August 2nd 10:00AM MDT</b>
+                <br><br>
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <script type="text/javascript">
+          var popup = document.getElementById("registerPopup");
+          function displayPopup() {
+            popup.style.display = "flex";
+          }
+
+          function closePopup() {
+            popup.style.display = "none";
+          }
+
+          // close popup if user clicks on bg
+          window.onclick = function(event) {
+            if (event.target == popup) {
+              popup.style.display = "none";
+            }
+          }
+        </script>
+
+
+        <div class="cardStack">
+
+          <div id="smallInfoBlock" style="min-width: 300px;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/nathanChat.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Info Sessions</div>
+                <p class="paragraph" style="margin-bottom: 0px">
+                  You can join one of our info sessions, held through June and July for more details on natHACKS before signing up. You'll be able to see brain interface hardware in action and be able to engage with other members of the Alberta neurotech community!
+                </p>
+              </div>
+
+              <a href="https://docs.google.com/forms/d/1HBti1H8VYMpggySkyknBnwbG12ucGToF4esLYiJ9vT4"><button id=smallButton>RSVP</button></a>
+
+            </div>
+          </div>
+
+          <!-- <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/discord.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Discord</div>
+                <p class="paragraph">
+                  Jump right into the centre of the action and join our Discord! Here you can chat with others about neurotech, form teams, and get notified about all event happening before andd during natHACKS!
+                </p>
+              </div>
+
+              <a href=""><button id=smallButton>Join</button></a>
+
+            </div>
+          </div> -->
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/Award.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Prizes</div>
+                <p class="paragraph">
+                  Senior Streams (3):<br>
+                  1st Place:<b> $2000 CAD</b><br>
+                  2nd Place:<b> $1000 CAD</b><br><br>
+
+                  Junior Stream:<br>
+                  1st Place:<b> $1000 CAD</b><br>
+
+                  <!-- Note: due to legal restrictions, we will only award cash prizes to ressidents of Canada. -->
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/Experience.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Experience</div>
+                <p class="paragraph">
+                  You will have BCI tech shipped right to you, so you can have a hands on experience with real hardware!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/NATAcademia.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Learning</div>
+                <p class="paragraph">
+                  Leading up to and during the hackathon, we will be hosting mini workshops to get you up to speed on BCIs, Arduinos, Python, Git, and more!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/newMerch.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Swag Bags</div>
+                <p class="paragraph">
+                  You are eligible to receive exclusive NAT swag just by completing your submission!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="smallInfoBlock" style="min-width: 300px; margin-left: 0;">
+            <div id="smallInfoContents" style="display: inline;">
+
+              <div id="smallInfoBlockMedia" style="margin: 0 auto;">
+                <image src="/images/InfoNight/network.jpg" id="eventImageNoHover" alt="Info Night Image"></image>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px;">Networking</div>
+                <p class="paragraph">
+                  Building a network is important! One of the strongest factors contributing to successful job applications is your network. If you think you want to pursue a career in neurotech, neuroscience, or tech, this is the place to build your network!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="greyBG" style="padding-bottom: 0px;">
+          <!-- Tab links -->
+					<div class="tab">
+						<button class="tablinks" onclick="openTab(event, 'Schedule')" id="defaultOpen" style="margin-left: 2%;">Schedule</button>
+						<button class="tablinks" onclick="openTab(event, 'Workshops')">Workshops</button>
+            <button class="tablinks" onclick="openTab(event, 'Streams')">Streams</button>
+            <button class="tablinks" onclick="openTab(event, 'Hardware')">Hardware</button>
+            <button class="tablinks" onclick="openTab(event, 'Organizers')">Organizers</button>
+					  <button class="tablinks" onclick="openTab(event, 'Rules')" style="margin-right: 2%;">Rules</button>
+            <!-- <button class="tablinks" onclick="openTab(event, 'four')"  style="margin-right: 2%;">Amet</button> -->
+					</div>
+
+        </div>
+
+
+        <div id="Schedule" class="tabcontent">
+          <a name="schedule"></a>
+          <div id="smallInfoBlock">
+
+            <!-- <div class="subSubTitle" style="margin-bottom: 15px;">Schedule</div> -->
+
+            <div style="overflow: scroll">
+
+              <table class="curriculumTable">
+                <tr>
+                  <th class="curriculumTableHeaderSizerTime">Time</th>
+                  <th class="curriculumTableHeaderSizer">July 30th</th>
+                  <th class="curriculumTableHeaderSizer">July 31st</th>
+                  <th class="curriculumTableHeaderSizer">August 1st</th>
+                  <th class="curriculumTableHeaderSizer">August 2nd</th>
+                </tr>
+
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>10:00</b> - 11:00</td>
+                  <td rowspan="15" id="ctbgInvisible">
+                  <td rowspan="2" id="ctbgPink" class="altInfoContainer"><a href="#spws0" id="uncoloredLink"><span class="primaryInfo">Git Workshop</span><span class="altInfo">10:00 - 11:00</span></a></td>
+                  <td rowspan="1" style="vertical-align: text-top;">Hacking</td>
+                  <td rowspan="1" id="ctbgRed" class="altInfoContainer"><span class="primaryInfo"><b>Hacking Stops</b></span><span class="altInfo">10:00</span></td>
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="2" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">10:30 - 11:30</span> </td>
+                  <td rowspan="1" id="ctbgBlue" class="altInfoContainer"><span class="primaryInfo">Yoga</span><span class="altInfo">10:00 - 10:30</span></td>
+
+                </tr>
+                <tr>
+                  <td rowspan="1"><b>11:00</b> - 12:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1">Hacking</td>
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="3">Project Evaluation</td>
+                </tr>
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>12:00</b> - 13:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <td id="ctbgPurple" class="altInfoContainer"><span class="primaryInfo">Trivia (Round 1)</span><span class="altInfo">12:00 - 12:30</span></td>
+                  <td rowspan="1"> </td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1"> </td>
+                  <td id="ctbgPurple" class="altInfoContainer"><span class="primaryInfo">Trivia (Round 3)</span><span class="altInfo">12:30 - 13:00</span></td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>13:00</b> - 14:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="2" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">13:00 - 14:00</span> </td>
+                  <td rowspan="5"> </td>
+                  <td id="ctbgPurple" class="altInfoContainer"><span class="primaryInfo">Trivia (Round 5)</span><span class="altInfo">13:00 - 13:30</span></td>
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="2" id="ctbgGreen" class="altInfoContainer"><span class="primaryInfo">Closing Ceremony</span><span class="altInfo">13:30 - 14:30</span></td>
+                </tr>
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>14:00</b> - 15:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="2" id="ctbgPink" class="altInfoContainer"><a href="#spws1" id="uncoloredLink"><span class="primaryInfo">Business Workshop</span><span class="altInfo">14:00 - 15:00</span></a></td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="13" id="ctbgInvisible">
+                </tr>
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>15:00</b> - 16:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="4"> </td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td id="ctbgPurple" class="altInfoContainer"><span class="primaryInfo">Trivia (Round 4)</span><span class="altInfo">15:30 - 16:00</span></td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>16:00</b> - 17:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1"> </td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">16:30 - 17:00</span> </td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <td rowspan="2"><b>17:00</b> - 18:00</td>
+                  <!-- <td rowspan="2" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">17:00 - 18:00</span> </td> -->
+                  <td id="ctbgPurple" class="altInfoContainer"><span class="primaryInfo">Trivia (Round 2)</span><span class="altInfo">17:00 - 17:30</span></td>
+                  <td rowspan="5"> </td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr id="ctHalfHeight">
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1"> </td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr>
+                  <td><b>18:00</b> - 19:00</td>
+                  <td id="ctbgGreen" class="altInfoContainer"> <span class="primaryInfo">Opening Ceremony</span> <span class="altInfo">18:00 - 19:00</span></td>
+                  <td rowspan="1" id="ctbgPink" class="altInfoContainer"><a href="#spws2" id="uncoloredLink"><span class="primaryInfo">BCI4Kids Workshop</span><span class="altInfo">18:00 - 19:00</span></a></td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr>
+                  <td><b>19:00</b> - 20:00</td>
+                  <td id="ctbgRed" class="altInfoContainer"><span class="primaryInfo"><b>Hacking Starts</b></span><span class="altInfo">19:00</span></td>
+                  <td rowspan="1" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">19:00 - 20:00</span> </td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr>
+                  <td><b>20:00</b> - 21:00</td>
+                  <td rowspan="2" style="vertical-align: text-top;">Hacking</td>
+                  <td rowspan="3"> </td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+                <tr>
+                  <td><b>21:00</b> - 22:00</td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">21:30 - 22:30</span> </td>
+                </tr>
+                <tr>
+                  <td><b>22:00</b> - 23:00</td>
+                  <td rowspan="1" id="ctbgBlue" class="altInfoContainer"> <span class="primaryInfo">Networking Session</span> <span class="altInfo">22:00 - 23:00</span> </td>
+                  <!-- Rowspan Occupies Here -->
+                  <!-- Rowspan Occupies Here -->
+                  <td rowspan="1"> </td>
+                </tr>
+                <tr>
+                  <td><b>23:00</b> - 00:00</td>
+                  <td id="ctbgBlue" class="altInfoContainer"><span class="primaryInfo">Movie Night</span><span class="altInfo">23:00-0:30</span></td>
+                  <td id="ctbgBlue" class="altInfoContainer"><span class="primaryInfo">Movie Night</span><span class="altInfo">23:00-0:30</span></td>
+                  <td id="ctbgBlue" class="altInfoContainer"><span class="primaryInfo">Movie Night</span><span class="altInfo">23:00-0:30</span></td>
+                  <!-- Rowspan Occupies Here -->
+                </tr>
+              </table>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="Workshops" class="tabcontent">
+          <a name="workshops">
+          <div id="smallInfoBlock">
+            <!-- <div class="subSubTitle" style="margin-bottom: 15px;">Workshops</div> -->
+
+
+            <table class="curriculumTable">
+              <p class="paragraph">Pre-hack workshops</p>
+              <tr>
+                <th>Date</th>
+                <th>Workshop</th>
+                <th>Suggested Attendees</th>
+              </tr>
+
+              <tr>
+                <td>Asynchronous - 1 Hour</td>
+                <td><b>Python I</b></td>
+                <td>Beginner hackers using PyQt5/PyGame boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>Asynchronous - 1 Hour</td>
+                <td><b>Python II</b></td>
+                <td>Beginner hackers using PyQt5/PyGame boilerplate</td>
+              </tr>
+
+              <!-- <tr>
+                <td>Asynchronous - 1 Hour</td>
+                <td><b>Arduino Basics</b></td>
+                <td>All hackers using Arduino</td>
+              </tr>
+
+              <tr>
+                <td>Asynchronous - 1 Hour</td>
+                <td><b>Pi Basics</b></td>
+                <td>All hackers using Pi</td>
+              </tr> -->
+
+              <tr>
+                <td>Asynchronous - 1 Hour</td>
+                <td><b>Connecting Hardware</b></td>
+                <td>Everyone using commercial hardware</td>
+              </tr>
+
+              <tr>
+                <td>July 16th, 18:00 - 19:00</td>
+                <td><b>Neurotech Fundamentals</b></td>
+                <td>All Hackers</td>
+              </tr>
+
+              <tr>
+                <td>July 16th, 19:30 - 20:30</td>
+                <td><b>Software Project Management</b></td>
+                <td>Everyone, especially team leads</td>
+              </tr>
+
+              <tr>
+                <td>July 19th, 18:00 - 20:00</td>
+                <td><b>Python III</b></td>
+                <td>All hackers using PyQt5/PyGame boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 20th, 18:00 - 20:00</td>
+                <td><b>Python IV</b></td>
+                <td>All hackers using PyQt5/PyGame boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 21st, 18:00 - 19:30</td>
+                <td><b>Python ML</b></td>
+                <td>All hackers using PyQt5/PyGame boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 22st, 18:00 - 20:00</td>
+                <td><b>Brains@Play I</b></td>
+                <td>All hackers using Brains@Play boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 23rd, 18:00 - 20:00</td>
+                <td><b>Brains@Play II</b></td>
+                <td>All hackers using Brains@Play boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 26th, 18:00 - 20:00</td>
+                <td><b>PyQt5 Boiler Intro</b></td>
+                <td>All hackers using PyQt5 boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 27th, 13:00 - 13:30</td>
+                <td><b>Cybera Rapid Access Cloud for natHACKS</b></td>
+                <td>All hackers using cloud computing</td>
+              </tr>
+
+              <tr>
+                <td>July 27th, 18:00 - 19:00</td>
+                <td><b>Unity</b></td>
+                <td>All hackers using Unity boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 27th, 19:30 - 20:30</td>
+                <td><b>PyGame</b></td>
+                <td>All hackers using PyGame boilerplate</td>
+              </tr>
+
+              <tr>
+                <td>July 28th, 18:00 - 20:00</td>
+                <td><b>Circuit Design Fundamentals</b></td>
+                <td>All hackers using Ardunio/Pi</td>
+              </tr>
+
+              <tr>
+                <td>July 29th, 18:00 - 19:00</td>
+                <td><b>Hackathon 101</b></td>
+                <td>All Hackers</td>
+              </tr>
+
+              <tr>
+                <th>&nbsp</th>
+              </tr>
+            </table>
+
+            <table class="curriculumTable">
+              <p class="paragraph">Mid-Hackathon Workshops</p>
+              <tr>
+                <th>Date</th>
+                <th>Workshop</th>
+                <th>Suggested Attendees</th>
+              </tr>
+              <a name="spws0"
+              <tr>
+                <td>July 31st, 10:00 - 11:00</td>
+                <td><b>Intro to Git</b></td>
+                <td>Beginner Hackers</td>
+              </tr>
+
+              <a name="spws1">
+              <tr>
+                <td>July 31st, 14:00 - 15:00</td>
+                <td><b>Business</b></td>
+                <td>All Hackers</td>
+              </tr>
+
+              <a name="spws2">
+              <tr>
+                <td>July 31st, 18:00 - 19:00</td>
+                <td><b>BCI4Kids</b></td>
+                <td>All Recreation Stream Hackers</td>
+              </tr>
+
+            </table>
+
+
+          </div>
+        </div>
+
+        <div id="Streams" class="tabcontent">
+          <div class="execScrollContainer" style="margin-top: 15px; margin-bottom: 10px;">
+
+            <img src="/images/event/natHACKs/track0.png" class="simpleImage" style="margin-left: 2%;"></img>
+            <img src="/images/event/natHACKs/track1.png" class="simpleImage" style="margin-left: 15px;"></img>
+            <img src="/images/event/natHACKs/track2.png" class="simpleImage" style="margin-left: 15px;"></img>
+            <img src="/images/event/natHACKs/track3.png" class="simpleImage" style="margin-left: 15px;"></img>
+
+          </div>
+
+          <div id="smallInfoBlock" style="margin-top: 0px;">
+            <p class="paragraph" style="margin-top: 15px;">
+              All teams will have the chance to participate in a Track of their choice, with three Senior Tracks related to cutting-edge BCI topics, and a Junior Track for those new to the neurotech world. Project ideas and challenges for each Track will be provided closer to the event.
+            </p>
+          </div>
+        </div>
+
+        <div id="Hardware" class="tabcontent">
+          <img src="/images/event/natHACKs/hardware.png" class="simpleImage" style="margin-left: 25%; width: 50%; margin-top: 15px;"></img>
+
+          <div id="smallInfoBlock">
+            <p class="paragraphGradHeader" style="margin-top: 15px;">
+              <b>Application deadline extended to July 9th!</b><br>
+            </p>
+            <p class="paragraph">
+              • Apply to receive brain-computer interface hardware to use during the event!<br>
+              • Hardware will be shipped to eligible participants upon the payment of a deposit to NeurAlbertaTech (deposit waivers are in place for those in financial need).<br>
+              • Note that hardware use is not mandatory to succeed at the event. <a href="See the https://nathacks.devpost.com/resources" id="uncoloredLink">Resources section on Devpost</a> for details on eligibility.<br>
+            </p>
+          </div>
+        </div>
+
+        <div id="Organizers" class="tabcontent">
+          <div class="execScrollContainer" style="margin-top: 15px; margin-bottom: 10px;">
+
+            <div class="execContainer" style="margin-left: 2%; animation-delay: 10s; height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/nicole.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Nicole Wlasitz</div>
+              <div class="execTitle execTitleGraddirectors">Co-Executive Director</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/eden.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Eden Redman</div>
+              <div class="execTitle execTitleGraddirectors">Co-Executive Director</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/alan.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Alan Han</div>
+              <div class="execTitle execTitleGraddirectors">Senior Director of Events & Logistics</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/cameron2.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Cameron Hildebrandt</div>
+              <div class="execTitle execTitleGraddirectors">Senior Director of Education</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/noah.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Noah Batiuk</div>
+              <div class="execTitle execTitleGraddirectors" style="font-size: 16px;">Senior Director of Community Engagement</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/matthew2.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Matthew Danyluik</div>
+              <div class="execTitle execTitleGraddirectors">Director of Operations & Impact</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/james.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">James Davis</div>
+              <div class="execTitle execTitleGraddirectors">Director of Workshops</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/paul.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Paul Saunders</div>
+              <div class="execTitle execTitleGraddirectors">Director of Talent Engagement</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/gino.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName" style="font-size: 26px; margin-bottom: 5px;">Giancarlo Pernudi Segura</div>
+              <div class="execTitle execTitleGraddirectors">Director of Information Technology</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/david.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">David Lam</div>
+              <div class="execTitle execTitleGraddirectors">Director of Finance</div>
+            </div>
+
+            <div class="execContainer" style="height: 465px;">
+              <div class="execImageContainer">
+                <img src="/images/leaders/annette.jpg" class="execImage"></img>
+              </div>
+
+              <div class="execName">Annette Lau</div>
+              <div class="execTitle execTitleGraddirectors">Director of Design</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="Rules" class="tabcontent">
+          <div id="smallInfoBlock">
+            <p class="paragraph" style="margin-top: 15px;">
+              <b>No one really likes reading lots of rules, so let's hit the most important things here: </b><br>
+              <b>1.</b> We are only able to ship hardware to the US and Canada (except for Quebec)<br>
+              <b>2.</b> At least one team member must reside in Alberta to be elligible for cash awards<br><br>
+
+              If you're interested in reading the rest of the rules, visit <a href="https://docs.google.com/document/d/1dq57mijkfNhW1zNpNYMfB7YzS-_vv5RRQ708WGUxeS8" id="uncoloredLink">this document</a>!
+            </p>
+          </div>
+        </div>
+
+
+
+
+        <a name="partners"></a>
+        <div class="greyBG">
+
+          <h1 class="subTitle" style="color: rgba(240,240,240,1); left: 2%;">Partners</h1>
+
+          <!-- v PLATINUM v -->
+          <!-- <div class="paragraphGradHeaderPlatinum" style="left: 2%; position: relative;"><b>Platinum</b></div> -->
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/CANSquare.png" id="eventImageNoHoverWide" alt="CAN Logo"></image></div>
+                <a href="https://www.albertaneuro.ca"><button id="smallButton">albertaneuro.ca</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  Campus Alberta Neuroscience
+                  <p class="paragraphGradHeaderPlatinum"><b>&nbsp;&nbsp;Platinum Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Campus Alberta Neuroscience is delighted to be a gold level sponsor for natHACKs, hosted by NeurAlbertaTech and recognizes the significant impact this event brings to the neurotech industry and ecosystem in Alberta. CAN has a keen focus on providing opportunities for entrepreneurs working in Neuroscience and Mental Health across Alberta, with a particular interest in the development of the commercialization ecosystem, including supporting the development of new companies, supporting education and knowledge of entrepreneurship as well as securing new investment in the province.
+                  <br><br>
+                  CAN is a provincial organization committed to promoting and increasing the impact and outcomes of Alberta-wide collaborative research, education, translation and innovation initiatives in neuroscience and mental health.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/openBCIsquare.png" id="eventImageNoHoverWide" alt="OpenBCI Logo"></image></div>
+                <a href="https://www.openbci.com"><button id=smallButton>openbci.com</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  OpenBCI
+                  <p class="paragraphGradHeaderPlatinum"><b>&nbsp;&nbsp;Platinum Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/HunterHub.png" id="eventImageNoHoverWide" alt="Hunter Hub Logo"></image></div>
+                <a href="https://www.ucalgary.ca/hunter-hub"><button id="smallButton">ucalgary.ca</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  Hunter Hub
+                  <p class="paragraphGradHeaderPlatinum"><b>&nbsp;&nbsp;Platinum Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  The Hunter Hub for Entrepreneurial Thinking is the University of Calgary’s central community hub that transforms lives and economies through fostering entrepreneurial thinking in students, faculty and the community. Our mission is to create and support game-changing innovators and accelerate their ideas from conception to impact.<br><br>
+                  The Hunter Hub is proud to be a sponosor of natHACKS. Alberta is home to a strong entrepreneurial community, and there is vast potential in the neurotechnology field. natHACKS will inspire both beginners and experienced hackers to discover the incredible opportunities in this field.<br><br>
+                  We’re looking forward to being a part of Alberta’s first brain-computer interface hackathon!
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ^ PLATINUM ^ -->
+
+          <!-- v GOLD v -->
+
+          <div id="darkSmallInfoBlock">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/AltaML.png" id="eventImageNoHoverWide" alt="AltaML Logo"></image></div>
+                <a href="https://www.altaml.com"><button id=smallButton>altaml.com</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  AltaML
+                  <p class="paragraphGradHeaderGold"><b>&nbsp;&nbsp;Gold Sponsor</b></p>
+                </div>
+
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  AltaML is an Applied AI Studio for product innovation, guided by a purpose to elevate human potential through applied AI. We are a 2020 Deloitte Fast 50 Canada Companies-to-Watch winner, and were recognized with a 2020 Responsible AI Award by AI Global, now Responsible AI Institute. We work with organizations as an invested partner, bringing together our AI experts with their domain experts. Together, we create and deploy data-driven solutions that enable better decision making. We are a team of 120+ strong, working with partners across Canada and the U.S.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock" style="margin-bottom: 0px;">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/BONF.png" id="eventImageNoHoverWide" alt="Branch Out Neurological Foundation Logo"></image></div>
+                <a href="https://www.branchoutfoundation.com"><button id=smallButton>branchoutfoundation</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  Branch Out Neurological Foundation
+                  <p class="paragraphGradHeaderGold"><b>&nbsp;&nbsp;Gold Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Branch Out funds research into complementary and alternative modalities of treating brain disorders, which we have termed NeuroCAM. We added Neurotechnology as a modality to our funding mandate in 2016 to complement our existing research funding streams of Mind and Body Modalities, Nutraceutical treatments, and Personalized Medicine. We are thrilled to be supporting the innovation involving BCI technology at NeurAlbertaTech's natHACKS event. With applications ranging from diagnostic tools and biofeedback platforms in the general population to communication aids in neurodevelopmental populations, the technology that could emerge from natHACKS would actively advance our mandate of supporting laboratory ideas to community impact.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock" style="margin-bottom: 0px;">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/thinair.png" id="eventImageNoHoverWide" alt="Thin Air Logo"></image></div>
+                <a href="https://www.thinairlabs.ca"><button id=smallButton style="margin-bottom:5px;">thinairlabs.ca</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  Thin Air Labs
+                  <p class="paragraphGradHeaderGold"><b>&nbsp;&nbsp;Gold Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Thin Air Labs is an ecosystem studio building future-fit ventures for What’s Next. We ignite growth for many ventures, ecosystem partners and the innovation ecosystem itself creating massive human impact as well as investment return.<br>
+                  Thin Air Labs - Building What’s Next.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="darkSmallInfoBlock" style="margin-bottom: 0px;">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/FoS.png" id="eventImageNoHoverWide" alt="Faculty of Science Logo"></image></div>
+                <a href="https://www.ualberta.ca/science/index.html"><button id="smallButton">ualberta.ca/science</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  University of Alberta Faculty of Science
+                  <p class="paragraphGradHeaderGold"><b>&nbsp;&nbsp;Gold Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  The University of Alberta’s Faculty of Science is committed to supporting student innovation—and is proud to support NeurAlbertaTehch’s natHACKS hackathon. Student innovation can take many forms, from developing new technology to pursuing entrepreneurship. Supporting this experiential learning beyond the classroom is a key part of how we are training the next generation of talented scientists, innovators, and entrepreneurs.
+                  <!-- <br><br>
+                  The Faculty of Science is a research and teaching powerhouse dedicated to shaping the future by pushing the boundaries of knowledge in the classroom, laboratory, and field. Through exceptional teaching, learning, and research experiences, we competitively position our students, staff, and faculty for current and future success. -->
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div id="darkSmallInfoBlock" style="margin-bottom: 0px;">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/udlab.png" id="eventImageNoHoverWide" alt="Faculty of Science Logo"></image></div>
+                <a href="https://upsidedownlabs.tech"><button id="smallButton">upsidedownlabs.tech</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 5px; color: rgba(240,240,240,1);">
+                  Upside Down Labs
+                  <p class="paragraphGradHeaderGold"><b>&nbsp;&nbsp;Gold Sponsor</b></p>
+                </div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Upside Down Labs is an Indian tech startup based out of New Delhi, making the technology advancement process efficient for all. Their open-source hardware and software products benefit makers, researchers, students, and learners around the world. Currently, they are working on projects related to Bio-Electronics and DIY Neuroscience.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- ^ GOLD ^ -->
+
+
+
+          <div class="cardStack" style="margin-top: 0px; margin-bottom: 0px;">
+
+
+
+            <!-- v SILVER v -->
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/BMEuCalgary.png" id="eventImageNoHoverWide" alt="BME uCalgary Logo"></image></div>
+                  <a href="https://research.ucalgary.ca/bme/home"><button id=smallButton style="margin-bottom:5px;">ucalgary.ca/bme</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderSilver" style="margin-bottom: 0px; margin-top: 5px;"><b>Silver Sponsor</b></p>
+                  <!-- <div class="subSubTitle" style="margin-top: 0px;" style="color: rgba(240,240,240,1);">Biomedical Engineering uCalgary</div> -->
+                </div>
+
+              </div>
+            </div>
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/precHealth.png" id="eventImageNoHoverWide" alt="Precision Health Logo"></image></div>
+                  <a href="https://www.ualberta.ca/precision-health/index.html"><button id=smallButton style="margin-bottom:5px;">ualberta.ca</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderSilver" style="margin-bottom: 0px; margin-top: 5px;"><b>Silver Sponsor</b></p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- ^ SILVER ^ -->
+
+
+            <!-- v BRONZE v -->
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/ai4s.png" id="eventImageNoHoverWide" alt="AI4Society Logo"></image></div>
+                  <a href="https://ai4society.ca"><button id=smallButton style="margin-bottom:5px;">ai4sociey.ca</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/commSci.png" id="eventImageNoHoverWide" alt="Communication Sciences and Disorders Logo"></image></div>
+                  <a href="https://www.ualberta.ca/communications-sciences-and-disorders/index.html"><button id=smallButton style="margin-bottom:5px;">ualberta.ca</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                  <!-- <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Faculty of Rehabilitation Medicine</div> -->
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/cybera.png" id="eventImageNoHoverWide" alt="Thin Air Logo"></image></div>
+                  <a href="https://www.cybera.ca"><button id=smallButton style="margin-bottom:5px;">cybera.ca</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/muse2.png" id="eventImageNoHoverWide" alt="Muse Logo"></image></div>
+                  <a href="https://choosemuse.com"><button id=smallButton style="margin-bottom:5px;">choosemuse.com</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/rembraindt.png" id="eventImageNoHoverWide" alt="Rising Youth Logo"></image></div>
+                  <a href="https://linktr.ee/rembraindt"><button id=smallButton style="margin-bottom:5px;">rembraindt</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                  <!-- <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">RemBRAINdt</div> -->
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/RisingYouth.webp" id="eventImageNoHoverWide" alt="Rising Youth Logo"></image></div>
+                  <a href="https://www.risingyouth.ca"><button id=smallButton style="margin-bottom:5px;">risingyouth.com</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                  <!-- <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Rising Youth</div> -->
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/uriColour.png" id="eventImageNoHoverWide" alt="URI Logo"></image></div>
+                  <a href="https://www.ualberta.ca/current-students/undergraduate-research-initiative/index.html"><button id=smallButton style="margin-bottom:5px;">ualberta.ca</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                  <!-- <div class="subSubTitle" style="margin-bottom: 15px;" style="color: rgba(240,240,240,1);">Undergraduate Research Initiative</div> -->
+                </div>
+
+              </div>
+            </div>
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/printMachine.png" id="eventImageNoHoverWide" alt="Print Machine Logo"></image></div>
+                  <a href="https://printmachine.ca"><button id=smallButton style="margin-bottom:5px;">printmachine.ca</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="darkSmallInfoBlock" style="width: 300px; margin-left: 0;">
+              <div id="smallInfoContents" style="display: inline;">
+
+                <div id="smallInfoBlockMedia">
+                  <div id="eventImageWideFrame"><image src="/images/Logos/PartnerLogos/UAIS.svg" id="eventImageNoHoverWide" alt="UAIS Logo"></image></div>
+                  <a href="https://uais.dev"><button id=smallButton>uais.dev</button></a>
+                </div>
+
+                <div id="smallInfoBlockText">
+                  <p class="paragraphGradHeaderBronze" style="margin-bottom: 0px; margin-top: 5px;"><b>Bronze Sponsor</b></p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ^ BRONZE ^ -->
+
+          </div>
+
+
+
+          <div id="darkSmallInfoBlock" style="margin-top: 0px;">
+            <div id="smallInfoContents">
+
+              <div id="smallInfoBlockMedia">
+                <image src="/images/event/partnership.png" id="eventImageNoHover" alt="Info Night Image"></image>
+                <a href="mailto:neuralbertatech@gmail.com?subject=We're%20Interested%20in%20Partnering%20With%20You!&body=Hey%20NeurAlbertaTech,%0d%0dWe're%20interested%20in%20helping foster%20the%20future%20of%20innovators%20and%20are%20considering%20sponsoring%20natHACK!%20Would%20you%20be%20able%20to%20send%20us%20a%20copy%20of%20your%20sponsorship%20document?" rel="EMAIL"><button id=smallButton>Contact Us</button></a>
+              </div>
+
+              <div id="smallInfoBlockText">
+                <div class="subSubTitle" style="margin-bottom: 15px; color: rgba(240,240,240,1);">Your Logo Here</div>
+                <p class="paragraph" style="color: rgba(240,240,240,1);">
+                  Interested in helping further our goals of demystifying neurotechnology and fostering future innovators? Your partnertship makes this whole event possible and helps us push the bleeding edge of neurotech. Please <a href="mailto:neuralbertatech@gmail.com?subject=We're%20Interested%20in%20Partnering%20With%20You!&body=Hey%20NeurAlbertaTech,%0d%0dWe're%20interested%20in%20helping foster%20the%20future%20of%20innovators%20and%20are%20considering%20sponsoring%20natHACK!%20Would%20you%20be%20able%20to%20send%20us%20a%20copy%20of%20your%20sponsorship%20document?" rel="EMAIL" id="uncoloredLink" style="color: rgba(240,240,240,1);">contact us</a> if you would be interested in recieving a copy of our sponsorship document and learning more about the long list of benefits we offer.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      // To allow Burger to Work
+      menuToggle();
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        var showingReadMores = [false, false, false, false];
+
+        $('#hardware').click(function(){
+          if(showingReadMores[0]) {
+            document.getElementById("hardwarePara").style.display="none"
+            document.getElementById("hardware").innerHTML = "More Information"
+            showingReadMores[0] = false;
+          } else {
+            document.getElementById("hardwarePara").style.display="block"
+            document.getElementById("hardware").innerHTML = "Less Information"
+            showingReadMores[0] = true;
+          }
+        });
+
+        $('#software').click(function(){
+          if(showingReadMores[1]) {
+            document.getElementById("softwarePara").style.display="none"
+            document.getElementById("software").innerHTML = "More Information"
+            showingReadMores[1] = false;
+          } else {
+            document.getElementById("softwarePara").style.display="block"
+            document.getElementById("software").innerHTML = "Less Information"
+            showingReadMores[1] = true;
+          }
+        });
+
+        $('#neuro').click(function(){
+          if(showingReadMores[2]) {
+            document.getElementById("neuroPara").style.display="none"
+            document.getElementById("neuro").innerHTML = "More Information"
+            showingReadMores[2] = false;
+          } else {
+            document.getElementById("neuroPara").style.display="block"
+            document.getElementById("neuro").innerHTML = "Less Information"
+            showingReadMores[2] = true;
+          }
+        });
+
+        $('#ml').click(function(){
+          if(showingReadMores[3]) {
+            document.getElementById("mlPara").style.display="none"
+            document.getElementById("ml").innerHTML = "More Information"
+            showingReadMores[3] = false;
+          } else {
+            document.getElementById("mlPara").style.display="block"
+            document.getElementById("ml").innerHTML = "Less Information"
+            showingReadMores[3] = true;
+          }
+        });
+
+      })
+    </script>
+
+    <script>
+      var states = [false, false, false, false];
+
+      function toggleCurriculum(num) {
+
+        if(states[num]) {
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "block";
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "relative";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.display = "none";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.position = "absolute";
+          document.querySelector(".curriculumButton" + num.toString()).innerHTML = "Curriculum";
+          states[num] = false;
+        }
+        else {
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.display = "none";
+          document.querySelector("#smallInfoCardContentContainer" + num.toString()).style.position = "absolute";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.display = "block";
+          document.querySelector("#curriculumTableContainer" + num.toString()).style.position = "relative";
+          document.querySelector(".curriculumButton" + num.toString()).innerHTML = "Info";
+          states[num] = true;
+        }
+
+      }
+    </script>
+
+
+    <script>
+      const API_KEY = 'AIzaSyC9Vyuw1ymOH9gttGEpgQx7jwgONGgQVjI';
+      const RANGE = 'A1:D11';
+
+      // In order [software, hardware, ml, neuro]
+      const SHEET_IDS = ['1QvrGCrgMgsK9kpenL9GHBRQkejV8z9DFMcwnAF1LtJE', '1lApMDfK8-IiUfwoWuxDq52EzeWb8FnJRUy0VqYg3AEM', '1uk23a1MyaPadKUhlwvhaXbjInA35J8xwp5zBs-V5YRY', '1dV73FjdyeTXg3hD4lvI2hVeRG1ES3fwGBc9BGOThrHs'];
+      const OUR_TABLES = ["#curriculumTable0", "#curriculumTable1", "#curriculumTable2", "#curriculumTable3"];
+
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[0]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 0);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[1]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 1);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[2]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 2);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_IDS[3]}/values/${RANGE}?key=${API_KEY}`;
+      fetch(url).then((response) => {
+          return response.json();
+      }).then((data) => {
+          let content = data.values;
+          console.log(content);
+          createSchedule(content, 3);
+      }).catch((err) => {
+          console.log(err);
+      });
+
+
+
+      function createSchedule(content, wsStreamNum) {
+          let table = document.querySelector(OUR_TABLES[wsStreamNum]);
+          let thead = table.createTHead();
+          var row = thead.insertRow();
+          var rowNum = 0; // Keep track of what row we are on
+          for (let title of content[0]) {
+              var th = document.createElement("th");
+              var text = document.createTextNode(title);
+              th.appendChild(text);
+              row.appendChild(th);
+          }
+
+          let tbody = table.createTBody();
+
+          for (var i=1; i<content.length; i++) {
+              row = tbody.insertRow();
+              row.style.animationDelay = (0.05 * rowNum).toString() + "s";
+              rowNum += 1;
+
+              var colNum = 0;
+              for (let item of content[i]) {
+                  var td = document.createElement("td");
+
+                  // Bold the first column
+                  if(colNum == 0) {
+                    td.id = "num";
+                  }
+
+                  var text = document.createTextNode(item);
+
+                  // Link last column
+                  if(colNum == 3) {
+                    // Create anchor element.
+                    var a = document.createElement('a');
+                    a.id = "uncoloredLink";
+                    a.href = "#" + text.textContent;
+
+                    console.log("#" + text.textContent);
+
+                    // Append the text node to anchor element.
+                    a.appendChild(text);
+
+                    text = a;
+                  }
+
+                  td.appendChild(text);
+                  row.appendChild(td);
+
+                  colNum += 1;
+              }
+          }
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      document.getElementById("defaultOpen").click();
+    </script>
+
+
+    <!-- Dynamically Load Header -->
+    <script type="text/javascript" src="/dynamicLoad.js"></script>
+
+  </body>
+
+</html>
