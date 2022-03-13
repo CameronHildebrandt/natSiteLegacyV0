@@ -960,11 +960,13 @@ var workshopSeriesCard = new Card({
 
 var natHacksCard = new Card({
   header: "natHACKS",
-  paragraph: `Alberta’s inaugural brain-computer interface hackathon. This is a completely remote hackathon with thousands of dollars in prizes available! natHACKS will be an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we’re thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.
+  paragraph: `Alberta's leading brain-computer interface hackathon. This year we are bringing natHACKS in person with our first ever hybrid hackathon with thousands of dollars in prizes available! natHACKS will be an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we're thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.
   <br><br>
-  Begins: <b>July 30th 5:00PM MDT</b><br>
-  Ends: <b>August 2nd 10:00AM MDT</b>`,
+  Begins: <b>July 29th 5:00PM MDT</b><br>
+  Ends: <b>August 1st 10:00AM MDT</b>`,
   image: "/images/event/natHACKs/nathanGlow.png",
+  buttonText: "Learn More",
+  link: "event/nathack.html",
   dark: true,
 });
 
