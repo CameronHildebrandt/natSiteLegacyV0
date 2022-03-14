@@ -287,6 +287,18 @@ redirect.add(new Link({
   expire: null,
 }));
 
+redirect.add(new Link({
+  slug: "card",
+  location: "link",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "bio",
+  location: "link",
+  expire: null,
+}));
+
 
 
 
