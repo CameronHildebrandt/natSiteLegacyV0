@@ -1,3 +1,5 @@
+var linkCardContainerElement = document.getElementById("linkCardContainer");
+
 class Redirect {
   constructor() {
     this.links = new Array();
@@ -25,14 +27,96 @@ class Redirect {
     window.location.replace("/lost.html");
     return;
   }
+
+  generateLinkCards() {
+    var today = new Date().getTime();
+    var centreClass = "totallyCentre";
+    var linkContainerClass = "linkContainer";
+    var linkTextContainerClass = "linkTextContainer";
+    var linkTitleClass = "linkTitle";
+    var linkParagraphClass = "linkParagraph";
+    var linkImageContainerClass = "linkImageContainer";
+    var linkImageClass = "linkImage";
+
+    this.links.forEach(link => {
+      if(link.logo !== undefined) {
+        if(link.expire !== null && link.expire < today) {
+          return;
+        }
+
+        // Image
+        var linkImageContainer = document.createElement("div");
+        linkImageContainer.classList.add(linkImageContainerClass);
+
+        var linkImage = document.createElement("img");
+        linkImage.classList.add(linkImageClass);
+        linkImage.classList.add(centreClass);
+        linkImage.src = "/images/social/" + link.logo;
+
+        linkImageContainer.appendChild(linkImage);
+
+        // Text
+        var linkTextContainer = document.createElement("div");
+        linkTextContainer.classList.add(linkTextContainerClass);
+
+        var linkTitle = document.createElement("div");
+        linkTitle.classList.add(linkTitleClass);
+        linkTitle.innerHTML = link.name;
+
+        var linkParagraph = document.createElement("div");
+        linkParagraph.classList.add(linkParagraphClass);
+        linkParagraph.innerHTML = link.description;
+
+        linkTextContainer.appendChild(linkTitle);
+        linkTextContainer.appendChild(linkParagraph);
+
+        // Build
+        var linkContainer = document.createElement("a");
+        linkContainer.href = link.location;
+    
+        var linkCard = document.createElement("div");
+        linkCard.classList.add(linkContainerClass);
+
+        linkCard.appendChild(linkImageContainer);
+        linkCard.appendChild(linkTextContainer);
+    
+        linkContainer.appendChild(linkCard);
+        linkCardContainerElement.appendChild(linkContainer);
+
+        // Example Card
+        // <a href="https://apple.com">
+        //   <div class="linkContainer">
+        //     <div class="linkImageContainer">
+        //       <img src="/images/social/instagram.png" class="linkImage totallyCentre">
+        //     </div>
+        //     <div class="linkTextContainer">
+        //       <div class="linkTitle">Instagram</div>
+        //       <div class="linkParagraph">@neuralberta</div>
+        //     </div>
+        //   </div>
+        // </a>
+      }
+    })
+
+  }
 }
 
 
 class Link {
+  slug = "";
+  location = "";
+  expire = "";
+  name = "";
+  description = "";
+  logo = "";
+
   constructor(args) {
     this.setSlug(args["slug"]);
     this.setLocation(args["location"]);
     this.setExpire(args["expire"]);
+    this.setName(args["name"])
+    this.setDescription(args["description"])
+    this.setLogo(args["logo"])
   }
 
   setSlug(slug) {
@@ -50,6 +134,21 @@ class Link {
       return;
     }
     this.location = location;
+    return this;
+  }
+
+  setName(name) {
+    this.name = name;
+    return this;
+  }
+
+  setDescription(description) {
+    this.description = description;
+    return this;
+  }
+
+  setLogo(logo) {
+    this.logo = logo;
     return this;
   }
 
@@ -72,56 +171,11 @@ class Link {
 let redirect = new Redirect();
 
 redirect.add(new Link({
-  slug: "facebook",
-  location: "https://www.facebook.com/NeurAlbertaTech/",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "messenger",
-  location: "http://m.me/NeurAlbertaTech",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "linkedin",
-  location: "https://www.linkedin.com/company/neuralbertatech/",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "instagram",
-  location: "https://www.instagram.com/neuralberta/",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "twitter",
-  location: "https://twitter.com/neuralbertatech",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "slack",
-  location: "https://join.slack.com/t/neuralbertatech/shared_invite/zt-r4bf4crb-WmljePHzGBrrLOjvaCsnJg",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "newsletter",
-  location: "http://eepurl.com/gjhjMz",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "email",
-  location: "mailto:neuralbertatech@gmail.com",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "tracing",
-  location: "https://forms.gle/EfGr2a9TjqCzQMyg9",
+  slug: "natsite",
+  location: "/index.html",
+  name: "natSite",
+  description: "See more NAT",
+  logo: "nat.png",
   expire: null,
 }));
 
@@ -132,21 +186,118 @@ redirect.add(new Link({
 }));
 
 redirect.add(new Link({
-  slug: "rsvpnatuc",
+  slug: "rsvpua",
+  location: "https://docs.google.com/forms/d/e/1FAIpQLScdXflDbGrJoE4cXwmr0GNbxvc-XHENKDOR-OdJ_uNhzmIKDQ/viewform",
+  name: "RSVP",
+  description: "natUA Info Night",
+  logo: "nat.png",
+  expire: new Date('March 28, 2022 21:00:00'),
+}));
+
+redirect.add(new Link({
+  slug: "rsvpuc",
   location: "https://ucalgary.zoom.us/meeting/register/tJIkdO-srzMqHNcvxElJVI7d3mBcN_S8vGJg",
   expire: new Date('November 24, 2021 19:00:00'),
+}));
+
+redirect.add(new Link({
+  slug: "newsletter",
+  location: "http://eepurl.com/gjhjMz",
+  name: "Newsletter",
+  description: "Stay in the loop with everything NAT",
+  logo: "newsletter.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "slack",
+  location: "https://join.slack.com/t/neuralbertatech/shared_invite/zt-r4bf4crb-WmljePHzGBrrLOjvaCsnJg",
+  name: "Slack",
+  description: "NeurAlbertaTech",
+  logo: "slack.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "instagram",
+  location: "https://www.instagram.com/neuralberta/",
+  name: "Instagram",
+  description: "@neuralberta",
+  logo: "instagram.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "twitter",
+  location: "https://twitter.com/neuralbertatech",
+  name: "Twitter",
+  description: "@neuralbertatech",
+  logo: "twitter.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "facebook",
+  location: "https://www.facebook.com/NeurAlbertaTech/",
+  name: "Facebook",
+  description: "NeurAlbertaTech",
+  logo: "facebook.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "linkedin",
+  location: "https://www.linkedin.com/company/neuralbertatech/",
+  name: "LinkedIn",
+  description: "NeurAlbertaTech",
+  logo: "linkedin.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "messenger",
+  location: "http://m.me/NeurAlbertaTech",
+  name: "Messenger",
+  description: "NeurAlbertaTech",
+  logo: "messenger.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "email",
+  location: "mailto:neuralbertatech@gmail.com",
+  name: "Email",
+  description: "info@neuralberta.tech",
+  logo: "email.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "uadiscord",
+  location: "https://discord.gg/7ZsNZ3ZrDs",
+  name: "Discord",
+  description: "uAlberta Chapter",
+  logo: "discord.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "tracing",
+  location: "https://forms.gle/EfGr2a9TjqCzQMyg9",
+  expire: null,
 }));
 
 
 
 
-
-
-
-window.addEventListener('load', function () {
+function proposeRedirect() {
   const slug = window.location.pathname.substring(1);
 
   setTimeout(() => {
     redirect.send(slug);
   }, 500);
-});
+}
+
+function getLinkCards() {
+    redirect.generateLinkCards();
+}

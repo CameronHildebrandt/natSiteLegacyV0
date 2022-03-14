@@ -782,10 +782,6 @@ body {
   margin-right: 15px;
 }
 
-#smallMediaFrame {
-  width: 300px;
-}
-
 #smallInfoContents {
   display: flex;
   /* flex: 0 0 300px; */

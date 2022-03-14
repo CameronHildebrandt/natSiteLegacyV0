@@ -36,6 +36,9 @@
       body {
         background: rgb(121,103,225);
         background: linear-gradient(78deg, rgba(121,103,225,1) 0%, rgba(27,159,214,1) 100%);
+        background-size: 110vw 110vh;
+        margin: 0;
+        overflow: hidden;
       }
 
       body::before {
@@ -81,6 +84,12 @@
 
 
     <script type="text/javascript" src="redirect.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+        proposeRedirect();
+      });
+    </script>
+
 
   </body>
 
