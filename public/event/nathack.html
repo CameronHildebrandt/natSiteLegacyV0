@@ -107,6 +107,16 @@
 
     </div>
 
+    <div class="popup" id="sponsorDocPopup">
+      <div>
+        <p class="popupClose" onClick="closePopup()">&times;</p>
+        <p class="subSubTitle" style="margin-bottom: 25px; margin-top: 0px;">NeurAlbertaTech Sponsorship Prospectus 2022-2023</p>
+        <div style="height: 70vh; width: 100%; padding: 0;">
+          <iframe src="https://drive.google.com/file/d/10CVDoW9HIFZBrGfIHoPURyNxqMGCNTk9/preview" width="100%" height="100%" allow="autoplay"></iframe>
+        </div>
+      </div>
+    </div>
+
 
     <div id=scrollContainer>
       <div id=divAboveMainForSnapping></div>
@@ -156,18 +166,26 @@
 
         <script type="text/javascript">
           var popup = document.getElementById("registerPopup");
+          var sponsorPopup = document.getElementById("sponsorDocPopup");
+
           function displayPopup() {
             popup.style.display = "flex";
           }
 
+          function displaySponsorPopup() {
+            sponsorPopup.style.display = "flex";
+          }
+
           function closePopup() {
             popup.style.display = "none";
+            sponsorPopup.style.display = "none";
           }
 
           // close popup if user clicks on bg
           window.onclick = function(event) {
-            if (event.target == popup) {
+            if (event.target == popup || event.target == sponsorPopup) {
               popup.style.display = "none";
+              sponsorPopup.style.display = "none";
             }
           }
         </script>
@@ -907,7 +925,7 @@
               <div id="smallInfoBlockMedia">
                 <image src="/images/Logos/OurLogos/natYou.png" id="eventImageNoHover" alt="NAT + You"></image>
                 <a href="mailto:neuralbertatech@gmail.com?subject=We're%20Interested%20in%20Partnering%20With%20You!&body=Hey%20NeurAlbertaTech,%0d%0dWe're%20interested%20in%20helping foster%20the%20future%20of%20innovators%20and%20are%20considering%20sponsoring%20natHACKS!" rel="EMAIL"><button id=smallButton>Contact Us</button></a>
-                <a href=""><button id=smallButton>Sponsorship Doc</button></a>
+                <button id=smallButton onClick="displaySponsorPopup()">Sponsorship Doc</button>
                 <a href="https://forms.gle/LkgdXTsGVw61xZs2A" target="_blank"><button id=smallButton>Sponsor Now!</button></a>
               </div>
 
