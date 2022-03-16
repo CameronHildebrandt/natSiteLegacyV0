@@ -28,6 +28,8 @@ class Navbar {
 
     if (path[0] != "/") {
       return getCurrentPath() + path;
+    } else if (path == "/") {
+      return "/index.html";
     }
 
     return path;
@@ -39,11 +41,9 @@ class Navbar {
 
     if (a.endsWith(".html")) {
       a = a.substr(0, a.length-5);
-      console.debug(a);
     }
     if (b.endsWith(".html")) {
       b = b.substr(0, b.length-5);
-      console.debug(b);
     }
 
     if (a == b) {
