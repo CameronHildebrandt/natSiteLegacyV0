@@ -282,6 +282,15 @@ redirect.add(new Link({
 }));
 
 redirect.add(new Link({
+  slug: "demo",
+  location: "",
+  name: "Demo Nights",
+  description: "Check out some neurotech hardware!",
+  logo: "discord.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
   slug: "tracing",
   location: "https://forms.gle/EfGr2a9TjqCzQMyg9",
   expire: null,
