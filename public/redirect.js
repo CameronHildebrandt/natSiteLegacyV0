@@ -105,7 +105,7 @@ class Redirect {
 class Link {
   slug = "";
   location = "";
-  expire = "";
+  expire = null;
   name = "";
   description = "";
   logo = "";
@@ -228,6 +228,33 @@ redirect.add(new Link({
 }));
 
 redirect.add(new Link({
+  slug: "instaua",
+  location: "https://instagram.com/nat.ualberta",
+  name: "natUA Instagram",
+  description: "@nat.ualberta",
+  logo: "instagram.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "instauc",
+  location: "https://instagram.com/nat.ucalgary",
+  name: "natUC Instagram",
+  description: "@nat.ucalgary",
+  logo: "instagram.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
+  slug: "instaul",
+  location: "https://instagram.com/nat.ulethbridge",
+  name: "natUL Instagram",
+  description: "@nat.ulethbridge",
+  logo: "instagram.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
   slug: "twitter",
   location: "https://twitter.com/neuralbertatech",
   name: "Twitter",
@@ -284,9 +311,9 @@ redirect.add(new Link({
 redirect.add(new Link({
   slug: "demo",
   location: "",
-  name: "Demo Nights",
-  description: "Check out some neurotech hardware!",
-  logo: "discord.png",
+  // name: "Demo Nights",
+  // description: "Check out some neurotech hardware!",
+  // logo: "discord.png",
   expire: null,
 }));
 
