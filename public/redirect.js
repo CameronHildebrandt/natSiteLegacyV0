@@ -195,6 +195,15 @@ redirect.add(new Link({
 }));
 
 redirect.add(new Link({
+  slug: "demo",
+  location: "https://forms.gle/tC78wn3vNTbQAH4P7",
+  name: "Demo Nights",
+  description: "Check out some neurotech hardware!",
+  logo: "nat.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
   slug: "rsvpuc",
   location: "https://ucalgary.zoom.us/meeting/register/tJIkdO-srzMqHNcvxElJVI7d3mBcN_S8vGJg",
   expire: new Date('November 24, 2021 19:00:00'),
@@ -230,7 +239,7 @@ redirect.add(new Link({
 redirect.add(new Link({
   slug: "instaua",
   location: "https://instagram.com/nat.ualberta",
-  name: "natUA Instagram",
+  name: "natUA",
   description: "@nat.ualberta",
   logo: "instagram.png",
   expire: null,
@@ -239,7 +248,7 @@ redirect.add(new Link({
 redirect.add(new Link({
   slug: "instauc",
   location: "https://instagram.com/nat.ucalgary",
-  name: "natUC Instagram",
+  name: "natUC",
   description: "@nat.ucalgary",
   logo: "instagram.png",
   expire: null,
@@ -248,7 +257,7 @@ redirect.add(new Link({
 redirect.add(new Link({
   slug: "instaul",
   location: "https://instagram.com/nat.ulethbridge",
-  name: "natUL Instagram",
+  name: "natUL",
   description: "@nat.ulethbridge",
   logo: "instagram.png",
   expire: null,
@@ -305,15 +314,6 @@ redirect.add(new Link({
   name: "Discord",
   description: "uAlberta Chapter",
   logo: "discord.png",
-  expire: null,
-}));
-
-redirect.add(new Link({
-  slug: "demo",
-  location: "",
-  // name: "Demo Nights",
-  // description: "Check out some neurotech hardware!",
-  // logo: "discord.png",
   expire: null,
 }));
 

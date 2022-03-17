@@ -238,9 +238,9 @@ var natFlatMenu = new NavbarMenu({
   link: "/natflat.html",
 });
 
-var communityMenu = new NavbarMenu({
-  name: "Community",
-  link: "/community.html",
+var partnerMenu = new NavbarMenu({
+  name: "Partners",
+  link: "/partner.html",
 });
 
 var contactMenu = new NavbarMenu({
@@ -250,7 +250,7 @@ var contactMenu = new NavbarMenu({
 
 
 var pageNavbar = new Navbar();
-pageNavbar.addMenus([homeImage, contactMenu, communityMenu, natFlatMenu, eventsMenu, teamMenu, projectsMenu, homeMenu]);
+pageNavbar.addMenus([homeImage, contactMenu, partnerMenu, natFlatMenu, eventsMenu, teamMenu, projectsMenu, homeMenu]);
 
 var navbarElement = document.getElementById("navbar");
 
