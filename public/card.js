@@ -1180,7 +1180,7 @@ var sponsorOpenBCI = new Card({
     new eventSponsored({event: natEvent.workshops, tier: sponsorshipTier.bronze}),
   ],
   lightLogo: "/images/Logos/4to1/openBCI.png",
-  darkLogo: "/images/Logos/4to1/openBCIdark.png",
+  darkLogo: "/images/Logos/4to1/openBCI.png",
   startDate: new Date("January 1, 2022 00:00"),
   endDate: new Date("May 1, 2022 23:59"),
   buttonText: "openbci.com",
@@ -1452,6 +1452,21 @@ var sponsorPrintMachine = new Card({
   link: "https://printmachine.ca/",
 });
 
+var sponsorGTec = new Card({
+  type: cardType.sponsor,
+  header: "g.tec",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/g-tec.png",
+  darkLogo: "/images/Logos/4to1/g-tecdark.png",
+  startDate: new Date("January 1, 2022 00:00"),
+  endDate: new Date("March 16, 2023 23:59"),
+  buttonText: "gtec.at",
+  link: "https://www.gtec.at",
+});
+
 var sponsorUAIS = new Card({
   type: cardType.sponsor,
   header: "Undergraduate Artificial Intelligence Society",
@@ -1532,7 +1547,8 @@ var partnerCards = [
   sponsorMuse,
   sponsorRemBRAINdt,
   sponsorRisingYouth,
-  sponsorURI
+  sponsorURI,
+  sponsorGTec
 ];
 
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
