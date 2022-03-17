@@ -19,12 +19,6 @@
     <!-- External CSS -->
 		<link href="/style.css" rel="stylesheet" type="text/css">
 
-    <!-- Import JQuery -->
-    <script type='text/javascript' src="https://code.jquery.com/jquery-1.11.2.js"></script>
-
-    <!-- External JS -->
-    <script type="text/javascript" src="burgerController.js"></script>
-
     <!-- Enable Reactive Website -->
     <meta name="viewport" content="width=device-width">
 
@@ -40,42 +34,67 @@
 
     <style>
       body {
-        background: url('/images/HeaderImages/NeuroGraph.jpg') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        background: rgb(121,103,225);
+        background: linear-gradient(78deg, rgba(121,103,225,1) 0%, rgba(27,159,214,1) 100%);
+        background-size: 110vw 110vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: -30px;
+        left: 0;
+        width: 100%;
+        height: 0.5vh;
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.8);
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.8);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.8);
+        z-index: -1;
+      }
+
+      .spinner {
+        top: 45%;
+        left: 50%;
+        margin: 100px 0 0 -37.5px;
+      }
+
+      .natLogo {
+        width: 300px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
+
+    <div style="position: relative; height: 100vh; width: 100vw;">
 
   <body>
 
     <div id="navbar"></div>
 
-    <div id="emailSignupConfirmation">
+      <!-- <image class="natLogo" src="/images/Logos/OurLogos/NATg.svg" alt="NAT Logo"></image>
 
-      <div id="interestedBlockContents">
-        <h1 class="subTitle centredText"><span style="color: rgba(255,255,255,1);">Whoops!</span></h1>
-        <p class="paragraph centredText" style="margin-top: 20px;"><span style="color: rgba(255,255,255,1);">You've landed on our 404 page.<br> This means that the either the link you have used is out of date or there is a typo in the address.<br><br> <b>Don't go just yet though!</b><br> You can probably find what you're looking for from our home page.</span></p>
+      <div class="spinner"></div> -->
+
+      <div style="display: table-row">
+        <image class="natLogo" src="/images/Logos/OurLogos/NATg.svg" alt="NAT Logo"></image>
+        <div class="spinner"></div>
       </div>
-
-      <div id="interestedLinksParent">
-        <ol id="interestedLinks">
-          <li><a href="/index.html"><button id="joinNewsletterButton">Home Page</button></a></li>
-        </ol>
-      </div>
-
     </div>
 
     <script type="text/javascript" src="navbar.js"></script>
 
+    <script type="text/javascript" src="redirect.js"></script>
     <script type="text/javascript">
-      // To allow Burger to Work
-      menuToggle();
+      window.addEventListener('load', function () {
+        proposeRedirect();
+      });
     </script>
 
-    <script type="text/javascript" src="dynamicLoad.js"></script>
 
   </body>
 
