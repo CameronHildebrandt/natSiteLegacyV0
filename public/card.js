@@ -451,7 +451,7 @@ class Card {
       cardRoot.id = rootBlockType;  // TODO: Change to class.
     }
 
-    // Add the large header if it exitsts.
+    // Add the large header if it exists.
     if (this.largeHeader !== "") {
       var largeHeaderElement = document.createElement("h1");
       largeHeaderElement.classList.add("subTitle");
@@ -480,7 +480,7 @@ class Card {
     }
 
     // <iframe id="normalVideoPlayer" width="560" height="315" src="https://www.youtube.com/embed/-3UTwKpKpcI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    // Defualt create a video in case of conflict.
+    // Default create a video in case of conflict.
     if (this.video != "") {
       var mediaVideo = document.createElement("iframe");
       mediaVideo.id = "normalVideoPlayer";
@@ -724,7 +724,7 @@ class Card {
 // Defined cards. /////////////////////////////////////////////////////////////
 
 // Featured.
-// var museAmassadorCard = new Card({
+// var museAmbassadorCard = new Card({
 //   header: "Muse Ambassador",
 //   paragraph: `Are you interested in picking up a new brain-computer interface? Are you interested in helping NAT further our goal of making brain-computer interfacing technology accessible to everyone? Why not both!? We're excited to announce that we now have an official affiliate link with muse! Every headset bought using this link both gets you a new piece of hardware and funds a donation to NAT, at no extra cost to you!`,
 //   image: "/images/event/muse-ambassador.jpg",
@@ -735,7 +735,7 @@ class Card {
 
 var workshopSeriesCardHome = new Card({
   header: "Workshop Series",
-  paragraph: `<p class="paragraphGradHeader"><b>Now open for registration!</b></p> <br> If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pilars of brain computer interfacing programs.`,
+  paragraph: `<p class="paragraphGradHeader"><b>Now open for registration!</b></p> <br> If you want to learn about the stuff we do in a fun, interactive, low-stress environment, this is the event for you! We currently offer four unique 10-session workshop streams (Hardware, Software, Machine Learning, and Neuroscience) that serve as an introduction to each of the key pillars of brain computer interfacing programs.`,
   image: "/images/workshop/mlLogo.png",
   buttonText: "Learn More",
   link: "event/workshops.html",
@@ -744,7 +744,7 @@ var workshopSeriesCardHome = new Card({
 
 var ntxOpenComp20Card = new Card({
   header: "Last Project: NTX Open Competition 2020",
-  paragraph: `A drone controlled entirely by your brain waves! Not only is this an incredibly fun project, but this is also a potentially incredibly powerful creation. In reality, over the past few months, we have built a general purpose BCI controller that can be connected to whatever we want! We chose to connect it to a drone to show it's power in an entertaining way, though, this can be connected to anything from games to wheelchairs to rudamentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability. Tap on "View Project" to learn more!`,
+  paragraph: `A drone controlled entirely by your brain waves! Not only is this an incredibly fun project, but this is also a potentially incredibly powerful creation. In reality, over the past few months, we have built a general purpose BCI controller that can be connected to whatever we want! We chose to connect it to a drone to show it's power in an entertaining way, though, this can be connected to anything from games to wheelchairs to rudimentary speech tools to allow for a new method of control that enables people to meaningfully interact with the world, regardless of motor ability. Tap on "View Project" to learn more!`,
   video: "https://www.youtube.com/embed/-3UTwKpKpcI",
   buttonText: "View Project",
   link: "project/drone.html",
@@ -766,7 +766,7 @@ var koalacademyCard = new Card({
 var bermudaCard = new Card({
   largeHeader: "Bermuda",
   header: "Brain, Body, and Eye Tracking",
-  paragraph: `We are developing a suite of hardware and software solutions that allows for the reliable, repeatable, and time sycnhronized acquisition of electroencaphalography, eye tracking, and body tracaking data (several orders of magnitude cheaper than current solutions).`,
+  paragraph: `We are developing a suite of hardware and software solutions that allows for the reliable, repeatable, and time synchronized acquisition of electroencephalography, eye tracking, and body tracking data (several orders of magnitude cheaper than current solutions).`,
   image: "/images/ProjectPhotos/bermuda/main.jpg",
   buttonText: "View Project",
   link: "/project/bermuda.html",
@@ -775,7 +775,7 @@ var bermudaCard = new Card({
 
 var openStrokeRehabCard = new Card({
   largeHeader: "Open Stroke Rehab",
-  header: "Acessable Multi-modal Stroke Rehab",
+  header: "Accessible Multi-modal Stroke Rehab",
   paragraph: `This team is developing an open software/hardware stack incorporating electroencephalogram (EEG), transcranial direct current stimulation (tDCS), and transcutaneous electrical nerve stimulation (TENS) for the purpose of providing an accessible treatment and research platform.`,
   image: "/images/ProjectPhotos/osr/main.png",
   buttonText: "View Project",
@@ -798,7 +798,7 @@ var brainDroneCard = new Card({
 var rembraindtCard = new Card({
   largeHeader: "RemBRAINdt",
   header: "Russian NeuroTech Cup 2020",
-  paragraph: `Despite the reality of COVID-19, in just a few summer months we remotely developed and submitted an art-generating BCI program (utilizing our new 16-channel OpenBCI) to the Russia-hosted <a href="https://neurotechcup.com/en" id="uncoloredLink">Neurotech Cup 2020</a> and secured a position as finalists! On October 10th, 2020 we were awarded a <a href="https://neurotechcup.com/winners2020" id="uncoloredLink">People’s Choice Award!</a>
+  paragraph: `Despite the reality of COVID-19, in just a few summer months we remotely developed and submitted an art-generating BCI program (utilizing our new 16-channel OpenBCI) to the Russia-hosted <a href="https://neurotechcup.com/en" id="uncoloredLink">Neurotech Cup 2020</a> and secured a position as finalists! On October 10th, 2020 we were awarded a <a href="https://neurotechcup.com/winners2020" id="uncoloredLink">People's Choice Award!</a>
     <br><br>
     Several original team members went on compete in <a href="https://neuro-nexus.ca/" id="uncoloredLink">NeuroNexus 2020</a> a provincial neurotechnology design competition, going on to win 1st place in the entrepreneurial stream along with $20,000
     <br><br>
@@ -833,7 +833,7 @@ var rembraindtCard = new Card({
 var alphaBlasterCard = new Card({
   largeHeader: "AlphaBlaster",
   header: "NTX Open Competition 2019",
-  paragraph: `Alpha Blaster is a proof of concept 2D tower defense game controlled entirely by your brain activity. Our game recieved a 5th place award in NeuroTechX's Open Competition 2019!
+  paragraph: `Alpha Blaster is a proof of concept 2D tower defense game controlled entirely by your brain activity. Our game received a 5th place award in NeuroTechX's Open Competition 2019!
     <br><br>
     <span style="font-weight: 700;">Media Coverage:</span>
     <div id="mediaGrid">
@@ -1172,7 +1172,7 @@ var fa19InfoNight = new Card({
 var sponsorOpenBCI = new Card({
   type: cardType.sponsor,
   header: "OpenBCI",
-  paragraph: `OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.`,
+  paragraph: `OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body. OpenBCI specializes in creating open-source tools for neuroscience and biosensing. OpenBCI's mission is to reduce the barrier to entry for neurotechnology by creating affordable, high-quality tools for sampling the electrical activity of the body.`,
   image: "/images/Logos/partnerHeroImage/openbci.jpg",
   eventsSponsored: [
     new eventSponsored({event: natEvent.natChat, tier: sponsorshipTier.bronze}),
@@ -1208,7 +1208,7 @@ var sponsorCampusAlbertaNeuroscience = new Card({
 var sponsorHunterHub = new Card({
   type: cardType.sponsor,
   header: "Hunter Hub",
-  paragraph: `The Hunter Hub for Entrepreneurial Thinking is the University of Calgary's central community hub that transforms lives and economies through fostering entrepreneurial thinking in students, faculty and the community. Our mission is to create and support game-changing innovators and accelerate their ideas from conception to impact.<br><br>The Hunter Hub is proud to be a sponosor of natHACKS. Alberta is home to a strong entrepreneurial community, and there is vast potential in the neurotechnology field. natHACKS will inspire both beginners and experienced hackers to discover the incredible opportunities in this field.`,
+  paragraph: `The Hunter Hub for Entrepreneurial Thinking is the University of Calgary's central community hub that transforms lives and economies through fostering entrepreneurial thinking in students, faculty and the community. Our mission is to create and support game-changing innovators and accelerate their ideas from conception to impact.<br><br>The Hunter Hub is proud to be a sponsor of natHACKS. Alberta is home to a strong entrepreneurial community, and there is vast potential in the neurotechnology field. natHACKS will inspire both beginners and experienced hackers to discover the incredible opportunities in this field.`,
   image: "/images/Logos/partnerHeroImage/hunterHub.jpg",
   eventsSponsored: [
     new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.platinum}),
@@ -1271,7 +1271,7 @@ var sponsorThinAirLabs = new Card({
 var sponsorUAFOS = new Card({
   type: cardType.sponsor,
   header: "University of Alberta Faculty of Science",
-  paragraph: `The University of Alberta's Faculty of Science is committed to supporting student innovation—and is proud to support NeurAlbertaTehch’s natHACKS hackathon. Student innovation can take many forms, from developing new technology to pursuing entrepreneurship. Supporting this experiential learning beyond the classroom is a key part of how we are training the next generation of talented scientists, innovators, and entrepreneurs.`,
+  paragraph: `The University of Alberta's Faculty of Science is committed to supporting student innovation—and is proud to support NeurAlbertaTech's natHACKS hackathon. Student innovation can take many forms, from developing new technology to pursuing entrepreneurship. Supporting this experiential learning beyond the classroom is a key part of how we are training the next generation of talented scientists, innovators, and entrepreneurs.`,
   eventsSponsored: [
     new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.gold}),
   ],
