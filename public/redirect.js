@@ -291,6 +291,15 @@ redirect.add(new Link({
 }));
 
 redirect.add(new Link({
+  slug: "youtube",
+  location: "https://www.youtube.com/channel/UC6ydgj4tflqsyt9A_XjY1uw",
+  name: "YouTube",
+  description: "NeurAlbertaTech",
+  logo: "youtube.png",
+  expire: null,
+}));
+
+redirect.add(new Link({
   slug: "messenger",
   location: "http://m.me/NeurAlbertaTech",
   name: "Messenger",
