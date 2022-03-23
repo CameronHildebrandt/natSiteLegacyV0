@@ -467,7 +467,10 @@ class Card {
     }
 
     // If there are event sponsored tags to add, create the block
-    var eventSponsoredTagBlock = this._generateSponsoredTagContainer();
+    var eventSponsoredTagBlock = document.createElement("div");
+    if (this.eventsSponsored.length > 0) {      
+      eventSponsoredTagBlock = this._generateSponsoredTagContainer();
+    }
 
     // Create media section.
     var mediaBlock = document.createElement("div");
