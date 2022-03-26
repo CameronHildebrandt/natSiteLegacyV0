@@ -344,6 +344,12 @@ redirect.add(new Link({
   expire: null,
 }));
 
+redirect.add(new Link({
+  slug: "eventtrace",
+  location: "https://forms.gle/rSAtPriEAZ4ScDjn9",
+  expire: null,
+}));
+
 
 
 
