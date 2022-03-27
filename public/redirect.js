@@ -335,6 +335,12 @@ redirect.add(new Link({
   expire: null,
 }));
 
+redirect.add(new Link({
+  slug: "followup",
+  location: "https://forms.gle/biymZzhsgF7gaNdA9",
+  expire: new Date('March 29, 2022 21:00:00'),
+}));
+
 
 
 
