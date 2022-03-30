@@ -1486,6 +1486,37 @@ var sponsorUAIS = new Card({
 });
 
 
+// NatChat /////////////////////////////////////////////////////////////////////
+
+var upcomingNatChats = new Card({
+  header: "Upcoming chats will be announced soon!",
+  paragraph: `<b>More details to come!</b>
+<br>We are working out details for the upcoming chats in our series! Check back here soon and we will have updated information for all upcoming chats this semester.
+<br>
+<br>That join button still works though. If you want to RSVP for the first ever natChat you can click that button now!`,
+  image: "/images/temp.jpg",
+  buttonText: "Join",
+  link: "/rsvp.html",
+});
+
+var natChatRaffle = new Card({
+  header: "Raffle",
+  paragraph: `We will be raffling off exciting prizes throughout the chats, such as:
+<br>- NAT merch baskets (shirt, pen, mask, etc.)*
+<br>- NAT workshop subscription for any stream
+<br>
+<br>* Physical prizes will only be shipped to Canadian addresses. If you reside outside of Canada and win a physical prize, you may trade that in for a workshop subscription.`,
+  image: "/images/InfoNight/merch.jpg",
+  dark: true,
+});
+
+var natChatNetworking = new Card({
+  header: "Networking",
+  paragraph: `Building a network is important! One of the strongesst factors contributing to successful job applications is your network. If you think you want to pursue a career in neurotech, neuroscience, or tech, this is the place to build your network! We bring in as many great minds as we can find from all of the fields we are involved in, and this is your chance to meet them.`,
+  image: "/images/InfoNight/network.jpg",
+  dark: true,
+});
+
 
 var featuredCards = [
   natChatCardHome,
@@ -1554,6 +1585,15 @@ var partnerCards = [
   sponsorGTec
 ];
 
+var natChatUpcomingChatsCards = [
+  upcomingNatChats,
+];
+
+var natChatWhyAttendCards = [
+  natChatRaffle,
+  natChatNetworking,
+];
+
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
 var homePageCardsElement = document.getElementById("homePageCards");
 var currentProjectCardsElement = document.getElementById("currentProjectCards");
@@ -1561,6 +1601,8 @@ var pastProjectCardsElement = document.getElementById("pastProjectCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
 var moreEventCardsElement = document.getElementById("moreEventCards");
+var natChatUpcomingChatsCardsElement = document.getElementById("natChatUpcomingChatsCards");
+var natChatWhyAttendCardsElement = document.getElementById("natChatWhyAttendCards");
 
 var partnerCardsPlatinum = document.getElementById("partnerCardsPlatinum");
 var partnerCardsGold = document.getElementById("partnerCardsGold");
@@ -1618,4 +1660,7 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
           console.error("Failed to generate a sponsor card. Ensure every sponsor has an event sponsored");
       }
     });
+} else if (natChatUpcomingChatsCardsElement && natChatWhyAttendCardsElement) { // event/natchat.html
+  natChatUpcomingChatsCards.forEach(card => natChatUpcomingChatsCardsElement.appendChild(card.generateElement()));
+  natChatWhyAttendCards.forEach(card => natChatWhyAttendCardsElement.appendChild(card.generateElement()));
 }
