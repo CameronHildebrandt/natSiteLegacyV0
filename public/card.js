@@ -45,6 +45,12 @@ Array.prototype.mutate = function (func) {
   return this;
 }
 
+Node.prototype.safeAppendChild = function (child) {
+  if (child !== null && child !== undefined) {
+    this.appendChild(child);
+  }
+}
+
 const natEvent = {
   natChat: 'natChat',
   natHACKS: 'natHACKS',
@@ -113,9 +119,11 @@ class Card {
   type = null;
   startDate = null;
   endDate = null;
+  backSide = null;
   dark = false;
   large = false;
   featured = false;
+  hidden = false;
   userUsingDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   constructor(args) {
@@ -123,6 +131,10 @@ class Card {
     this.setSubHeader(args["subHeader"]);
     this.setParagraph(args["paragraph"]);
     this.setImage(args["image"]);
+    this.setColourLogo(args["colourLogo"]);
+    this.setLightLogo(args["lightLogo"]);
+    this.setDarkLogo(args["darkLogo"]);
+    this.setEventsSponsored(args["eventsSponsored"]);
     this.setVideo(args["video"]);
     this.setButtonText(args["buttonText"]);
     this.setLink(args["link"]);
@@ -131,13 +143,12 @@ class Card {
     this.setType(args["type"]);
     this.setStartDate(args["startDate"]);
     this.setEndDate(args["endDate"]);
+    this.setBackSide(args["backSide"]);
     this.setDark(args["dark"]);
     this.setLarge(args["large"]);
     this.setLargeHeader(args["largeHeader"]);
     this.setFeatured(args["featured"]);
-    this.setLightLogo(args["lightLogo"]);
-    this.setDarkLogo(args["darkLogo"]);
-    this.setEventsSponsored(args["eventsSponsored"]);
+    this.setHidden(args["hidden"]);
   }
 
   clone() {
@@ -146,15 +157,24 @@ class Card {
       subHeader: this.subHeader,
       paragraph: this.paragraph,
       image: this.image,
+      colourLogo: this.colourLogo,
+      lightLogo: this.lightLogo,
+      darkLogo: this.darkLogo,
+      eventsSponsored: this.eventsSponsored.map((x) => x),
       video: this.video,
       buttonText: this.buttonText,
       link: this.link,
       location: this.location,
-      date: this.date,
+      altText: this.altText,
+      largeHeader: this.largeHeader,
+      type: this.type,
+      startDate: this.startDate,
+      endDate: this.endDate,
+      backSide: this.backSide,
       dark: this.dark,
       large: this.large,
-      largeHeader: this.largeHeader,
       featured: this.featured,
+      userUsingDarkMode: this.userUsingDarkMode,
     });
   }
 
@@ -168,6 +188,14 @@ class Card {
 
   isDark() {
     return this.dark;
+  }
+
+  flip() {
+    if (this.backSide !== null) {
+      return this.backSide;
+    } else {
+      return this;
+    }
   }
 
   setHeader(header) {
@@ -194,6 +222,27 @@ class Card {
   setImage(image) {
     if (image !== undefined) {
       this.image = image;
+    }
+    return this;
+  }
+
+  setColourLogo(colourLogo) {
+    if (colourLogo !== undefined) {
+      this.colourLogo = colourLogo;
+    }
+    return this;
+  }
+
+  setLightLogo(lightLogo) {
+    if (lightLogo !== undefined) {
+      this.lightLogo = lightLogo;
+    }
+    return this;
+  }
+
+  setDarkLogo(darkLogo) {
+    if (darkLogo !== undefined) {
+      this.darkLogo = darkLogo;
     }
     return this;
   }
@@ -254,6 +303,14 @@ class Card {
     return this;
   }
 
+  setBackSide(backSide) {
+    if (backSide !== undefined) {
+      this.backSide = backSide;
+      this.backSide.backSide = this;
+    }
+    return this;
+  }
+
   setDark(dark) {
     if (dark !== undefined) {
       this.dark = dark;
@@ -282,23 +339,16 @@ class Card {
     return this;
   }
 
-  setLightLogo(lightLogo) {
-    if (lightLogo !== undefined) {
-      this.lightLogo = lightLogo;
-    }
-    return this;
-  }
-
-  setDarkLogo(darkLogo) {
-    if (darkLogo !== undefined) {
-      this.darkLogo = darkLogo;
-    }
-    return this;
-  }
-
   setEventsSponsored(eventsSponsored) {
     if (eventsSponsored !== undefined) {
       this.eventsSponsored = eventsSponsored;
+    }
+    return this;
+  }
+
+  setHidden(hidden) {
+    if (hidden !== undefined) {
+      this.hidden = hidden;
     }
     return this;
   }
@@ -382,6 +432,10 @@ class Card {
   }
 
   generateElement() {
+    if (this.hidden) {
+      return null;
+    }
+
     // For partner card: give them an anchor tag, link to anchor from index.html
     const today = new Date();
     var rootBlockType = "smallInfoBlock";
@@ -1517,6 +1571,285 @@ var natChatNetworking = new Card({
   dark: true,
 });
 
+var natChatSpeaker0_0 = new Card({
+  header: "Keynote: Mikhail Lebedev",
+  paragraph: `With over 100 publications, decades of cutting-edge research at esteemed institutions, and a multitude of coveted awards, Dr. Lebedev has investigated all levels of brain function from cellular to cortical, with a focus on somatosensory and motor cortices. He has developed bi-directional BCIs that simultaneously read brain activity and deliver sensory information. Mikhail is currently Scientific Head of the Center for Bioelectrical Interfaces, part of the Institute of Cognitive Neuroscience at HSE in Moscow.`,
+  video: "https://www.youtube.com/embed/iIXZW6-0pDc",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/mikhail-lebedev-1843b210/",
+  backSide: new Card({
+    header: "Keynote: Mikhail Lebedev",
+    paragraph: `<b>Scientific Head at National Research University — Higher School of Economics<b>
+<br>Mikhail works in the fields of Neurophysiology and Brain-Computer Interfaces. He has more than 100 publications. He has a MS degree in Physics from Moscow Institute of Physics and Technology (1986) and a PhD degree in Neurobiology from the University of Tennessee, Memphis. In 1986-1991, Lebedev conducted research on motor control in Victor Gurfinkel's laboratory at the Institute for Problems of Information Transmission. In 1991-1995, during his stay in Memphis, he investigated single-unit activity in the somatosensory cortex and basal ganglia of awake, behaving primates. In 1995-1995, Lebedev conducted research at SISSA, Trieste, Italy, where he examined plasticity in rat somatosensory cortex. In 1997-2002, Lebedev worked at NIMH, Bethesda, Maryland.`,
+    image: "/images/event/natChat/speakers/mikhailLebedev.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/mikhail-lebedev-1843b210/",
+  }),
+});
+
+var natChatSpeaker0_1 = new Card({
+  header: "Andreas Forsland",
+  paragraph: `Andreas is Founder and CEO of Cognixion where he is providing the hundreds of millions of people with communication disabilities a way to express their voice. Cognixion creates natural interfaces powered by AI to facilitate and improve communication. In addition to Speakprose, a mobile app that uses gestures and eye-tracking to build sentences, the team is developing an entirely wireless BCI with integrated AR.`,
+  video: "https://www.youtube.com/embed/KB_3aetw65g",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/andreasforsland/",
+  backSide: new Card({
+    header: "Andreas Forsland",
+    paragraph: `<b>Founder and CEO of Cognixion</b>
+<br>Cognixion has been internationally recognized for its innovation and use of exponential technologies to solve a social and healthcare global challenge - affecting the lives of 509 million people* affected by speech disabilities. Cognixion has won the prestigious Roddenberry Prize, the Gold Edison Award for Social Impact, the Global Elevate Award and the Singularity University Global Grand Challenge for Education for its potential to impact over a billion lives.`,
+    image: "/images/event/natChat/speakers/andreasForsland.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/andreasforsland/",
+  }),
+});
+
+var natChatSpeaker0_2 = new Card({
+  header: "Cayden Pierce",
+  paragraph: `Cayden helps people upgrade their thinking by creating wearable BCIs and is currently the BCI Lead at Blueberry. Blueberry is building BCI glasses that allow continuous brain state monitoring to help users make better work, break, and rest decisions, overall increasing productivity and satisfaction.`,
+  video: "https://www.youtube.com/embed/hAZnoXJAyQ4",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/cayden-pierce-814664b9/",
+  backSide: new Card({
+    header: "Cayden Pierce",
+    paragraph: `<b>BCI Lead at Blueberry</b>
+<br>Cayden Pierce develops wearable computers and BCI to help people upgrade their thinking. He's the BCI Lead at Blueberry, building BCI glasses to help users upgrade their output by making better work, break, and rest decisions throughout the day.`,
+    image: "/images/event/natChat/speakers/caydenPierce.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/cayden-pierce-814664b9/",
+  }),
+});
+
+var natChatSpeaker0_3 = new Card({
+  header: "Jacob Flood",
+  paragraph: `Originally an engineer, Jacob transitioned towards productivity and science; author of the book Study Smart, founder of a SaaS tutoring company, and now Founder and CEO of Eno. Eno is improving focused productivity with elegant and innovative BCIs for everyday use.`,
+  video: "https://www.youtube.com/embed/skqjZUr5KJU",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/jacobflood/",
+  backSide: new Card({
+    header: "Jacob Flood",
+    paragraph: `<b>Founder and CEO of Eno</b>
+<br>Visit my LinkedIn for more information!`,
+    image: "/images/event/natChat/speakers/jacobFlood.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/jacobflood/",
+  }),
+});
+
+var natChatSpeaker0_4 = new Card({
+  header: "Joseph Artuso",
+  paragraph: `Coming from a Political Science degree at Columbia University, Joseph has honed his marketing and communication skills at companies across the globe including Salesforce, AppNexus, and WPP. Joseph previously managed digital marketing for OpenBCI and now directs OpenBCI’s commercialization and communication strategies.`,
+  video: "https://www.youtube.com/embed/d9I2yRyTSMc",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/jartuso/",
+  backSide: new Card({
+    header: "Joseph Artuso",
+    paragraph: `<b>Director Of Marketing & Business Development at OpenBCI</b>
+<br>Drawing on experience in sales, marketing, and consulting, Joseph is responsible for guiding OpenBCI's commercialization and communication strategies. Prior to joining OpenBCI full-time, Joseph managed OpenBCI's digital marketing as a consultant while working in the US and EMEA at market-leading companies such as Salesforce, AppNexus, and WPP. After returning from living in London, Joseph also briefly coordinated a series of innovative art and music events in NYC. He has a B.A. in Political Science from Columbia University.`,
+    image: "/images/event/natChat/speakers/josephArtuso.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/jartuso/",
+  }),
+});
+
+var natChatSpeaker1_0 = new Card({
+  header: "Keynote: Mike Ambinder",
+  paragraph: `Mike is an experimental psychologist at Valve, focusing on BCIs and has worked on many of their games such as TF2 and Portal 2.`,
+  video: "https://www.youtube.com/embed/9nxCthpJccs",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+  backSide: new Card({
+    header: "Keynote: Mike Ambinder",
+    paragraph: `<b>Principal Experimental Psychologist at Valve</b>
+<br>I’m an experimental psychologist at Valve who works on applying knowledge and methodologies from psychology to game design. I do a fair bit of statistical analysis on gameplay and Steam data, and these days I’m spending time on Brain-Computer Interface research. I’ve been at Valve since 2008 and have worked on basically every game/product we’ve released since then.`,
+    image: "/images/event/natChat/speakers/mikeAmbinder.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+  }),
+});
+
+var natChatSpeaker1_1 = new Card({
+  header: "Stefan Chmelik",
+  paragraph: `Stefan is the founder and creator of BioSelf Technology. Their product Sensate uses infrasound vagal nerve stimulation to improve subjective well-being amongst consumers.`,
+  video: "https://youtube.com/embed/NMQ2R9hSGz0",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk",
+  backSide: new Card({
+    header: "Stefan Chmelik",
+    paragraph: `<b>Founder at BioSelf Technology</b>
+<br>Stefan Chmelik is a life-long meditator and a driven entrepreneur fully focussed on his mission to help build a world less full of fear. He has brought together these two personal drivers in the invention of Sensate, a technology designed to help almost anyone achieve a fast-track to optimal self-regulation in the conquest of anxiety. His career is now entirely devoted to enabling the optimisation of human resilience through the work of BioSelf Technology.`,
+    image: "/images/event/natChat/speakers/stefanChmelik.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk",
+  }),
+});
+
+var natChatSpeaker1_2 = new Card({
+  hidden: true,
+  header: "Eli Kinney-Lang",
+  paragraph: `Eli Kinney-Lang is a postdoc researcher at the UofC and is a part of the Pediatric BCI lab at the Alberta Children’s Hospital where he leads development of innovative BCIs for kids.`,
+  video: "https://www.youtube.com/embed/T1sC6DGCWwA",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca",
+  backSide: new Card({
+    header: "Eli Kinney-Lang",
+    paragraph: `<b>Postdoctoral Researcher at University of Calgary</b>
+<br>Experienced postdoctoral researcher focused on driving forward design, development and realization of pediatric brain-computer interfaces (BCI). Skills include biomedical signal processing, multi-way analysis, machine learning, EEG acquisition and analysis, BCI gamification and design.`,
+    image: "/images/event/natChat/speakers/eliKinneylang.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca",
+  }),
+});
+
+var natChatSpeaker1_3 = new Card({
+  header: "Ty McKinney",
+  paragraph: `Ty is a co-founder of the mental health tech company 8-Bit Cortex where he focuses on gamifying mental health assessment.`,
+  video: "https://www.youtube.com/embed/tWIuyMoG7N4",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/tytheneuroguy/",
+  backSide: new Card({
+    header: "Ty McKinney",
+    paragraph: `<b>Co-Founder at 8 Bit Cortex</b>
+<br>Ty is currently completing his PhD at the University of Utah with a research focus on brain health assessment. Ty is thrilled to be co-founder of 8 Bit Cortex, a mental health tech start up, and adapt his research expertise to creating accessible and affordable mental health services. Ty is also the Research Director for Branch Out Neurological Foundation, a non-profit that accelerates non-pharmaceutical and tech-based solutions to neurological and mental health disorders. Finally, Ty is also a consultant with ConsciousWorks to promote brain health in the workplace. Through these positions, Ty has cultivated project management, research, science communication, programming skills (In order of skill: R, Matlab, HTML, CSS, Javascript, Python), and entrepreneurial thinking with an eye for the clinical impact.`,
+    image: "/images/event/natChat/speakers/tyMckinney.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/tytheneuroguy/",
+  }),
+});
+
+var natChatSpeaker2_0 = new Card({
+  header: "Keynote: Katherine Perdue",
+  paragraph: `<b>Research Scientist at Kernel</b>
+<br>With a PhD in Biomedical Engineering from Dartmouth, Katherine’s expertise is incredibly impressive. Throughout her professional career Katherine has built up extensive experience in research and neuroscience study. Now at Kernel as a research scientist, Katherine has worked on neuroimaging system characterization, optimization, configuration, and much more!`,
+  video: "https://www.youtube.com/embed/MC5mtKJzGLM",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/katherine-perdue/",
+  backSide: new Card({
+    header: "Keynote: Katherine Perdue",
+    paragraph: `<b>Research Scientist at Kernel</b>
+<br>I specialize in making human brain imaging methods more robust and useful. My training is in Biomedical Engineering and Cognitive Neuroscience. I use signal processing methods and experimental expertise to get the most information from the smallest amount of brain data.`,
+    image: "/images/event/natChat/speakers/katherinePerdue.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/katherine-perdue/",
+  }),
+});
+
+var natChatSpeaker2_1 = new Card({
+  hidden: true,
+  header: "Dion Kelly",
+  paragraph: `<b>PhD Candidate, Neuroscience - NATuc President</b>
+<br>A PhD Candidate in Neuroscience at the University of Calgary, Dion is an aspiring Neurotechnology Professional. As a member of the Calgary Pediatric Stroke Program, Dion has put her passion and impressive wealth of knowledge to work on pediatric brain-computer interfaces.`,
+  video: "https://www.youtube.com/embed/M1b-wKU7zpE",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/dionmkelly/",
+  backSide: new Card({
+    header: "Dion Kelly",
+    paragraph: `<b>PhD Candidate, Neuroscience - NATuc President</b>
+<br>I am an aspiring Neurotechnology Professional with a passion for health, life sciences research and technology, and travel. I bring a proven record of achievement in medical science education, community involvement, business development, and leadership. I have travelled to over 35 countries on six different continents and can speak three languages. With a global mindset and graduate education in the fields of neuroscience and biomedical technology, I will strive to achieve my goals of improving the world's quality of life and improving human health.`,
+    image: "/images/event/natChat/speakers/dionKelly.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/dionmkelly/",
+  }),
+});
+
+var natChatSpeaker2_2 = new Card({
+  header: "Vivian Mushahwar",
+  paragraph: `Throughout her career, Vivian has contributed an incredible amount to the medical neurotech industry, including Founding or Co-Founding several innovative companies. Vivian now sits as the Canadian Research Chair in Functional Restoration at the University of Alberta as well as serving as a Professor of Physical Medicine and Rehabilitation.`,
+  video: "https://www.youtube.com/embed/4tDDMlFAt-4",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/vivian-mushahwar-1b4122133/",
+  backSide: new Card({
+    header: "Vivian Mushahwar",
+    paragraph: `<b>Fellow at American Institute for Medical and Biological Engineering</b>
+<br>I focus on developing intelligent medical devices and innovative rehabilitation interventions to improve function, health outcomes and quality of life of persons with neural injuries or diseases`,
+    image: "/images/event/natChat/speakers/vivianMushahwar.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/vivian-mushahwar-1b4122133/",
+  }),
+});
+
+var natChatSpeaker2_3 = new Card({
+  header: "Bhawna Sehgal",
+  paragraph: `<b>Co-Founder | Upside Down Labs</b>
+<br>With an eye for detail and passion for design Bhawna has built up an extensive graphic design background. More recently, she Co-Founded Upside Down Labs, a technology development firm that is currently working on open-source projects in the bioelectronics and neuroscience spaces.`,
+  video: "https://www.youtube.com/embed/C0XnlBvTsyk",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/bhawnasehgal99/",
+  backSide: new Card({
+    header: "Bhawna Sehgal",
+    paragraph: `<b>Co-Founder | Upside Down Labs</b>
+<br>Bhawna Sehgal is a goal-oriented Visual Designer with an eye for detail and a passion for designing. She believes in creating eye-appealing visual concepts and communicating ideas that inspire, inform and captivate people. Her love for designing and creative thinking pushes her to always keep creating something new that can excite the viewers.`,
+    image: "/images/event/natChat/speakers/bhawnaSehgal.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/bhawnasehgal99/",
+  }),
+});
+
+var natChatSpeaker3_0 = new Card({
+  header: "Katherine Perdue",
+  paragraph: `<b>Research Scientist at Kernel</b>
+<br>With a PhD in Biomedical Engineering from Dartmouth, Katherine's expertise is incredibly impressive. Throughout her professional career Katherine has built up extensive experience in research and neuroscience study. Now at Kernel as a research scientist, Katherine has worked on neuroimaging system characterization, optimization, configuration, and much more!`,
+  video: "https://www.youtube.com/embed/YGVdLNooM8o",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/katherine-perdue/",
+  backSide: new Card({
+    header: "Katherine Perdue",
+    paragraph: `<b>Research Scientist at Kernel</b>
+<br>I specialize in making human brain imaging methods more robust and useful. My training is in Biomedical Engineering and Cognitive Neuroscience. I use signal processing methods and experimental expertise to get the most information from the smallest amount of brain data.`,
+    image: "/images/event/natChat/speakers/katherinePerdue.jpeg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/katherine-perdue/",
+  }),
+});
+
+var natChatSpeaker3_1 = new Card({
+  header: "Mike Ambinder",
+  paragraph: `Mike is an experimental psychologist at Valve, focusing on BCIs and has worked on many of their games such as TF2 and Portal 2.`,
+  video: "https://www.youtube.com/embed/REIgWT70JpQ",
+  buttontext: "Linkedin",
+  link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+  backSide: new Card({
+    header: "Mike Ambinder",
+    paragraph: `<b>Principal Experimental Psychologist at Valve</b>
+<br>I'm an experimental psychologist at Valve who works on applying knowledge and methodologies from psychology to game design. I do a fair bit of statistical analysis on gameplay and Steam data, and these days I’m spending time on Brain-Computer Interface research. I’ve been at Valve since 2008 and have worked on basically every game/product we’ve released since then.`,
+    buttontext: "Linkedin",
+    image: "/images/event/natChat/speakers/mikeAmbinder.jpeg",
+    link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+  }),
+});
+
+var natChatSpeaker4_0 = new Card({
+  header: "Dr. Milad Nazarahari",
+  paragraph: `<b>Mechanical and Biomedical Engineer at University of Alberta</b>
+<br>Milad began his educational journey at Iran University of Science and Technology where he spent six years studying Mechanical Engineering, and another two years as a Researcher. More recently Milad completed his PhD in Mechanical Engineering at the University of Alberta in 2020, where he has served as a Research and Teaching Assistant since 2016. Currently Dr. Nazarahari is working in a lab which researches the potential of neuroprostheses for controlling balance in those with physical disabilities.`,
+  video: "https://www.youtube.com/embed/m4t8C9W3P7Y",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/milad-nazarahari-1999b3a3/?originalSubdomain=ir",
+  backSide: new Card({
+    header: "Dr. Milad Nazarahari",
+    paragraph: `<b>Mechanical and Biomedical Engineer at University of Alberta</b>
+<br>Milad began his educational journey at Iran University of Science and Technology where he spent six years studying Mechanical Engineering, and another two years as a Researcher. More recently Milad completed his PhD in Mechanical Engineering at the University of Alberta in 2020, where he has served as a Research and Teaching Assistant since 2016. Currently Dr. Nazarahari is working in a lab which researches the potential of neuroprostheses for controlling balance in those with physical disabilities.`,
+    image: "/images/event/natChat/speakers/miladNazarahari.jpg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/milad-nazarahari-1999b3a3/?originalSubdomain=ir",
+  }),
+});
+
+var natChatSpeaker4_1 = new Card({
+  header: "Dr. Tony Muhammad Yousefnezhad",
+  paragraph: `<b>Postdoctoral Fellow at University of Alberta</b>
+<br>My primary research interests lie in developing machine / deep / reinforcement learning for solving real-world big and complex problems. Specifically, I am now working on the intersection of machine learning and computational neuroscience, where I am creating different techniques for decoding patterns of the human brain by exploiting distinctive biomarkers, i.e., fMRI, EEG, MEG, Health Records, etc.`,
+  video: "https://www.youtube.com/embed/4HWKx89Cyp8",
+  buttonText: "Linkedin",
+  link: "https://www.linkedin.com/in/myousefnezhad/",
+  backSide: new Card({
+    header: "Dr. Tony Muhammad Yousefnezhad",
+    paragraph: `<b>Postdoctoral Fellow at University of Alberta</b>
+<br>My primary research interests lie in developing machine / deep / reinforcement learning for solving real-world big and complex problems. Specifically, I am now working on the intersection of machine learning and computational neuroscience, where I am creating different techniques for decoding patterns of the human brain by exploiting distinctive biomarkers, i.e., fMRI, EEG, MEG, Health Records, etc.`,
+    image: "/images/event/natChat/speakers/tonyYousefnezhad.jpg",
+    buttonText: "Linkedin",
+    link: "https://www.linkedin.com/in/myousefnezhad/",
+  }),
+});
 
 var featuredCards = [
   natChatCardHome,
@@ -1594,6 +1927,39 @@ var natChatWhyAttendCards = [
   natChatNetworking,
 ];
 
+var natChatSpeaker0Cards = [
+  natChatSpeaker0_0,
+  natChatSpeaker0_1,
+  natChatSpeaker0_2,
+  natChatSpeaker0_3,
+  natChatSpeaker0_4,
+];
+
+var natChatSpeaker1Cards = [
+  natChatSpeaker1_0,
+  natChatSpeaker1_1,
+  natChatSpeaker1_2,
+  natChatSpeaker1_3,
+];
+
+var natChatSpeaker2Cards = [
+  natChatSpeaker2_0,
+  natChatSpeaker2_1,
+  natChatSpeaker2_2,
+  natChatSpeaker2_3,
+];
+
+var natChatSpeaker3Cards = [
+  natChatSpeaker3_0,
+  natChatSpeaker3_1,
+];
+
+var natChatSpeaker4Cards = [
+  natChatSpeaker4_0,
+  natChatSpeaker4_1,
+];
+
+
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
 var homePageCardsElement = document.getElementById("homePageCards");
 var currentProjectCardsElement = document.getElementById("currentProjectCards");
@@ -1603,6 +1969,16 @@ var pastEventCardsElement = document.getElementById("pastEventCards");
 var moreEventCardsElement = document.getElementById("moreEventCards");
 var natChatUpcomingChatsCardsElement = document.getElementById("natChatUpcomingChatsCards");
 var natChatWhyAttendCardsElement = document.getElementById("natChatWhyAttendCards");
+var natChatSpeaker0Element = document.getElementById("natChatSpeaker0");
+var natChatSpeaker0FlippedElement = document.getElementById("natChatSpeaker0Flipped");
+var natChatSpeaker1Element = document.getElementById("natChatSpeaker1");
+var natChatSpeaker1FlippedElement = document.getElementById("natChatSpeaker1Flipped");
+var natChatSpeaker2Element = document.getElementById("natChatSpeaker2");
+var natChatSpeaker2FlippedElement = document.getElementById("natChatSpeaker2Flipped");
+var natChatSpeaker3Element = document.getElementById("natChatSpeaker3");
+var natChatSpeaker3FlippedElement = document.getElementById("natChatSpeaker3Flipped");
+var natChatSpeaker4Element = document.getElementById("natChatSpeaker4");
+var natChatSpeaker4FlippedElement = document.getElementById("natChatSpeaker4Flipped");
 
 var partnerCardsPlatinum = document.getElementById("partnerCardsPlatinum");
 var partnerCardsGold = document.getElementById("partnerCardsGold");
@@ -1617,13 +1993,13 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
     .filter(card => card.isFeatured() && !card.isFinished())
     .mutate(card => card.setDark(false))
     .concat(featuredCards)
-    .forEach(card => featuredCardsElement.appendChild(card.generateElement()));
+    .forEach(card => featuredCardsElement.safeAppendChild(card.generateElement()));
 
-  homePageCards.forEach(card => homePageCardsElement.appendChild(card.generateElement()));
+  homePageCards.forEach(card => homePageCardsElement.safeAppendChild(card.generateElement()));
 } else if (currentProjectCardsElement && pastProjectCardsElement) {  // projects.html
   // Adds all present and future project cards to the projects page.
-  currentProjectCards.forEach(card => currentProjectCardsElement.appendChild(card.generateElement()));
-  pastProjectCards.forEach(card => pastProjectCardsElement.appendChild(card.generateElement()));
+  currentProjectCards.forEach(card => currentProjectCardsElement.safeAppendChild(card.generateElement()));
+  pastProjectCards.forEach(card => pastProjectCardsElement.safeAppendChild(card.generateElement()));
 
 } else if (currentEventCardsElement &&
            pastEventCardsElement &&
@@ -1631,11 +2007,11 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Add all of the event cards to either currentEvents or pastEvents.
   eventCards.forEach(card =>
     card.isFinished() ?
-      pastEventCardsElement.appendChild(card.generateElement()) :
-      currentEventCardsElement.appendChild(card.generateElement()))
+      pastEventCardsElement.safeAppendChild(card.generateElement()) :
+      currentEventCardsElement.safeAppendChild(card.generateElement()))
 
   // Add all of the moreEvent cards to the moreEvents section.
-  moreEventCards.forEach(card => moreEventCardsElement.appendChild(card.generateElement()));
+  moreEventCards.forEach(card => moreEventCardsElement.safeAppendChild(card.generateElement()));
 
 } else if (partnerCardsPlatinum && partnerCardsGold && partnerCardsSilver && partnerCardsBronze) { // partners.html 
   // Randomize the order we display sponsors
@@ -1645,22 +2021,32 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
     .forEach(card => {
       switch(this.determineDisplayTier(card.eventsSponsored)) {
         case sponsorshipTier.platinum:
-          partnerCardsPlatinum.appendChild(card.generateElement());
+          partnerCardsPlatinum.safeAppendChild(card.generateElement());
           break;
         case sponsorshipTier.gold:
-          partnerCardsGold.appendChild(card.generateElement());
+          partnerCardsGold.safeAppendChild(card.generateElement());
           break;
         case sponsorshipTier.silver:
-          partnerCardsSilver.appendChild(card.generateElement());
+          partnerCardsSilver.safeAppendChild(card.generateElement());
           break;
         case sponsorshipTier.bronze:
-          partnerCardsBronze.appendChild(card.generateElement());
+          partnerCardsBronze.safeAppendChild(card.generateElement());
           break;
         default:
           console.error("Failed to generate a sponsor card. Ensure every sponsor has an event sponsored");
       }
     });
 } else if (natChatUpcomingChatsCardsElement && natChatWhyAttendCardsElement) { // event/natchat.html
-  natChatUpcomingChatsCards.forEach(card => natChatUpcomingChatsCardsElement.appendChild(card.generateElement()));
-  natChatWhyAttendCards.forEach(card => natChatWhyAttendCardsElement.appendChild(card.generateElement()));
+  natChatUpcomingChatsCards.forEach(card => natChatUpcomingChatsCardsElement.safeAppendChild(card.generateElement()));
+  natChatWhyAttendCards.forEach(card => natChatWhyAttendCardsElement.safeAppendChild(card.generateElement()));
+  natChatSpeaker0Cards.forEach(card => natChatSpeaker0Element.safeAppendChild(card.generateElement()));
+  natChatSpeaker0Cards.map(card => card.flip()).forEach(card => natChatSpeaker0FlippedElement.safeAppendChild(card.generateElement()));
+  natChatSpeaker1Cards.forEach(card => natChatSpeaker1Element.safeAppendChild(card.generateElement()));
+  natChatSpeaker1Cards.map(card => card.flip()).forEach(card => natChatSpeaker1FlippedElement.safeAppendChild(card.generateElement()));
+  natChatSpeaker2Cards.forEach(card => natChatSpeaker2Element.safeAppendChild(card.generateElement()));
+  natChatSpeaker2Cards.map(card => card.flip()).forEach(card => natChatSpeaker2FlippedElement.safeAppendChild(card.generateElement()));
+  natChatSpeaker3Cards.forEach(card => natChatSpeaker3Element.safeAppendChild(card.generateElement()));
+  natChatSpeaker3Cards.map(card => card.flip()).forEach(card => natChatSpeaker3FlippedElement.safeAppendChild(card.generateElement()));
+  natChatSpeaker4Cards.forEach(card => natChatSpeaker4Element.safeAppendChild(card.generateElement()));
+  natChatSpeaker4Cards.map(card => card.flip()).forEach(card => natChatSpeaker4FlippedElement.safeAppendChild(card.generateElement()));
 }
