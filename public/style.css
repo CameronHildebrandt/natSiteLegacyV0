@@ -2211,6 +2211,13 @@ select:-webkit-autofill:focus {
   border-radius: 25px;
 }
 
+.mobileFriendly80Width {
+  position: relative;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #largeInfoBlockText {
   /* background-color: rgba(255,255,0,0.5); */
   padding-left: 20px;
@@ -2426,6 +2433,10 @@ div.pastNewsletter:active {
 
   .directionsVideo img {
     border-radius: 10px;
+  }
+
+  .mobileFriendly80Width {
+    width: 96%;
   }
 
   .subSubTitle {
