@@ -56,17 +56,18 @@ $(document).ready(function(){
   window.addEventListener('load', function () {
     // showLastImg();
 
-    var img=new Image();
-    img.src = document.getElementById("headerBGImg").getAttribute("lsrc");
-
-    img.addEventListener('load', function () {
-      document.getElementById("headerBGImg").style.backgroundImage = "url(" + this.src + ")";
-      document.querySelector(".spinner").style.opacity = "0%";
-      document.getElementById("headerBGImg").style.opacity = "100%";
-      document.getElementById("headerBGImg").style.filter = "blur(0px)";
-    })
+    if(document.getElementById("headerBGImg")) {
+      var img=new Image();
+      img.src = document.getElementById("headerBGImg").getAttribute("lsrc");
+  
+      img.addEventListener('load', function () {
+        document.getElementById("headerBGImg").style.backgroundImage = "url(" + this.src + ")";
+        document.querySelector(".spinner").style.opacity = "0%";
+        document.getElementById("headerBGImg").style.opacity = "100%";
+        document.getElementById("headerBGImg").style.filter = "blur(0px)";
+      })
+      showLastImg();
+    }
   })
-
-  showLastImg();
 
 });
