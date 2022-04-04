@@ -1560,6 +1560,7 @@ var currentProjectCardsElement = document.getElementById("currentProjectCards");
 var pastProjectCardsElement = document.getElementById("pastProjectCards");
 var currentEventCardsElement = document.getElementById("currentEventCards");
 var pastEventCardsElement = document.getElementById("pastEventCards");
+var pastEventCardsContainer = document.getElementById("pastEventsCardsContainer");
 var moreEventCardsElement = document.getElementById("moreEventCards");
 
 var partnerCardsPlatinum = document.getElementById("partnerCardsPlatinum");
@@ -1589,7 +1590,7 @@ if (featuredCardsElement && homePageCardsElement) {  // index.html
   // Add all of the event cards to either currentEvents or pastEvents.
   eventCards.forEach(card =>
     card.isFinished() ?
-      pastEventCardsElement.appendChild(card.generateElement()) :
+      pastEventCardsContainer.appendChild(card.generateElement()) :
       currentEventCardsElement.appendChild(card.generateElement()))
 
   // Add all of the moreEvent cards to the moreEvents section.
