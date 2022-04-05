@@ -1485,6 +1485,21 @@ var sponsorUAIS = new Card({
   link: "https://uais.dev/",
 });
 
+var sponsorHotchkiss = new Card({
+  type: cardType.sponsor,
+  header: "Hotchkiss Brain Institute",
+  paragraph: ``,
+  eventsSponsored: [
+    new eventSponsored({event: natEvent.natHACKS, tier: sponsorshipTier.bronze}),
+  ],
+  lightLogo: "/images/Logos/4to1/hotchkiss.png",
+  darkLogo: "/images/Logos/4to1/hotchkiss.png",
+  startDate: new Date("March 31, 2022 00:00"),
+  endDate: new Date("March 31, 2023 23:59"),
+  buttonText: "hbi.ucalgary.ca",
+  link: "https://hbi.ucalgary.ca",
+});
+
 
 
 var featuredCards = [
@@ -1551,7 +1566,8 @@ var partnerCards = [
   sponsorRemBRAINdt,
   sponsorRisingYouth,
   sponsorURI,
-  sponsorGTec
+  sponsorGTec,
+  sponsorHotchkiss
 ];
 
 var featuredCardsElement = document.getElementById("homeFeaturedCards");
