@@ -102,92 +102,119 @@ class eventSponsored {
 }
 
 class Card {
-  header = "";
-  subHeader = "";
-  paragraph = "";
-  image = "";
-  colourLogo = ""; // TODO add constructor
-  lightLogo = "";
-  darkLogo = "";
-  eventsSponsored = [];
-  video = "";
+  altText = "";
   buttonText = "";
+  colourLogo = ""; // TODO add constructor
+  darkLogo = "";
+  header = "";
+  image = "";
+  largeHeader = ""
+  lightLogo = "";
   link = "";
   location = "";
-  altText = "";
-  largeHeader = ""
-  type = null;
-  startDate = null;
-  endDate = null;
+  paragraph = "";
+  subHeader = "";
+  video = "";
+
+  eventsSponsored = [];
+  subSection = [];
+
   backSide = null;
+  endDate = null;
+  startDate = null;
+  type = null;
+
   dark = false;
-  large = false;
   featured = false;
   hidden = false;
+  large = false;
+  subCard = false;
+  superCard = false;
   userUsingDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   constructor(args) {
-    this.setHeader(args["header"]);
-    this.setSubHeader(args["subHeader"]);
-    this.setParagraph(args["paragraph"]);
-    this.setImage(args["image"]);
-    this.setColourLogo(args["colourLogo"]);
-    this.setLightLogo(args["lightLogo"]);
-    this.setDarkLogo(args["darkLogo"]);
-    this.setEventsSponsored(args["eventsSponsored"]);
-    this.setVideo(args["video"]);
+    this.setAltText(args["altText"]);
     this.setButtonText(args["buttonText"]);
+    this.setColourLogo(args["colourLogo"]);
+    this.setDarkLogo(args["darkLogo"]);
+    this.setHeader(args["header"]);
+    this.setImage(args["image"]);
+    this.setLargeHeader(args["largeHeader"]);
+    this.setLightLogo(args["lightLogo"]);
     this.setLink(args["link"]);
     this.setLocation(args["location"]);
-    this.setAltText(args["altText"]);
-    this.setType(args["type"]);
-    this.setStartDate(args["startDate"]);
-    this.setEndDate(args["endDate"]);
+    this.setParagraph(args["paragraph"]);
+    this.setSubHeader(args["subHeader"]);
+    this.setVideo(args["video"]);
+
+    this.setEventsSponsored(args["eventsSponsored"]);
+    this.setSubSection(args["subSection"]);
+
     this.setBackSide(args["backSide"]);
+    this.setEndDate(args["endDate"]);
+    this.setStartDate(args["startDate"]);
+    this.setType(args["type"]);
+
     this.setDark(args["dark"]);
-    this.setLarge(args["large"]);
-    this.setLargeHeader(args["largeHeader"]);
     this.setFeatured(args["featured"]);
     this.setHidden(args["hidden"]);
+    this.setLarge(args["large"]);
+    this.setSubCard(args["subCard"]);
+    this.setSuperCard(args["superCard"]);
   }
 
   clone() {
     return new Card({
-      header: this.header,
-      subHeader: this.subHeader,
-      paragraph: this.paragraph,
-      image: this.image,
-      colourLogo: this.colourLogo,
-      lightLogo: this.lightLogo,
-      darkLogo: this.darkLogo,
-      eventsSponsored: this.eventsSponsored.map((x) => x),
-      video: this.video,
+      altText: this.altText,
       buttonText: this.buttonText,
+      colourLogo: this.colourLogo,
+      darkLogo: this.darkLogo,
+      header: this.header,
+      image: this.image,
+      largeHeader: this.largeHeader,
+      lightLogo: this.lightLogo,
       link: this.link,
       location: this.location,
-      altText: this.altText,
-      largeHeader: this.largeHeader,
-      type: this.type,
-      startDate: this.startDate,
-      endDate: this.endDate,
+      paragraph: this.paragraph,
+      subHeader: this.subHeader,
+      video: this.video,
+
+      eventsSponsored: this.eventsSponsored.map((x) => x),
+      subSection: this.subSection.map((x) => x),
+
       backSide: this.backSide,
+      endDate: this.endDate,
+      startDate: this.startDate,
+      type: this.type,
+
       dark: this.dark,
-      large: this.large,
       featured: this.featured,
+      hidden: this.hidden,
+      large: this.large,
+      subCard: this.subCard,
+      superCard: this.superCard,
       userUsingDarkMode: this.userUsingDarkMode,
     });
   }
 
-  isFinished() {
-    return this.endDate !== undefined && this.endDate < Date.now();
+  isDark() {
+    return this.dark;
   }
 
   isFeatured() {
     return this.featured;
   }
 
-  isDark() {
-    return this.dark;
+  isFinished() {
+    return this.endDate !== undefined && this.endDate < Date.now();
+  }
+
+  isSubCard() {
+    return this.subCard;
+  }
+
+  isSuperCard() {
+    return this.superCard;
   }
 
   flip() {
@@ -198,65 +225,9 @@ class Card {
     }
   }
 
-  setHeader(header) {
-    if (header !== undefined) {
-      this.header = header;
-    }
-    return this;
-  }
-
-  setSubHeader(subHeader) {
-    if (subHeader !== undefined) {
-      this.subHeader = subHeader;
-    }
-    return this;
-  }
-
-  setParagraph(paragraph) {
-    if (paragraph !== undefined) {
-      this.paragraph = paragraph;
-    }
-    return this;
-  }
-
-  setImage(image) {
-    if (image !== undefined) {
-      this.image = image;
-    }
-    return this;
-  }
-
-  setColourLogo(colourLogo) {
-    if (colourLogo !== undefined) {
-      this.colourLogo = colourLogo;
-    }
-    return this;
-  }
-
-  setLightLogo(lightLogo) {
-    if (lightLogo !== undefined) {
-      this.lightLogo = lightLogo;
-    }
-    return this;
-  }
-
-  setDarkLogo(darkLogo) {
-    if (darkLogo !== undefined) {
-      this.darkLogo = darkLogo;
-    }
-    return this;
-  }
-
-  setVideo(video) {
-    if (video !== undefined) {
-      this.video = video;
-    }
-    return this;
-  }
-
-  setLink(link) {
-    if (link !== undefined) {
-      this.link = link;
+  setAltText(altText) {
+    if (altText !== undefined) {
+      this.altText = altText;
     }
     return this;
   }
@@ -268,59 +239,30 @@ class Card {
     return this;
   }
 
-  setLocation(location) {
-    if (location !== undefined) {
-      this.location = location;
+  setColourLogo(colourLogo) {
+    if (colourLogo !== undefined) {
+      this.colourLogo = colourLogo;
     }
     return this;
   }
 
-  setAltText(altText) {
-    if (altText !== undefined) {
-      this.altText = altText;
+  setDarkLogo(darkLogo) {
+    if (darkLogo !== undefined) {
+      this.darkLogo = darkLogo;
     }
     return this;
   }
 
-  setType(type) {
-    if (type !== undefined) {
-      this.type = type;
+  setHeader(header) {
+    if (header !== undefined) {
+      this.header = header;
     }
     return this;
   }
 
-  setStartDate(date) {
-    if (date !== undefined) {
-      this.startDate = date;
-    }
-    return this;
-  }
-
-  setEndDate(date) {
-    if (date !== undefined) {
-      this.endDate = date;
-    }
-    return this;
-  }
-
-  setBackSide(backSide) {
-    if (backSide !== undefined) {
-      this.backSide = backSide;
-      this.backSide.backSide = this;
-    }
-    return this;
-  }
-
-  setDark(dark) {
-    if (dark !== undefined) {
-      this.dark = dark;
-    }
-    return this;
-  }
-
-  setLarge(large) {
-    if (large !== undefined) {
-      this.large = large;
+  setImage(image) {
+    if (image !== undefined) {
+      this.image = image;
     }
     return this;
   }
@@ -332,12 +274,49 @@ class Card {
     return this;
   }
 
-  setFeatured(featured) {
-    if (featured !== undefined) {
-      this.featured = featured;
+  setLightLogo(lightLogo) {
+    if (lightLogo !== undefined) {
+      this.lightLogo = lightLogo;
     }
     return this;
   }
+
+  setLink(link) {
+    if (link !== undefined) {
+      this.link = link;
+    }
+    return this;
+  }
+
+  setLocation(location) {
+    if (location !== undefined) {
+      this.location = location;
+    }
+    return this;
+  }
+
+  setParagraph(paragraph) {
+    if (paragraph !== undefined) {
+      this.paragraph = paragraph;
+    }
+    return this;
+  }
+
+  setSubHeader(subHeader) {
+    if (subHeader !== undefined) {
+      this.subHeader = subHeader;
+    }
+    return this;
+  }
+
+  setVideo(video) {
+    if (video !== undefined) {
+      this.video = video;
+    }
+    return this;
+  }
+
+
 
   setEventsSponsored(eventsSponsored) {
     if (eventsSponsored !== undefined) {
@@ -346,12 +325,89 @@ class Card {
     return this;
   }
 
+  setSubSection(section) {
+    if (section !== undefined) {
+      this.subSection = section;
+    }
+    return this;
+  }
+
+
+
+  setBackSide(backSide) {
+    if (backSide !== undefined) {
+      this.backSide = backSide;
+      this.backSide.backSide = this;
+    }
+    return this;
+  }
+
+  setEndDate(date) {
+    if (date !== undefined) {
+      this.endDate = date;
+    }
+    return this;
+  }
+
+  setStartDate(date) {
+    if (date !== undefined) {
+      this.startDate = date;
+    }
+    return this;
+  }
+
+  setType(type) {
+    if (type !== undefined) {
+      this.type = type;
+    }
+    return this;
+  }
+
+
+
+  setDark(dark) {
+    if (dark !== undefined) {
+      this.dark = dark;
+    }
+    return this;
+  }
+
+  setFeatured(featured) {
+    if (featured !== undefined) {
+      this.featured = featured;
+    }
+    return this;
+  }
+  
   setHidden(hidden) {
     if (hidden !== undefined) {
       this.hidden = hidden;
     }
     return this;
   }
+
+  setLarge(large) {
+    if (large !== undefined) {
+      this.large = large;
+    }
+    return this;
+  }
+
+  setSubCard(card) {
+    if (card !== undefined) {
+      this.subCard = card;
+    }
+    return this;
+  }
+
+  setSuperCard(card) {
+    if (card !== undefined) {
+      this.superCard = card;
+    }
+    return this;
+  }
+
+
 
   _generatePlatinumSponsoredTagContainer() {
     var containerClass = "platinumSponsorHeroEventSponsoredTagContainer";
@@ -439,7 +495,7 @@ class Card {
     // For partner card: give them an anchor tag, link to anchor from index.html
     const today = new Date();
     var rootBlockType = "smallInfoBlock";
-    var rootBlockStyle = "margin-bottom: 0px";
+    var rootBlockStyle = "margin-bottom: 0px;";
     var contentsType = "smallInfoContents";
     var textColorStyle = "";
     var buttonType = "smallButton";
@@ -495,6 +551,10 @@ class Card {
     }
     if (mediaAltText == "") {
       mediaAltText = this._generateMediaAltText();
+    }
+    if (this.isSubCard()) {
+      rootBlockType += "SubSection";
+      rootBlockStyle += " animation-delay: 0s;"
     }
 
     var cardRoot = document.createElement("div");
@@ -579,32 +639,42 @@ class Card {
 
 
     // Create text section.
-    var textBlock = document.createElement("div");
-    var headerBlock = document.createElement("div");
-    var paragraphText = document.createElement("p");
-    textBlock.id = rootBlockType + "Text"  // TODO: Change to class.
-    headerBlock.classList.add("subSubTitle");
-    headerBlock.style = "margin-bottom: 15px; " + textColorStyle;
-    headerBlock.innerHTML = this.header;
-    textBlock.appendChild(headerBlock);
-    if (this.subHeader) {
-      var subHeaderBlock = document.createElement("p");
-      var subHeaderText = document.createElement("b");
-      var br = document.createElement("br")
-      subHeaderBlock.classList.add("paragraphGradHeader");
-      subHeaderText.innerHTML = this.subHeader;
-      subHeaderBlock.appendChild(subHeaderText);
-      subHeaderBlock.appendChild(br);
-      textBlock.appendChild(subHeaderBlock);
+    if (this.isSuperCard()) {
+      // TODO
+      var textBlock = document.createElement("div");
+      textBlock.id = rootBlockType + "Text"  // TODO: Change to class.
+      textBlock.style = "top: 0px; " + textColorStyle;
+      this.subSection.forEach((element) => textBlock.safeAppendchild(element.generateElement()));
+      cardBlock.appendChild(textBlock);
+    } else {
+      var textBlock = document.createElement("div");
+      var headerBlock = document.createElement("div");
+      var paragraphText = document.createElement("p");
+      textBlock.id = rootBlockType + "Text"  // TODO: Change to class.
+      headerBlock.classList.add("subSubTitle");
+      headerBlock.style = "margin-bottom: 15px; " + textColorStyle;
+      headerBlock.innerHTML = this.header;
+      textBlock.appendChild(headerBlock);
+      if (this.subHeader) {
+        var subHeaderBlock = document.createElement("p");
+        var subHeaderText = document.createElement("b");
+        var br = document.createElement("br")
+        subHeaderBlock.classList.add("paragraphGradHeader");
+        subHeaderText.innerHTML = this.subHeader;
+        subHeaderBlock.appendChild(subHeaderText);
+        subHeaderBlock.appendChild(br);
+        textBlock.appendChild(subHeaderBlock);
+      }
+      paragraphText.style = textColorStyle;
+      paragraphText.classList.add("paragraph");
+      paragraphText.innerHTML = this.paragraph;
+      if(this.type == cardType.sponsor && this.paragraph == "") {
+        paragraphText.innerHTML = "Visit our website to learn more!";
+      }
+      textBlock.appendChild(paragraphText);
+      cardBlock.appendChild(textBlock);
     }
-    paragraphText.style = textColorStyle;
-    paragraphText.classList.add("paragraph");
-    paragraphText.innerHTML = this.paragraph;
-    if(this.type == cardType.sponsor && this.paragraph == "") {
-      paragraphText.innerHTML = "Visit our website to learn more!";
-    }
-    textBlock.appendChild(paragraphText);
-    cardBlock.appendChild(textBlock);
+
     cardRoot.appendChild(cardBlock);
 
     return cardRoot;
@@ -1577,6 +1647,7 @@ var natChatSpeaker0_0 = new Card({
   video: "https://www.youtube.com/embed/iIXZW6-0pDc",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/mikhail-lebedev-1843b210/",
+  subCard: true,
   backSide: new Card({
     header: "Keynote: Mikhail Lebedev",
     paragraph: `<b>Scientific Head at National Research University — Higher School of Economics<b>
@@ -1584,6 +1655,7 @@ var natChatSpeaker0_0 = new Card({
     image: "/images/event/natChat/speakers/mikhailLebedev.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/mikhail-lebedev-1843b210/",
+    subCard: true,
   }),
 });
 
@@ -1593,6 +1665,7 @@ var natChatSpeaker0_1 = new Card({
   video: "https://www.youtube.com/embed/KB_3aetw65g",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/andreasforsland/",
+  subCard: true,
   backSide: new Card({
     header: "Andreas Forsland",
     paragraph: `<b>Founder and CEO of Cognixion</b>
@@ -1600,6 +1673,7 @@ var natChatSpeaker0_1 = new Card({
     image: "/images/event/natChat/speakers/andreasForsland.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/andreasforsland/",
+    subCard: true,
   }),
 });
 
@@ -1609,6 +1683,7 @@ var natChatSpeaker0_2 = new Card({
   video: "https://www.youtube.com/embed/hAZnoXJAyQ4",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/cayden-pierce-814664b9/",
+  subCard: true,
   backSide: new Card({
     header: "Cayden Pierce",
     paragraph: `<b>BCI Lead at Blueberry</b>
@@ -1616,6 +1691,7 @@ var natChatSpeaker0_2 = new Card({
     image: "/images/event/natChat/speakers/caydenPierce.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/cayden-pierce-814664b9/",
+    subCard: true,
   }),
 });
 
@@ -1625,6 +1701,7 @@ var natChatSpeaker0_3 = new Card({
   video: "https://www.youtube.com/embed/skqjZUr5KJU",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/jacobflood/",
+  subCard: true,
   backSide: new Card({
     header: "Jacob Flood",
     paragraph: `<b>Founder and CEO of Eno</b>
@@ -1632,6 +1709,7 @@ var natChatSpeaker0_3 = new Card({
     image: "/images/event/natChat/speakers/jacobFlood.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/jacobflood/",
+    subCard: true,
   }),
 });
 
@@ -1641,6 +1719,7 @@ var natChatSpeaker0_4 = new Card({
   video: "https://www.youtube.com/embed/d9I2yRyTSMc",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/jartuso/",
+  subCard: true,
   backSide: new Card({
     header: "Joseph Artuso",
     paragraph: `<b>Director Of Marketing & Business Development at OpenBCI</b>
@@ -1648,6 +1727,7 @@ var natChatSpeaker0_4 = new Card({
     image: "/images/event/natChat/speakers/josephArtuso.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/jartuso/",
+    subCard: true,
   }),
 });
 
@@ -1657,6 +1737,7 @@ var natChatSpeaker1_0 = new Card({
   video: "https://www.youtube.com/embed/9nxCthpJccs",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+  subCard: true,
   backSide: new Card({
     header: "Keynote: Mike Ambinder",
     paragraph: `<b>Principal Experimental Psychologist at Valve</b>
@@ -1664,6 +1745,7 @@ var natChatSpeaker1_0 = new Card({
     image: "/images/event/natChat/speakers/mikeAmbinder.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+    subCard: true,
   }),
 });
 
@@ -1673,6 +1755,7 @@ var natChatSpeaker1_1 = new Card({
   video: "https://youtube.com/embed/NMQ2R9hSGz0",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk",
+  subCard: true,
   backSide: new Card({
     header: "Stefan Chmelik",
     paragraph: `<b>Founder at BioSelf Technology</b>
@@ -1680,6 +1763,7 @@ var natChatSpeaker1_1 = new Card({
     image: "/images/event/natChat/speakers/stefanChmelik.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/stefan-chmelik-msc-4539611a/?originalSubdomain=uk",
+    subCard: true,
   }),
 });
 
@@ -1690,6 +1774,7 @@ var natChatSpeaker1_2 = new Card({
   video: "https://www.youtube.com/embed/T1sC6DGCWwA",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca",
+  subCard: true,
   backSide: new Card({
     header: "Eli Kinney-Lang",
     paragraph: `<b>Postdoctoral Researcher at University of Calgary</b>
@@ -1697,6 +1782,7 @@ var natChatSpeaker1_2 = new Card({
     image: "/images/event/natChat/speakers/eliKinneylang.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/eli-kinney-lang/?originalSubdomain=ca",
+    subCard: true,
   }),
 });
 
@@ -1706,6 +1792,7 @@ var natChatSpeaker1_3 = new Card({
   video: "https://www.youtube.com/embed/tWIuyMoG7N4",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/tytheneuroguy/",
+  subCard: true,
   backSide: new Card({
     header: "Ty McKinney",
     paragraph: `<b>Co-Founder at 8 Bit Cortex</b>
@@ -1713,6 +1800,7 @@ var natChatSpeaker1_3 = new Card({
     image: "/images/event/natChat/speakers/tyMckinney.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/tytheneuroguy/",
+    subCard: true,
   }),
 });
 
@@ -1723,6 +1811,7 @@ var natChatSpeaker2_0 = new Card({
   video: "https://www.youtube.com/embed/MC5mtKJzGLM",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/katherine-perdue/",
+  subCard: true,
   backSide: new Card({
     header: "Keynote: Katherine Perdue",
     paragraph: `<b>Research Scientist at Kernel</b>
@@ -1730,6 +1819,7 @@ var natChatSpeaker2_0 = new Card({
     image: "/images/event/natChat/speakers/katherinePerdue.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/katherine-perdue/",
+    subCard: true,
   }),
 });
 
@@ -1741,6 +1831,7 @@ var natChatSpeaker2_1 = new Card({
   video: "https://www.youtube.com/embed/M1b-wKU7zpE",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/dionmkelly/",
+  subCard: true,
   backSide: new Card({
     header: "Dion Kelly",
     paragraph: `<b>PhD Candidate, Neuroscience - NATuc President</b>
@@ -1748,6 +1839,7 @@ var natChatSpeaker2_1 = new Card({
     image: "/images/event/natChat/speakers/dionKelly.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/dionmkelly/",
+    subCard: true,
   }),
 });
 
@@ -1757,6 +1849,7 @@ var natChatSpeaker2_2 = new Card({
   video: "https://www.youtube.com/embed/4tDDMlFAt-4",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/vivian-mushahwar-1b4122133/",
+  subCard: true,
   backSide: new Card({
     header: "Vivian Mushahwar",
     paragraph: `<b>Fellow at American Institute for Medical and Biological Engineering</b>
@@ -1764,6 +1857,7 @@ var natChatSpeaker2_2 = new Card({
     image: "/images/event/natChat/speakers/vivianMushahwar.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/vivian-mushahwar-1b4122133/",
+    subCard: true,
   }),
 });
 
@@ -1774,6 +1868,7 @@ var natChatSpeaker2_3 = new Card({
   video: "https://www.youtube.com/embed/C0XnlBvTsyk",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/bhawnasehgal99/",
+  subCard: true,
   backSide: new Card({
     header: "Bhawna Sehgal",
     paragraph: `<b>Co-Founder | Upside Down Labs</b>
@@ -1781,6 +1876,7 @@ var natChatSpeaker2_3 = new Card({
     image: "/images/event/natChat/speakers/bhawnaSehgal.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/bhawnasehgal99/",
+    subCard: true,
   }),
 });
 
@@ -1791,6 +1887,7 @@ var natChatSpeaker3_0 = new Card({
   video: "https://www.youtube.com/embed/YGVdLNooM8o",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/katherine-perdue/",
+  subCard: true,
   backSide: new Card({
     header: "Katherine Perdue",
     paragraph: `<b>Research Scientist at Kernel</b>
@@ -1798,6 +1895,7 @@ var natChatSpeaker3_0 = new Card({
     image: "/images/event/natChat/speakers/katherinePerdue.jpeg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/katherine-perdue/",
+    subCard: true,
   }),
 });
 
@@ -1807,6 +1905,7 @@ var natChatSpeaker3_1 = new Card({
   video: "https://www.youtube.com/embed/REIgWT70JpQ",
   buttontext: "Linkedin",
   link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+  subCard: true,
   backSide: new Card({
     header: "Mike Ambinder",
     paragraph: `<b>Principal Experimental Psychologist at Valve</b>
@@ -1814,6 +1913,7 @@ var natChatSpeaker3_1 = new Card({
     buttontext: "Linkedin",
     image: "/images/event/natChat/speakers/mikeAmbinder.jpeg",
     link: "https://www.linkedin.com/in/mike-ambinder-578aa89/",
+    subCard: true,
   }),
 });
 
@@ -1824,6 +1924,7 @@ var natChatSpeaker4_0 = new Card({
   video: "https://www.youtube.com/embed/m4t8C9W3P7Y",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/milad-nazarahari-1999b3a3/?originalSubdomain=ir",
+  subCard: true,
   backSide: new Card({
     header: "Dr. Milad Nazarahari",
     paragraph: `<b>Mechanical and Biomedical Engineer at University of Alberta</b>
@@ -1831,6 +1932,7 @@ var natChatSpeaker4_0 = new Card({
     image: "/images/event/natChat/speakers/miladNazarahari.jpg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/milad-nazarahari-1999b3a3/?originalSubdomain=ir",
+    subCard: true,
   }),
 });
 
@@ -1841,6 +1943,7 @@ var natChatSpeaker4_1 = new Card({
   video: "https://www.youtube.com/embed/4HWKx89Cyp8",
   buttonText: "Linkedin",
   link: "https://www.linkedin.com/in/myousefnezhad/",
+  subCard: true,
   backSide: new Card({
     header: "Dr. Tony Muhammad Yousefnezhad",
     paragraph: `<b>Postdoctoral Fellow at University of Alberta</b>
@@ -1848,6 +1951,7 @@ var natChatSpeaker4_1 = new Card({
     image: "/images/event/natChat/speakers/tonyYousefnezhad.jpg",
     buttonText: "Linkedin",
     link: "https://www.linkedin.com/in/myousefnezhad/",
+    subCard: true,
   }),
 });
 
