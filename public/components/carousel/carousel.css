@@ -1,0 +1,23 @@
+#pastEventCards {
+    padding: 25px;
+}
+
+#pastEventsCardsContainer {
+    display: flex;
+    overflow-x: scroll;
+    margin-bottom: 25px;
+}
+
+#smallInfoBlock {
+    min-width: 320px;
+}
+
+#smallInfoContents {
+    overflow: scroll;
+}
+
+#pastEventsCardsContainer #smallInfoContents {
+    display: flex;
+    flex-direction: column;
+    max-height: 320px;
+}
