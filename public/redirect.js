@@ -187,11 +187,11 @@ redirect.add(new Link({
 
 redirect.add(new Link({
   slug: "rsvpua",
-  location: "https://docs.google.com/forms/d/e/1FAIpQLScdXflDbGrJoE4cXwmr0GNbxvc-XHENKDOR-OdJ_uNhzmIKDQ/viewform",
+  location: "https://forms.gle/wLw89Ne9Wb7UkFUA6",
   name: "RSVP",
-  description: "natUA Info Night",
+  description: "NATure Walk",
   logo: "nat.png",
-  expire: new Date('March 28, 2022 21:00:00'),
+  expire: new Date('May 1, 2022 15:00:00'),
 }));
 
 redirect.add(new Link({
