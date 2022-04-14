@@ -41,6 +41,7 @@ class Redirect {
     this.links.forEach(link => {
       if(link.logo !== undefined) {
         if(link.expire !== null && link.expire < today) {
+          console.warn("Link " + link.description + " has expired.");
           return;
         }
 
