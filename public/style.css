@@ -1837,6 +1837,17 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: transparent;
 }
 
+.execTitleGraduofl {
+  display: inline-block;
+  background: rgba(27, 159, 214, 1);
+  background: -webkit-linear-gradient(120deg, rgba(27, 159, 214)  0%, rgba(255, 219, 124) 100%);
+  background: linear-gradient(120deg, rgba(27, 159, 214)  0%, rgba(255, 219, 124) 100%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .sponsorTitleGradPlatinum {
   display: inline-block;
   background: #7F7FD5;  /* fallback for old browsers */

@@ -69,6 +69,11 @@
         <div class="loaderContainer" id=uofcLoader></div>
         <div class="execScrollContainer" id="uofcContainer" style="margin-bottom: 20px;"></div>
 
+        <a name="uofl"></a>
+        <div class="subTitle execTitleGraduofl" id="uoflContainerTitle" style="left: 2%; margin-top: 15px;">University of Lethbridge Chapter Executives</div>
+        <div class="loaderContainer" id=uoflLoader></div>
+        <div class="execScrollContainer" id="uoflContainer" style="margin-bottom: 20px;"></div>
+
 
         <div class="greyBG" id="viewPastExecsContentFull">
 
@@ -121,10 +126,10 @@
 
       // Variables
       var animate = true;
-      const EXEC_TEAM_NAMES = ["directors", "uofa", "uofc"];
-      const EXEC_TEAM_TITLES = ["Board of Directors", "University of Alberta Chapter Executives", "University of Calgary Chapter Executives"];
-      const YEAR_CARD_TEAM_TYPE = ["Directors", "Executives", "Executives"];
-      const YEAR_CARD_TEAM_NAMES = ["NeurAbertaTech Neurotechnologies", "UofA Student Chapter", "UofC Student Chapter"];
+      const EXEC_TEAM_NAMES = ["directors", "uofa", "uofc", "uofl"];
+      const EXEC_TEAM_TITLES = ["Board of Directors", "University of Alberta Chapter Executives", "University of Calgary Chapter Executives", "University of Lethbridge Chapter Executives"];
+      const YEAR_CARD_TEAM_TYPE = ["Directors", "Executives", "Executives", "Executives"];
+      const YEAR_CARD_TEAM_NAMES = ["NeurAbertaTech Neurotechnologies", "UofA Student Chapter", "UofC Student Chapter", "UofL Student Chapter"];
       var allExecTeams = [];
 
       var animateClass = ''
@@ -166,7 +171,7 @@
       }
 
       function loadExecSheet(sheetNumber) {
-        const sheetNames = ['Directors', 'UofA\ Chapter', 'UofC\ Chapter'];
+        const sheetNames = ['Directors', 'UofA\ Chapter', 'UofC\ Chapter', 'UofL\ Chapter'];
         const sheetId = '1Zmm57mPLt7s4zJ8s5si-gsEpaYsQwwUcmwh3X00B7nk';
         const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetNames[sheetNumber]}`
         var allExecs = [];
@@ -178,6 +183,11 @@
             const out = JSON.parse(text.substr(47).slice(0, -2))
 
             let table = out.table;
+
+            console.log("==========");
+            console.log(table);
+            console.log("==========");
+
             let rowCount = table.rows.length;
             let colCount = table.cols.length;
 
