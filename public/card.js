@@ -1168,6 +1168,20 @@ var fa19InfoNight = new Card({
   endDate: new Date("September 9, 2019 19:00"),
 });
 
+var NATureWalk = new Card({
+  header: "NATure Walk",
+  paragraph: `Feel like you have to scream in a field after finals? Come out on our 🌲NATure walk🌲 where you can welcome the fresh spring air of the River Valley! We'll be providing a few snacks and games during the walk then end it off with a trip to our club room natFlat. Sign up via our link in bio and make sure to pack your bags like our mascot Nathan the Aardvark.
+  <br><br>
+  <b>When:</b> Monday, May 1st, 2022 3:00pm - 5:00pm
+  <br>
+  <b>Where:</b> CCIS Atrium (Near the Parking Lot)`,
+  image: "/images/event/misc/natureWalk.png",
+  startDate: new Date("May 1, 2022 15:00"),
+  endDate: new Date("May 1, 2022 17:00"),
+  link: "/rsvpua",
+  buttonText: "RSVP"
+});
+
 
 // Sponsors //////////////////////////////////////////////////////////////////////////
 
@@ -1503,7 +1517,8 @@ var sponsorHotchkiss = new Card({
 
 
 var featuredCards = [
-  natChatCardHome,
+  // natChatCardHome,
+  NATureWalk,
   natHacksCardHome
 ];
 
@@ -1524,6 +1539,7 @@ var pastProjectCards = [
 ];
 
 var eventCards = [
+  NATureWalk,
   natUriCard,
   natUCInfoNightFa21,
   startupWeekCard,
