@@ -357,6 +357,12 @@ redirect.add(new Link({
   expire: new Date('March 29, 2022 21:00:00'),
 }));
 
+redirect.add(new Link({
+  slug: "nh",
+  location: "/event/nathack",
+  expire: new Date('August 2, 2022 23:59:00'),
+}));
+
 
 
 function proposeRedirect() {
