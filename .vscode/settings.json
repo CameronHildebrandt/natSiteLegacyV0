@@ -2,6 +2,7 @@
     "cSpell.words": [
         "biosensing",
         "CCIS",
+        "colour",
         "dailyhive",
         "hackathon",
         "innovatech",
@@ -23,5 +24,6 @@
         "transcutaneous",
         "UAIS",
         "Yousefnezhad"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
