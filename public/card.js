@@ -969,11 +969,11 @@ var workshopSeriesCard = new Card({
 
 var natHacksCard = new Card({
   header: "natHACKS",
-  subHeader: "Registration Opening Soon",
+  subHeader: "Registration Open Now!",
   paragraph: `natHACKS is an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we're thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.
   <br><br>
-  Begins: <b>July 29th, 2022</b><br>
-  Ends: <b>August 1st, 2022</b>`,
+  <b>Begins: &nbsp;</b>July 29th, 2022<br>
+  <b>Ends: &nbsp;&nbsp;&nbsp;&nbsp;</b>August 1st, 2022`,
   image: "/images/event/natHACKs/nathanGlow.png",
   buttonText: "Learn More",
   link: "event/nathack.html",
@@ -982,11 +982,11 @@ var natHacksCard = new Card({
 
 var natHacksCardHome = new Card({
   header: "natHACKS",
-  subHeader: "Registration Opening Soon",
+  subHeader: "Registration Open Now!",
   paragraph: `natHACKS is an event like no other, inspiring beginners to develop practical neurotech skills and challenging competent hackers to apply themselves in this growing and exciting field. Spanning two weeks and culminating in a 64-hour hackathon weekend, the event will combine workshops, challenges, and networking opportunities for anyone interested in neurotechnology. With three different streams and separate judging criteria based on experience level, we're thrilled to allow neurotech enthusiasts to get their hands dirty in a diverse selection of projects.
   <br><br>
-  Begins: <b>July 29th, 2022</b><br>
-  Ends: <b>August 1st, 2022</b>`,
+  <b>Begins: &nbsp;</b>July 29th, 2022<br>
+  <b>Ends: &nbsp;&nbsp;&nbsp;&nbsp;</b>August 1st, 2022`,
   image: "/images/event/natHACKs/nathanGlow.png",
   buttonText: "Learn More",
   link: "event/nathack.html",
@@ -1518,7 +1518,6 @@ var sponsorHotchkiss = new Card({
 
 var featuredCards = [
   // natChatCardHome,
-  NATureWalk,
   natHacksCardHome
 ];
 
@@ -1559,9 +1558,9 @@ var eventCards = [
 ];
 
 var moreEventCards = [
+  natHacksCard,
   natChatCard,
   workshopSeriesCard,
-  natHacksCard,
 ];
 
 var partnerCards = [
